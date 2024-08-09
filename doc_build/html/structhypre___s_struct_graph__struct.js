@@ -1,0 +1,25 @@
+var structhypre___s_struct_graph__struct =
+[
+    [ "a_graph_entries", "structhypre___s_struct_graph__struct.html#ae4547df71aae4043ee41f27d3cf9d4b1", null ],
+    [ "comm", "structhypre___s_struct_graph__struct.html#afc72a3d355cf2ef38622f607fad2b663", null ],
+    [ "domain_grid", "structhypre___s_struct_graph__struct.html#a8fe8cf34899e4746b212fcd1444341c4", null ],
+    [ "fem_entries", "structhypre___s_struct_graph__struct.html#a9d2ace1a990eb322bb02c5462f82b50e", null ],
+    [ "fem_nsparse", "structhypre___s_struct_graph__struct.html#ac7b8aa997828ed0dcb909e45391dc7ff", null ],
+    [ "fem_sparse_i", "structhypre___s_struct_graph__struct.html#ad13f4e7a83da0af1e241bc98c60519dc", null ],
+    [ "fem_sparse_j", "structhypre___s_struct_graph__struct.html#a9773d583ff65f079eb2b4a5adba6d4d3", null ],
+    [ "graph_entries", "structhypre___s_struct_graph__struct.html#a095dab27bfe067d3599779306838754a", null ],
+    [ "grid", "structhypre___s_struct_graph__struct.html#a37dcf4b4db701069ee2733ea7625c205", null ],
+    [ "iUventries", "structhypre___s_struct_graph__struct.html#a1724a69dd0f489ad40a33849856ecf47", null ],
+    [ "n_graph_entries", "structhypre___s_struct_graph__struct.html#a08920336ef7cc825c9700ff93d21be58", null ],
+    [ "ndim", "structhypre___s_struct_graph__struct.html#aff90ff34fb97f2fda642a3ec3b4ab8b9", null ],
+    [ "nparts", "structhypre___s_struct_graph__struct.html#a54e4e6c8a919667e3d5a5e7d82a9635a", null ],
+    [ "nUventries", "structhypre___s_struct_graph__struct.html#a61f2a1072858887595a3633c2b5be282", null ],
+    [ "pgrids", "structhypre___s_struct_graph__struct.html#a9c617585d0f1f439c0151a30a42be43e", null ],
+    [ "ref_count", "structhypre___s_struct_graph__struct.html#a0f39773052b384ab6556d2965f755e31", null ],
+    [ "stencils", "structhypre___s_struct_graph__struct.html#aa0cff8796c69ac926b693cb1376375fb", null ],
+    [ "type", "structhypre___s_struct_graph__struct.html#a2ec6689a6d9244e7cbe3fba61fab50c3", null ],
+    [ "Uemaxsize", "structhypre___s_struct_graph__struct.html#abfc2bc31def49e03142b9a6f625f0b1a", null ],
+    [ "Uventries", "structhypre___s_struct_graph__struct.html#acf7bc67e2e42732324bd424d0f3f9095", null ],
+    [ "Uveoffsets", "structhypre___s_struct_graph__struct.html#a878db6ced426f72099b7c47b811e02fb", null ],
+    [ "Uvesize", "structhypre___s_struct_graph__struct.html#a69214fab71277921b52f5e550a919a4a", null ]
+];

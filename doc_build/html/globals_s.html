@@ -1,0 +1,487 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="TDMA_PDD_cpu" />
+<meta property="og:image" content="../preview.png" />
+<meta property="og:description" content="Documentation for Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD_cpu" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="../preview.png" />
+<meta property="og:title" content="TDMA_PDD_cpu" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD_cpu" />
+<!-- END twitter metadata -->
+<title>TDMA_PDD_CPU: File Members</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            messageStyle: "normal",
+            linebreaks: {
+                automatic: false
+            }
+        },
+        tex2jax: { 
+            inlineMath: [["\\(","\\)"]], 
+            displayMath: [["$$","$$"],["\\[","\\]"]], 
+            processEscapes: true
+        },
+        TeX: {
+            Macros: {
+                tr: "{\\scriptscriptstyle\\mathrm{T}}",
+            }
+        }
+    });
+</script>
+<!--MathJax(LaTeX) -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <script type="text/javascript" id="MathJax-script" async  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">  </script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="custom-alternative.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/hugh577/TDMA_PDD_cpu" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 65px;">
+  <td id="projectlogo">
+    <a href="./index.html">
+        <img alt="Logo" src="home.png"/></td>
+    </a>
+  <td id="projectalign" style="padding-left: 0.5em;padding-top: 0.5em;">
+   <div id="projectname">TDMA_PDD_CPU
+   </div>
+   <div id="projectbrief">Documentation</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('globals_s.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="contents">
+<div class="textblock">Here is a list of all file members with links to the files they belong to:</div>
+
+<h3><a id="index_s"></a>- s -</h3><ul>
+<li>sallocateA()
+: <a class="el" href="slu__sdefs_8h.html#aaef6f98786d0bd76103237385ddbeb9f">slu_sdefs.h</a>
+</li>
+<li>SamePattern
+: <a class="el" href="slu__util_8h.html#ac785c8235480e5cfef9848d89c047c0aad57746dff8e73ad308739bc6cbee4c27">slu_util.h</a>
+</li>
+<li>SamePattern_SameRowPerm
+: <a class="el" href="slu__util_8h.html#ac785c8235480e5cfef9848d89c047c0aa8814b686fe49f5ccc165c04845e112e6">slu_util.h</a>
+</li>
+<li>scolumn_bmod()
+: <a class="el" href="slu__sdefs_8h.html#ae21004feb23626f7ea648b46657a257a">slu_sdefs.h</a>
+</li>
+<li>scolumn_dfs()
+: <a class="el" href="slu__sdefs_8h.html#a20dc9300377cb7240572ba34a31af3d1">slu_sdefs.h</a>
+</li>
+<li>SCOMPLEX_INCLUDE
+: <a class="el" href="slu__scomplex_8h.html#a027d022bc2d5898eff31703adb19239c">slu_scomplex.h</a>
+</li>
+<li>sCompRow_to_CompCol()
+: <a class="el" href="slu__sdefs_8h.html#aef4be8ddf6a62ef48ca8dfc3a6992634">slu_sdefs.h</a>
+</li>
+<li>sCopy_CompCol_Matrix()
+: <a class="el" href="slu__sdefs_8h.html#a7369dba9a8c3e34a27bdc9eba73cbe3e">slu_sdefs.h</a>
+</li>
+<li>sCopy_Dense_Matrix()
+: <a class="el" href="slu__sdefs_8h.html#a5ef26ab4351b4ab39c2ef3d0ff5d6cb5">slu_sdefs.h</a>
+</li>
+<li>scopy_to_ucol()
+: <a class="el" href="slu__sdefs_8h.html#a249a312149bcf091fcc8adbd0c536cb2">slu_sdefs.h</a>
+</li>
+<li>sCreate_CompCol_Matrix()
+: <a class="el" href="slu__sdefs_8h.html#abb3d30eea43abc536793244e7564e70d">slu_sdefs.h</a>
+</li>
+<li>sCreate_CompRow_Matrix()
+: <a class="el" href="slu__sdefs_8h.html#a77496309d539716f616365a2515aa653">slu_sdefs.h</a>
+</li>
+<li>sCreate_Dense_Matrix()
+: <a class="el" href="slu__sdefs_8h.html#aca98118f5539f098beff0b70c041c2e6">slu_sdefs.h</a>
+</li>
+<li>sCreate_SuperNode_Matrix()
+: <a class="el" href="slu__sdefs_8h.html#af4386b0d87e1c8886b58fcf9d243bc12">slu_sdefs.h</a>
+</li>
+<li>Security
+: <a class="el" href="_h_y_p_r_ef_8h.html#a9189c293450f5215b91ee27ba3be5061">HYPREf.h</a>
+, <a class="el" href="_h_y_p_r_e__error__f_8h.html#a216ca5186370455f5a7b2fd3dbdee310">HYPRE_error_f.h</a>
+</li>
+<li>set_default_options()
+: <a class="el" href="slu__util_8h.html#a4792687285a879f7955029421ba99795">slu_util.h</a>
+</li>
+<li>SetIWork()
+: <a class="el" href="slu__util_8h.html#aeaaa4cb43f415698df4f891e1a1afaa4">slu_util.h</a>
+</li>
+<li>sfill()
+: <a class="el" href="slu__sdefs_8h.html#a2d734e40276e89a3ef04bf79bc21acb6">slu_sdefs.h</a>
+</li>
+<li>sFillRHS()
+: <a class="el" href="slu__sdefs_8h.html#ac8b784b5551863e8d50047ee280c34cf">slu_sdefs.h</a>
+</li>
+<li>sGenXtrue()
+: <a class="el" href="slu__sdefs_8h.html#ab79adc3c2d496feb17f359aa303211fc">slu_sdefs.h</a>
+</li>
+<li>sgscon()
+: <a class="el" href="slu__sdefs_8h.html#a1c910cf12639a22a03727ad204575b3b">slu_sdefs.h</a>
+</li>
+<li>sgsequ()
+: <a class="el" href="slu__sdefs_8h.html#a3dbdb406f2fb8b186f0f8d3a4cd2d60d">slu_sdefs.h</a>
+</li>
+<li>sgsrfs()
+: <a class="el" href="slu__sdefs_8h.html#ae824bcb507f76ad3053d845352fb6b3d">slu_sdefs.h</a>
+</li>
+<li>sgssv()
+: <a class="el" href="slu__sdefs_8h.html#a44bbae3b1218d951ed229c461a5f14b6">slu_sdefs.h</a>
+</li>
+<li>sgssvx()
+: <a class="el" href="slu__sdefs_8h.html#a4d6a37b565522c7c77a173826588deee">slu_sdefs.h</a>
+</li>
+<li>sgstrf()
+: <a class="el" href="slu__sdefs_8h.html#afc85212be4b6abfd472c7d068cf872c0">slu_sdefs.h</a>
+</li>
+<li>sgstrs()
+: <a class="el" href="slu__sdefs_8h.html#aea450a9c52512127d6eaaebf0a65f9ce">slu_sdefs.h</a>
+</li>
+<li>sinf_norm_error()
+: <a class="el" href="slu__sdefs_8h.html#aba0eeda28d139bf88878880edd3cca5a">slu_sdefs.h</a>
+</li>
+<li>SINGLE
+: <a class="el" href="slu__util_8h.html#a7e73e9d3a9caeec3586c03e01c494e37a3388f7110f6f25a54e215eb75d5d7516">slu_util.h</a>
+</li>
+<li>slaqgs()
+: <a class="el" href="slu__sdefs_8h.html#afe4b556cd9d484f53606d114f83649d4">slu_sdefs.h</a>
+</li>
+<li>SLU_C
+: <a class="el" href="supermatrix_8h.html#a7987cb2a28ec879b39a90e9e48e29190a1b589b5f96dbc8619450aacc22d0bf39">supermatrix.h</a>
+</li>
+<li>SLU_D
+: <a class="el" href="supermatrix_8h.html#a7987cb2a28ec879b39a90e9e48e29190ab5c3b3a455e3b3a64d805d76f19ac6dc">supermatrix.h</a>
+</li>
+<li>SLU_DN
+: <a class="el" href="supermatrix_8h.html#a9d2ddedeb2a3d92e950811c61d0b8796aa59ca236b51fe0c7bd7c80c70e345768">supermatrix.h</a>
+</li>
+<li>SLU_GE
+: <a class="el" href="supermatrix_8h.html#a5962adac634f3feebe487ad443802d60aea9ef3cae331a60a4bcc353bb57ad5db">supermatrix.h</a>
+</li>
+<li>SLU_HEL
+: <a class="el" href="supermatrix_8h.html#a5962adac634f3feebe487ad443802d60abba0b28718f648302d6f710d7d66d1fb">supermatrix.h</a>
+</li>
+<li>SLU_HEU
+: <a class="el" href="supermatrix_8h.html#a5962adac634f3feebe487ad443802d60abada9d0add93fd4fbe17b9d6758d38f8">supermatrix.h</a>
+</li>
+<li>SLU_NC
+: <a class="el" href="supermatrix_8h.html#a9d2ddedeb2a3d92e950811c61d0b8796a0993c31a9ba98c523bfab0d759c1a628">supermatrix.h</a>
+</li>
+<li>SLU_NCP
+: <a class="el" href="supermatrix_8h.html#a9d2ddedeb2a3d92e950811c61d0b8796a25e4eb65ac258dadb9abccd65337cfe4">supermatrix.h</a>
+</li>
+<li>SLU_NR
+: <a class="el" href="supermatrix_8h.html#a9d2ddedeb2a3d92e950811c61d0b8796aac74fbf90a105db9be6795b5be9221ca">supermatrix.h</a>
+</li>
+<li>SLU_S
+: <a class="el" href="supermatrix_8h.html#a7987cb2a28ec879b39a90e9e48e29190a0da7fdd394e36c76e7aa215d6a79162d">supermatrix.h</a>
+</li>
+<li>SLU_SC
+: <a class="el" href="supermatrix_8h.html#a9d2ddedeb2a3d92e950811c61d0b8796a79d0f76e80f9b57ebdab6a0c76720462">supermatrix.h</a>
+</li>
+<li>SLU_SR
+: <a class="el" href="supermatrix_8h.html#a9d2ddedeb2a3d92e950811c61d0b8796a9677060bfc0641fb53defdb70caa8cf5">supermatrix.h</a>
+</li>
+<li>SLU_SYL
+: <a class="el" href="supermatrix_8h.html#a5962adac634f3feebe487ad443802d60a91b9ee4e608cb7c7cf7572703fbd3506">supermatrix.h</a>
+</li>
+<li>SLU_SYU
+: <a class="el" href="supermatrix_8h.html#a5962adac634f3feebe487ad443802d60a0d509f1e8285653c36f81b10626fb747">supermatrix.h</a>
+</li>
+<li>SLU_TRL
+: <a class="el" href="supermatrix_8h.html#a5962adac634f3feebe487ad443802d60a4defa99d9ff8ed4af7a92547b3faf9fb">supermatrix.h</a>
+</li>
+<li>SLU_TRLU
+: <a class="el" href="supermatrix_8h.html#a5962adac634f3feebe487ad443802d60afee10f9836531b012b1b80cf36355b67">supermatrix.h</a>
+</li>
+<li>SLU_TRU
+: <a class="el" href="supermatrix_8h.html#a5962adac634f3feebe487ad443802d60aa9aea83e745716e0da54d738feb19cba">supermatrix.h</a>
+</li>
+<li>SLU_TRUU
+: <a class="el" href="supermatrix_8h.html#a5962adac634f3feebe487ad443802d60a0c7113548d3d5a292cb2265477436ad7">supermatrix.h</a>
+</li>
+<li>SLU_Z
+: <a class="el" href="supermatrix_8h.html#a7987cb2a28ec879b39a90e9e48e29190a1ace1e51c238b13622aaa733ef3b2a47">supermatrix.h</a>
+</li>
+<li>sLUMemInit()
+: <a class="el" href="slu__sdefs_8h.html#a5117fc56db2132d96e07c38ae2071810">slu_sdefs.h</a>
+</li>
+<li>sLUMemXpand()
+: <a class="el" href="slu__sdefs_8h.html#a9af26d0426eb0bb63755880f2e67e7b7">slu_sdefs.h</a>
+</li>
+<li>sLUWorkFree()
+: <a class="el" href="slu__sdefs_8h.html#a9035f0d2a50cf5d8e29287572bd1be83">slu_sdefs.h</a>
+</li>
+<li>smemory_usage()
+: <a class="el" href="slu__sdefs_8h.html#ab50ebebf3a620086366b6c310d52d681">slu_sdefs.h</a>
+</li>
+<li>snode_profile()
+: <a class="el" href="slu__util_8h.html#a01ded59744addeefd265dbb22d9f37d0">slu_util.h</a>
+</li>
+<li>software
+: <a class="el" href="_h_y_p_r_e__error__f_8h.html#a4d54ac07540d678c119ca8b0510cfb4a">HYPRE_error_f.h</a>
+, <a class="el" href="_h_y_p_r_ef_8h.html#ac6b7f19e955da588520ef6ef5a899f5d">HYPREf.h</a>
+</li>
+<li>SOLVE
+: <a class="el" href="slu__util_8h.html#af00a42ecad444bbda75cde1b64bd7e72ab9fc7975179c642bbac2b6ffd8fa3579">slu_util.h</a>
+</li>
+<li>SolverLib_t
+: <a class="el" href="_l_l_n_l___f_e_i___l_s_core_8h.html#a6c6fc83b53fcd4319d27ea95718c7059">LLNL_FEI_LSCore.h</a>
+</li>
+<li>sp_cgemm()
+: <a class="el" href="slu__cdefs_8h.html#a0473a1696817ed02c501ca8af8ff0285">slu_cdefs.h</a>
+</li>
+<li>sp_cgemv()
+: <a class="el" href="slu__cdefs_8h.html#a59e320a29e9ded59a46e8d64619ffac6">slu_cdefs.h</a>
+</li>
+<li>sp_coletree()
+: <a class="el" href="slu__util_8h.html#af8198f26bef3c82fbb8601fc5a8e0d9e">slu_util.h</a>
+</li>
+<li>sp_ctrsv()
+: <a class="el" href="slu__cdefs_8h.html#a8299a994a223b7178314fe7faff74508">slu_cdefs.h</a>
+</li>
+<li>sp_dgemm()
+: <a class="el" href="slu__ddefs_8h.html#aaef8fc2c9f9a573d7793024f3a4fb0c6">slu_ddefs.h</a>
+</li>
+<li>sp_dgemv()
+: <a class="el" href="slu__ddefs_8h.html#a0aba7d67de2b422dc314f9280a096766">slu_ddefs.h</a>
+</li>
+<li>sp_dtrsv()
+: <a class="el" href="slu__ddefs_8h.html#a46dd48b513c2856f384ec0950fd90275">slu_ddefs.h</a>
+</li>
+<li>sp_ienv()
+: <a class="el" href="slu__util_8h.html#a72be96e75e58564c4322ef9ef73ca65f">slu_util.h</a>
+</li>
+<li>sp_preorder()
+: <a class="el" href="slu__util_8h.html#adf9c573cbfb4520a5ea820702d27cfa5">slu_util.h</a>
+</li>
+<li>sp_sgemm()
+: <a class="el" href="slu__sdefs_8h.html#a35b4a0e44c32443df609069021d27812">slu_sdefs.h</a>
+</li>
+<li>sp_sgemv()
+: <a class="el" href="slu__sdefs_8h.html#a9e543b2d14781b56ef349114012b4fc9">slu_sdefs.h</a>
+</li>
+<li>sp_strsv()
+: <a class="el" href="slu__sdefs_8h.html#a4ada2ef2b89369f165d8ffa62460387c">slu_sdefs.h</a>
+</li>
+<li>sp_zgemm()
+: <a class="el" href="slu__zdefs_8h.html#a723eb34b4ba347bbaa753c5d66cca4ab">slu_zdefs.h</a>
+</li>
+<li>sp_zgemv()
+: <a class="el" href="slu__zdefs_8h.html#a295a004dbce1f1b0aa48e7cb319da461">slu_zdefs.h</a>
+</li>
+<li>sp_ztrsv()
+: <a class="el" href="slu__zdefs_8h.html#a4f8e25c2e20af0219ad6719db052f3d7">slu_zdefs.h</a>
+</li>
+<li>spanel_bmod()
+: <a class="el" href="slu__sdefs_8h.html#a51486936a9ff5079afed80eb5bf8a3e0">slu_sdefs.h</a>
+</li>
+<li>spanel_dfs()
+: <a class="el" href="slu__sdefs_8h.html#a77baf210393e04fa71d4e73b5e60e556">slu_sdefs.h</a>
+</li>
+<li>spcoletree()
+: <a class="el" href="slu__util_8h.html#a0bccee6dda29384503240026c062bfc6">slu_util.h</a>
+</li>
+<li>sPivotGrowth()
+: <a class="el" href="slu__sdefs_8h.html#acb8787465a6296109b9a306d5a315ff8">slu_sdefs.h</a>
+</li>
+<li>spivotL()
+: <a class="el" href="slu__sdefs_8h.html#adb8eef689a7fb40cdc12ff8b4ef3e4df">slu_sdefs.h</a>
+</li>
+<li>sPrint_CompCol_Matrix()
+: <a class="el" href="slu__sdefs_8h.html#a5cd6efad9d9fb7aef8a984f5e3cff66b">slu_sdefs.h</a>
+</li>
+<li>sPrint_Dense_Matrix()
+: <a class="el" href="slu__sdefs_8h.html#a25b29c47333295f4aa744e541e277ea0">slu_sdefs.h</a>
+</li>
+<li>sPrint_SuperNode_Matrix()
+: <a class="el" href="slu__sdefs_8h.html#aeb289a84407c9cbbb33cdf3dbb1dacbe">slu_sdefs.h</a>
+</li>
+<li>spruneL()
+: <a class="el" href="slu__sdefs_8h.html#acf9da2c45289246ef663fc4a96d1ad78">slu_sdefs.h</a>
+</li>
+<li>sQuerySpace()
+: <a class="el" href="slu__sdefs_8h.html#a1357f9a3b2ffb9522883ad84affa63e3">slu_sdefs.h</a>
+</li>
+<li>sreadhb()
+: <a class="el" href="slu__sdefs_8h.html#a734dbf3f5d66b2a53d88e69daaad729e">slu_sdefs.h</a>
+</li>
+<li>sreadmt()
+: <a class="el" href="slu__sdefs_8h.html#ab345670a95db3f9c4b9c451224db8227">slu_sdefs.h</a>
+</li>
+<li>sSetRWork()
+: <a class="el" href="slu__sdefs_8h.html#ab5b2859bf1ef1900506dfa702574c6ad">slu_sdefs.h</a>
+</li>
+<li>ssnode_bmod()
+: <a class="el" href="slu__sdefs_8h.html#a60e60255360fae0b1458da070690a3a2">slu_sdefs.h</a>
+</li>
+<li>ssnode_dfs()
+: <a class="el" href="slu__sdefs_8h.html#ad9d54c8dfc11f1e034b4b7175be60ffb">slu_sdefs.h</a>
+</li>
+<li>stack_end_t
+: <a class="el" href="slu__util_8h.html#a9c99a6c403d30f227aa91cf3b10f6aa4">slu_util.h</a>
+</li>
+<li>StatFree()
+: <a class="el" href="slu__util_8h.html#ab0fb3345d479a7ac24f75f0e64bdff4b">slu_util.h</a>
+</li>
+<li>StatInit()
+: <a class="el" href="slu__util_8h.html#a3b979ab4f4e75bdc1b89106dde6c8d72">slu_util.h</a>
+</li>
+<li>StatPrint()
+: <a class="el" href="slu__util_8h.html#aa157fecae472b8ef5ce79bd59876099d">slu_util.h</a>
+</li>
+<li>Stype_t
+: <a class="el" href="supermatrix_8h.html#a9d2ddedeb2a3d92e950811c61d0b8796">supermatrix.h</a>
+</li>
+<li>super_stats()
+: <a class="el" href="slu__util_8h.html#ac33e407326ae1dc222aee7ff08f322cf">slu_util.h</a>
+</li>
+<li>superlu_abort_and_exit()
+: <a class="el" href="slu__util_8h.html#abd38b081866ed2c3e4959c4c0560913c">slu_util.h</a>
+</li>
+<li>SUPERLU_FREE
+: <a class="el" href="slu__util_8h.html#a9672c5511c3efd9467e4d375a347c192">slu_util.h</a>
+</li>
+<li>superlu_free()
+: <a class="el" href="slu__util_8h.html#a1745be2114a7b66ea7632292b03cb3ce">slu_util.h</a>
+</li>
+<li>superlu_lsame()
+: <a class="el" href="slu__util_8h.html#a53df17015ebcb94f20b77a58a0bdbe9e">slu_util.h</a>
+</li>
+<li>superlu_malloc()
+: <a class="el" href="slu__util_8h.html#a7ec97fcbe08a55ad56048a43919d6843">slu_util.h</a>
+</li>
+<li>SUPERLU_MALLOC
+: <a class="el" href="slu__util_8h.html#a55a5ed83733c30850c14cc7b3f922a54">slu_util.h</a>
+</li>
+<li>SUPERLU_MAX
+: <a class="el" href="slu__util_8h.html#adca8259e9d345c7cbaaa0608a1acdfd4">slu_util.h</a>
+</li>
+<li>SUPERLU_MIN
+: <a class="el" href="slu__util_8h.html#a7147dd5df1048562cd4ab83e9fd808d9">slu_util.h</a>
+</li>
+<li>SuperLU_timer_()
+: <a class="el" href="slu__util_8h.html#a0c6777573bbfe81917cd381e0090d355">slu_util.h</a>
+</li>
+<li>superlu_xerbla()
+: <a class="el" href="slu__util_8h.html#a68e01698b0417ec82c6c606b112fe224">slu_util.h</a>
+</li>
+<li>symamd()
+: <a class="el" href="colamd_8h.html#ae3d0175d1cb36f6cb16dfe96bbf946a3">colamd.h</a>
+</li>
+<li>symamd_report()
+: <a class="el" href="colamd_8h.html#a948750692c453eb36edc5b77a670ec54">colamd.h</a>
+</li>
+<li>SYSTEM
+: <a class="el" href="slu__util_8h.html#a494fe72ce954689dd95399ea9f1d87f6a57cc238145ec1361c72c327674c0d754">slu_util.h</a>
+</li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

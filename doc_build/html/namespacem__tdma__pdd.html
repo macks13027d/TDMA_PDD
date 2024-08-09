@@ -1,0 +1,1088 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="TDMA_PDD_cpu" />
+<meta property="og:image" content="../preview.png" />
+<meta property="og:description" content="Documentation for Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD_cpu" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="../preview.png" />
+<meta property="og:title" content="TDMA_PDD_cpu" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD_cpu" />
+<!-- END twitter metadata -->
+<title>TDMA_PDD_CPU: m_tdma_pdd Module Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            messageStyle: "normal",
+            linebreaks: {
+                automatic: false
+            }
+        },
+        tex2jax: { 
+            inlineMath: [["\\(","\\)"]], 
+            displayMath: [["$$","$$"],["\\[","\\]"]], 
+            processEscapes: true
+        },
+        TeX: {
+            Macros: {
+                tr: "{\\scriptscriptstyle\\mathrm{T}}",
+            }
+        }
+    });
+</script>
+<!--MathJax(LaTeX) -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <script type="text/javascript" id="MathJax-script" async  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">  </script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="custom-alternative.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/hugh577/TDMA_PDD_cpu" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 65px;">
+  <td id="projectlogo">
+    <a href="./index.html">
+        <img alt="Logo" src="home.png"/></td>
+    </a>
+  <td id="projectalign" style="padding-left: 0.5em;padding-top: 0.5em;">
+   <div id="projectname">TDMA_PDD_CPU
+   </div>
+   <div id="projectbrief">Documentation</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('namespacem__tdma__pdd.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions/Subroutines</a>  </div>
+  <div class="headertitle">
+<div class="title">m_tdma_pdd Module Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions/Subroutines</h2></td></tr>
+<tr class="memitem:af1ec5b6943f3d1f2eba4427dc6246126"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__tdma__pdd.html#af1ec5b6943f3d1f2eba4427dc6246126">tdma</a> (a, b, c, r, u, n1, n2)</td></tr>
+<tr class="memdesc:af1ec5b6943f3d1f2eba4427dc6246126"><td class="mdescLeft">&#160;</td><td class="mdescRight">======================================================================  <a href="namespacem__tdma__pdd.html#af1ec5b6943f3d1f2eba4427dc6246126">More...</a><br /></td></tr>
+<tr class="separator:af1ec5b6943f3d1f2eba4427dc6246126"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d356a918626da15d9bbcbea5c3cc1fb"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__tdma__pdd.html#a5d356a918626da15d9bbcbea5c3cc1fb">tdma_pdd_x</a> (a, b, c, sxx, svv, sww)</td></tr>
+<tr class="memdesc:a5d356a918626da15d9bbcbea5c3cc1fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">======================================================================  <a href="namespacem__tdma__pdd.html#a5d356a918626da15d9bbcbea5c3cc1fb">More...</a><br /></td></tr>
+<tr class="separator:a5d356a918626da15d9bbcbea5c3cc1fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa98b012089cdea9114ab3095642befd7"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__tdma__pdd.html#aa98b012089cdea9114ab3095642befd7">pdd_comm1_x</a> (sxxs, svvs, sxxr, svvr)</td></tr>
+<tr class="memdesc:aa98b012089cdea9114ab3095642befd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">======================================================================  <a href="namespacem__tdma__pdd.html#aa98b012089cdea9114ab3095642befd7">More...</a><br /></td></tr>
+<tr class="separator:aa98b012089cdea9114ab3095642befd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a934044f7b8667a2550cbe4013dc44bc5"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__tdma__pdd.html#a934044f7b8667a2550cbe4013dc44bc5">pdd_ycal_x</a> (sxxr, svvr, sww, sxx, syv, syw)</td></tr>
+<tr class="memdesc:a934044f7b8667a2550cbe4013dc44bc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">======================================================================  <a href="namespacem__tdma__pdd.html#a934044f7b8667a2550cbe4013dc44bc5">More...</a><br /></td></tr>
+<tr class="separator:a934044f7b8667a2550cbe4013dc44bc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff22d4889f4f3128b268167797fed415"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__tdma__pdd.html#aff22d4889f4f3128b268167797fed415">pdd_comm2_x</a> (syv, syv2)</td></tr>
+<tr class="memdesc:aff22d4889f4f3128b268167797fed415"><td class="mdescLeft">&#160;</td><td class="mdescRight">======================================================================  <a href="namespacem__tdma__pdd.html#aff22d4889f4f3128b268167797fed415">More...</a><br /></td></tr>
+<tr class="separator:aff22d4889f4f3128b268167797fed415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae80aded8d752acd40ccbc4707ef0abd5"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__tdma__pdd.html#ae80aded8d752acd40ccbc4707ef0abd5">pdd_subs_x</a> (sxx_arr, svv_arr, sww_arr, syv2, syw)</td></tr>
+<tr class="memdesc:ae80aded8d752acd40ccbc4707ef0abd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">======================================================================  <a href="namespacem__tdma__pdd.html#ae80aded8d752acd40ccbc4707ef0abd5">More...</a><br /></td></tr>
+<tr class="separator:ae80aded8d752acd40ccbc4707ef0abd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ba33ebb0e637d265baab0bf873591ac"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__tdma__pdd.html#a3ba33ebb0e637d265baab0bf873591ac">tdma_pdd_y</a> (a, b, c, sxx, svv, sww)</td></tr>
+<tr class="memdesc:a3ba33ebb0e637d265baab0bf873591ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">======================================================================  <a href="namespacem__tdma__pdd.html#a3ba33ebb0e637d265baab0bf873591ac">More...</a><br /></td></tr>
+<tr class="separator:a3ba33ebb0e637d265baab0bf873591ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac3e4b0839bf07039a56f689d6552fe0"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__tdma__pdd.html#aac3e4b0839bf07039a56f689d6552fe0">pdd_comm1_y</a> (sxxs, svvs, sxxr, svvr)</td></tr>
+<tr class="memdesc:aac3e4b0839bf07039a56f689d6552fe0"><td class="mdescLeft">&#160;</td><td class="mdescRight">======================================================================  <a href="namespacem__tdma__pdd.html#aac3e4b0839bf07039a56f689d6552fe0">More...</a><br /></td></tr>
+<tr class="separator:aac3e4b0839bf07039a56f689d6552fe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcd33751ff3ec679e2314dafebc0bba3"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__tdma__pdd.html#afcd33751ff3ec679e2314dafebc0bba3">pdd_ycal_y</a> (sxxr, svvr, sww, sxx, syv, syw)</td></tr>
+<tr class="memdesc:afcd33751ff3ec679e2314dafebc0bba3"><td class="mdescLeft">&#160;</td><td class="mdescRight">======================================================================  <a href="namespacem__tdma__pdd.html#afcd33751ff3ec679e2314dafebc0bba3">More...</a><br /></td></tr>
+<tr class="separator:afcd33751ff3ec679e2314dafebc0bba3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5077cdbc406766b807707096d3950e73"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__tdma__pdd.html#a5077cdbc406766b807707096d3950e73">pdd_comm2_y</a> (syv, syv2)</td></tr>
+<tr class="memdesc:a5077cdbc406766b807707096d3950e73"><td class="mdescLeft">&#160;</td><td class="mdescRight">======================================================================  <a href="namespacem__tdma__pdd.html#a5077cdbc406766b807707096d3950e73">More...</a><br /></td></tr>
+<tr class="separator:a5077cdbc406766b807707096d3950e73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad21e82668438822b0eff93c368450031"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__tdma__pdd.html#ad21e82668438822b0eff93c368450031">pdd_subs_y</a> (sxx_arr, svv_arr, sww_arr, syv2, syw)</td></tr>
+<tr class="memdesc:ad21e82668438822b0eff93c368450031"><td class="mdescLeft">&#160;</td><td class="mdescRight">======================================================================  <a href="namespacem__tdma__pdd.html#ad21e82668438822b0eff93c368450031">More...</a><br /></td></tr>
+<tr class="separator:ad21e82668438822b0eff93c368450031"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a958ce2ccbe964cd86e63b96bd021eceb"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__tdma__pdd.html#a958ce2ccbe964cd86e63b96bd021eceb">tdma_pdd_z</a> (a, b, c, sxx, svv, sww)</td></tr>
+<tr class="memdesc:a958ce2ccbe964cd86e63b96bd021eceb"><td class="mdescLeft">&#160;</td><td class="mdescRight">======================================================================  <a href="namespacem__tdma__pdd.html#a958ce2ccbe964cd86e63b96bd021eceb">More...</a><br /></td></tr>
+<tr class="separator:a958ce2ccbe964cd86e63b96bd021eceb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf2fae7270deecfcaef8d02656b93f4c"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__tdma__pdd.html#aaf2fae7270deecfcaef8d02656b93f4c">pdd_comm1_z</a> (sxxs, svvs, sxxr, svvr)</td></tr>
+<tr class="memdesc:aaf2fae7270deecfcaef8d02656b93f4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">======================================================================  <a href="namespacem__tdma__pdd.html#aaf2fae7270deecfcaef8d02656b93f4c">More...</a><br /></td></tr>
+<tr class="separator:aaf2fae7270deecfcaef8d02656b93f4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0077f50b5ff977fe09f8e7c76d4245f3"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__tdma__pdd.html#a0077f50b5ff977fe09f8e7c76d4245f3">pdd_ycal_z</a> (sxxr, svvr, sww, sxx, syv, syw)</td></tr>
+<tr class="memdesc:a0077f50b5ff977fe09f8e7c76d4245f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">======================================================================  <a href="namespacem__tdma__pdd.html#a0077f50b5ff977fe09f8e7c76d4245f3">More...</a><br /></td></tr>
+<tr class="separator:a0077f50b5ff977fe09f8e7c76d4245f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18486c301f35b45735e711f055e05272"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__tdma__pdd.html#a18486c301f35b45735e711f055e05272">pdd_comm2_z</a> (syv, syv2)</td></tr>
+<tr class="memdesc:a18486c301f35b45735e711f055e05272"><td class="mdescLeft">&#160;</td><td class="mdescRight">======================================================================  <a href="namespacem__tdma__pdd.html#a18486c301f35b45735e711f055e05272">More...</a><br /></td></tr>
+<tr class="separator:a18486c301f35b45735e711f055e05272"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2c8765f873e6a4a712a828fa3c31da0"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__tdma__pdd.html#af2c8765f873e6a4a712a828fa3c31da0">pdd_subs_z</a> (sxx_arr, svv_arr, sww_arr, syv2, syw)</td></tr>
+<tr class="memdesc:af2c8765f873e6a4a712a828fa3c31da0"><td class="mdescLeft">&#160;</td><td class="mdescRight">======================================================================  <a href="namespacem__tdma__pdd.html#af2c8765f873e6a4a712a828fa3c31da0">More...</a><br /></td></tr>
+<tr class="separator:af2c8765f873e6a4a712a828fa3c31da0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Function/Subroutine Documentation</h2>
+<a id="aa98b012089cdea9114ab3095642befd7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa98b012089cdea9114ab3095642befd7">&#9670;&nbsp;</a></span>pdd_comm1_x()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_tdma_pdd::pdd_comm1_x </td>
+          <td>(</td>
+          <td class="paramtype">real(kind=cgreal), dimension(n2i:n2f,n3i:n3f), intent(in)&#160;</td>
+          <td class="paramname"><em>sxxs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n2i:n2f,n3i:n3f), intent(in)&#160;</td>
+          <td class="paramname"><em>svvs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n2i:n2f,n3i:n3f), intent(out)&#160;</td>
+          <td class="paramname"><em>sxxr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n2i:n2f,n3i:n3f), intent(out)&#160;</td>
+          <td class="paramname"><em>svvr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>====================================================================== </p>
+<hr  />
+ <h2><a class="anchor" id="autotoc_md49"></a>
+Communication from i to i-1 rank</h2>
+
+<p class="definition">Definition at line <a class="el" href="tdma__pdd_8f90_source.html#l00085">85</a> of file <a class="el" href="tdma__pdd_8f90_source.html">tdma_pdd.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacem__tdma__pdd_aa98b012089cdea9114ab3095642befd7_icgraph.png" border="0" usemap="#namespacem__tdma__pdd_aa98b012089cdea9114ab3095642befd7_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="aac3e4b0839bf07039a56f689d6552fe0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac3e4b0839bf07039a56f689d6552fe0">&#9670;&nbsp;</a></span>pdd_comm1_y()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_tdma_pdd::pdd_comm1_y </td>
+          <td>(</td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1i:n1f,n3i:n3f), intent(in)&#160;</td>
+          <td class="paramname"><em>sxxs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1i:n1f,n3i:n3f), intent(in)&#160;</td>
+          <td class="paramname"><em>svvs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1i:n1f,n3i:n3f), intent(out)&#160;</td>
+          <td class="paramname"><em>sxxr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1i:n1f,n3i:n3f), intent(out)&#160;</td>
+          <td class="paramname"><em>svvr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>====================================================================== </p>
+
+<p class="definition">Definition at line <a class="el" href="tdma__pdd_8f90_source.html#l00256">256</a> of file <a class="el" href="tdma__pdd_8f90_source.html">tdma_pdd.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacem__tdma__pdd_aac3e4b0839bf07039a56f689d6552fe0_icgraph.png" border="0" usemap="#namespacem__tdma__pdd_aac3e4b0839bf07039a56f689d6552fe0_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="aaf2fae7270deecfcaef8d02656b93f4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf2fae7270deecfcaef8d02656b93f4c">&#9670;&nbsp;</a></span>pdd_comm1_z()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_tdma_pdd::pdd_comm1_z </td>
+          <td>(</td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1i:n1f,n2i:n2f), intent(in)&#160;</td>
+          <td class="paramname"><em>sxxs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1i:n1f,n2i:n2f), intent(in)&#160;</td>
+          <td class="paramname"><em>svvs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1i:n1f,n2i:n2f), intent(out)&#160;</td>
+          <td class="paramname"><em>sxxr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1i:n1f,n2i:n2f), intent(out)&#160;</td>
+          <td class="paramname"><em>svvr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>====================================================================== </p>
+
+<p class="definition">Definition at line <a class="el" href="tdma__pdd_8f90_source.html#l00435">435</a> of file <a class="el" href="tdma__pdd_8f90_source.html">tdma_pdd.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacem__tdma__pdd_aaf2fae7270deecfcaef8d02656b93f4c_icgraph.png" border="0" usemap="#namespacem__tdma__pdd_aaf2fae7270deecfcaef8d02656b93f4c_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="aff22d4889f4f3128b268167797fed415"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff22d4889f4f3128b268167797fed415">&#9670;&nbsp;</a></span>pdd_comm2_x()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_tdma_pdd::pdd_comm2_x </td>
+          <td>(</td>
+          <td class="paramtype">real(kind=cgreal), dimension(n2i:n2f,n3i:n3f), intent(in)&#160;</td>
+          <td class="paramname"><em>syv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n2i:n2f,n3i:n3f), intent(out)&#160;</td>
+          <td class="paramname"><em>syv2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>====================================================================== </p>
+
+<p class="definition">Definition at line <a class="el" href="tdma__pdd_8f90_source.html#l00150">150</a> of file <a class="el" href="tdma__pdd_8f90_source.html">tdma_pdd.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacem__tdma__pdd_aff22d4889f4f3128b268167797fed415_icgraph.png" border="0" usemap="#namespacem__tdma__pdd_aff22d4889f4f3128b268167797fed415_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="a5077cdbc406766b807707096d3950e73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5077cdbc406766b807707096d3950e73">&#9670;&nbsp;</a></span>pdd_comm2_y()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_tdma_pdd::pdd_comm2_y </td>
+          <td>(</td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1i:n1f,n3i:n3f), intent(in)&#160;</td>
+          <td class="paramname"><em>syv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1i:n1f,n3i:n3f), intent(out)&#160;</td>
+          <td class="paramname"><em>syv2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>====================================================================== </p>
+
+<p class="definition">Definition at line <a class="el" href="tdma__pdd_8f90_source.html#l00326">326</a> of file <a class="el" href="tdma__pdd_8f90_source.html">tdma_pdd.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacem__tdma__pdd_a5077cdbc406766b807707096d3950e73_icgraph.png" border="0" usemap="#namespacem__tdma__pdd_a5077cdbc406766b807707096d3950e73_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="a18486c301f35b45735e711f055e05272"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18486c301f35b45735e711f055e05272">&#9670;&nbsp;</a></span>pdd_comm2_z()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_tdma_pdd::pdd_comm2_z </td>
+          <td>(</td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1i:n1f,n2i:n2f), intent(in)&#160;</td>
+          <td class="paramname"><em>syv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1i:n1f,n2i:n2f), intent(out)&#160;</td>
+          <td class="paramname"><em>syv2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>====================================================================== </p>
+
+<p class="definition">Definition at line <a class="el" href="tdma__pdd_8f90_source.html#l00505">505</a> of file <a class="el" href="tdma__pdd_8f90_source.html">tdma_pdd.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacem__tdma__pdd_a18486c301f35b45735e711f055e05272_icgraph.png" border="0" usemap="#namespacem__tdma__pdd_a18486c301f35b45735e711f055e05272_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="ae80aded8d752acd40ccbc4707ef0abd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae80aded8d752acd40ccbc4707ef0abd5">&#9670;&nbsp;</a></span>pdd_subs_x()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_tdma_pdd::pdd_subs_x </td>
+          <td>(</td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1i:n1f,n2i:n2f,n3i:n3f), intent(inout)&#160;</td>
+          <td class="paramname"><em>sxx_arr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1i:n1f,n2i:n2f,n3i:n3f), intent(in)&#160;</td>
+          <td class="paramname"><em>svv_arr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1i:n1f,n2i:n2f,n3i:n3f), intent(in)&#160;</td>
+          <td class="paramname"><em>sww_arr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n2i:n2f,n3i:n3f), intent(in)&#160;</td>
+          <td class="paramname"><em>syv2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n2i:n2f,n3i:n3f), intent(in)&#160;</td>
+          <td class="paramname"><em>syw</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>====================================================================== </p>
+
+<p class="definition">Definition at line <a class="el" href="tdma__pdd_8f90_source.html#l00184">184</a> of file <a class="el" href="tdma__pdd_8f90_source.html">tdma_pdd.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacem__tdma__pdd_ae80aded8d752acd40ccbc4707ef0abd5_icgraph.png" border="0" usemap="#namespacem__tdma__pdd_ae80aded8d752acd40ccbc4707ef0abd5_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="ad21e82668438822b0eff93c368450031"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad21e82668438822b0eff93c368450031">&#9670;&nbsp;</a></span>pdd_subs_y()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_tdma_pdd::pdd_subs_y </td>
+          <td>(</td>
+          <td class="paramtype">real(kind=cgreal), dimension(n2i:n2f,n1i:n1f,n3i:n3f), intent(inout)&#160;</td>
+          <td class="paramname"><em>sxx_arr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n2i:n2f,n1i:n1f,n3i:n3f), intent(in)&#160;</td>
+          <td class="paramname"><em>svv_arr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n2i:n2f,n1i:n1f,n3i:n3f), intent(in)&#160;</td>
+          <td class="paramname"><em>sww_arr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1i:n1f,n3i:n3f), intent(in)&#160;</td>
+          <td class="paramname"><em>syv2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1i:n1f,n3i:n3f), intent(in)&#160;</td>
+          <td class="paramname"><em>syw</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>====================================================================== </p>
+
+<p class="definition">Definition at line <a class="el" href="tdma__pdd_8f90_source.html#l00363">363</a> of file <a class="el" href="tdma__pdd_8f90_source.html">tdma_pdd.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacem__tdma__pdd_ad21e82668438822b0eff93c368450031_icgraph.png" border="0" usemap="#namespacem__tdma__pdd_ad21e82668438822b0eff93c368450031_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="af2c8765f873e6a4a712a828fa3c31da0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2c8765f873e6a4a712a828fa3c31da0">&#9670;&nbsp;</a></span>pdd_subs_z()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_tdma_pdd::pdd_subs_z </td>
+          <td>(</td>
+          <td class="paramtype">real(kind=cgreal), dimension(n3i:n3f,n1i:n1f,n2i:n2f), intent(inout)&#160;</td>
+          <td class="paramname"><em>sxx_arr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n3i:n3f,n1i:n1f,n2i:n2f), intent(in)&#160;</td>
+          <td class="paramname"><em>svv_arr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n3i:n3f,n1i:n1f,n2i:n2f), intent(in)&#160;</td>
+          <td class="paramname"><em>sww_arr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1i:n1f,n2i:n2f), intent(in)&#160;</td>
+          <td class="paramname"><em>syv2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1i:n1f,n2i:n2f), intent(in)&#160;</td>
+          <td class="paramname"><em>syw</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>====================================================================== </p>
+
+<p class="definition">Definition at line <a class="el" href="tdma__pdd_8f90_source.html#l00539">539</a> of file <a class="el" href="tdma__pdd_8f90_source.html">tdma_pdd.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacem__tdma__pdd_af2c8765f873e6a4a712a828fa3c31da0_icgraph.png" border="0" usemap="#namespacem__tdma__pdd_af2c8765f873e6a4a712a828fa3c31da0_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="a934044f7b8667a2550cbe4013dc44bc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a934044f7b8667a2550cbe4013dc44bc5">&#9670;&nbsp;</a></span>pdd_ycal_x()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_tdma_pdd::pdd_ycal_x </td>
+          <td>(</td>
+          <td class="paramtype">real(kind=cgreal), dimension(n2i:n2f,n3i:n3f), intent(in)&#160;</td>
+          <td class="paramname"><em>sxxr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n2i:n2f,n3i:n3f), intent(in)&#160;</td>
+          <td class="paramname"><em>svvr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n2i:n2f,n3i:n3f), intent(in)&#160;</td>
+          <td class="paramname"><em>sww</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n2i:n2f,n3i:n3f), intent(in)&#160;</td>
+          <td class="paramname"><em>sxx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n2i:n2f,n3i:n3f), intent(out)&#160;</td>
+          <td class="paramname"><em>syv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n2i:n2f,n3i:n3f), intent(out)&#160;</td>
+          <td class="paramname"><em>syw</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>====================================================================== </p>
+
+<p class="definition">Definition at line <a class="el" href="tdma__pdd_8f90_source.html#l00126">126</a> of file <a class="el" href="tdma__pdd_8f90_source.html">tdma_pdd.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacem__tdma__pdd_a934044f7b8667a2550cbe4013dc44bc5_icgraph.png" border="0" usemap="#namespacem__tdma__pdd_a934044f7b8667a2550cbe4013dc44bc5_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="afcd33751ff3ec679e2314dafebc0bba3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afcd33751ff3ec679e2314dafebc0bba3">&#9670;&nbsp;</a></span>pdd_ycal_y()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_tdma_pdd::pdd_ycal_y </td>
+          <td>(</td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1i:n1f,n3i:n3f), intent(in)&#160;</td>
+          <td class="paramname"><em>sxxr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1i:n1f,n3i:n3f), intent(in)&#160;</td>
+          <td class="paramname"><em>svvr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1i:n1f,n3i:n3f), intent(in)&#160;</td>
+          <td class="paramname"><em>sww</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1i:n1f,n3i:n3f), intent(in)&#160;</td>
+          <td class="paramname"><em>sxx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1i:n1f,n3i:n3f), intent(out)&#160;</td>
+          <td class="paramname"><em>syv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1i:n1f,n3i:n3f), intent(out)&#160;</td>
+          <td class="paramname"><em>syw</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>====================================================================== </p>
+
+<p class="definition">Definition at line <a class="el" href="tdma__pdd_8f90_source.html#l00301">301</a> of file <a class="el" href="tdma__pdd_8f90_source.html">tdma_pdd.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacem__tdma__pdd_afcd33751ff3ec679e2314dafebc0bba3_icgraph.png" border="0" usemap="#namespacem__tdma__pdd_afcd33751ff3ec679e2314dafebc0bba3_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="a0077f50b5ff977fe09f8e7c76d4245f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0077f50b5ff977fe09f8e7c76d4245f3">&#9670;&nbsp;</a></span>pdd_ycal_z()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_tdma_pdd::pdd_ycal_z </td>
+          <td>(</td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1i:n1f,n2i:n2f), intent(in)&#160;</td>
+          <td class="paramname"><em>sxxr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1i:n1f,n2i:n2f), intent(in)&#160;</td>
+          <td class="paramname"><em>svvr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1i:n1f,n2i:n2f), intent(in)&#160;</td>
+          <td class="paramname"><em>sww</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1i:n1f,n2i:n2f), intent(in)&#160;</td>
+          <td class="paramname"><em>sxx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1i:n1f,n2i:n2f), intent(out)&#160;</td>
+          <td class="paramname"><em>syv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1i:n1f,n2i:n2f), intent(out)&#160;</td>
+          <td class="paramname"><em>syw</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>====================================================================== </p>
+
+<p class="definition">Definition at line <a class="el" href="tdma__pdd_8f90_source.html#l00480">480</a> of file <a class="el" href="tdma__pdd_8f90_source.html">tdma_pdd.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacem__tdma__pdd_a0077f50b5ff977fe09f8e7c76d4245f3_icgraph.png" border="0" usemap="#namespacem__tdma__pdd_a0077f50b5ff977fe09f8e7c76d4245f3_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="af1ec5b6943f3d1f2eba4427dc6246126"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1ec5b6943f3d1f2eba4427dc6246126">&#9670;&nbsp;</a></span>tdma()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_tdma_pdd::tdma </td>
+          <td>(</td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1:n2), intent(in)&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1:n2), intent(in)&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1:n2), intent(in)&#160;</td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1:n2), intent(in)&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1:n2), intent(out)&#160;</td>
+          <td class="paramname"><em>u</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>n1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>n2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>====================================================================== </p>
+
+<p class="definition">Definition at line <a class="el" href="tdma__pdd_8f90_source.html#l00016">16</a> of file <a class="el" href="tdma__pdd_8f90_source.html">tdma_pdd.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacem__tdma__pdd_af1ec5b6943f3d1f2eba4427dc6246126_icgraph.png" border="0" usemap="#namespacem__tdma__pdd_af1ec5b6943f3d1f2eba4427dc6246126_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="a5d356a918626da15d9bbcbea5c3cc1fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d356a918626da15d9bbcbea5c3cc1fb">&#9670;&nbsp;</a></span>tdma_pdd_x()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_tdma_pdd::tdma_pdd_x </td>
+          <td>(</td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1i:n1f), intent(in)&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1i:n1f), intent(in)&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1i:n1f), intent(in)&#160;</td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1i:n1f), intent(inout)&#160;</td>
+          <td class="paramname"><em>sxx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1i:n1f), intent(out)&#160;</td>
+          <td class="paramname"><em>svv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n1i:n1f), intent(out)&#160;</td>
+          <td class="paramname"><em>sww</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>====================================================================== </p>
+<hr  />
+ <h2><a class="anchor" id="autotoc_md47"></a>
+Forward elimination</h2>
+<hr  />
+ <h2><a class="anchor" id="autotoc_md48"></a>
+Backward elimination</h2>
+
+<p class="definition">Definition at line <a class="el" href="tdma__pdd_8f90_source.html#l00045">45</a> of file <a class="el" href="tdma__pdd_8f90_source.html">tdma_pdd.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacem__tdma__pdd_a5d356a918626da15d9bbcbea5c3cc1fb_icgraph.png" border="0" usemap="#namespacem__tdma__pdd_a5d356a918626da15d9bbcbea5c3cc1fb_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="a3ba33ebb0e637d265baab0bf873591ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ba33ebb0e637d265baab0bf873591ac">&#9670;&nbsp;</a></span>tdma_pdd_y()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_tdma_pdd::tdma_pdd_y </td>
+          <td>(</td>
+          <td class="paramtype">real(kind=cgreal), dimension(n2i:n2f), intent(in)&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n2i:n2f), intent(in)&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n2i:n2f), intent(in)&#160;</td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n2i:n2f), intent(inout)&#160;</td>
+          <td class="paramname"><em>sxx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n2i:n2f), intent(out)&#160;</td>
+          <td class="paramname"><em>svv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n2i:n2f), intent(out)&#160;</td>
+          <td class="paramname"><em>sww</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>====================================================================== </p>
+
+<p class="definition">Definition at line <a class="el" href="tdma__pdd_8f90_source.html#l00214">214</a> of file <a class="el" href="tdma__pdd_8f90_source.html">tdma_pdd.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacem__tdma__pdd_a3ba33ebb0e637d265baab0bf873591ac_icgraph.png" border="0" usemap="#namespacem__tdma__pdd_a3ba33ebb0e637d265baab0bf873591ac_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="a958ce2ccbe964cd86e63b96bd021eceb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a958ce2ccbe964cd86e63b96bd021eceb">&#9670;&nbsp;</a></span>tdma_pdd_z()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_tdma_pdd::tdma_pdd_z </td>
+          <td>(</td>
+          <td class="paramtype">real(kind=cgreal), dimension(n3i:n3f), intent(in)&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n3i:n3f), intent(in)&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n3i:n3f), intent(in)&#160;</td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n3i:n3f), intent(inout)&#160;</td>
+          <td class="paramname"><em>sxx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n3i:n3f), intent(out)&#160;</td>
+          <td class="paramname"><em>svv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind=cgreal), dimension(n3i:n3f), intent(out)&#160;</td>
+          <td class="paramname"><em>sww</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>====================================================================== </p>
+
+<p class="definition">Definition at line <a class="el" href="tdma__pdd_8f90_source.html#l00393">393</a> of file <a class="el" href="tdma__pdd_8f90_source.html">tdma_pdd.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacem__tdma__pdd_a958ce2ccbe964cd86e63b96bd021eceb_icgraph.png" border="0" usemap="#namespacem__tdma__pdd_a958ce2ccbe964cd86e63b96bd021eceb_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacem__tdma__pdd.html">m_tdma_pdd</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

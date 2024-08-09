@@ -1,0 +1,27 @@
+var structhypre___s_struct_grid__struct =
+[
+    [ "boxmans", "structhypre___s_struct_grid__struct.html#aeddd32a4f3d4dcb213fc7cb38e081cff", null ],
+    [ "comm", "structhypre___s_struct_grid__struct.html#ab57fcf7abce36d551ee59f4ad50f771e", null ],
+    [ "fem_nvars", "structhypre___s_struct_grid__struct.html#a18bcd3932cfde3344c5c2ca33a153f48", null ],
+    [ "fem_offsets", "structhypre___s_struct_grid__struct.html#aaef9a75ed019206e940ab6d2dfb495f9", null ],
+    [ "fem_vars", "structhypre___s_struct_grid__struct.html#a26eca744278c6e95a0711afd0096904d", null ],
+    [ "ghlocal_size", "structhypre___s_struct_grid__struct.html#a154ef56b561d4c5cca6a13be2d180fa0", null ],
+    [ "ghstart_rank", "structhypre___s_struct_grid__struct.html#a9bb9d0b47af81b15211b7caab3009fb6", null ],
+    [ "global_size", "structhypre___s_struct_grid__struct.html#abee29603ff014baedda6f3f4f913ef42", null ],
+    [ "local_size", "structhypre___s_struct_grid__struct.html#ab714324ae7475397c896d189ab371969", null ],
+    [ "nbor_boxmans", "structhypre___s_struct_grid__struct.html#a91747e1e58b90979325e0a05b313ea06", null ],
+    [ "nbor_offsets", "structhypre___s_struct_grid__struct.html#a5877d76cbc7fe7a9b61a51b0c29fc892", null ],
+    [ "ndim", "structhypre___s_struct_grid__struct.html#a2944167b8fb7311ec848d619cb04c69d", null ],
+    [ "neighbors", "structhypre___s_struct_grid__struct.html#a5c3d8a1b5393e219b1eec5c7b3c8e2be", null ],
+    [ "nneighbors", "structhypre___s_struct_grid__struct.html#a3cd03706b5412aba5ed2e779348332e5", null ],
+    [ "nparts", "structhypre___s_struct_grid__struct.html#a3a341d02516ab0aaa4ff6c7e346ea57a", null ],
+    [ "nucvars", "structhypre___s_struct_grid__struct.html#ab36cf8a37be79d86f3dc9875351b3e22", null ],
+    [ "nvneighbors", "structhypre___s_struct_grid__struct.html#a13b4febc472fb1441300e58f70cf56fc", null ],
+    [ "pgrids", "structhypre___s_struct_grid__struct.html#abe95fa4a21114c8123c167d7b59bfe94", null ],
+    [ "ref_count", "structhypre___s_struct_grid__struct.html#afb9be79cd87cee52782f211a0494f767", null ],
+    [ "start_rank", "structhypre___s_struct_grid__struct.html#a0eeac7800ade5088c76cd43181d6a33c", null ],
+    [ "ucvars", "structhypre___s_struct_grid__struct.html#a59d7962e6e24cf7f3558ea5bbdc9f37d", null ],
+    [ "vnbor_comm_info", "structhypre___s_struct_grid__struct.html#afeedaf63976ba447780f8804186a84cd", null ],
+    [ "vnbor_ncomms", "structhypre___s_struct_grid__struct.html#a34fde1ec683864ea3dfe484fc3949fd8", null ],
+    [ "vneighbors", "structhypre___s_struct_grid__struct.html#a3c166e009da9f916cb586bdd13bbc4a2", null ]
+];

@@ -1,0 +1,39 @@
+digraph "hypre_ComputePkg_struct"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="hypre_ComputePkg_struct",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" data_space" ,fontname="Helvetica"];
+  Node2 [label="hypre_BoxArray_struct",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structhypre___box_array__struct.html",tooltip=" "];
+  Node3 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" boxes" ,fontname="Helvetica"];
+  Node3 [label="hypre_Box_struct",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structhypre___box__struct.html",tooltip=" "];
+  Node4 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" comm_pkg" ,fontname="Helvetica"];
+  Node4 [label="hypre_CommPkg_struct",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structhypre___comm_pkg__struct.html",tooltip=" "];
+  Node2 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" recv_data_space" ,fontname="Helvetica"];
+  Node5 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" entries" ,fontname="Helvetica"];
+  Node5 [label="hypre_CommEntryType\l_struct",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structhypre___comm_entry_type__struct.html",tooltip=" "];
+  Node6 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" copy_from_type\nrecv_types\ncopy_to_type\nsend_types" ,fontname="Helvetica"];
+  Node6 [label="hypre_CommType_struct",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structhypre___comm_type__struct.html",tooltip=" "];
+  Node5 -> Node6 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" entries" ,fontname="Helvetica"];
+  Node3 -> Node6 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" rem_boxes" ,fontname="Helvetica"];
+  Node3 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" rem_boxes" ,fontname="Helvetica"];
+  Node7 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" grid" ,fontname="Helvetica"];
+  Node7 [label="hypre_StructGrid_struct",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structhypre___struct_grid__struct.html",tooltip=" "];
+  Node2 -> Node7 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" boxes" ,fontname="Helvetica"];
+  Node3 -> Node7 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" bounding_box" ,fontname="Helvetica"];
+  Node8 -> Node7 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" boxman" ,fontname="Helvetica"];
+  Node8 [label="hypre_BoxManager",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structhypre___box_manager.html",tooltip=" "];
+  Node9 -> Node8 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" my_entries\nentries\nindex_table" ,fontname="Helvetica"];
+  Node9 [label="hypre_BoxManEntry_struct",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structhypre___box_man_entry__struct.html",tooltip=" "];
+  Node9 -> Node9 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" next" ,fontname="Helvetica"];
+  Node2 -> Node8 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" gather_regions" ,fontname="Helvetica"];
+  Node10 -> Node8 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" assumed_partition" ,fontname="Helvetica"];
+  Node10 [label="hypre_StructAssumedPart",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structhypre___struct_assumed_part.html",tooltip=" "];
+  Node2 -> Node10 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" regions\nmy_partition_boxes\nmy_partition" ,fontname="Helvetica"];
+  Node3 -> Node8 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" bounding_box" ,fontname="Helvetica"];
+  Node11 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" dept_boxes\nindt_boxes" ,fontname="Helvetica"];
+  Node11 [label="hypre_BoxArrayArray\l_struct",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structhypre___box_array_array__struct.html",tooltip=" "];
+  Node2 -> Node11 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" box_arrays" ,fontname="Helvetica"];
+}

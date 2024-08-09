@@ -1,0 +1,20 @@
+digraph "HYPRE_ParCSR_System_Problem"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="HYPRE_ParCSR_System\l_Problem",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" A" ,fontname="Helvetica"];
+  Node2 [label="hypre_ParCSRMatrix\l_struct",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structhypre___par_c_s_r_matrix__struct.html",tooltip=" "];
+  Node3 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" comm_pkgT\ncomm_pkg" ,fontname="Helvetica"];
+  Node3 [label="hypre_ParCSRCommPkg",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structhypre___par_c_s_r_comm_pkg.html",tooltip=" "];
+  Node4 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" diagT\noffd\noffdT\ndiag" ,fontname="Helvetica"];
+  Node4 [label="hypre_CSRMatrix",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structhypre___c_s_r_matrix.html",tooltip=" "];
+  Node5 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" assumed_partition" ,fontname="Helvetica"];
+  Node5 [label="hypre_IJAssumedPart",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structhypre___i_j_assumed_part.html",tooltip=" "];
+  Node6 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" x\nb" ,fontname="Helvetica"];
+  Node6 [label="hypre_ParVector_struct",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structhypre___par_vector__struct.html",tooltip=" "];
+  Node7 -> Node6 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" local_vector" ,fontname="Helvetica"];
+  Node7 [label="hypre_Vector",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structhypre___vector.html",tooltip=" "];
+  Node5 -> Node6 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" assumed_partition" ,fontname="Helvetica"];
+}

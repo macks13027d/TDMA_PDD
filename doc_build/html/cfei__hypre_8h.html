@@ -1,0 +1,1380 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="TDMA_PDD_cpu" />
+<meta property="og:image" content="../preview.png" />
+<meta property="og:description" content="Documentation for Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD_cpu" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="../preview.png" />
+<meta property="og:title" content="TDMA_PDD_cpu" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD_cpu" />
+<!-- END twitter metadata -->
+<title>TDMA_PDD_CPU: include/hypre-2.11.1/cfei_hypre.h File Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            messageStyle: "normal",
+            linebreaks: {
+                automatic: false
+            }
+        },
+        tex2jax: { 
+            inlineMath: [["\\(","\\)"]], 
+            displayMath: [["$$","$$"],["\\[","\\]"]], 
+            processEscapes: true
+        },
+        TeX: {
+            Macros: {
+                tr: "{\\scriptscriptstyle\\mathrm{T}}",
+            }
+        }
+    });
+</script>
+<!--MathJax(LaTeX) -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <script type="text/javascript" id="MathJax-script" async  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">  </script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="custom-alternative.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/hugh577/TDMA_PDD_cpu" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 65px;">
+  <td id="projectlogo">
+    <a href="./index.html">
+        <img alt="Logo" src="home.png"/></td>
+    </a>
+  <td id="projectalign" style="padding-left: 0.5em;padding-top: 0.5em;">
+   <div id="projectname">TDMA_PDD_CPU
+   </div>
+   <div id="projectbrief">Documentation</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('cfei__hypre_8h.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle">
+<div class="title">cfei_hypre.h File Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="cfei__hypre_8h__dep__incl.png" border="0" usemap="#include_2hypre-2_811_81_2cfei__hypre_8hdep" alt=""/></div>
+</div>
+</div>
+<p><a href="cfei__hypre_8h_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_lin_sys_core__struct.html">LinSysCore_struct</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ab5efa51e5a762028662c18b046fa6920"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei__hypre_8h.html#ab5efa51e5a762028662c18b046fa6920">CFEI_LinSysCore_DEFINED</a></td></tr>
+<tr class="separator:ab5efa51e5a762028662c18b046fa6920"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a4fb9e7a8a13ec15e4c9a1781d2495351"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_lin_sys_core__struct.html">LinSysCore_struct</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a></td></tr>
+<tr class="separator:a4fb9e7a8a13ec15e4c9a1781d2495351"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a5c27a804a902badf965d3f07398a5bfe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei__hypre_8h.html#a5c27a804a902badf965d3f07398a5bfe">HYPRE_LinSysCore_create</a> (<a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> **lsc, MPI_Comm comm)</td></tr>
+<tr class="separator:a5c27a804a902badf965d3f07398a5bfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a455c459e8a9b161e4f95a80ac594add9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei__hypre_8h.html#a455c459e8a9b161e4f95a80ac594add9">HYPRE_LinSysCore_destroy</a> (<a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> **lsc)</td></tr>
+<tr class="separator:a455c459e8a9b161e4f95a80ac594add9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdc904bc68f7b955390005a1ecbc0f07"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei__hypre_8h.html#abdc904bc68f7b955390005a1ecbc0f07">HYPRE_LSC_BeginMappedMatrixLoad</a> (<a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *lsc)</td></tr>
+<tr class="separator:abdc904bc68f7b955390005a1ecbc0f07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0634d253fec1bae9690f30e613960b4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei__hypre_8h.html#ab0634d253fec1bae9690f30e613960b4">HYPRE_LSC_EndMappedMatrixLoad</a> (<a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *lsc)</td></tr>
+<tr class="separator:ab0634d253fec1bae9690f30e613960b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7effc01d82b2040961b5577d1306c199"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei__hypre_8h.html#a7effc01d82b2040961b5577d1306c199">HYPRE_LSC_MappedMatrixLoad</a> (<a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *lsc, int row, int col, double val)</td></tr>
+<tr class="separator:a7effc01d82b2040961b5577d1306c199"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72b0d63f5460297f1825324cf443cf41"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei__hypre_8h.html#a72b0d63f5460297f1825324cf443cf41">HYPRE_LSC_GetVersion</a> (<a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *lsc)</td></tr>
+<tr class="separator:a72b0d63f5460297f1825324cf443cf41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a676aeb22a5ccbd5c4717844331f00538"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei__hypre_8h.html#a676aeb22a5ccbd5c4717844331f00538">HYPRE_LSC_GetFEDataObject</a> (<a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *lsc, void **object)</td></tr>
+<tr class="separator:a676aeb22a5ccbd5c4717844331f00538"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01c2d3b7879e4f98d5686a05828c210a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei__hypre_8h.html#a01c2d3b7879e4f98d5686a05828c210a">HYPRE_LSC_parameters</a> (<a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *lsc, int numParams, char **params)</td></tr>
+<tr class="separator:a01c2d3b7879e4f98d5686a05828c210a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5234ee82c4a1d1f7e53c17c4cb2e254"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei__hypre_8h.html#aa5234ee82c4a1d1f7e53c17c4cb2e254">HYPRE_LSC_setGlobalOffsets</a> (<a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *lsc, int leng, int *nodeOffsets, int *eqnOffsets, int *blkEqnOffsets)</td></tr>
+<tr class="separator:aa5234ee82c4a1d1f7e53c17c4cb2e254"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd009d9f09a348d4eda0fe6d6ffe1f6b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei__hypre_8h.html#afd009d9f09a348d4eda0fe6d6ffe1f6b">HYPRE_LSC_setMatrixStructure</a> (<a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *lsc, int **ptColIndices, int *ptRowLengths, int **blkColIndices, int *blkRowLengths, int *ptRowsPerBlkRow)</td></tr>
+<tr class="separator:afd009d9f09a348d4eda0fe6d6ffe1f6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff1ee12ee6e3df9f2c145755ea2d05b9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei__hypre_8h.html#aff1ee12ee6e3df9f2c145755ea2d05b9">HYPRE_LSC_resetMatrixAndVector</a> (<a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *lsc, double val)</td></tr>
+<tr class="separator:aff1ee12ee6e3df9f2c145755ea2d05b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afaa90af0162cf42bd52345705d52fb84"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei__hypre_8h.html#afaa90af0162cf42bd52345705d52fb84">HYPRE_LSC_resetMatrix</a> (<a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *lsc, double val)</td></tr>
+<tr class="separator:afaa90af0162cf42bd52345705d52fb84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51db2090f918a457bade639b6080fde5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei__hypre_8h.html#a51db2090f918a457bade639b6080fde5">HYPRE_LSC_resetRHSVector</a> (<a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *lsc, double val)</td></tr>
+<tr class="separator:a51db2090f918a457bade639b6080fde5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48b9f65633366f627008c8f46bd16e0d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei__hypre_8h.html#a48b9f65633366f627008c8f46bd16e0d">HYPRE_LSC_sumIntoSystemMatrix</a> (<a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *lsc, int numPtRows, const int *ptRows, int numPtCols, const int *ptCols, int numBlkRows, const int *blkRows, int numBlkCols, const int *blkCols, const double *const *values)</td></tr>
+<tr class="separator:a48b9f65633366f627008c8f46bd16e0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc6266c83e3711675ee11363cf8376d1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei__hypre_8h.html#abc6266c83e3711675ee11363cf8376d1">HYPRE_LSC_sumIntoRHSVector</a> (<a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *lsc, int num, const double *values, const int *indices)</td></tr>
+<tr class="separator:abc6266c83e3711675ee11363cf8376d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a294ed89d71813733d0f2323df4433ffa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei__hypre_8h.html#a294ed89d71813733d0f2323df4433ffa">HYPRE_LSC_matrixLoadComplete</a> (<a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *lsc)</td></tr>
+<tr class="separator:a294ed89d71813733d0f2323df4433ffa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefbfed87ed7205a979d3add801db4d66"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei__hypre_8h.html#aefbfed87ed7205a979d3add801db4d66">HYPRE_LSC_enforceEssentialBC</a> (<a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *lsc, int *globalEqn, double *alpha, double *gamma, int leng)</td></tr>
+<tr class="separator:aefbfed87ed7205a979d3add801db4d66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad60bf3abee7d20fd93855f0a6fe2aa9f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei__hypre_8h.html#ad60bf3abee7d20fd93855f0a6fe2aa9f">HYPRE_LSC_enforceRemoteEssBCs</a> (<a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *lsc, int numEqns, int *globalEqns, int **colIndices, int *colIndLen, double **coefs)</td></tr>
+<tr class="separator:ad60bf3abee7d20fd93855f0a6fe2aa9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47dd425d5f3307947e79ab526336e62b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei__hypre_8h.html#a47dd425d5f3307947e79ab526336e62b">HYPRE_LSC_enforceOtherBC</a> (<a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *lsc, int *globalEqn, double *alpha, double *beta, double *gamma, int leng)</td></tr>
+<tr class="separator:a47dd425d5f3307947e79ab526336e62b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a795e2fd2f5d82b0350eaff0c4a7627e6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei__hypre_8h.html#a795e2fd2f5d82b0350eaff0c4a7627e6">HYPRE_LSC_putInitialGuess</a> (<a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *lsc, const int *eqnNumbers, const double *values, int leng)</td></tr>
+<tr class="separator:a795e2fd2f5d82b0350eaff0c4a7627e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2a198d88340cc47caeedf3189b8731a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei__hypre_8h.html#ac2a198d88340cc47caeedf3189b8731a">HYPRE_LSC_getSolution</a> (<a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *lsc, double *answers, int leng)</td></tr>
+<tr class="separator:ac2a198d88340cc47caeedf3189b8731a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7365af67778bc0179f59096e45d5a6e8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei__hypre_8h.html#a7365af67778bc0179f59096e45d5a6e8">HYPRE_LSC_getSolnEntry</a> (<a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *lsc, int eqnNumber, double *answer)</td></tr>
+<tr class="separator:a7365af67778bc0179f59096e45d5a6e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab82cea3f430f6eead9745af020b55f4c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei__hypre_8h.html#ab82cea3f430f6eead9745af020b55f4c">HYPRE_LSC_formResidual</a> (<a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *lsc, double *values, int leng)</td></tr>
+<tr class="separator:ab82cea3f430f6eead9745af020b55f4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9869cfa817670f71b6647bb77ac4bd39"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei__hypre_8h.html#a9869cfa817670f71b6647bb77ac4bd39">HYPRE_LSC_launchSolver</a> (<a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *lsc, int *solveStatus, int *iter)</td></tr>
+<tr class="separator:a9869cfa817670f71b6647bb77ac4bd39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b4a87d809ad8db8aab10d250c46999d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei__hypre_8h.html#a5b4a87d809ad8db8aab10d250c46999d">HYPRE_LSC_FEDataInitFields</a> (<a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *lsc, int nFields, int *fieldSizes, int *fieldIDs)</td></tr>
+<tr class="separator:a5b4a87d809ad8db8aab10d250c46999d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06f1a7f148300ece88d6d258bda3481a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei__hypre_8h.html#a06f1a7f148300ece88d6d258bda3481a">HYPRE_LSC_FEDataInitElemBlock</a> (<a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *lsc, int nElems, int nNodes, int nNodeFields, int *nodeFieldIDs)</td></tr>
+<tr class="separator:a06f1a7f148300ece88d6d258bda3481a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24d47ddffd50e6467813d2dedb5810a0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei__hypre_8h.html#a24d47ddffd50e6467813d2dedb5810a0">HYPRE_LSC_FEDataInitElemNodeList</a> (<a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *lsc, int elemID, int nNodes, int *nList)</td></tr>
+<tr class="separator:a24d47ddffd50e6467813d2dedb5810a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad876333eb77ee521683c4f60835cc79e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei__hypre_8h.html#ad876333eb77ee521683c4f60835cc79e">HYPRE_LSC_FEDataInitSharedNodes</a> (<a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *lsc, int nShared, int *sharedIDs, int *sharedPLengs, int **sharedProcs)</td></tr>
+<tr class="separator:ad876333eb77ee521683c4f60835cc79e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b6ada20c973c02f678283fe30125cf4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei__hypre_8h.html#a5b6ada20c973c02f678283fe30125cf4">HYPRE_LSC_FEDataInitComplete</a> (<a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *lsc)</td></tr>
+<tr class="separator:a5b6ada20c973c02f678283fe30125cf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb92cf79368a7240f0fa0cb95634f417"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei__hypre_8h.html#abb92cf79368a7240f0fa0cb95634f417">HYPRE_LSC_FEDataLoadElemMatrix</a> (<a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *lsc, int elemID, int nNodes, int *nList, int sDim, double **sMat)</td></tr>
+<tr class="separator:abb92cf79368a7240f0fa0cb95634f417"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="ab5efa51e5a762028662c18b046fa6920"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5efa51e5a762028662c18b046fa6920">&#9670;&nbsp;</a></span>CFEI_LinSysCore_DEFINED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CFEI_LinSysCore_DEFINED</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="cfei__hypre_8h_source.html#l00025">25</a> of file <a class="el" href="cfei__hypre_8h_source.html">cfei_hypre.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="a4fb9e7a8a13ec15e4c9a1781d2495351"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fb9e7a8a13ec15e4c9a1781d2495351">&#9670;&nbsp;</a></span>LinSysCore</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_lin_sys_core__struct.html">LinSysCore_struct</a> <a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="cfei__hypre_8h_source.html#l00035">35</a> of file <a class="el" href="cfei__hypre_8h_source.html">cfei_hypre.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a5c27a804a902badf965d3f07398a5bfe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c27a804a902badf965d3f07398a5bfe">&#9670;&nbsp;</a></span>HYPRE_LinSysCore_create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore_create </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> **&#160;</td>
+          <td class="paramname"><em>lsc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MPI_Comm&#160;</td>
+          <td class="paramname"><em>comm</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a455c459e8a9b161e4f95a80ac594add9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a455c459e8a9b161e4f95a80ac594add9">&#9670;&nbsp;</a></span>HYPRE_LinSysCore_destroy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore_destroy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> **&#160;</td>
+          <td class="paramname"><em>lsc</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abdc904bc68f7b955390005a1ecbc0f07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abdc904bc68f7b955390005a1ecbc0f07">&#9670;&nbsp;</a></span>HYPRE_LSC_BeginMappedMatrixLoad()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LSC_BeginMappedMatrixLoad </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *&#160;</td>
+          <td class="paramname"><em>lsc</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab0634d253fec1bae9690f30e613960b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0634d253fec1bae9690f30e613960b4">&#9670;&nbsp;</a></span>HYPRE_LSC_EndMappedMatrixLoad()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LSC_EndMappedMatrixLoad </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *&#160;</td>
+          <td class="paramname"><em>lsc</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aefbfed87ed7205a979d3add801db4d66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefbfed87ed7205a979d3add801db4d66">&#9670;&nbsp;</a></span>HYPRE_LSC_enforceEssentialBC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LSC_enforceEssentialBC </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *&#160;</td>
+          <td class="paramname"><em>lsc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>globalEqn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>alpha</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>gamma</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>leng</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a47dd425d5f3307947e79ab526336e62b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47dd425d5f3307947e79ab526336e62b">&#9670;&nbsp;</a></span>HYPRE_LSC_enforceOtherBC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LSC_enforceOtherBC </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *&#160;</td>
+          <td class="paramname"><em>lsc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>globalEqn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>alpha</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>beta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>gamma</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>leng</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad60bf3abee7d20fd93855f0a6fe2aa9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad60bf3abee7d20fd93855f0a6fe2aa9f">&#9670;&nbsp;</a></span>HYPRE_LSC_enforceRemoteEssBCs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LSC_enforceRemoteEssBCs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *&#160;</td>
+          <td class="paramname"><em>lsc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numEqns</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>globalEqns</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>colIndices</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>colIndLen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double **&#160;</td>
+          <td class="paramname"><em>coefs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5b6ada20c973c02f678283fe30125cf4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b6ada20c973c02f678283fe30125cf4">&#9670;&nbsp;</a></span>HYPRE_LSC_FEDataInitComplete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LSC_FEDataInitComplete </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *&#160;</td>
+          <td class="paramname"><em>lsc</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a06f1a7f148300ece88d6d258bda3481a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06f1a7f148300ece88d6d258bda3481a">&#9670;&nbsp;</a></span>HYPRE_LSC_FEDataInitElemBlock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LSC_FEDataInitElemBlock </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *&#160;</td>
+          <td class="paramname"><em>lsc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nElems</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nNodes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nNodeFields</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>nodeFieldIDs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a24d47ddffd50e6467813d2dedb5810a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24d47ddffd50e6467813d2dedb5810a0">&#9670;&nbsp;</a></span>HYPRE_LSC_FEDataInitElemNodeList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LSC_FEDataInitElemNodeList </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *&#160;</td>
+          <td class="paramname"><em>lsc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>elemID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nNodes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>nList</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5b4a87d809ad8db8aab10d250c46999d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b4a87d809ad8db8aab10d250c46999d">&#9670;&nbsp;</a></span>HYPRE_LSC_FEDataInitFields()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LSC_FEDataInitFields </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *&#160;</td>
+          <td class="paramname"><em>lsc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nFields</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>fieldSizes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>fieldIDs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad876333eb77ee521683c4f60835cc79e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad876333eb77ee521683c4f60835cc79e">&#9670;&nbsp;</a></span>HYPRE_LSC_FEDataInitSharedNodes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LSC_FEDataInitSharedNodes </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *&#160;</td>
+          <td class="paramname"><em>lsc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nShared</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>sharedIDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>sharedPLengs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>sharedProcs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abb92cf79368a7240f0fa0cb95634f417"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb92cf79368a7240f0fa0cb95634f417">&#9670;&nbsp;</a></span>HYPRE_LSC_FEDataLoadElemMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LSC_FEDataLoadElemMatrix </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *&#160;</td>
+          <td class="paramname"><em>lsc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>elemID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nNodes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>nList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sDim</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double **&#160;</td>
+          <td class="paramname"><em>sMat</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab82cea3f430f6eead9745af020b55f4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab82cea3f430f6eead9745af020b55f4c">&#9670;&nbsp;</a></span>HYPRE_LSC_formResidual()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LSC_formResidual </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *&#160;</td>
+          <td class="paramname"><em>lsc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>values</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>leng</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a676aeb22a5ccbd5c4717844331f00538"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a676aeb22a5ccbd5c4717844331f00538">&#9670;&nbsp;</a></span>HYPRE_LSC_GetFEDataObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LSC_GetFEDataObject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *&#160;</td>
+          <td class="paramname"><em>lsc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void **&#160;</td>
+          <td class="paramname"><em>object</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7365af67778bc0179f59096e45d5a6e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7365af67778bc0179f59096e45d5a6e8">&#9670;&nbsp;</a></span>HYPRE_LSC_getSolnEntry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LSC_getSolnEntry </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *&#160;</td>
+          <td class="paramname"><em>lsc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>eqnNumber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>answer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac2a198d88340cc47caeedf3189b8731a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2a198d88340cc47caeedf3189b8731a">&#9670;&nbsp;</a></span>HYPRE_LSC_getSolution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LSC_getSolution </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *&#160;</td>
+          <td class="paramname"><em>lsc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>answers</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>leng</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a72b0d63f5460297f1825324cf443cf41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72b0d63f5460297f1825324cf443cf41">&#9670;&nbsp;</a></span>HYPRE_LSC_GetVersion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* HYPRE_LSC_GetVersion </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *&#160;</td>
+          <td class="paramname"><em>lsc</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9869cfa817670f71b6647bb77ac4bd39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9869cfa817670f71b6647bb77ac4bd39">&#9670;&nbsp;</a></span>HYPRE_LSC_launchSolver()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LSC_launchSolver </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *&#160;</td>
+          <td class="paramname"><em>lsc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>solveStatus</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>iter</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7effc01d82b2040961b5577d1306c199"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7effc01d82b2040961b5577d1306c199">&#9670;&nbsp;</a></span>HYPRE_LSC_MappedMatrixLoad()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LSC_MappedMatrixLoad </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *&#160;</td>
+          <td class="paramname"><em>lsc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>col</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a294ed89d71813733d0f2323df4433ffa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a294ed89d71813733d0f2323df4433ffa">&#9670;&nbsp;</a></span>HYPRE_LSC_matrixLoadComplete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LSC_matrixLoadComplete </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *&#160;</td>
+          <td class="paramname"><em>lsc</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a01c2d3b7879e4f98d5686a05828c210a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01c2d3b7879e4f98d5686a05828c210a">&#9670;&nbsp;</a></span>HYPRE_LSC_parameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LSC_parameters </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *&#160;</td>
+          <td class="paramname"><em>lsc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numParams</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>params</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a795e2fd2f5d82b0350eaff0c4a7627e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a795e2fd2f5d82b0350eaff0c4a7627e6">&#9670;&nbsp;</a></span>HYPRE_LSC_putInitialGuess()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LSC_putInitialGuess </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *&#160;</td>
+          <td class="paramname"><em>lsc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>eqnNumbers</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *&#160;</td>
+          <td class="paramname"><em>values</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>leng</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afaa90af0162cf42bd52345705d52fb84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afaa90af0162cf42bd52345705d52fb84">&#9670;&nbsp;</a></span>HYPRE_LSC_resetMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LSC_resetMatrix </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *&#160;</td>
+          <td class="paramname"><em>lsc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aff1ee12ee6e3df9f2c145755ea2d05b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff1ee12ee6e3df9f2c145755ea2d05b9">&#9670;&nbsp;</a></span>HYPRE_LSC_resetMatrixAndVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LSC_resetMatrixAndVector </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *&#160;</td>
+          <td class="paramname"><em>lsc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a51db2090f918a457bade639b6080fde5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51db2090f918a457bade639b6080fde5">&#9670;&nbsp;</a></span>HYPRE_LSC_resetRHSVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LSC_resetRHSVector </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *&#160;</td>
+          <td class="paramname"><em>lsc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa5234ee82c4a1d1f7e53c17c4cb2e254"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5234ee82c4a1d1f7e53c17c4cb2e254">&#9670;&nbsp;</a></span>HYPRE_LSC_setGlobalOffsets()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LSC_setGlobalOffsets </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *&#160;</td>
+          <td class="paramname"><em>lsc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>leng</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>nodeOffsets</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>eqnOffsets</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>blkEqnOffsets</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afd009d9f09a348d4eda0fe6d6ffe1f6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd009d9f09a348d4eda0fe6d6ffe1f6b">&#9670;&nbsp;</a></span>HYPRE_LSC_setMatrixStructure()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LSC_setMatrixStructure </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *&#160;</td>
+          <td class="paramname"><em>lsc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>ptColIndices</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>ptRowLengths</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>blkColIndices</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>blkRowLengths</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>ptRowsPerBlkRow</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abc6266c83e3711675ee11363cf8376d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc6266c83e3711675ee11363cf8376d1">&#9670;&nbsp;</a></span>HYPRE_LSC_sumIntoRHSVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LSC_sumIntoRHSVector </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *&#160;</td>
+          <td class="paramname"><em>lsc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *&#160;</td>
+          <td class="paramname"><em>values</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>indices</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a48b9f65633366f627008c8f46bd16e0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48b9f65633366f627008c8f46bd16e0d">&#9670;&nbsp;</a></span>HYPRE_LSC_sumIntoSystemMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LSC_sumIntoSystemMatrix </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *&#160;</td>
+          <td class="paramname"><em>lsc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numPtRows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>ptRows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numPtCols</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>ptCols</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numBlkRows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>blkRows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numBlkCols</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>blkCols</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *const *&#160;</td>
+          <td class="paramname"><em>values</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_1481b2ad69b2eab628871d4fb2bac45c.html">hypre-2.11.1</a></li><li class="navelem"><a class="el" href="cfei__hypre_8h.html">cfei_hypre.h</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,397 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="TDMA_PDD_cpu" />
+<meta property="og:image" content="../preview.png" />
+<meta property="og:description" content="Documentation for Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD_cpu" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="../preview.png" />
+<meta property="og:title" content="TDMA_PDD_cpu" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD_cpu" />
+<!-- END twitter metadata -->
+<title>TDMA_PDD_CPU: File Members</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            messageStyle: "normal",
+            linebreaks: {
+                automatic: false
+            }
+        },
+        tex2jax: { 
+            inlineMath: [["\\(","\\)"]], 
+            displayMath: [["$$","$$"],["\\[","\\]"]], 
+            processEscapes: true
+        },
+        TeX: {
+            Macros: {
+                tr: "{\\scriptscriptstyle\\mathrm{T}}",
+            }
+        }
+    });
+</script>
+<!--MathJax(LaTeX) -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <script type="text/javascript" id="MathJax-script" async  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">  </script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="custom-alternative.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/hugh577/TDMA_PDD_cpu" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 65px;">
+  <td id="projectlogo">
+    <a href="./index.html">
+        <img alt="Logo" src="home.png"/></td>
+    </a>
+  <td id="projectalign" style="padding-left: 0.5em;padding-top: 0.5em;">
+   <div id="projectname">TDMA_PDD_CPU
+   </div>
+   <div id="projectbrief">Documentation</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('globals_func_f.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="contents">
+&#160;
+
+<h3><a id="index_f"></a>- f -</h3><ul>
+<li>FEI_allocatedSize()
+: <a class="el" href="cfei_8h.html#aacb7ecfdfb4e9c0c410d48cb6961596b">cfei.h</a>
+</li>
+<li>FEI_create()
+: <a class="el" href="cfei_8h.html#ae48e1a7fc41304dbe2d6cd8c8d8f3d93">cfei.h</a>
+</li>
+<li>FEI_cumulative_cpu_times()
+: <a class="el" href="cfei_8h.html#aa7c51ce31db61d4ffe41e2b3e7daf507">cfei.h</a>
+</li>
+<li>FEI_deleteMultCRs()
+: <a class="el" href="cfei_8h.html#a1bb625a0096daedad088bd7f55282c1b">cfei.h</a>
+</li>
+<li>FEI_destroy()
+: <a class="el" href="cfei_8h.html#ab94cbeb1523e226821c88f316204db52">cfei.h</a>
+</li>
+<li>FEI_getBlockElemIDList()
+: <a class="el" href="cfei_8h.html#a3f75a7d6ce8dd2663faefd4aab43de55">cfei.h</a>
+</li>
+<li>FEI_getBlockElemSolution()
+: <a class="el" href="cfei_8h.html#ace74e2698bbfb93c2c9dbb2f3637cdbb">cfei.h</a>
+</li>
+<li>FEI_getBlockFieldNodeSolution()
+: <a class="el" href="cfei_8h.html#a80443afd518451a3d27e47187d637040">cfei.h</a>
+</li>
+<li>FEI_getBlockNodeIDList()
+: <a class="el" href="cfei_8h.html#ac3d61fc6b59efd637b2f06b6064d6997">cfei.h</a>
+</li>
+<li>FEI_getBlockNodeSolution()
+: <a class="el" href="cfei_8h.html#a4da78345e55cb8f2275e02c90a74854a">cfei.h</a>
+</li>
+<li>FEI_getCRMultIDList()
+: <a class="el" href="cfei_8h.html#aa657d90fcbdec4cb572a8137188f992a">cfei.h</a>
+</li>
+<li>FEI_getCRMultipliers()
+: <a class="el" href="cfei_8h.html#aef702a36b5a57d1d4a06b56ff221de07">cfei.h</a>
+</li>
+<li>FEI_getEqnNumbers()
+: <a class="el" href="cfei_8h.html#ab9c5d3b8425c315a08863c3fc0747bad">cfei.h</a>
+</li>
+<li>FEI_getFieldSize()
+: <a class="el" href="cfei_8h.html#a552822e4ca63de917981483374408aba">cfei.h</a>
+</li>
+<li>FEI_getFromMatrix()
+: <a class="el" href="cfei_8h.html#ac4ce067eb22214f546c02a8d58bf4eca">cfei.h</a>
+</li>
+<li>FEI_getFromRHS()
+: <a class="el" href="cfei_8h.html#a3022146b1643018b222321464086495c">cfei.h</a>
+</li>
+<li>FEI_getLocalNodeIDList()
+: <a class="el" href="cfei_8h.html#a52920ec79e970cef58af8682bdccdb7e">cfei.h</a>
+</li>
+<li>FEI_getNodalFieldSolution()
+: <a class="el" href="cfei_8h.html#a85f4853309ebf229ec185b6ef55f3402">cfei.h</a>
+</li>
+<li>FEI_getNumBlockActEqns()
+: <a class="el" href="cfei_8h.html#af7f045cf6f8c4fb45863a53b7e4b49ae">cfei.h</a>
+</li>
+<li>FEI_getNumBlockActNodes()
+: <a class="el" href="cfei_8h.html#ac21b828d77646c1a4a6a1a2d2dbff407">cfei.h</a>
+</li>
+<li>FEI_getNumBlockElemDOF()
+: <a class="el" href="cfei_8h.html#aaa28834f0f3cdbb48e1b716310095fa5">cfei.h</a>
+</li>
+<li>FEI_getNumBlockElements()
+: <a class="el" href="cfei_8h.html#a18131bf3d5fa2bfefc6ff306d654f5e1">cfei.h</a>
+</li>
+<li>FEI_getNumCRMultipliers()
+: <a class="el" href="cfei_8h.html#a6a3bac400c1869b45880a5658ab4d162">cfei.h</a>
+</li>
+<li>FEI_getNumElemBlocks()
+: <a class="el" href="cfei_8h.html#abe4ca4279d9ad5885e8f3df365e8c26b">cfei.h</a>
+</li>
+<li>FEI_getNumEqnsPerElement()
+: <a class="el" href="cfei_8h.html#a5a8d1ddd6bade87bf80d4fe9f259a8e1">cfei.h</a>
+</li>
+<li>FEI_getNumLocalNodes()
+: <a class="el" href="cfei_8h.html#ac115265b2e53ca9cc68687d44ada77d9">cfei.h</a>
+</li>
+<li>FEI_getNumNodesPerElement()
+: <a class="el" href="cfei_8h.html#ad24dd24795e6c5a2bd26870060239860">cfei.h</a>
+</li>
+<li>FEI_getNumSolnParams()
+: <a class="el" href="cfei_8h.html#ab5b40acfcc8913a6a730c4ccaf3a28d5">cfei.h</a>
+</li>
+<li>FEI_initCoefAccess()
+: <a class="el" href="cfei_8h.html#abbbd6a827208505afc5394b66ac6d55d">cfei.h</a>
+</li>
+<li>FEI_initCoefAccessPattern()
+: <a class="el" href="cfei_8h.html#a9f774db3f39e29a94f29b8bcc67ca129">cfei.h</a>
+</li>
+<li>FEI_initComplete()
+: <a class="el" href="cfei_8h.html#a715fcdc1ccff80714f630596255ee763">cfei.h</a>
+</li>
+<li>FEI_initCRMult()
+: <a class="el" href="cfei_8h.html#a8b385ef969e80b629d0b1a3b001764bb">cfei.h</a>
+</li>
+<li>FEI_initCRPen()
+: <a class="el" href="cfei_8h.html#a31b1d882d2023c448a24083754289352">cfei.h</a>
+</li>
+<li>FEI_initElem()
+: <a class="el" href="cfei_8h.html#ad6ffdf64697c8831d1cb8bb79da24cbd">cfei.h</a>
+</li>
+<li>FEI_initElemBlock()
+: <a class="el" href="cfei_8h.html#a5dc4b9d18f280a9b85d226873b48b196">cfei.h</a>
+</li>
+<li>FEI_initFields()
+: <a class="el" href="cfei_8h.html#a816edcbe6308b6ed94bce7ec93b675e6">cfei.h</a>
+</li>
+<li>FEI_initSharedNodes()
+: <a class="el" href="cfei_8h.html#ab8298d64f41a155b26846cc65ecf0c9e">cfei.h</a>
+</li>
+<li>FEI_initSlaveVariable()
+: <a class="el" href="cfei_8h.html#a5da681590c85511c83510caf1ddf47a0">cfei.h</a>
+</li>
+<li>FEI_iterations()
+: <a class="el" href="cfei_8h.html#a3e2cf66672634aa8c0bdd82076a41575">cfei.h</a>
+</li>
+<li>FEI_loadComplete()
+: <a class="el" href="cfei_8h.html#ac97a29d1f5b13e2c700ec2b73f67be44">cfei.h</a>
+</li>
+<li>FEI_loadCRMult()
+: <a class="el" href="cfei_8h.html#a81a6bafe9f0253ea7dfce274deb5d22c">cfei.h</a>
+</li>
+<li>FEI_loadCRPen()
+: <a class="el" href="cfei_8h.html#a3889928200cb3fe93b121daab9bd4a89">cfei.h</a>
+</li>
+<li>FEI_loadElemBCs()
+: <a class="el" href="cfei_8h.html#ac25c4a45495844d5aa06978b9cdf363e">cfei.h</a>
+</li>
+<li>FEI_loadElemTransfer()
+: <a class="el" href="cfei_8h.html#a7b0b8e58991979883487009973d6994e">cfei.h</a>
+</li>
+<li>FEI_loadNodeBCs()
+: <a class="el" href="cfei_8h.html#a3b7d1eacf393fadc68e21cab1388a753">cfei.h</a>
+</li>
+<li>FEI_parameters()
+: <a class="el" href="cfei_8h.html#a795daf9138d48da9b0d784accbe344c7">cfei.h</a>
+</li>
+<li>FEI_putBlockElemSolution()
+: <a class="el" href="cfei_8h.html#aaab7c154d7ea39a86dd2b6263f471927">cfei.h</a>
+</li>
+<li>FEI_putBlockFieldNodeSolution()
+: <a class="el" href="cfei_8h.html#abd2b62ae7396a696ce7269c60c192003">cfei.h</a>
+</li>
+<li>FEI_putBlockNodeSolution()
+: <a class="el" href="cfei_8h.html#a2e7543a14552bbfcf69aa3fb66403d98">cfei.h</a>
+</li>
+<li>FEI_putCRMultipliers()
+: <a class="el" href="cfei_8h.html#a521f20a55ab382811cdec3e1955cdd1d">cfei.h</a>
+</li>
+<li>FEI_putIntoMatrix()
+: <a class="el" href="cfei_8h.html#aaefb8e755109959a8d2f06592fbfc6dc">cfei.h</a>
+</li>
+<li>FEI_putIntoRHS()
+: <a class="el" href="cfei_8h.html#a117dce4ab32582ca8674184ab819061b">cfei.h</a>
+</li>
+<li>FEI_putNodalFieldData()
+: <a class="el" href="cfei_8h.html#ad7d3b5bf1ad795b72a9ef32834efe3cc">cfei.h</a>
+</li>
+<li>FEI_resetInitialGuess()
+: <a class="el" href="cfei_8h.html#abf6cc4684607d73886ed34bfb7af7753">cfei.h</a>
+</li>
+<li>FEI_resetMatrix()
+: <a class="el" href="cfei_8h.html#adc8c076a29a911f998d8d2ab39d254c9">cfei.h</a>
+</li>
+<li>FEI_resetRHSVector()
+: <a class="el" href="cfei_8h.html#ac9f76c2f921ec9b8acd48b3572097081">cfei.h</a>
+</li>
+<li>FEI_resetSystem()
+: <a class="el" href="cfei_8h.html#a5d82118014488dd9f0c11b32610d9b15">cfei.h</a>
+</li>
+<li>FEI_residualNorm()
+: <a class="el" href="cfei_8h.html#aa0acc356464df3de5057ed005812a0a8">cfei.h</a>
+</li>
+<li>FEI_setCurrentMatrix()
+: <a class="el" href="cfei_8h.html#a7fe464d9c08c7269ece10f2fc44da812">cfei.h</a>
+</li>
+<li>FEI_setCurrentRHS()
+: <a class="el" href="cfei_8h.html#a56b97eded73897c66c5291cd0f192121">cfei.h</a>
+</li>
+<li>FEI_setIDLists()
+: <a class="el" href="cfei_8h.html#a08b2c0aa6e146c24bf8caad93a819b2e">cfei.h</a>
+</li>
+<li>FEI_setMatScalars()
+: <a class="el" href="cfei_8h.html#afa2af1888618f44afd1c418eb3fad045">cfei.h</a>
+</li>
+<li>FEI_setRHSScalars()
+: <a class="el" href="cfei_8h.html#a5650d9dca4bbc551f5e109b1c64c9d8c">cfei.h</a>
+</li>
+<li>FEI_setSolveType()
+: <a class="el" href="cfei_8h.html#acdb2b2d5136f1f77f639725c96d018ce">cfei.h</a>
+</li>
+<li>FEI_solve()
+: <a class="el" href="cfei_8h.html#acccfdb2111b6307385e97c7a854e5f1e">cfei.h</a>
+</li>
+<li>FEI_sumInElem()
+: <a class="el" href="cfei_8h.html#ac57cd0c4a178d486d4a5c20a976aecda">cfei.h</a>
+</li>
+<li>FEI_sumInElemMatrix()
+: <a class="el" href="cfei_8h.html#a93301ed643d398a1f83eb4ebf9a970ca">cfei.h</a>
+</li>
+<li>FEI_sumInElemRHS()
+: <a class="el" href="cfei_8h.html#a8afa04385d83d555f8aff506875631ab">cfei.h</a>
+</li>
+<li>FEI_sumIntoMatrix()
+: <a class="el" href="cfei_8h.html#a4a6d9e65a900313e037538a52fc9a5d2">cfei.h</a>
+</li>
+<li>FEI_sumIntoRHS()
+: <a class="el" href="cfei_8h.html#a49355b05e828a4732812bc8a31ef808a">cfei.h</a>
+</li>
+<li>FEI_version()
+: <a class="el" href="cfei_8h.html#a77b9936a56aca620c5f8805ad43dcd13">cfei.h</a>
+</li>
+<li>ffun()
+: <a class="el" href="__hypre__parcsr__ls_8h.html#a37cbee29a2ecb9c2c7256b7f8b025c78">_hypre_parcsr_ls.h</a>
+</li>
+<li>fixupL()
+: <a class="el" href="slu__zdefs_8h.html#a7061332d759d7e4d73c1b2e5cb0bf2bf">slu_zdefs.h</a>
+, <a class="el" href="slu__cdefs_8h.html#a7061332d759d7e4d73c1b2e5cb0bf2bf">slu_cdefs.h</a>
+, <a class="el" href="slu__sdefs_8h.html#a7061332d759d7e4d73c1b2e5cb0bf2bf">slu_sdefs.h</a>
+, <a class="el" href="slu__ddefs_8h.html#a7061332d759d7e4d73c1b2e5cb0bf2bf">slu_ddefs.h</a>
+</li>
+<li>floatCalloc()
+: <a class="el" href="slu__sdefs_8h.html#a3e1230bff11a9e47c35555299bcdcf1b">slu_sdefs.h</a>
+, <a class="el" href="slu__cdefs_8h.html#a3e1230bff11a9e47c35555299bcdcf1b">slu_cdefs.h</a>
+</li>
+<li>floatMalloc()
+: <a class="el" href="slu__cdefs_8h.html#a42361c3ce2ba81d149ffba01fbd6f138">slu_cdefs.h</a>
+, <a class="el" href="slu__sdefs_8h.html#a42361c3ce2ba81d149ffba01fbd6f138">slu_sdefs.h</a>
+</li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

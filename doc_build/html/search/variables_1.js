@@ -1,0 +1,23 @@
+var searchData=
+[
+  ['b_9653',['b',['../struct_h_y_p_r_e___par_c_s_r___system___problem.html#a83c70c3671fd11286f7bcff04de752a3',1,'HYPRE_ParCSR_System_Problem']]],
+  ['b_5fvec_9654',['b_vec',['../structhypre___par_a_m_g_data.html#a275638f60c0c90c740a6d094981e2665',1,'hypre_ParAMGData']]],
+  ['bdryranks_5fl_9655',['BdryRanks_l',['../structhypre___maxwell_data.html#aaf6258b532ddc236c1e876774a21e13d',1,'hypre_MaxwellData']]],
+  ['bdryrankscnts_5fl_9656',['BdryRanksCnts_l',['../structhypre___maxwell_data.html#a415b53078404195117cd1a5fc46eca95',1,'hypre_MaxwellData']]],
+  ['be_5fl_9657',['be_l',['../structhypre___maxwell_data.html#a738c77e010e0fdb1e7ac03116b1cfe39',1,'hypre_MaxwellData']]],
+  ['bghost_5fnot_5fclear_9658',['bghost_not_clear',['../structhypre___struct_vector__struct.html#ab7f465d65d04c36d36755dd05fb9611a',1,'hypre_StructVector_struct']]],
+  ['block_5fmode_9659',['block_mode',['../structhypre___par_a_m_g_data.html#ab8596776d9dfdfb76cac15a4939f6be6',1,'hypre_ParAMGData']]],
+  ['block_5fsize_9660',['block_size',['../structhypre___c_s_r_block_matrix.html#ac617e96d25797bacf1eca76673414ca9',1,'hypre_CSRBlockMatrix']]],
+  ['bn_9661',['bn',['../structhypre___maxwell_data.html#a600b741694065c108a0238e765091300',1,'hypre_MaxwellData']]],
+  ['bn_5fl_9662',['bn_l',['../structhypre___maxwell_data.html#a788b43a287c8aa82e8894fbaa44dd0ac',1,'hypre_MaxwellData']]],
+  ['bounding_5fbox_9663',['bounding_box',['../structhypre___box_manager.html#a4a4d62f4f7c91d1653111b4fd63f33b9',1,'hypre_BoxManager::bounding_box()'],['../structhypre___struct_grid__struct.html#a9db6aa89869ae92f6d3846af4d79a627',1,'hypre_StructGrid_struct::bounding_box()']]],
+  ['box_9664',['box',['../structhypre___s_struct_neighbor.html#a02359bcbcabb45c28b1cec5f90c6bc56',1,'hypre_SStructNeighbor']]],
+  ['box_5farrays_9665',['box_arrays',['../structhypre___box_array_array__struct.html#ac7618c4a1da08a57cd8f25d687feffd5',1,'hypre_BoxArrayArray_struct']]],
+  ['boxes_9666',['boxes',['../structhypre___box_array__struct.html#a4b355bf6a14d863cdc00eb1865924212',1,'hypre_BoxArray_struct::boxes()'],['../structhypre___struct_grid__struct.html#a3f5e4f9429011eebf62c08d0052e125b',1,'hypre_StructGrid_struct::boxes()']]],
+  ['boxes_5fmatch_9667',['boxes_match',['../structhypre___comm_info__struct.html#aa2976ac7a4f8a4387566188e40b41c33',1,'hypre_CommInfo_struct']]],
+  ['boxman_9668',['boxman',['../structhypre___box_man_entry__struct.html#ae6acc623a350c17090d6e8de966cb74a',1,'hypre_BoxManEntry_struct::boxman()'],['../structhypre___struct_grid__struct.html#a2c88299b767968d3674d0d8e83c9b26f',1,'hypre_StructGrid_struct::boxman()']]],
+  ['boxmans_9669',['boxmans',['../structhypre___s_struct_grid__struct.html#aeddd32a4f3d4dcb213fc7cb38e081cff',1,'hypre_SStructGrid_struct']]],
+  ['boxnum_9670',['boxnum',['../structhypre___s_struct_box_man_nbor_info.html#a7b5641243e2ffbade6c2664de2372d15',1,'hypre_SStructBoxManNborInfo']]],
+  ['bucketmask_9671',['bucketMask',['../structhypre___unordered_int_set.html#a768ea396c2ff5bfdc07cc91796aaa8a6',1,'hypre_UnorderedIntSet::bucketMask()'],['../structhypre___unordered_int_map.html#a6cb03c59c7b639a73811f26491b13893',1,'hypre_UnorderedIntMap::bucketMask()']]],
+  ['bufsize_9672',['bufsize',['../structhypre___comm_type__struct.html#a3be28d37a834f5818dd06e224e497e8c',1,'hypre_CommType_struct']]]
+];

@@ -1,0 +1,3374 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="TDMA_PDD_cpu" />
+<meta property="og:image" content="../preview.png" />
+<meta property="og:description" content="Documentation for Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD_cpu" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="../preview.png" />
+<meta property="og:title" content="TDMA_PDD_cpu" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD_cpu" />
+<!-- END twitter metadata -->
+<title>TDMA_PDD_CPU: include/hypre-2.11.1/cfei.h File Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            messageStyle: "normal",
+            linebreaks: {
+                automatic: false
+            }
+        },
+        tex2jax: { 
+            inlineMath: [["\\(","\\)"]], 
+            displayMath: [["$$","$$"],["\\[","\\]"]], 
+            processEscapes: true
+        },
+        TeX: {
+            Macros: {
+                tr: "{\\scriptscriptstyle\\mathrm{T}}",
+            }
+        }
+    });
+</script>
+<!--MathJax(LaTeX) -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <script type="text/javascript" id="MathJax-script" async  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">  </script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="custom-alternative.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/hugh577/TDMA_PDD_cpu" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 65px;">
+  <td id="projectlogo">
+    <a href="./index.html">
+        <img alt="Logo" src="home.png"/></td>
+    </a>
+  <td id="projectalign" style="padding-left: 0.5em;padding-top: 0.5em;">
+   <div id="projectname">TDMA_PDD_CPU
+   </div>
+   <div id="projectbrief">Documentation</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('cfei_8h.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle">
+<div class="title">cfei.h File Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;fei_LinSysCore_struct.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="fei__defs_8h_source.html">fei_defs.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="fei__mpi_8h_source.html">fei_mpi.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for cfei.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="cfei_8h__incl.png" border="0" usemap="#include_2hypre-2_811_81_2cfei_8h" alt=""/></div>
+</div>
+</div>
+<p><a href="cfei_8h_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_c_f_e_i__struct.html">CFEI_struct</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a696f87537d831e37ae443a5a621ddedb"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_c_f_e_i__struct.html">CFEI_struct</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a></td></tr>
+<tr class="separator:a696f87537d831e37ae443a5a621ddedb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ae48e1a7fc41304dbe2d6cd8c8d8f3d93"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#ae48e1a7fc41304dbe2d6cd8c8d8f3d93">FEI_create</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> **cfei, <a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *lsc, MPI_Comm FEI_COMM_WORLD, int masterRank)</td></tr>
+<tr class="separator:ae48e1a7fc41304dbe2d6cd8c8d8f3d93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab94cbeb1523e226821c88f316204db52"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#ab94cbeb1523e226821c88f316204db52">FEI_destroy</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> **cfei)</td></tr>
+<tr class="separator:ab94cbeb1523e226821c88f316204db52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a058f53aed3c7b10f139021e29c79b410"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#a058f53aed3c7b10f139021e29c79b410">LinSysCore_destroy</a> (<a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> **lsc)</td></tr>
+<tr class="separator:a058f53aed3c7b10f139021e29c79b410"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0373b43a201082bac35c13f9604ac6f4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#a0373b43a201082bac35c13f9604ac6f4">LinSysCore_getProperty_double</a> (<a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *lsc, const char *name, double *value)</td></tr>
+<tr class="separator:a0373b43a201082bac35c13f9604ac6f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a795daf9138d48da9b0d784accbe344c7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#a795daf9138d48da9b0d784accbe344c7">FEI_parameters</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, int numParams, char **paramStrings)</td></tr>
+<tr class="separator:a795daf9138d48da9b0d784accbe344c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08b2c0aa6e146c24bf8caad93a819b2e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#a08b2c0aa6e146c24bf8caad93a819b2e">FEI_setIDLists</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, int numMatrices, const int *matrixIDs, int numRHSs, const int *rhsIDs)</td></tr>
+<tr class="separator:a08b2c0aa6e146c24bf8caad93a819b2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acdb2b2d5136f1f77f639725c96d018ce"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#acdb2b2d5136f1f77f639725c96d018ce">FEI_setSolveType</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, int solveType)</td></tr>
+<tr class="separator:acdb2b2d5136f1f77f639725c96d018ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a816edcbe6308b6ed94bce7ec93b675e6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#a816edcbe6308b6ed94bce7ec93b675e6">FEI_initFields</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, int numFields, int *fieldSizes, int *fieldIDs)</td></tr>
+<tr class="separator:a816edcbe6308b6ed94bce7ec93b675e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dc4b9d18f280a9b85d226873b48b196"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#a5dc4b9d18f280a9b85d226873b48b196">FEI_initElemBlock</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> elemBlockID, int numElements, int numNodesPerElement, int *numFieldsPerNode, int **nodalFieldIDs, int numElemDofFieldsPerElement, int *elemDOFFieldIDs, int interleaveStrategy)</td></tr>
+<tr class="separator:a5dc4b9d18f280a9b85d226873b48b196"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6ffdf64697c8831d1cb8bb79da24cbd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#ad6ffdf64697c8831d1cb8bb79da24cbd">FEI_initElem</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> elemBlockID, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> elemID, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *elemConn)</td></tr>
+<tr class="separator:ad6ffdf64697c8831d1cb8bb79da24cbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8298d64f41a155b26846cc65ecf0c9e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#ab8298d64f41a155b26846cc65ecf0c9e">FEI_initSharedNodes</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, int numSharedNodes, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *sharedNodeIDs, int *numProcsPerNode, int **sharingProcIDs)</td></tr>
+<tr class="separator:ab8298d64f41a155b26846cc65ecf0c9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b385ef969e80b629d0b1a3b001764bb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#a8b385ef969e80b629d0b1a3b001764bb">FEI_initCRMult</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, int numCRNodes, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *CRNodes, int *CRFields, int *CRID)</td></tr>
+<tr class="separator:a8b385ef969e80b629d0b1a3b001764bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31b1d882d2023c448a24083754289352"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#a31b1d882d2023c448a24083754289352">FEI_initCRPen</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, int numCRNodes, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *CRNodes, int *CRFields, int *CRID)</td></tr>
+<tr class="separator:a31b1d882d2023c448a24083754289352"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5da681590c85511c83510caf1ddf47a0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#a5da681590c85511c83510caf1ddf47a0">FEI_initSlaveVariable</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> slaveNodeID, int slaveFieldID, int offsetIntoSlaveField, int numMasterNodes, const <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *masterNodeIDs, const int *masterFieldIDs, const double *weights, double rhsValue)</td></tr>
+<tr class="separator:a5da681590c85511c83510caf1ddf47a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f774db3f39e29a94f29b8bcc67ca129"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#a9f774db3f39e29a94f29b8bcc67ca129">FEI_initCoefAccessPattern</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, int patternID, int numRowIDs, int *numFieldsPerRow, int **rowFieldIDs, int numColIDsPerRow, int *numFieldsPerCol, int **colFieldIDs, int interleaveStrategy)</td></tr>
+<tr class="separator:a9f774db3f39e29a94f29b8bcc67ca129"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbbd6a827208505afc5394b66ac6d55d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#abbbd6a827208505afc5394b66ac6d55d">FEI_initCoefAccess</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, int patternID, int *rowIDTypes, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *rowIDs, int *colIDTypes, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *colIDs)</td></tr>
+<tr class="separator:abbbd6a827208505afc5394b66ac6d55d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a715fcdc1ccff80714f630596255ee763"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#a715fcdc1ccff80714f630596255ee763">FEI_initComplete</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei)</td></tr>
+<tr class="separator:a715fcdc1ccff80714f630596255ee763"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d82118014488dd9f0c11b32610d9b15"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#a5d82118014488dd9f0c11b32610d9b15">FEI_resetSystem</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, double s)</td></tr>
+<tr class="separator:a5d82118014488dd9f0c11b32610d9b15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc8c076a29a911f998d8d2ab39d254c9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#adc8c076a29a911f998d8d2ab39d254c9">FEI_resetMatrix</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, double s)</td></tr>
+<tr class="separator:adc8c076a29a911f998d8d2ab39d254c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9f76c2f921ec9b8acd48b3572097081"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#ac9f76c2f921ec9b8acd48b3572097081">FEI_resetRHSVector</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, double s)</td></tr>
+<tr class="separator:ac9f76c2f921ec9b8acd48b3572097081"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf6cc4684607d73886ed34bfb7af7753"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#abf6cc4684607d73886ed34bfb7af7753">FEI_resetInitialGuess</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, double s)</td></tr>
+<tr class="separator:abf6cc4684607d73886ed34bfb7af7753"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bb625a0096daedad088bd7f55282c1b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#a1bb625a0096daedad088bd7f55282c1b">FEI_deleteMultCRs</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei)</td></tr>
+<tr class="separator:a1bb625a0096daedad088bd7f55282c1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fe464d9c08c7269ece10f2fc44da812"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#a7fe464d9c08c7269ece10f2fc44da812">FEI_setCurrentMatrix</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, int matID)</td></tr>
+<tr class="separator:a7fe464d9c08c7269ece10f2fc44da812"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56b97eded73897c66c5291cd0f192121"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#a56b97eded73897c66c5291cd0f192121">FEI_setCurrentRHS</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, int rhsID)</td></tr>
+<tr class="separator:a56b97eded73897c66c5291cd0f192121"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b7d1eacf393fadc68e21cab1388a753"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#a3b7d1eacf393fadc68e21cab1388a753">FEI_loadNodeBCs</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, int numNodes, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *BCNodes, int fieldID, int *offsetsIntoField, double *prescribed_values)</td></tr>
+<tr class="separator:a3b7d1eacf393fadc68e21cab1388a753"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac25c4a45495844d5aa06978b9cdf363e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#ac25c4a45495844d5aa06978b9cdf363e">FEI_loadElemBCs</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, int numElems, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *elemIDs, int fieldID, double **alpha, double **beta, double **gamma)</td></tr>
+<tr class="separator:ac25c4a45495844d5aa06978b9cdf363e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac57cd0c4a178d486d4a5c20a976aecda"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#ac57cd0c4a178d486d4a5c20a976aecda">FEI_sumInElem</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> elemBlockID, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> elemID, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *elemConn, double **elemStiffness, double *elemLoad, int elemFormat)</td></tr>
+<tr class="separator:ac57cd0c4a178d486d4a5c20a976aecda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93301ed643d398a1f83eb4ebf9a970ca"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#a93301ed643d398a1f83eb4ebf9a970ca">FEI_sumInElemMatrix</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> elemBlockID, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> elemID, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *elemConn, double **elemStiffness, int elemFormat)</td></tr>
+<tr class="separator:a93301ed643d398a1f83eb4ebf9a970ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8afa04385d83d555f8aff506875631ab"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#a8afa04385d83d555f8aff506875631ab">FEI_sumInElemRHS</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> elemBlockID, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> elemID, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *elemConn, double *elemLoad)</td></tr>
+<tr class="separator:a8afa04385d83d555f8aff506875631ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b0b8e58991979883487009973d6994e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#a7b0b8e58991979883487009973d6994e">FEI_loadElemTransfer</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> elemBlockID, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> elemID, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *coarseNodeList, int fineNodesPerCoarseElem, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *fineNodeList, double **elemProlong, double **elemRestrict)</td></tr>
+<tr class="separator:a7b0b8e58991979883487009973d6994e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81a6bafe9f0253ea7dfce274deb5d22c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#a81a6bafe9f0253ea7dfce274deb5d22c">FEI_loadCRMult</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, int CRID, int numCRNodes, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *CRNodes, int *CRFields, double *CRWeights, double CRValue)</td></tr>
+<tr class="separator:a81a6bafe9f0253ea7dfce274deb5d22c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3889928200cb3fe93b121daab9bd4a89"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#a3889928200cb3fe93b121daab9bd4a89">FEI_loadCRPen</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, int CRID, int numCRNodes, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *CRNodes, int *CRFields, double *CRWeights, double CRValue, double penValue)</td></tr>
+<tr class="separator:a3889928200cb3fe93b121daab9bd4a89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a6d9e65a900313e037538a52fc9a5d2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#a4a6d9e65a900313e037538a52fc9a5d2">FEI_sumIntoMatrix</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, int patternID, int *rowIDTypes, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *rowIDs, int *colIDTypes, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *colIDs, double **matrixEntries)</td></tr>
+<tr class="separator:a4a6d9e65a900313e037538a52fc9a5d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4ce067eb22214f546c02a8d58bf4eca"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#ac4ce067eb22214f546c02a8d58bf4eca">FEI_getFromMatrix</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, int patternID, int *rowIDTypes, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *rowIDs, int *colIDTypes, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *colIDs, double **matrixEntries)</td></tr>
+<tr class="separator:ac4ce067eb22214f546c02a8d58bf4eca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaefb8e755109959a8d2f06592fbfc6dc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#aaefb8e755109959a8d2f06592fbfc6dc">FEI_putIntoMatrix</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, int patternID, int *rowIDTypes, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *rowIDs, int *colIDTypes, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *colIDs, double **matrixEntries)</td></tr>
+<tr class="separator:aaefb8e755109959a8d2f06592fbfc6dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49355b05e828a4732812bc8a31ef808a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#a49355b05e828a4732812bc8a31ef808a">FEI_sumIntoRHS</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, int patternID, int *IDTypes, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *IDs, double *vectorEntries)</td></tr>
+<tr class="separator:a49355b05e828a4732812bc8a31ef808a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3022146b1643018b222321464086495c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#a3022146b1643018b222321464086495c">FEI_getFromRHS</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, int patternID, int *IDTypes, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *IDs, double *vectorEntries)</td></tr>
+<tr class="separator:a3022146b1643018b222321464086495c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a117dce4ab32582ca8674184ab819061b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#a117dce4ab32582ca8674184ab819061b">FEI_putIntoRHS</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, int patternID, int *IDTypes, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *IDs, double *vectorEntries)</td></tr>
+<tr class="separator:a117dce4ab32582ca8674184ab819061b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa2af1888618f44afd1c418eb3fad045"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#afa2af1888618f44afd1c418eb3fad045">FEI_setMatScalars</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, int numScalars, int *IDs, double *scalars)</td></tr>
+<tr class="separator:afa2af1888618f44afd1c418eb3fad045"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5650d9dca4bbc551f5e109b1c64c9d8c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#a5650d9dca4bbc551f5e109b1c64c9d8c">FEI_setRHSScalars</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, int numScalars, int *IDs, double *scalars)</td></tr>
+<tr class="separator:a5650d9dca4bbc551f5e109b1c64c9d8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac97a29d1f5b13e2c700ec2b73f67be44"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#ac97a29d1f5b13e2c700ec2b73f67be44">FEI_loadComplete</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei)</td></tr>
+<tr class="separator:ac97a29d1f5b13e2c700ec2b73f67be44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0acc356464df3de5057ed005812a0a8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#aa0acc356464df3de5057ed005812a0a8">FEI_residualNorm</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, int whichNorm, int numFields, int *fieldIDs, double *norms)</td></tr>
+<tr class="separator:aa0acc356464df3de5057ed005812a0a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acccfdb2111b6307385e97c7a854e5f1e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#acccfdb2111b6307385e97c7a854e5f1e">FEI_solve</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, int *status)</td></tr>
+<tr class="separator:acccfdb2111b6307385e97c7a854e5f1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e2cf66672634aa8c0bdd82076a41575"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#a3e2cf66672634aa8c0bdd82076a41575">FEI_iterations</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, int *itersTaken)</td></tr>
+<tr class="separator:a3e2cf66672634aa8c0bdd82076a41575"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a552822e4ca63de917981483374408aba"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#a552822e4ca63de917981483374408aba">FEI_getFieldSize</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, int fieldID, int *numScalars)</td></tr>
+<tr class="separator:a552822e4ca63de917981483374408aba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9c5d3b8425c315a08863c3fc0747bad"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#ab9c5d3b8425c315a08863c3fc0747bad">FEI_getEqnNumbers</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> ID, int idType, int fieldID, int *numEqns, int *eqnNumbers)</td></tr>
+<tr class="separator:ab9c5d3b8425c315a08863c3fc0747bad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85f4853309ebf229ec185b6ef55f3402"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#a85f4853309ebf229ec185b6ef55f3402">FEI_getNodalFieldSolution</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, int fieldID, int numNodes, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *nodeIDs, double *results)</td></tr>
+<tr class="separator:a85f4853309ebf229ec185b6ef55f3402"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac115265b2e53ca9cc68687d44ada77d9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#ac115265b2e53ca9cc68687d44ada77d9">FEI_getNumLocalNodes</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, int *numNodes)</td></tr>
+<tr class="separator:ac115265b2e53ca9cc68687d44ada77d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52920ec79e970cef58af8682bdccdb7e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#a52920ec79e970cef58af8682bdccdb7e">FEI_getLocalNodeIDList</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, int *numNodes, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *nodeIDs, int lenNodeIDs)</td></tr>
+<tr class="separator:a52920ec79e970cef58af8682bdccdb7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77b9936a56aca620c5f8805ad43dcd13"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#a77b9936a56aca620c5f8805ad43dcd13">FEI_version</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, const char **versionStringPtr)</td></tr>
+<tr class="separator:a77b9936a56aca620c5f8805ad43dcd13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7c51ce31db61d4ffe41e2b3e7daf507"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#aa7c51ce31db61d4ffe41e2b3e7daf507">FEI_cumulative_cpu_times</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, double *initTime, double *loadTime, double *solveTime, double *solnReturnTime)</td></tr>
+<tr class="separator:aa7c51ce31db61d4ffe41e2b3e7daf507"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacb7ecfdfb4e9c0c410d48cb6961596b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#aacb7ecfdfb4e9c0c410d48cb6961596b">FEI_allocatedSize</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, int *bytes)</td></tr>
+<tr class="separator:aacb7ecfdfb4e9c0c410d48cb6961596b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4da78345e55cb8f2275e02c90a74854a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#a4da78345e55cb8f2275e02c90a74854a">FEI_getBlockNodeSolution</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> elemBlockID, int numNodes, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *nodeIDs, int *offsets, double *results)</td></tr>
+<tr class="separator:a4da78345e55cb8f2275e02c90a74854a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80443afd518451a3d27e47187d637040"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#a80443afd518451a3d27e47187d637040">FEI_getBlockFieldNodeSolution</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> elemBlockID, int fieldID, int numNodes, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *nodeIDs, double *results)</td></tr>
+<tr class="separator:a80443afd518451a3d27e47187d637040"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace74e2698bbfb93c2c9dbb2f3637cdbb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#ace74e2698bbfb93c2c9dbb2f3637cdbb">FEI_getBlockElemSolution</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> elemBlockID, int numElems, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *elemIDs, int *numElemDOFPerElement, double *results)</td></tr>
+<tr class="separator:ace74e2698bbfb93c2c9dbb2f3637cdbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a3bac400c1869b45880a5658ab4d162"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#a6a3bac400c1869b45880a5658ab4d162">FEI_getNumCRMultipliers</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, int *numMultCRs)</td></tr>
+<tr class="separator:a6a3bac400c1869b45880a5658ab4d162"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa657d90fcbdec4cb572a8137188f992a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#aa657d90fcbdec4cb572a8137188f992a">FEI_getCRMultIDList</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, int numMultCRs, int *multIDs)</td></tr>
+<tr class="separator:aa657d90fcbdec4cb572a8137188f992a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef702a36b5a57d1d4a06b56ff221de07"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#aef702a36b5a57d1d4a06b56ff221de07">FEI_getCRMultipliers</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, int numMultCRs, int *CRIDs, double *multipliers)</td></tr>
+<tr class="separator:aef702a36b5a57d1d4a06b56ff221de07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e7543a14552bbfcf69aa3fb66403d98"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#a2e7543a14552bbfcf69aa3fb66403d98">FEI_putBlockNodeSolution</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> elemBlockID, int numNodes, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *nodeIDs, int *offsets, double *estimates)</td></tr>
+<tr class="separator:a2e7543a14552bbfcf69aa3fb66403d98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7d3b5bf1ad795b72a9ef32834efe3cc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#ad7d3b5bf1ad795b72a9ef32834efe3cc">FEI_putNodalFieldData</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, int fieldID, int numNodes, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *nodeIDs, double *nodeData)</td></tr>
+<tr class="separator:ad7d3b5bf1ad795b72a9ef32834efe3cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd2b62ae7396a696ce7269c60c192003"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#abd2b62ae7396a696ce7269c60c192003">FEI_putBlockFieldNodeSolution</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> elemBlockID, int fieldID, int numNodes, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *nodeIDs, double *estimates)</td></tr>
+<tr class="separator:abd2b62ae7396a696ce7269c60c192003"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaab7c154d7ea39a86dd2b6263f471927"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#aaab7c154d7ea39a86dd2b6263f471927">FEI_putBlockElemSolution</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> elemBlockID, int numElems, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *elemIDs, int dofPerElem, double *estimates)</td></tr>
+<tr class="separator:aaab7c154d7ea39a86dd2b6263f471927"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a521f20a55ab382811cdec3e1955cdd1d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#a521f20a55ab382811cdec3e1955cdd1d">FEI_putCRMultipliers</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, int numMultCRs, int *CRIDs, double *multEstimates)</td></tr>
+<tr class="separator:a521f20a55ab382811cdec3e1955cdd1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3d61fc6b59efd637b2f06b6064d6997"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#ac3d61fc6b59efd637b2f06b6064d6997">FEI_getBlockNodeIDList</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> elemBlockID, int numNodes, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *nodeIDs)</td></tr>
+<tr class="separator:ac3d61fc6b59efd637b2f06b6064d6997"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f75a7d6ce8dd2663faefd4aab43de55"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#a3f75a7d6ce8dd2663faefd4aab43de55">FEI_getBlockElemIDList</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> elemBlockID, int numElems, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *elemIDs)</td></tr>
+<tr class="separator:a3f75a7d6ce8dd2663faefd4aab43de55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5b40acfcc8913a6a730c4ccaf3a28d5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#ab5b40acfcc8913a6a730c4ccaf3a28d5">FEI_getNumSolnParams</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> nodeID, int *numSolnParams)</td></tr>
+<tr class="separator:ab5b40acfcc8913a6a730c4ccaf3a28d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe4ca4279d9ad5885e8f3df365e8c26b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#abe4ca4279d9ad5885e8f3df365e8c26b">FEI_getNumElemBlocks</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, int *numElemBlocks)</td></tr>
+<tr class="separator:abe4ca4279d9ad5885e8f3df365e8c26b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac21b828d77646c1a4a6a1a2d2dbff407"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#ac21b828d77646c1a4a6a1a2d2dbff407">FEI_getNumBlockActNodes</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> blockID, int *numNodes)</td></tr>
+<tr class="separator:ac21b828d77646c1a4a6a1a2d2dbff407"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7f045cf6f8c4fb45863a53b7e4b49ae"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#af7f045cf6f8c4fb45863a53b7e4b49ae">FEI_getNumBlockActEqns</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> blockID, int *numEqns)</td></tr>
+<tr class="separator:af7f045cf6f8c4fb45863a53b7e4b49ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad24dd24795e6c5a2bd26870060239860"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#ad24dd24795e6c5a2bd26870060239860">FEI_getNumNodesPerElement</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> blockID, int *nodesPerElem)</td></tr>
+<tr class="separator:ad24dd24795e6c5a2bd26870060239860"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a8d1ddd6bade87bf80d4fe9f259a8e1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#a5a8d1ddd6bade87bf80d4fe9f259a8e1">FEI_getNumEqnsPerElement</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> blockID, int *numEqns)</td></tr>
+<tr class="separator:a5a8d1ddd6bade87bf80d4fe9f259a8e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18131bf3d5fa2bfefc6ff306d654f5e1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#a18131bf3d5fa2bfefc6ff306d654f5e1">FEI_getNumBlockElements</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> blockID, int *numElems)</td></tr>
+<tr class="separator:a18131bf3d5fa2bfefc6ff306d654f5e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa28834f0f3cdbb48e1b716310095fa5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cfei_8h.html#aaa28834f0f3cdbb48e1b716310095fa5">FEI_getNumBlockElemDOF</a> (<a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *cfei, <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> blockID, int *DOFPerElem)</td></tr>
+<tr class="separator:aaa28834f0f3cdbb48e1b716310095fa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="a696f87537d831e37ae443a5a621ddedb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a696f87537d831e37ae443a5a621ddedb">&#9670;&nbsp;</a></span>CFEI</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_c_f_e_i__struct.html">CFEI_struct</a> <a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="cfei_8h_source.html#l00046">46</a> of file <a class="el" href="cfei_8h_source.html">cfei.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="aacb7ecfdfb4e9c0c410d48cb6961596b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacb7ecfdfb4e9c0c410d48cb6961596b">&#9670;&nbsp;</a></span>FEI_allocatedSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_allocatedSize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>bytes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae48e1a7fc41304dbe2d6cd8c8d8f3d93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae48e1a7fc41304dbe2d6cd8c8d8f3d93">&#9670;&nbsp;</a></span>FEI_create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_create </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> **&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *&#160;</td>
+          <td class="paramname"><em>lsc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MPI_Comm&#160;</td>
+          <td class="paramname"><em>FEI_COMM_WORLD</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>masterRank</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa7c51ce31db61d4ffe41e2b3e7daf507"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7c51ce31db61d4ffe41e2b3e7daf507">&#9670;&nbsp;</a></span>FEI_cumulative_cpu_times()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_cumulative_cpu_times </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>initTime</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>loadTime</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>solveTime</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>solnReturnTime</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1bb625a0096daedad088bd7f55282c1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bb625a0096daedad088bd7f55282c1b">&#9670;&nbsp;</a></span>FEI_deleteMultCRs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_deleteMultCRs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab94cbeb1523e226821c88f316204db52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab94cbeb1523e226821c88f316204db52">&#9670;&nbsp;</a></span>FEI_destroy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_destroy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> **&#160;</td>
+          <td class="paramname"><em>cfei</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3f75a7d6ce8dd2663faefd4aab43de55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f75a7d6ce8dd2663faefd4aab43de55">&#9670;&nbsp;</a></span>FEI_getBlockElemIDList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_getBlockElemIDList </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a>&#160;</td>
+          <td class="paramname"><em>elemBlockID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numElems</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>elemIDs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ace74e2698bbfb93c2c9dbb2f3637cdbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace74e2698bbfb93c2c9dbb2f3637cdbb">&#9670;&nbsp;</a></span>FEI_getBlockElemSolution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_getBlockElemSolution </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a>&#160;</td>
+          <td class="paramname"><em>elemBlockID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numElems</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>elemIDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>numElemDOFPerElement</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>results</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a80443afd518451a3d27e47187d637040"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80443afd518451a3d27e47187d637040">&#9670;&nbsp;</a></span>FEI_getBlockFieldNodeSolution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_getBlockFieldNodeSolution </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a>&#160;</td>
+          <td class="paramname"><em>elemBlockID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fieldID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numNodes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>nodeIDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>results</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac3d61fc6b59efd637b2f06b6064d6997"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3d61fc6b59efd637b2f06b6064d6997">&#9670;&nbsp;</a></span>FEI_getBlockNodeIDList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_getBlockNodeIDList </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a>&#160;</td>
+          <td class="paramname"><em>elemBlockID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numNodes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>nodeIDs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4da78345e55cb8f2275e02c90a74854a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4da78345e55cb8f2275e02c90a74854a">&#9670;&nbsp;</a></span>FEI_getBlockNodeSolution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_getBlockNodeSolution </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a>&#160;</td>
+          <td class="paramname"><em>elemBlockID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numNodes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>nodeIDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>offsets</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>results</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa657d90fcbdec4cb572a8137188f992a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa657d90fcbdec4cb572a8137188f992a">&#9670;&nbsp;</a></span>FEI_getCRMultIDList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_getCRMultIDList </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numMultCRs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>multIDs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aef702a36b5a57d1d4a06b56ff221de07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef702a36b5a57d1d4a06b56ff221de07">&#9670;&nbsp;</a></span>FEI_getCRMultipliers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_getCRMultipliers </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numMultCRs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>CRIDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>multipliers</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab9c5d3b8425c315a08863c3fc0747bad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9c5d3b8425c315a08863c3fc0747bad">&#9670;&nbsp;</a></span>FEI_getEqnNumbers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_getEqnNumbers </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a>&#160;</td>
+          <td class="paramname"><em>ID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>idType</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fieldID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>numEqns</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>eqnNumbers</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a552822e4ca63de917981483374408aba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a552822e4ca63de917981483374408aba">&#9670;&nbsp;</a></span>FEI_getFieldSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_getFieldSize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fieldID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>numScalars</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac4ce067eb22214f546c02a8d58bf4eca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4ce067eb22214f546c02a8d58bf4eca">&#9670;&nbsp;</a></span>FEI_getFromMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_getFromMatrix </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>patternID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>rowIDTypes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>rowIDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>colIDTypes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>colIDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double **&#160;</td>
+          <td class="paramname"><em>matrixEntries</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3022146b1643018b222321464086495c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3022146b1643018b222321464086495c">&#9670;&nbsp;</a></span>FEI_getFromRHS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_getFromRHS </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>patternID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>IDTypes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>IDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>vectorEntries</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a52920ec79e970cef58af8682bdccdb7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52920ec79e970cef58af8682bdccdb7e">&#9670;&nbsp;</a></span>FEI_getLocalNodeIDList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_getLocalNodeIDList </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>numNodes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>nodeIDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lenNodeIDs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a85f4853309ebf229ec185b6ef55f3402"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85f4853309ebf229ec185b6ef55f3402">&#9670;&nbsp;</a></span>FEI_getNodalFieldSolution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_getNodalFieldSolution </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fieldID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numNodes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>nodeIDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>results</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af7f045cf6f8c4fb45863a53b7e4b49ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7f045cf6f8c4fb45863a53b7e4b49ae">&#9670;&nbsp;</a></span>FEI_getNumBlockActEqns()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_getNumBlockActEqns </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a>&#160;</td>
+          <td class="paramname"><em>blockID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>numEqns</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac21b828d77646c1a4a6a1a2d2dbff407"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac21b828d77646c1a4a6a1a2d2dbff407">&#9670;&nbsp;</a></span>FEI_getNumBlockActNodes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_getNumBlockActNodes </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a>&#160;</td>
+          <td class="paramname"><em>blockID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>numNodes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaa28834f0f3cdbb48e1b716310095fa5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa28834f0f3cdbb48e1b716310095fa5">&#9670;&nbsp;</a></span>FEI_getNumBlockElemDOF()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_getNumBlockElemDOF </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a>&#160;</td>
+          <td class="paramname"><em>blockID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>DOFPerElem</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a18131bf3d5fa2bfefc6ff306d654f5e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18131bf3d5fa2bfefc6ff306d654f5e1">&#9670;&nbsp;</a></span>FEI_getNumBlockElements()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_getNumBlockElements </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a>&#160;</td>
+          <td class="paramname"><em>blockID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>numElems</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6a3bac400c1869b45880a5658ab4d162"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a3bac400c1869b45880a5658ab4d162">&#9670;&nbsp;</a></span>FEI_getNumCRMultipliers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_getNumCRMultipliers </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>numMultCRs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abe4ca4279d9ad5885e8f3df365e8c26b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe4ca4279d9ad5885e8f3df365e8c26b">&#9670;&nbsp;</a></span>FEI_getNumElemBlocks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_getNumElemBlocks </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>numElemBlocks</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5a8d1ddd6bade87bf80d4fe9f259a8e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a8d1ddd6bade87bf80d4fe9f259a8e1">&#9670;&nbsp;</a></span>FEI_getNumEqnsPerElement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_getNumEqnsPerElement </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a>&#160;</td>
+          <td class="paramname"><em>blockID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>numEqns</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac115265b2e53ca9cc68687d44ada77d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac115265b2e53ca9cc68687d44ada77d9">&#9670;&nbsp;</a></span>FEI_getNumLocalNodes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_getNumLocalNodes </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>numNodes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad24dd24795e6c5a2bd26870060239860"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad24dd24795e6c5a2bd26870060239860">&#9670;&nbsp;</a></span>FEI_getNumNodesPerElement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_getNumNodesPerElement </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a>&#160;</td>
+          <td class="paramname"><em>blockID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>nodesPerElem</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab5b40acfcc8913a6a730c4ccaf3a28d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5b40acfcc8913a6a730c4ccaf3a28d5">&#9670;&nbsp;</a></span>FEI_getNumSolnParams()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_getNumSolnParams </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a>&#160;</td>
+          <td class="paramname"><em>nodeID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>numSolnParams</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abbbd6a827208505afc5394b66ac6d55d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbbd6a827208505afc5394b66ac6d55d">&#9670;&nbsp;</a></span>FEI_initCoefAccess()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_initCoefAccess </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>patternID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>rowIDTypes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>rowIDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>colIDTypes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>colIDs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9f774db3f39e29a94f29b8bcc67ca129"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f774db3f39e29a94f29b8bcc67ca129">&#9670;&nbsp;</a></span>FEI_initCoefAccessPattern()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_initCoefAccessPattern </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>patternID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numRowIDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>numFieldsPerRow</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>rowFieldIDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numColIDsPerRow</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>numFieldsPerCol</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>colFieldIDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>interleaveStrategy</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a715fcdc1ccff80714f630596255ee763"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a715fcdc1ccff80714f630596255ee763">&#9670;&nbsp;</a></span>FEI_initComplete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_initComplete </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8b385ef969e80b629d0b1a3b001764bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b385ef969e80b629d0b1a3b001764bb">&#9670;&nbsp;</a></span>FEI_initCRMult()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_initCRMult </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numCRNodes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>CRNodes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>CRFields</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>CRID</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a31b1d882d2023c448a24083754289352"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31b1d882d2023c448a24083754289352">&#9670;&nbsp;</a></span>FEI_initCRPen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_initCRPen </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numCRNodes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>CRNodes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>CRFields</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>CRID</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad6ffdf64697c8831d1cb8bb79da24cbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6ffdf64697c8831d1cb8bb79da24cbd">&#9670;&nbsp;</a></span>FEI_initElem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_initElem </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a>&#160;</td>
+          <td class="paramname"><em>elemBlockID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a>&#160;</td>
+          <td class="paramname"><em>elemID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>elemConn</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5dc4b9d18f280a9b85d226873b48b196"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5dc4b9d18f280a9b85d226873b48b196">&#9670;&nbsp;</a></span>FEI_initElemBlock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_initElemBlock </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a>&#160;</td>
+          <td class="paramname"><em>elemBlockID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numElements</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numNodesPerElement</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>numFieldsPerNode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>nodalFieldIDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numElemDofFieldsPerElement</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>elemDOFFieldIDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>interleaveStrategy</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a816edcbe6308b6ed94bce7ec93b675e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a816edcbe6308b6ed94bce7ec93b675e6">&#9670;&nbsp;</a></span>FEI_initFields()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_initFields </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numFields</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>fieldSizes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>fieldIDs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab8298d64f41a155b26846cc65ecf0c9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8298d64f41a155b26846cc65ecf0c9e">&#9670;&nbsp;</a></span>FEI_initSharedNodes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_initSharedNodes </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numSharedNodes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>sharedNodeIDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>numProcsPerNode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>sharingProcIDs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5da681590c85511c83510caf1ddf47a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5da681590c85511c83510caf1ddf47a0">&#9670;&nbsp;</a></span>FEI_initSlaveVariable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_initSlaveVariable </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a>&#160;</td>
+          <td class="paramname"><em>slaveNodeID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>slaveFieldID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>offsetIntoSlaveField</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numMasterNodes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>masterNodeIDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>masterFieldIDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *&#160;</td>
+          <td class="paramname"><em>weights</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>rhsValue</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3e2cf66672634aa8c0bdd82076a41575"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e2cf66672634aa8c0bdd82076a41575">&#9670;&nbsp;</a></span>FEI_iterations()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_iterations </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>itersTaken</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac97a29d1f5b13e2c700ec2b73f67be44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac97a29d1f5b13e2c700ec2b73f67be44">&#9670;&nbsp;</a></span>FEI_loadComplete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_loadComplete </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a81a6bafe9f0253ea7dfce274deb5d22c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81a6bafe9f0253ea7dfce274deb5d22c">&#9670;&nbsp;</a></span>FEI_loadCRMult()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_loadCRMult </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>CRID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numCRNodes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>CRNodes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>CRFields</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>CRWeights</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>CRValue</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3889928200cb3fe93b121daab9bd4a89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3889928200cb3fe93b121daab9bd4a89">&#9670;&nbsp;</a></span>FEI_loadCRPen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_loadCRPen </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>CRID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numCRNodes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>CRNodes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>CRFields</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>CRWeights</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>CRValue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>penValue</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac25c4a45495844d5aa06978b9cdf363e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac25c4a45495844d5aa06978b9cdf363e">&#9670;&nbsp;</a></span>FEI_loadElemBCs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_loadElemBCs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numElems</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>elemIDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fieldID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double **&#160;</td>
+          <td class="paramname"><em>alpha</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double **&#160;</td>
+          <td class="paramname"><em>beta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double **&#160;</td>
+          <td class="paramname"><em>gamma</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7b0b8e58991979883487009973d6994e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b0b8e58991979883487009973d6994e">&#9670;&nbsp;</a></span>FEI_loadElemTransfer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_loadElemTransfer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a>&#160;</td>
+          <td class="paramname"><em>elemBlockID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a>&#160;</td>
+          <td class="paramname"><em>elemID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>coarseNodeList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fineNodesPerCoarseElem</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>fineNodeList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double **&#160;</td>
+          <td class="paramname"><em>elemProlong</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double **&#160;</td>
+          <td class="paramname"><em>elemRestrict</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3b7d1eacf393fadc68e21cab1388a753"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b7d1eacf393fadc68e21cab1388a753">&#9670;&nbsp;</a></span>FEI_loadNodeBCs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_loadNodeBCs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numNodes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>BCNodes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fieldID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>offsetsIntoField</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>prescribed_values</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a795daf9138d48da9b0d784accbe344c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a795daf9138d48da9b0d784accbe344c7">&#9670;&nbsp;</a></span>FEI_parameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_parameters </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numParams</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>paramStrings</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaab7c154d7ea39a86dd2b6263f471927"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaab7c154d7ea39a86dd2b6263f471927">&#9670;&nbsp;</a></span>FEI_putBlockElemSolution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_putBlockElemSolution </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a>&#160;</td>
+          <td class="paramname"><em>elemBlockID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numElems</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>elemIDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dofPerElem</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>estimates</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abd2b62ae7396a696ce7269c60c192003"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd2b62ae7396a696ce7269c60c192003">&#9670;&nbsp;</a></span>FEI_putBlockFieldNodeSolution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_putBlockFieldNodeSolution </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a>&#160;</td>
+          <td class="paramname"><em>elemBlockID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fieldID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numNodes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>nodeIDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>estimates</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2e7543a14552bbfcf69aa3fb66403d98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e7543a14552bbfcf69aa3fb66403d98">&#9670;&nbsp;</a></span>FEI_putBlockNodeSolution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_putBlockNodeSolution </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a>&#160;</td>
+          <td class="paramname"><em>elemBlockID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numNodes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>nodeIDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>offsets</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>estimates</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a521f20a55ab382811cdec3e1955cdd1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a521f20a55ab382811cdec3e1955cdd1d">&#9670;&nbsp;</a></span>FEI_putCRMultipliers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_putCRMultipliers </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numMultCRs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>CRIDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>multEstimates</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaefb8e755109959a8d2f06592fbfc6dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaefb8e755109959a8d2f06592fbfc6dc">&#9670;&nbsp;</a></span>FEI_putIntoMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_putIntoMatrix </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>patternID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>rowIDTypes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>rowIDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>colIDTypes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>colIDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double **&#160;</td>
+          <td class="paramname"><em>matrixEntries</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a117dce4ab32582ca8674184ab819061b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a117dce4ab32582ca8674184ab819061b">&#9670;&nbsp;</a></span>FEI_putIntoRHS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_putIntoRHS </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>patternID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>IDTypes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>IDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>vectorEntries</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad7d3b5bf1ad795b72a9ef32834efe3cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7d3b5bf1ad795b72a9ef32834efe3cc">&#9670;&nbsp;</a></span>FEI_putNodalFieldData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_putNodalFieldData </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fieldID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numNodes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>nodeIDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>nodeData</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abf6cc4684607d73886ed34bfb7af7753"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf6cc4684607d73886ed34bfb7af7753">&#9670;&nbsp;</a></span>FEI_resetInitialGuess()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_resetInitialGuess </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>s</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adc8c076a29a911f998d8d2ab39d254c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc8c076a29a911f998d8d2ab39d254c9">&#9670;&nbsp;</a></span>FEI_resetMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_resetMatrix </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>s</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac9f76c2f921ec9b8acd48b3572097081"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9f76c2f921ec9b8acd48b3572097081">&#9670;&nbsp;</a></span>FEI_resetRHSVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_resetRHSVector </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>s</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5d82118014488dd9f0c11b32610d9b15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d82118014488dd9f0c11b32610d9b15">&#9670;&nbsp;</a></span>FEI_resetSystem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_resetSystem </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>s</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa0acc356464df3de5057ed005812a0a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0acc356464df3de5057ed005812a0a8">&#9670;&nbsp;</a></span>FEI_residualNorm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_residualNorm </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>whichNorm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numFields</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>fieldIDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>norms</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7fe464d9c08c7269ece10f2fc44da812"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fe464d9c08c7269ece10f2fc44da812">&#9670;&nbsp;</a></span>FEI_setCurrentMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_setCurrentMatrix </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>matID</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a56b97eded73897c66c5291cd0f192121"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56b97eded73897c66c5291cd0f192121">&#9670;&nbsp;</a></span>FEI_setCurrentRHS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_setCurrentRHS </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>rhsID</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a08b2c0aa6e146c24bf8caad93a819b2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08b2c0aa6e146c24bf8caad93a819b2e">&#9670;&nbsp;</a></span>FEI_setIDLists()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_setIDLists </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numMatrices</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>matrixIDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numRHSs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>rhsIDs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afa2af1888618f44afd1c418eb3fad045"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa2af1888618f44afd1c418eb3fad045">&#9670;&nbsp;</a></span>FEI_setMatScalars()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_setMatScalars </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numScalars</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>IDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>scalars</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5650d9dca4bbc551f5e109b1c64c9d8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5650d9dca4bbc551f5e109b1c64c9d8c">&#9670;&nbsp;</a></span>FEI_setRHSScalars()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_setRHSScalars </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numScalars</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>IDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>scalars</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acdb2b2d5136f1f77f639725c96d018ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acdb2b2d5136f1f77f639725c96d018ce">&#9670;&nbsp;</a></span>FEI_setSolveType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_setSolveType </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>solveType</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acccfdb2111b6307385e97c7a854e5f1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acccfdb2111b6307385e97c7a854e5f1e">&#9670;&nbsp;</a></span>FEI_solve()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_solve </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>status</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac57cd0c4a178d486d4a5c20a976aecda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac57cd0c4a178d486d4a5c20a976aecda">&#9670;&nbsp;</a></span>FEI_sumInElem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_sumInElem </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a>&#160;</td>
+          <td class="paramname"><em>elemBlockID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a>&#160;</td>
+          <td class="paramname"><em>elemID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>elemConn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double **&#160;</td>
+          <td class="paramname"><em>elemStiffness</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>elemLoad</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>elemFormat</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a93301ed643d398a1f83eb4ebf9a970ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93301ed643d398a1f83eb4ebf9a970ca">&#9670;&nbsp;</a></span>FEI_sumInElemMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_sumInElemMatrix </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a>&#160;</td>
+          <td class="paramname"><em>elemBlockID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a>&#160;</td>
+          <td class="paramname"><em>elemID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>elemConn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double **&#160;</td>
+          <td class="paramname"><em>elemStiffness</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>elemFormat</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8afa04385d83d555f8aff506875631ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8afa04385d83d555f8aff506875631ab">&#9670;&nbsp;</a></span>FEI_sumInElemRHS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_sumInElemRHS </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a>&#160;</td>
+          <td class="paramname"><em>elemBlockID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a>&#160;</td>
+          <td class="paramname"><em>elemID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>elemConn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>elemLoad</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4a6d9e65a900313e037538a52fc9a5d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a6d9e65a900313e037538a52fc9a5d2">&#9670;&nbsp;</a></span>FEI_sumIntoMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_sumIntoMatrix </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>patternID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>rowIDTypes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>rowIDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>colIDTypes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>colIDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double **&#160;</td>
+          <td class="paramname"><em>matrixEntries</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a49355b05e828a4732812bc8a31ef808a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49355b05e828a4732812bc8a31ef808a">&#9670;&nbsp;</a></span>FEI_sumIntoRHS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_sumIntoRHS </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>patternID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>IDTypes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>IDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>vectorEntries</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a77b9936a56aca620c5f8805ad43dcd13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77b9936a56aca620c5f8805ad43dcd13">&#9670;&nbsp;</a></span>FEI_version()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FEI_version </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei_8h.html#a696f87537d831e37ae443a5a621ddedb">CFEI</a> *&#160;</td>
+          <td class="paramname"><em>cfei</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char **&#160;</td>
+          <td class="paramname"><em>versionStringPtr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a058f53aed3c7b10f139021e29c79b410"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a058f53aed3c7b10f139021e29c79b410">&#9670;&nbsp;</a></span>LinSysCore_destroy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int LinSysCore_destroy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> **&#160;</td>
+          <td class="paramname"><em>lsc</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0373b43a201082bac35c13f9604ac6f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0373b43a201082bac35c13f9604ac6f4">&#9670;&nbsp;</a></span>LinSysCore_getProperty_double()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int LinSysCore_getProperty_double </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cfei__hypre_8h.html#a4fb9e7a8a13ec15e4c9a1781d2495351">LinSysCore</a> *&#160;</td>
+          <td class="paramname"><em>lsc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_1481b2ad69b2eab628871d4fb2bac45c.html">hypre-2.11.1</a></li><li class="navelem"><a class="el" href="cfei_8h.html">cfei.h</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

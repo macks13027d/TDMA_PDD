@@ -1,0 +1,1459 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="TDMA_PDD_cpu" />
+<meta property="og:image" content="../preview.png" />
+<meta property="og:description" content="Documentation for Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD_cpu" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="../preview.png" />
+<meta property="og:title" content="TDMA_PDD_cpu" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD_cpu" />
+<!-- END twitter metadata -->
+<title>TDMA_PDD_CPU: include/hypre-2.11.1/HYPRE_IJ_mv.h File Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            messageStyle: "normal",
+            linebreaks: {
+                automatic: false
+            }
+        },
+        tex2jax: { 
+            inlineMath: [["\\(","\\)"]], 
+            displayMath: [["$$","$$"],["\\[","\\]"]], 
+            processEscapes: true
+        },
+        TeX: {
+            Macros: {
+                tr: "{\\scriptscriptstyle\\mathrm{T}}",
+            }
+        }
+    });
+</script>
+<!--MathJax(LaTeX) -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <script type="text/javascript" id="MathJax-script" async  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">  </script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="custom-alternative.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/hugh577/TDMA_PDD_cpu" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 65px;">
+  <td id="projectlogo">
+    <a href="./index.html">
+        <img alt="Logo" src="home.png"/></td>
+    </a>
+  <td id="projectalign" style="padding-left: 0.5em;padding-top: 0.5em;">
+   <div id="projectname">TDMA_PDD_CPU
+   </div>
+   <div id="projectbrief">Documentation</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('_h_y_p_r_e___i_j__mv_8h.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">HYPRE_IJ_mv.h File Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="_h_y_p_r_e__config_8h_source.html">HYPRE_config.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_h_y_p_r_e__utilities_8h_source.html">HYPRE_utilities.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for HYPRE_IJ_mv.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="_h_y_p_r_e___i_j__mv_8h__incl.png" border="0" usemap="#include_2hypre-2_811_81_2_h_y_p_r_e___i_j__mv_8h" alt=""/></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="_h_y_p_r_e___i_j__mv_8h__dep__incl.png" border="0" usemap="#include_2hypre-2_811_81_2_h_y_p_r_e___i_j__mv_8hdep" alt=""/></div>
+</div>
+</div>
+<p><a href="_h_y_p_r_e___i_j__mv_8h_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+IJ Matrices</h2></td></tr>
+<tr class="memitem:a55d736a5b8971c24bd4431a2bb53bddf"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structhypre___i_j_matrix__struct.html">hypre_IJMatrix_struct</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a55d736a5b8971c24bd4431a2bb53bddf">HYPRE_IJMatrix</a></td></tr>
+<tr class="separator:a55d736a5b8971c24bd4431a2bb53bddf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a963fd40e6737078451d6fd36562cda3a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a963fd40e6737078451d6fd36562cda3a">HYPRE_IJMatrixCreate</a> (MPI_Comm comm, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> ilower, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> iupper, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> jlower, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> jupper, <a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a55d736a5b8971c24bd4431a2bb53bddf">HYPRE_IJMatrix</a> *matrix)</td></tr>
+<tr class="separator:a963fd40e6737078451d6fd36562cda3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbb59ec6a47698aca88fb1467052ecc3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#afbb59ec6a47698aca88fb1467052ecc3">HYPRE_IJMatrixDestroy</a> (<a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a55d736a5b8971c24bd4431a2bb53bddf">HYPRE_IJMatrix</a> matrix)</td></tr>
+<tr class="separator:afbb59ec6a47698aca88fb1467052ecc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb588d507bb53a816fddcc8eee2e6402"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#abb588d507bb53a816fddcc8eee2e6402">HYPRE_IJMatrixInitialize</a> (<a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a55d736a5b8971c24bd4431a2bb53bddf">HYPRE_IJMatrix</a> matrix)</td></tr>
+<tr class="separator:abb588d507bb53a816fddcc8eee2e6402"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3fc2bb8c8b8050635992171d56704d5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#ad3fc2bb8c8b8050635992171d56704d5">HYPRE_IJMatrixSetValues</a> (<a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a55d736a5b8971c24bd4431a2bb53bddf">HYPRE_IJMatrix</a> matrix, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> nrows, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *ncols, const <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *rows, const <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *cols, const <a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *values)</td></tr>
+<tr class="separator:ad3fc2bb8c8b8050635992171d56704d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90b30a7a8ff7dba629f84afe8d925549"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a90b30a7a8ff7dba629f84afe8d925549">HYPRE_IJMatrixAddToValues</a> (<a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a55d736a5b8971c24bd4431a2bb53bddf">HYPRE_IJMatrix</a> matrix, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> nrows, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *ncols, const <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *rows, const <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *cols, const <a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *values)</td></tr>
+<tr class="separator:a90b30a7a8ff7dba629f84afe8d925549"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6910a0e5838ffb740352b0c911a9ffd1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a6910a0e5838ffb740352b0c911a9ffd1">HYPRE_IJMatrixAssemble</a> (<a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a55d736a5b8971c24bd4431a2bb53bddf">HYPRE_IJMatrix</a> matrix)</td></tr>
+<tr class="separator:a6910a0e5838ffb740352b0c911a9ffd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c382d17083419404c47fdc0765d1f73"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a2c382d17083419404c47fdc0765d1f73">HYPRE_IJMatrixGetRowCounts</a> (<a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a55d736a5b8971c24bd4431a2bb53bddf">HYPRE_IJMatrix</a> matrix, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> nrows, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *rows, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *ncols)</td></tr>
+<tr class="separator:a2c382d17083419404c47fdc0765d1f73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad172c078469b0c44c26ce96ffe5f2f78"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#ad172c078469b0c44c26ce96ffe5f2f78">HYPRE_IJMatrixGetValues</a> (<a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a55d736a5b8971c24bd4431a2bb53bddf">HYPRE_IJMatrix</a> matrix, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> nrows, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *ncols, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *rows, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *cols, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *values)</td></tr>
+<tr class="separator:ad172c078469b0c44c26ce96ffe5f2f78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e394b8d491b245066f4e1769b2acc4e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a1e394b8d491b245066f4e1769b2acc4e">HYPRE_IJMatrixSetObjectType</a> (<a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a55d736a5b8971c24bd4431a2bb53bddf">HYPRE_IJMatrix</a> matrix, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> type)</td></tr>
+<tr class="separator:a1e394b8d491b245066f4e1769b2acc4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc2a3ac9f9a6597ac97d91cbb5d13873"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#acc2a3ac9f9a6597ac97d91cbb5d13873">HYPRE_IJMatrixGetObjectType</a> (<a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a55d736a5b8971c24bd4431a2bb53bddf">HYPRE_IJMatrix</a> matrix, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *type)</td></tr>
+<tr class="separator:acc2a3ac9f9a6597ac97d91cbb5d13873"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f5ca29a12ac21eef5d7b6fb9facc8ec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a2f5ca29a12ac21eef5d7b6fb9facc8ec">HYPRE_IJMatrixGetLocalRange</a> (<a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a55d736a5b8971c24bd4431a2bb53bddf">HYPRE_IJMatrix</a> matrix, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *ilower, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *iupper, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *jlower, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *jupper)</td></tr>
+<tr class="separator:a2f5ca29a12ac21eef5d7b6fb9facc8ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0c1710540140258dbcb681471721f9f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#af0c1710540140258dbcb681471721f9f">HYPRE_IJMatrixGetObject</a> (<a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a55d736a5b8971c24bd4431a2bb53bddf">HYPRE_IJMatrix</a> matrix, void **object)</td></tr>
+<tr class="separator:af0c1710540140258dbcb681471721f9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4fa48b6eb6429381ecba67ff4e8fe19"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#ad4fa48b6eb6429381ecba67ff4e8fe19">HYPRE_IJMatrixSetRowSizes</a> (<a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a55d736a5b8971c24bd4431a2bb53bddf">HYPRE_IJMatrix</a> matrix, const <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *sizes)</td></tr>
+<tr class="separator:ad4fa48b6eb6429381ecba67ff4e8fe19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d5aa46fb220ff28c17c7ba5c1fb9e7a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a9d5aa46fb220ff28c17c7ba5c1fb9e7a">HYPRE_IJMatrixSetDiagOffdSizes</a> (<a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a55d736a5b8971c24bd4431a2bb53bddf">HYPRE_IJMatrix</a> matrix, const <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *diag_sizes, const <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *offdiag_sizes)</td></tr>
+<tr class="separator:a9d5aa46fb220ff28c17c7ba5c1fb9e7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a104bb1cc5acf01229386aed34845169d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a104bb1cc5acf01229386aed34845169d">HYPRE_IJMatrixSetMaxOffProcElmts</a> (<a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a55d736a5b8971c24bd4431a2bb53bddf">HYPRE_IJMatrix</a> matrix, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> max_off_proc_elmts)</td></tr>
+<tr class="separator:a104bb1cc5acf01229386aed34845169d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fa9c86f4c8cfcd75faf64fb391a6097"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a4fa9c86f4c8cfcd75faf64fb391a6097">HYPRE_IJMatrixSetPrintLevel</a> (<a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a55d736a5b8971c24bd4431a2bb53bddf">HYPRE_IJMatrix</a> matrix, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> print_level)</td></tr>
+<tr class="separator:a4fa9c86f4c8cfcd75faf64fb391a6097"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad62fcd38a85368ea1ae1e4c5ad5517e5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#ad62fcd38a85368ea1ae1e4c5ad5517e5">HYPRE_IJMatrixSetOMPFlag</a> (<a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a55d736a5b8971c24bd4431a2bb53bddf">HYPRE_IJMatrix</a> matrix, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> omp_flag)</td></tr>
+<tr class="separator:ad62fcd38a85368ea1ae1e4c5ad5517e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a491c3bfb9df607182a14ae331e8e0eed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a491c3bfb9df607182a14ae331e8e0eed">HYPRE_IJMatrixRead</a> (const char *filename, MPI_Comm comm, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> type, <a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a55d736a5b8971c24bd4431a2bb53bddf">HYPRE_IJMatrix</a> *matrix)</td></tr>
+<tr class="separator:a491c3bfb9df607182a14ae331e8e0eed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae59149a1a1d3c7f13ca91643ca9072e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#ae59149a1a1d3c7f13ca91643ca9072e7">HYPRE_IJMatrixPrint</a> (<a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a55d736a5b8971c24bd4431a2bb53bddf">HYPRE_IJMatrix</a> matrix, const char *filename)</td></tr>
+<tr class="separator:ae59149a1a1d3c7f13ca91643ca9072e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+IJ Vectors</h2></td></tr>
+<tr class="memitem:aee9eed6f9f1e2d31d1ece58bfabac2ad"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structhypre___i_j_vector__struct.html">hypre_IJVector_struct</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#aee9eed6f9f1e2d31d1ece58bfabac2ad">HYPRE_IJVector</a></td></tr>
+<tr class="separator:aee9eed6f9f1e2d31d1ece58bfabac2ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae36cb8901e585a2520da8212ba583f0a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#ae36cb8901e585a2520da8212ba583f0a">HYPRE_IJVectorCreate</a> (MPI_Comm comm, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> jlower, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> jupper, <a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#aee9eed6f9f1e2d31d1ece58bfabac2ad">HYPRE_IJVector</a> *vector)</td></tr>
+<tr class="separator:ae36cb8901e585a2520da8212ba583f0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac40bc7d3ad5118fb5a49307659d2793e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#ac40bc7d3ad5118fb5a49307659d2793e">HYPRE_IJVectorDestroy</a> (<a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#aee9eed6f9f1e2d31d1ece58bfabac2ad">HYPRE_IJVector</a> vector)</td></tr>
+<tr class="separator:ac40bc7d3ad5118fb5a49307659d2793e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d1703e49c1ab8a7f93afb4c0541159c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a2d1703e49c1ab8a7f93afb4c0541159c">HYPRE_IJVectorInitialize</a> (<a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#aee9eed6f9f1e2d31d1ece58bfabac2ad">HYPRE_IJVector</a> vector)</td></tr>
+<tr class="separator:a2d1703e49c1ab8a7f93afb4c0541159c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd79174ec8a872aef38bba0e60bb1156"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#afd79174ec8a872aef38bba0e60bb1156">HYPRE_IJVectorSetMaxOffProcElmts</a> (<a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#aee9eed6f9f1e2d31d1ece58bfabac2ad">HYPRE_IJVector</a> vector, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> max_off_proc_elmts)</td></tr>
+<tr class="separator:afd79174ec8a872aef38bba0e60bb1156"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01ee4b4ee89fd06dfb168cb5e74f94e2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a01ee4b4ee89fd06dfb168cb5e74f94e2">HYPRE_IJVectorSetValues</a> (<a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#aee9eed6f9f1e2d31d1ece58bfabac2ad">HYPRE_IJVector</a> vector, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> nvalues, const <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *indices, const <a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *values)</td></tr>
+<tr class="separator:a01ee4b4ee89fd06dfb168cb5e74f94e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a3b01a28cab8d648e0e3db693b230ec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a1a3b01a28cab8d648e0e3db693b230ec">HYPRE_IJVectorAddToValues</a> (<a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#aee9eed6f9f1e2d31d1ece58bfabac2ad">HYPRE_IJVector</a> vector, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> nvalues, const <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *indices, const <a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *values)</td></tr>
+<tr class="separator:a1a3b01a28cab8d648e0e3db693b230ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8a7dd192b4784c65cc62bce67b96ce5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#ad8a7dd192b4784c65cc62bce67b96ce5">HYPRE_IJVectorAssemble</a> (<a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#aee9eed6f9f1e2d31d1ece58bfabac2ad">HYPRE_IJVector</a> vector)</td></tr>
+<tr class="separator:ad8a7dd192b4784c65cc62bce67b96ce5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc0d7d4b3437a40c9b7879621e41ea6d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#abc0d7d4b3437a40c9b7879621e41ea6d">HYPRE_IJVectorGetValues</a> (<a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#aee9eed6f9f1e2d31d1ece58bfabac2ad">HYPRE_IJVector</a> vector, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> nvalues, const <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *indices, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *values)</td></tr>
+<tr class="separator:abc0d7d4b3437a40c9b7879621e41ea6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd93f2cc1433e552766de3288af34392"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#acd93f2cc1433e552766de3288af34392">HYPRE_IJVectorSetObjectType</a> (<a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#aee9eed6f9f1e2d31d1ece58bfabac2ad">HYPRE_IJVector</a> vector, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> type)</td></tr>
+<tr class="separator:acd93f2cc1433e552766de3288af34392"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03c975b601003dc144cc92e17677de23"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a03c975b601003dc144cc92e17677de23">HYPRE_IJVectorGetObjectType</a> (<a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#aee9eed6f9f1e2d31d1ece58bfabac2ad">HYPRE_IJVector</a> vector, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *type)</td></tr>
+<tr class="separator:a03c975b601003dc144cc92e17677de23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4272b4ff5ea40d13aa43bece1020abfc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a4272b4ff5ea40d13aa43bece1020abfc">HYPRE_IJVectorGetLocalRange</a> (<a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#aee9eed6f9f1e2d31d1ece58bfabac2ad">HYPRE_IJVector</a> vector, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *jlower, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *jupper)</td></tr>
+<tr class="separator:a4272b4ff5ea40d13aa43bece1020abfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dba50b0412ea0a0b49446c61ffb01b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a5dba50b0412ea0a0b49446c61ffb01b9">HYPRE_IJVectorGetObject</a> (<a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#aee9eed6f9f1e2d31d1ece58bfabac2ad">HYPRE_IJVector</a> vector, void **object)</td></tr>
+<tr class="separator:a5dba50b0412ea0a0b49446c61ffb01b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8227dd8c1d0d9403719b753300fb268e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a8227dd8c1d0d9403719b753300fb268e">HYPRE_IJVectorSetPrintLevel</a> (<a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#aee9eed6f9f1e2d31d1ece58bfabac2ad">HYPRE_IJVector</a> vector, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> print_level)</td></tr>
+<tr class="separator:a8227dd8c1d0d9403719b753300fb268e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5cafa5b5a4258187399694e3510d70f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#ab5cafa5b5a4258187399694e3510d70f">HYPRE_IJVectorRead</a> (const char *filename, MPI_Comm comm, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> type, <a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#aee9eed6f9f1e2d31d1ece58bfabac2ad">HYPRE_IJVector</a> *vector)</td></tr>
+<tr class="separator:ab5cafa5b5a4258187399694e3510d70f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98426ed8bbacd0083e5b820eb9896225"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a98426ed8bbacd0083e5b820eb9896225">HYPRE_IJVectorPrint</a> (<a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#aee9eed6f9f1e2d31d1ece58bfabac2ad">HYPRE_IJVector</a> vector, const char *filename)</td></tr>
+<tr class="separator:a98426ed8bbacd0083e5b820eb9896225"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="a55d736a5b8971c24bd4431a2bb53bddf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55d736a5b8971c24bd4431a2bb53bddf">&#9670;&nbsp;</a></span>HYPRE_IJMatrix</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structhypre___i_j_matrix__struct.html">hypre_IJMatrix_struct</a>* <a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a55d736a5b8971c24bd4431a2bb53bddf">HYPRE_IJMatrix</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The matrix object. </p>
+
+<p class="definition">Definition at line <a class="el" href="_h_y_p_r_e___i_j__mv_8h_source.html#l00049">49</a> of file <a class="el" href="_h_y_p_r_e___i_j__mv_8h_source.html">HYPRE_IJ_mv.h</a>.</p>
+
+</div>
+</div>
+<a id="aee9eed6f9f1e2d31d1ece58bfabac2ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee9eed6f9f1e2d31d1ece58bfabac2ad">&#9670;&nbsp;</a></span>HYPRE_IJVector</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structhypre___i_j_vector__struct.html">hypre_IJVector_struct</a>* <a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#aee9eed6f9f1e2d31d1ece58bfabac2ad">HYPRE_IJVector</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The vector object. </p>
+
+<p class="definition">Definition at line <a class="el" href="_h_y_p_r_e___i_j__mv_8h_source.html#l00307">307</a> of file <a class="el" href="_h_y_p_r_e___i_j__mv_8h_source.html">HYPRE_IJ_mv.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a90b30a7a8ff7dba629f84afe8d925549"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90b30a7a8ff7dba629f84afe8d925549">&#9670;&nbsp;</a></span>HYPRE_IJMatrixAddToValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_IJMatrixAddToValues </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a55d736a5b8971c24bd4431a2bb53bddf">HYPRE_IJMatrix</a>&#160;</td>
+          <td class="paramname"><em>matrix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>nrows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>ncols</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>rows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>cols</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *&#160;</td>
+          <td class="paramname"><em>values</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Adds to values for {\tt nrows} rows or partial rows of the matrix. <br  />
+ Usage details are analogous to \Ref{HYPRE_IJMatrixSetValues}. <br  />
+ Adds to any previous values at the specified locations, or, if there was no value there before, inserts a new one. AddToValues can be used to add to values on other processors.</p>
+<p>Note that a threaded version (threaded over the number of rows) will be called if HYPRE_IJMatrixSetOMPFlag is set to a value != 0. This requires that rows[i] != rows[j] for i!= j and is only efficient if a large number of rows is added in one call to HYPRE_IJMatrixAddToValues.</p>
+<p>Not collective. </p>
+
+</div>
+</div>
+<a id="a6910a0e5838ffb740352b0c911a9ffd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6910a0e5838ffb740352b0c911a9ffd1">&#9670;&nbsp;</a></span>HYPRE_IJMatrixAssemble()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_IJMatrixAssemble </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a55d736a5b8971c24bd4431a2bb53bddf">HYPRE_IJMatrix</a>&#160;</td>
+          <td class="paramname"><em>matrix</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Finalize the construction of the matrix before using. </p>
+
+</div>
+</div>
+<a id="a963fd40e6737078451d6fd36562cda3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a963fd40e6737078451d6fd36562cda3a">&#9670;&nbsp;</a></span>HYPRE_IJMatrixCreate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_IJMatrixCreate </td>
+          <td>(</td>
+          <td class="paramtype">MPI_Comm&#160;</td>
+          <td class="paramname"><em>comm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>ilower</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>iupper</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>jlower</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>jupper</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a55d736a5b8971c24bd4431a2bb53bddf">HYPRE_IJMatrix</a> *&#160;</td>
+          <td class="paramname"><em>matrix</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Create a matrix object. Each process owns some unique consecutive range of rows, indicated by the global row indices {\tt ilower} and {\tt iupper}. The row data is required to be such that the value of {\tt ilower} on any process $p$ be exactly one more than the value of {\tt iupper} on process $p-1$. Note that the first row of the global matrix may start with any integer value. In particular, one may use zero- or one-based indexing.</p>
+<p>For square matrices, {\tt jlower} and {\tt jupper} typically should match {\tt ilower} and {\tt iupper}, respectively. For rectangular matrices, {\tt jlower} and {\tt jupper} should define a partitioning of the columns. This partitioning must be used for any vector $v$ that will be used in matrix-vector products with the rectangular matrix. The matrix data structure may use {\tt jlower} and {\tt jupper} to store the diagonal blocks (rectangular in general) of the matrix separately from the rest of the matrix.</p>
+<p>Collective. </p>
+
+</div>
+</div>
+<a id="afbb59ec6a47698aca88fb1467052ecc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbb59ec6a47698aca88fb1467052ecc3">&#9670;&nbsp;</a></span>HYPRE_IJMatrixDestroy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_IJMatrixDestroy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a55d736a5b8971c24bd4431a2bb53bddf">HYPRE_IJMatrix</a>&#160;</td>
+          <td class="paramname"><em>matrix</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Destroy a matrix object. An object should be explicitly destroyed using this destructor when the user's code no longer needs direct access to it. Once destroyed, the object must not be referenced again. Note that the object may not be deallocated at the completion of this call, since there may be internal package references to the object. The object will then be destroyed when all internal reference counts go to zero. </p>
+
+</div>
+</div>
+<a id="a2f5ca29a12ac21eef5d7b6fb9facc8ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f5ca29a12ac21eef5d7b6fb9facc8ec">&#9670;&nbsp;</a></span>HYPRE_IJMatrixGetLocalRange()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_IJMatrixGetLocalRange </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a55d736a5b8971c24bd4431a2bb53bddf">HYPRE_IJMatrix</a>&#160;</td>
+          <td class="paramname"><em>matrix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>ilower</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>iupper</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>jlower</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>jupper</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Gets range of rows owned by this processor and range of column partitioning for this processor. </p>
+
+</div>
+</div>
+<a id="af0c1710540140258dbcb681471721f9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0c1710540140258dbcb681471721f9f">&#9670;&nbsp;</a></span>HYPRE_IJMatrixGetObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_IJMatrixGetObject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a55d736a5b8971c24bd4431a2bb53bddf">HYPRE_IJMatrix</a>&#160;</td>
+          <td class="paramname"><em>matrix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void **&#160;</td>
+          <td class="paramname"><em>object</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get a reference to the constructed matrix object.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a1e394b8d491b245066f4e1769b2acc4e">HYPRE_IJMatrixSetObjectType</a> </dd></dl>
+
+</div>
+</div>
+<a id="acc2a3ac9f9a6597ac97d91cbb5d13873"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc2a3ac9f9a6597ac97d91cbb5d13873">&#9670;&nbsp;</a></span>HYPRE_IJMatrixGetObjectType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_IJMatrixGetObjectType </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a55d736a5b8971c24bd4431a2bb53bddf">HYPRE_IJMatrix</a>&#160;</td>
+          <td class="paramname"><em>matrix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the storage type of the constructed matrix object. </p>
+
+</div>
+</div>
+<a id="a2c382d17083419404c47fdc0765d1f73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c382d17083419404c47fdc0765d1f73">&#9670;&nbsp;</a></span>HYPRE_IJMatrixGetRowCounts()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_IJMatrixGetRowCounts </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a55d736a5b8971c24bd4431a2bb53bddf">HYPRE_IJMatrix</a>&#160;</td>
+          <td class="paramname"><em>matrix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>nrows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>rows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>ncols</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Gets number of nonzeros elements for {\tt nrows} rows specified in {\tt rows} and returns them in {\tt ncols}, which needs to be allocated by the user. </p>
+
+</div>
+</div>
+<a id="ad172c078469b0c44c26ce96ffe5f2f78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad172c078469b0c44c26ce96ffe5f2f78">&#9670;&nbsp;</a></span>HYPRE_IJMatrixGetValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_IJMatrixGetValues </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a55d736a5b8971c24bd4431a2bb53bddf">HYPRE_IJMatrix</a>&#160;</td>
+          <td class="paramname"><em>matrix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>nrows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>ncols</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>rows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>cols</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *&#160;</td>
+          <td class="paramname"><em>values</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Gets values for {\tt nrows} rows or partial rows of the matrix. <br  />
+ Usage details are analogous to \Ref{HYPRE_IJMatrixSetValues}. </p>
+
+</div>
+</div>
+<a id="abb588d507bb53a816fddcc8eee2e6402"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb588d507bb53a816fddcc8eee2e6402">&#9670;&nbsp;</a></span>HYPRE_IJMatrixInitialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_IJMatrixInitialize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a55d736a5b8971c24bd4431a2bb53bddf">HYPRE_IJMatrix</a>&#160;</td>
+          <td class="paramname"><em>matrix</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Prepare a matrix object for setting coefficient values. This routine will also re-initialize an already assembled matrix, allowing users to modify coefficient values. </p>
+
+</div>
+</div>
+<a id="ae59149a1a1d3c7f13ca91643ca9072e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae59149a1a1d3c7f13ca91643ca9072e7">&#9670;&nbsp;</a></span>HYPRE_IJMatrixPrint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_IJMatrixPrint </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a55d736a5b8971c24bd4431a2bb53bddf">HYPRE_IJMatrix</a>&#160;</td>
+          <td class="paramname"><em>matrix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>filename</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Print the matrix to file. This is mainly for debugging purposes. </p>
+
+</div>
+</div>
+<a id="a491c3bfb9df607182a14ae331e8e0eed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a491c3bfb9df607182a14ae331e8e0eed">&#9670;&nbsp;</a></span>HYPRE_IJMatrixRead()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_IJMatrixRead </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MPI_Comm&#160;</td>
+          <td class="paramname"><em>comm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a55d736a5b8971c24bd4431a2bb53bddf">HYPRE_IJMatrix</a> *&#160;</td>
+          <td class="paramname"><em>matrix</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Read the matrix from file. This is mainly for debugging purposes. </p>
+
+</div>
+</div>
+<a id="a9d5aa46fb220ff28c17c7ba5c1fb9e7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d5aa46fb220ff28c17c7ba5c1fb9e7a">&#9670;&nbsp;</a></span>HYPRE_IJMatrixSetDiagOffdSizes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_IJMatrixSetDiagOffdSizes </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a55d736a5b8971c24bd4431a2bb53bddf">HYPRE_IJMatrix</a>&#160;</td>
+          <td class="paramname"><em>matrix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>diag_sizes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>offdiag_sizes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>(Optional) Sets the exact number of nonzeros in each row of the diagonal and off-diagonal blocks. The diagonal block is the submatrix whose column numbers correspond to rows owned by this process, and the off-diagonal block is everything else. The arrays {\tt diag_sizes} and {\tt offdiag_sizes} contain estimated sizes for each row of the diagonal and off-diagonal blocks, respectively. This routine can significantly improve the efficiency of matrix construction, and should always be utilized if possible.</p>
+<p>Not collective. </p>
+
+</div>
+</div>
+<a id="a104bb1cc5acf01229386aed34845169d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a104bb1cc5acf01229386aed34845169d">&#9670;&nbsp;</a></span>HYPRE_IJMatrixSetMaxOffProcElmts()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_IJMatrixSetMaxOffProcElmts </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a55d736a5b8971c24bd4431a2bb53bddf">HYPRE_IJMatrix</a>&#160;</td>
+          <td class="paramname"><em>matrix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>max_off_proc_elmts</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>(Optional) Sets the maximum number of elements that are expected to be set (or added) on other processors from this processor This routine can significantly improve the efficiency of matrix construction, and should always be utilized if possible.</p>
+<p>Not collective. </p>
+
+</div>
+</div>
+<a id="a1e394b8d491b245066f4e1769b2acc4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e394b8d491b245066f4e1769b2acc4e">&#9670;&nbsp;</a></span>HYPRE_IJMatrixSetObjectType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_IJMatrixSetObjectType </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a55d736a5b8971c24bd4431a2bb53bddf">HYPRE_IJMatrix</a>&#160;</td>
+          <td class="paramname"><em>matrix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the storage type of the matrix object to be constructed. Currently, {\tt type} can only be {\tt HYPRE_PARCSR}.</p>
+<p>Not collective, but must be the same on all processes.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#af0c1710540140258dbcb681471721f9f">HYPRE_IJMatrixGetObject</a> </dd></dl>
+
+</div>
+</div>
+<a id="ad62fcd38a85368ea1ae1e4c5ad5517e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad62fcd38a85368ea1ae1e4c5ad5517e5">&#9670;&nbsp;</a></span>HYPRE_IJMatrixSetOMPFlag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_IJMatrixSetOMPFlag </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a55d736a5b8971c24bd4431a2bb53bddf">HYPRE_IJMatrix</a>&#160;</td>
+          <td class="paramname"><em>matrix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>omp_flag</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>(Optional) if set, will use a threaded version of HYPRE_IJMatrixSetValues and HYPRE_IJMatrixAddToValues. This is only useful if a large number of rows is set or added to at once.</p>
+<p>NOTE that the values in the rows array of HYPRE_IJMatrixSetValues or HYPRE_IJMatrixAddToValues must be different from each other !!!</p>
+<p>This option is VERY inefficient if only a small number of rows is set or added at once and/or if reallocation of storage is required and/or if values are added to off processor values. </p>
+
+</div>
+</div>
+<a id="a4fa9c86f4c8cfcd75faf64fb391a6097"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fa9c86f4c8cfcd75faf64fb391a6097">&#9670;&nbsp;</a></span>HYPRE_IJMatrixSetPrintLevel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_IJMatrixSetPrintLevel </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a55d736a5b8971c24bd4431a2bb53bddf">HYPRE_IJMatrix</a>&#160;</td>
+          <td class="paramname"><em>matrix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>print_level</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>(Optional) Sets the print level, if the user wants to print error messages. The default is 0, i.e. no error messages are printed. </p>
+
+</div>
+</div>
+<a id="ad4fa48b6eb6429381ecba67ff4e8fe19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4fa48b6eb6429381ecba67ff4e8fe19">&#9670;&nbsp;</a></span>HYPRE_IJMatrixSetRowSizes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_IJMatrixSetRowSizes </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a55d736a5b8971c24bd4431a2bb53bddf">HYPRE_IJMatrix</a>&#160;</td>
+          <td class="paramname"><em>matrix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>sizes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>(Optional) Set the max number of nonzeros to expect in each row. The array {\tt sizes} contains estimated sizes for each row on this process. This call can significantly improve the efficiency of matrix construction, and should always be utilized if possible.</p>
+<p>Not collective. </p>
+
+</div>
+</div>
+<a id="ad3fc2bb8c8b8050635992171d56704d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3fc2bb8c8b8050635992171d56704d5">&#9670;&nbsp;</a></span>HYPRE_IJMatrixSetValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_IJMatrixSetValues </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a55d736a5b8971c24bd4431a2bb53bddf">HYPRE_IJMatrix</a>&#160;</td>
+          <td class="paramname"><em>matrix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>nrows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>ncols</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>rows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>cols</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *&#160;</td>
+          <td class="paramname"><em>values</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets values for {\tt nrows} rows or partial rows of the matrix. <br  />
+ The arrays {\tt ncols} and {\tt rows} are of dimension {\tt nrows} and contain the number of columns in each row and the row indices, respectively. The array {\tt cols} contains the column indices for each of the {\tt rows}, and is ordered by rows. The data in the {\tt values} array corresponds directly to the column entries in {\tt cols}. Erases any previous values at the specified locations and replaces them with new ones, or, if there was no value there before, inserts a new one if set locally. Note that it is not possible to set values on other processors. If one tries to set a value from proc i on proc j, proc i will erase all previous occurrences of this value in its stack (including values generated with AddToValues), and treat it like a zero value. The actual value needs to be set on proc j.</p>
+<p>Note that a threaded version (threaded over the number of rows) will be called if HYPRE_IJMatrixSetOMPFlag is set to a value != 0. This requires that rows[i] != rows[j] for i!= j and is only efficient if a large number of rows is set in one call to HYPRE_IJMatrixSetValues.</p>
+<p>Not collective. </p>
+
+</div>
+</div>
+<a id="a1a3b01a28cab8d648e0e3db693b230ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a3b01a28cab8d648e0e3db693b230ec">&#9670;&nbsp;</a></span>HYPRE_IJVectorAddToValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_IJVectorAddToValues </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#aee9eed6f9f1e2d31d1ece58bfabac2ad">HYPRE_IJVector</a>&#160;</td>
+          <td class="paramname"><em>vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>nvalues</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>indices</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *&#160;</td>
+          <td class="paramname"><em>values</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Adds to values in vector. Usage details are analogous to \Ref{HYPRE_IJVectorSetValues}. Adds to any previous values at the specified locations, or, if there was no value there before, inserts a new one. AddToValues can be used to add to values on other processors.</p>
+<p>Not collective. </p>
+
+</div>
+</div>
+<a id="ad8a7dd192b4784c65cc62bce67b96ce5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8a7dd192b4784c65cc62bce67b96ce5">&#9670;&nbsp;</a></span>HYPRE_IJVectorAssemble()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_IJVectorAssemble </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#aee9eed6f9f1e2d31d1ece58bfabac2ad">HYPRE_IJVector</a>&#160;</td>
+          <td class="paramname"><em>vector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Finalize the construction of the vector before using. </p>
+
+</div>
+</div>
+<a id="ae36cb8901e585a2520da8212ba583f0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae36cb8901e585a2520da8212ba583f0a">&#9670;&nbsp;</a></span>HYPRE_IJVectorCreate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_IJVectorCreate </td>
+          <td>(</td>
+          <td class="paramtype">MPI_Comm&#160;</td>
+          <td class="paramname"><em>comm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>jlower</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>jupper</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#aee9eed6f9f1e2d31d1ece58bfabac2ad">HYPRE_IJVector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Create a vector object. Each process owns some unique consecutive range of vector unknowns, indicated by the global indices {\tt jlower} and {\tt jupper}. The data is required to be such that the value of {\tt jlower} on any process $p$ be exactly one more than the value of {\tt jupper} on process $p-1$. Note that the first index of the global vector may start with any integer value. In particular, one may use zero- or one-based indexing.</p>
+<p>Collective. </p>
+
+</div>
+</div>
+<a id="ac40bc7d3ad5118fb5a49307659d2793e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac40bc7d3ad5118fb5a49307659d2793e">&#9670;&nbsp;</a></span>HYPRE_IJVectorDestroy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_IJVectorDestroy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#aee9eed6f9f1e2d31d1ece58bfabac2ad">HYPRE_IJVector</a>&#160;</td>
+          <td class="paramname"><em>vector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Destroy a vector object. An object should be explicitly destroyed using this destructor when the user's code no longer needs direct access to it. Once destroyed, the object must not be referenced again. Note that the object may not be deallocated at the completion of this call, since there may be internal package references to the object. The object will then be destroyed when all internal reference counts go to zero. </p>
+
+</div>
+</div>
+<a id="a4272b4ff5ea40d13aa43bece1020abfc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4272b4ff5ea40d13aa43bece1020abfc">&#9670;&nbsp;</a></span>HYPRE_IJVectorGetLocalRange()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_IJVectorGetLocalRange </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#aee9eed6f9f1e2d31d1ece58bfabac2ad">HYPRE_IJVector</a>&#160;</td>
+          <td class="paramname"><em>vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>jlower</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>jupper</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns range of the part of the vector owned by this processor. </p>
+
+</div>
+</div>
+<a id="a5dba50b0412ea0a0b49446c61ffb01b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5dba50b0412ea0a0b49446c61ffb01b9">&#9670;&nbsp;</a></span>HYPRE_IJVectorGetObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_IJVectorGetObject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#aee9eed6f9f1e2d31d1ece58bfabac2ad">HYPRE_IJVector</a>&#160;</td>
+          <td class="paramname"><em>vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void **&#160;</td>
+          <td class="paramname"><em>object</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get a reference to the constructed vector object.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#acd93f2cc1433e552766de3288af34392">HYPRE_IJVectorSetObjectType</a> </dd></dl>
+
+</div>
+</div>
+<a id="a03c975b601003dc144cc92e17677de23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03c975b601003dc144cc92e17677de23">&#9670;&nbsp;</a></span>HYPRE_IJVectorGetObjectType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_IJVectorGetObjectType </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#aee9eed6f9f1e2d31d1ece58bfabac2ad">HYPRE_IJVector</a>&#160;</td>
+          <td class="paramname"><em>vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the storage type of the constructed vector object. </p>
+
+</div>
+</div>
+<a id="abc0d7d4b3437a40c9b7879621e41ea6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc0d7d4b3437a40c9b7879621e41ea6d">&#9670;&nbsp;</a></span>HYPRE_IJVectorGetValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_IJVectorGetValues </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#aee9eed6f9f1e2d31d1ece58bfabac2ad">HYPRE_IJVector</a>&#160;</td>
+          <td class="paramname"><em>vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>nvalues</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>indices</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *&#160;</td>
+          <td class="paramname"><em>values</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Gets values in vector. Usage details are analogous to \Ref{HYPRE_IJVectorSetValues}.</p>
+<p>Not collective. </p>
+
+</div>
+</div>
+<a id="a2d1703e49c1ab8a7f93afb4c0541159c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d1703e49c1ab8a7f93afb4c0541159c">&#9670;&nbsp;</a></span>HYPRE_IJVectorInitialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_IJVectorInitialize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#aee9eed6f9f1e2d31d1ece58bfabac2ad">HYPRE_IJVector</a>&#160;</td>
+          <td class="paramname"><em>vector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Prepare a vector object for setting coefficient values. This routine will also re-initialize an already assembled vector, allowing users to modify coefficient values. </p>
+
+</div>
+</div>
+<a id="a98426ed8bbacd0083e5b820eb9896225"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98426ed8bbacd0083e5b820eb9896225">&#9670;&nbsp;</a></span>HYPRE_IJVectorPrint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_IJVectorPrint </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#aee9eed6f9f1e2d31d1ece58bfabac2ad">HYPRE_IJVector</a>&#160;</td>
+          <td class="paramname"><em>vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>filename</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Print the vector to file. This is mainly for debugging purposes. </p>
+
+</div>
+</div>
+<a id="ab5cafa5b5a4258187399694e3510d70f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5cafa5b5a4258187399694e3510d70f">&#9670;&nbsp;</a></span>HYPRE_IJVectorRead()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_IJVectorRead </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MPI_Comm&#160;</td>
+          <td class="paramname"><em>comm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#aee9eed6f9f1e2d31d1ece58bfabac2ad">HYPRE_IJVector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Read the vector from file. This is mainly for debugging purposes. </p>
+
+</div>
+</div>
+<a id="afd79174ec8a872aef38bba0e60bb1156"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd79174ec8a872aef38bba0e60bb1156">&#9670;&nbsp;</a></span>HYPRE_IJVectorSetMaxOffProcElmts()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_IJVectorSetMaxOffProcElmts </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#aee9eed6f9f1e2d31d1ece58bfabac2ad">HYPRE_IJVector</a>&#160;</td>
+          <td class="paramname"><em>vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>max_off_proc_elmts</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>(Optional) Sets the maximum number of elements that are expected to be set (or added) on other processors from this processor This routine can significantly improve the efficiency of matrix construction, and should always be utilized if possible.</p>
+<p>Not collective. </p>
+
+</div>
+</div>
+<a id="acd93f2cc1433e552766de3288af34392"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd93f2cc1433e552766de3288af34392">&#9670;&nbsp;</a></span>HYPRE_IJVectorSetObjectType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_IJVectorSetObjectType </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#aee9eed6f9f1e2d31d1ece58bfabac2ad">HYPRE_IJVector</a>&#160;</td>
+          <td class="paramname"><em>vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the storage type of the vector object to be constructed. Currently, {\tt type} can only be {\tt HYPRE_PARCSR}.</p>
+<p>Not collective, but must be the same on all processes.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#a5dba50b0412ea0a0b49446c61ffb01b9">HYPRE_IJVectorGetObject</a> </dd></dl>
+
+</div>
+</div>
+<a id="a8227dd8c1d0d9403719b753300fb268e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8227dd8c1d0d9403719b753300fb268e">&#9670;&nbsp;</a></span>HYPRE_IJVectorSetPrintLevel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_IJVectorSetPrintLevel </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#aee9eed6f9f1e2d31d1ece58bfabac2ad">HYPRE_IJVector</a>&#160;</td>
+          <td class="paramname"><em>vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>print_level</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>(Optional) Sets the print level, if the user wants to print error messages. The default is 0, i.e. no error messages are printed. </p>
+
+</div>
+</div>
+<a id="a01ee4b4ee89fd06dfb168cb5e74f94e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01ee4b4ee89fd06dfb168cb5e74f94e2">&#9670;&nbsp;</a></span>HYPRE_IJVectorSetValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_IJVectorSetValues </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html#aee9eed6f9f1e2d31d1ece58bfabac2ad">HYPRE_IJVector</a>&#160;</td>
+          <td class="paramname"><em>vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>nvalues</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>indices</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *&#160;</td>
+          <td class="paramname"><em>values</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets values in vector. The arrays {\tt values} and {\tt indices} are of dimension {\tt nvalues} and contain the vector values to be set and the corresponding global vector indices, respectively. Erases any previous values at the specified locations and replaces them with new ones. Note that it is not possible to set values on other processors. If one tries to set a value from proc i on proc j, proc i will erase all previous occurrences of this value in its stack (including values generated with AddToValues), and treat it like a zero value. The actual value needs to be set on proc j.</p>
+<p>Not collective. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_1481b2ad69b2eab628871d4fb2bac45c.html">hypre-2.11.1</a></li><li class="navelem"><a class="el" href="_h_y_p_r_e___i_j__mv_8h.html">HYPRE_IJ_mv.h</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

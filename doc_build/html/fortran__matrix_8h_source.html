@@ -1,0 +1,327 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="TDMA_PDD_cpu" />
+<meta property="og:image" content="../preview.png" />
+<meta property="og:description" content="Documentation for Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD_cpu" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="../preview.png" />
+<meta property="og:title" content="TDMA_PDD_cpu" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD_cpu" />
+<!-- END twitter metadata -->
+<title>TDMA_PDD_CPU: include/hypre-2.11.1/fortran_matrix.h Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            messageStyle: "normal",
+            linebreaks: {
+                automatic: false
+            }
+        },
+        tex2jax: { 
+            inlineMath: [["\\(","\\)"]], 
+            displayMath: [["$$","$$"],["\\[","\\]"]], 
+            processEscapes: true
+        },
+        TeX: {
+            Macros: {
+                tr: "{\\scriptscriptstyle\\mathrm{T}}",
+            }
+        }
+    });
+</script>
+<!--MathJax(LaTeX) -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <script type="text/javascript" id="MathJax-script" async  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">  </script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="custom-alternative.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/hugh577/TDMA_PDD_cpu" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 65px;">
+  <td id="projectlogo">
+    <a href="./index.html">
+        <img alt="Logo" src="home.png"/></td>
+    </a>
+  <td id="projectalign" style="padding-left: 0.5em;padding-top: 0.5em;">
+   <div id="projectname">TDMA_PDD_CPU
+   </div>
+   <div id="projectbrief">Documentation</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('fortran__matrix_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">fortran_matrix.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="fortran__matrix_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*BHEADER**********************************************************************</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Copyright (c) 2008,  Lawrence Livermore National Security, LLC.</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> * Produced at the Lawrence Livermore National Laboratory.</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * This file is part of HYPRE.  See file COPYRIGHT for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * HYPRE is free software; you can redistribute it and/or modify it under the</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> * terms of the GNU Lesser General Public License (as published by the Free</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * Software Foundation) version 2.1 dated February 1999.</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> * $Revision$</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> ***********************************************************************EHEADER*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#ifndef FORTRAN_STYLE_MATRIX</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#define FORTRAN_STYLE_MATRIX</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="__hypre__utilities_8h.html">_hypre_utilities.h</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structutilities___fortran_matrix.html">   19</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="structutilities___fortran_matrix.html#a8f2b6c4861d834b11706d1140ce1e84b">   21</a></span>&#160;  <a class="code" href="__hypre__utilities_8h.html#ac982ae99d78c2c68c627c5dfe59e9e62">hypre_longint</a> <a class="code" href="structutilities___fortran_matrix.html#a8f2b6c4861d834b11706d1140ce1e84b">globalHeight</a>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="structutilities___fortran_matrix.html#a96c5606d9592e3d3cf05cc7f2fa15078">   22</a></span>&#160;  <a class="code" href="__hypre__utilities_8h.html#ac982ae99d78c2c68c627c5dfe59e9e62">hypre_longint</a> <a class="code" href="structutilities___fortran_matrix.html#a96c5606d9592e3d3cf05cc7f2fa15078">height</a>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="structutilities___fortran_matrix.html#ab9f79d3504c994076ed576438bf8a952">   23</a></span>&#160;  <a class="code" href="__hypre__utilities_8h.html#ac982ae99d78c2c68c627c5dfe59e9e62">hypre_longint</a> <a class="code" href="structutilities___fortran_matrix.html#ab9f79d3504c994076ed576438bf8a952">width</a>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="structutilities___fortran_matrix.html#a95671146a137afe5f362e1ca64256d48">   24</a></span>&#160;  <a class="code" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>* <a class="code" href="structutilities___fortran_matrix.html#a95671146a137afe5f362e1ca64256d48">value</a>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="structutilities___fortran_matrix.html#a28ee59d139771df26652ffdbc64a5005">   25</a></span>&#160;  <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>     <a class="code" href="structutilities___fortran_matrix.html#a28ee59d139771df26652ffdbc64a5005">ownsValues</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;} <a class="code" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<a class="code" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<a class="code" href="fortran__matrix_8h.html#a2bee1c623bc4def0dc0ad41ebf115ca7">utilities_FortranMatrixCreate</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<a class="code" href="fortran__matrix_8h.html#a4b87cec6ac2cfc6e0d7253d6d6be795b">utilities_FortranMatrixAllocateData</a>( <a class="code" href="__hypre__utilities_8h.html#ac982ae99d78c2c68c627c5dfe59e9e62">hypre_longint</a> h, <a class="code" href="__hypre__utilities_8h.html#ac982ae99d78c2c68c627c5dfe59e9e62">hypre_longint</a> w, </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                     <a class="code" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* mtx );</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<a class="code" href="fortran__matrix_8h.html#aabec1dc3e18070abedf357dc66a37fe5">utilities_FortranMatrixWrap</a>( <a class="code" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>*, <a class="code" href="__hypre__utilities_8h.html#ac982ae99d78c2c68c627c5dfe59e9e62">hypre_longint</a> gh, <a class="code" href="__hypre__utilities_8h.html#ac982ae99d78c2c68c627c5dfe59e9e62">hypre_longint</a> h, <a class="code" href="__hypre__utilities_8h.html#ac982ae99d78c2c68c627c5dfe59e9e62">hypre_longint</a> w, </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                 <a class="code" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* mtx );</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<a class="code" href="fortran__matrix_8h.html#a40ffb2340bf81cfee17781c259bb7054">utilities_FortranMatrixDestroy</a>( <a class="code" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* mtx );</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<a class="code" href="__hypre__utilities_8h.html#ac982ae99d78c2c68c627c5dfe59e9e62">hypre_longint</a></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<a class="code" href="fortran__matrix_8h.html#a39289a0bedc2e31300baabd2d5c296da">utilities_FortranMatrixGlobalHeight</a>( <a class="code" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* mtx );</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<a class="code" href="__hypre__utilities_8h.html#ac982ae99d78c2c68c627c5dfe59e9e62">hypre_longint</a></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<a class="code" href="fortran__matrix_8h.html#af3e7f4490762d1c829228d51528a80bd">utilities_FortranMatrixHeight</a>( <a class="code" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* mtx );</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<a class="code" href="__hypre__utilities_8h.html#ac982ae99d78c2c68c627c5dfe59e9e62">hypre_longint</a></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<a class="code" href="fortran__matrix_8h.html#a089ee0afbbfd5a2c641a970271409abe">utilities_FortranMatrixWidth</a>( <a class="code" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* mtx );</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<a class="code" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>*</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<a class="code" href="fortran__matrix_8h.html#a351327763667402a079a6f9eb482d770">utilities_FortranMatrixValues</a>( <a class="code" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* mtx );</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<a class="code" href="fortran__matrix_8h.html#a43bb4a9acd76370d39b8fe1c52232d92">utilities_FortranMatrixClear</a>( <a class="code" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* mtx );</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<a class="code" href="fortran__matrix_8h.html#af866ad6d54d2a2b1e6f45764ba334259">utilities_FortranMatrixClearL</a>( <a class="code" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* mtx );</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<a class="code" href="fortran__matrix_8h.html#a3ab8059adf66cbab231bdcf27a30a8f0">utilities_FortranMatrixSetToIdentity</a>( <a class="code" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* mtx );</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<a class="code" href="fortran__matrix_8h.html#a1d30ed70f7e3b0c0454a2f2f029c929c">utilities_FortranMatrixTransposeSquare</a>( <a class="code" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* mtx );</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<a class="code" href="fortran__matrix_8h.html#abec44351ee781f50875c4411b9c20cfb">utilities_FortranMatrixSymmetrize</a>( <a class="code" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* mtx );</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<a class="code" href="fortran__matrix_8h.html#a3a58ff3a4014499baec7c6aefb0b0a6a">utilities_FortranMatrixCopy</a>( <a class="code" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* src, <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> t, </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                 <a class="code" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* dest );</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<a class="code" href="fortran__matrix_8h.html#a5b9df98a15b76ffbcb046f55de017c35">utilities_FortranMatrixIndexCopy</a>( <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>* index, </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                  <a class="code" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* src, <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> t, </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                  <a class="code" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* dest );</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<a class="code" href="fortran__matrix_8h.html#aaddaeb3e55b4f1becd7e24b961603cab">utilities_FortranMatrixSetDiagonal</a>( <a class="code" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* mtx, </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                    <a class="code" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* d );</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<a class="code" href="fortran__matrix_8h.html#a17560a5ac3b0b1b45025421eb85a3bb1">utilities_FortranMatrixGetDiagonal</a>( <a class="code" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* mtx, </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                    <a class="code" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* d );</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<a class="code" href="fortran__matrix_8h.html#a8c28bf4084d81b256493710547fabefb">utilities_FortranMatrixAdd</a>( <a class="code" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> a, </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                <a class="code" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* mtxA, </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                <a class="code" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* mtxB, </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                <a class="code" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* mtxC );</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<a class="code" href="fortran__matrix_8h.html#ac26f1c0f4b592965ad284dd8a297bd19">utilities_FortranMatrixDMultiply</a>( <a class="code" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* d, </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                  <a class="code" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* mtx );</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<a class="code" href="fortran__matrix_8h.html#a003943d49933acaac0a36b4a87ba6732">utilities_FortranMatrixMultiplyD</a>( <a class="code" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* mtx, </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                  <a class="code" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* d );</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<a class="code" href="fortran__matrix_8h.html#acb0e881bb15072b7c17fa33a9c7241a5">utilities_FortranMatrixMultiply</a>( <a class="code" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* mtxA, <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> tA, </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                 <a class="code" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* mtxB, <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> tB,</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                 <a class="code" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* mtxC );</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<a class="code" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<a class="code" href="fortran__matrix_8h.html#a2b376c5b94e3b1de88769a4ee07da6f3">utilities_FortranMatrixFNorm</a>( <a class="code" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* mtx );</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<a class="code" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<a class="code" href="fortran__matrix_8h.html#af551c0c3329126a7ce7fb6953ce97e4c">utilities_FortranMatrixValue</a>( <a class="code" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* mtx, </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                  <a class="code" href="__hypre__utilities_8h.html#ac982ae99d78c2c68c627c5dfe59e9e62">hypre_longint</a> i, <a class="code" href="__hypre__utilities_8h.html#ac982ae99d78c2c68c627c5dfe59e9e62">hypre_longint</a> j );</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<a class="code" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>* </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<a class="code" href="fortran__matrix_8h.html#a5fc5b8ee2728677773fc1cc17cf0dd7b">utilities_FortranMatrixValuePtr</a>( <a class="code" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* mtx, </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                 <a class="code" href="__hypre__utilities_8h.html#ac982ae99d78c2c68c627c5dfe59e9e62">hypre_longint</a> i, <a class="code" href="__hypre__utilities_8h.html#ac982ae99d78c2c68c627c5dfe59e9e62">hypre_longint</a> j );</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<a class="code" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<a class="code" href="fortran__matrix_8h.html#ae03c218af000bf13b216d90f6ee8b268">utilities_FortranMatrixMaxValue</a>( <a class="code" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* mtx );</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<a class="code" href="fortran__matrix_8h.html#ae63570b8cefb75969ceef326fec1b8d0">utilities_FortranMatrixSelectBlock</a>( <a class="code" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* mtx,</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                    <a class="code" href="__hypre__utilities_8h.html#ac982ae99d78c2c68c627c5dfe59e9e62">hypre_longint</a> iFrom, <a class="code" href="__hypre__utilities_8h.html#ac982ae99d78c2c68c627c5dfe59e9e62">hypre_longint</a> iTo, </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                    <a class="code" href="__hypre__utilities_8h.html#ac982ae99d78c2c68c627c5dfe59e9e62">hypre_longint</a> jFrom, <a class="code" href="__hypre__utilities_8h.html#ac982ae99d78c2c68c627c5dfe59e9e62">hypre_longint</a> jTo,</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                    <a class="code" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* block );</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<a class="code" href="fortran__matrix_8h.html#a13e2c059b50b9cb2634d2ab91be8de0c">utilities_FortranMatrixUpperInv</a>( <a class="code" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* u );</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<a class="code" href="fortran__matrix_8h.html#a5d455842d70a9c8a664682851db391be">utilities_FortranMatrixPrint</a>( <a class="code" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* mtx, <span class="keyword">const</span> <span class="keywordtype">char</span> *fileName);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;}</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* FORTRAN_STYLE_MATRIX */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="a_h_y_p_r_e__utilities_8h_html_a80025df6a21e1f258e151ad46c0ad0ab"><div class="ttname"><a href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a></div><div class="ttdeci">double HYPRE_Real</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e__utilities_8h_source.html#l00058">HYPRE_utilities.h:58</a></div></div>
+<div class="ttc" id="astructutilities___fortran_matrix_html_a28ee59d139771df26652ffdbc64a5005"><div class="ttname"><a href="structutilities___fortran_matrix.html#a28ee59d139771df26652ffdbc64a5005">utilities_FortranMatrix::ownsValues</a></div><div class="ttdeci">HYPRE_Int ownsValues</div><div class="ttdef"><b>Definition:</b> <a href="fortran__matrix_8h_source.html#l00025">fortran_matrix.h:25</a></div></div>
+<div class="ttc" id="afortran__matrix_8h_html_a17560a5ac3b0b1b45025421eb85a3bb1"><div class="ttname"><a href="fortran__matrix_8h.html#a17560a5ac3b0b1b45025421eb85a3bb1">utilities_FortranMatrixGetDiagonal</a></div><div class="ttdeci">void utilities_FortranMatrixGetDiagonal(utilities_FortranMatrix *mtx, utilities_FortranMatrix *d)</div></div>
+<div class="ttc" id="afortran__matrix_8h_html_a2bee1c623bc4def0dc0ad41ebf115ca7"><div class="ttname"><a href="fortran__matrix_8h.html#a2bee1c623bc4def0dc0ad41ebf115ca7">utilities_FortranMatrixCreate</a></div><div class="ttdeci">utilities_FortranMatrix * utilities_FortranMatrixCreate(void)</div></div>
+<div class="ttc" id="afortran__matrix_8h_html_a003943d49933acaac0a36b4a87ba6732"><div class="ttname"><a href="fortran__matrix_8h.html#a003943d49933acaac0a36b4a87ba6732">utilities_FortranMatrixMultiplyD</a></div><div class="ttdeci">void utilities_FortranMatrixMultiplyD(utilities_FortranMatrix *mtx, utilities_FortranMatrix *d)</div></div>
+<div class="ttc" id="afortran__matrix_8h_html_a1d30ed70f7e3b0c0454a2f2f029c929c"><div class="ttname"><a href="fortran__matrix_8h.html#a1d30ed70f7e3b0c0454a2f2f029c929c">utilities_FortranMatrixTransposeSquare</a></div><div class="ttdeci">void utilities_FortranMatrixTransposeSquare(utilities_FortranMatrix *mtx)</div></div>
+<div class="ttc" id="a__hypre__utilities_8h_html"><div class="ttname"><a href="__hypre__utilities_8h.html">_hypre_utilities.h</a></div></div>
+<div class="ttc" id="afortran__matrix_8h_html_acb0e881bb15072b7c17fa33a9c7241a5"><div class="ttname"><a href="fortran__matrix_8h.html#acb0e881bb15072b7c17fa33a9c7241a5">utilities_FortranMatrixMultiply</a></div><div class="ttdeci">void utilities_FortranMatrixMultiply(utilities_FortranMatrix *mtxA, HYPRE_Int tA, utilities_FortranMatrix *mtxB, HYPRE_Int tB, utilities_FortranMatrix *mtxC)</div></div>
+<div class="ttc" id="afortran__matrix_8h_html_a43bb4a9acd76370d39b8fe1c52232d92"><div class="ttname"><a href="fortran__matrix_8h.html#a43bb4a9acd76370d39b8fe1c52232d92">utilities_FortranMatrixClear</a></div><div class="ttdeci">void utilities_FortranMatrixClear(utilities_FortranMatrix *mtx)</div></div>
+<div class="ttc" id="afortran__matrix_8h_html_a13e2c059b50b9cb2634d2ab91be8de0c"><div class="ttname"><a href="fortran__matrix_8h.html#a13e2c059b50b9cb2634d2ab91be8de0c">utilities_FortranMatrixUpperInv</a></div><div class="ttdeci">void utilities_FortranMatrixUpperInv(utilities_FortranMatrix *u)</div></div>
+<div class="ttc" id="afortran__matrix_8h_html_a40ffb2340bf81cfee17781c259bb7054"><div class="ttname"><a href="fortran__matrix_8h.html#a40ffb2340bf81cfee17781c259bb7054">utilities_FortranMatrixDestroy</a></div><div class="ttdeci">void utilities_FortranMatrixDestroy(utilities_FortranMatrix *mtx)</div></div>
+<div class="ttc" id="a_h_y_p_r_e__utilities_8h_html_a1b5547e62770096da46d1932024e30b9"><div class="ttname"><a href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a></div><div class="ttdeci">int HYPRE_Int</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e__utilities_8h_source.html#l00050">HYPRE_utilities.h:50</a></div></div>
+<div class="ttc" id="afortran__matrix_8h_html_af551c0c3329126a7ce7fb6953ce97e4c"><div class="ttname"><a href="fortran__matrix_8h.html#af551c0c3329126a7ce7fb6953ce97e4c">utilities_FortranMatrixValue</a></div><div class="ttdeci">HYPRE_Real utilities_FortranMatrixValue(utilities_FortranMatrix *mtx, hypre_longint i, hypre_longint j)</div></div>
+<div class="ttc" id="afortran__matrix_8h_html_ac26f1c0f4b592965ad284dd8a297bd19"><div class="ttname"><a href="fortran__matrix_8h.html#ac26f1c0f4b592965ad284dd8a297bd19">utilities_FortranMatrixDMultiply</a></div><div class="ttdeci">void utilities_FortranMatrixDMultiply(utilities_FortranMatrix *d, utilities_FortranMatrix *mtx)</div></div>
+<div class="ttc" id="astructutilities___fortran_matrix_html_ab9f79d3504c994076ed576438bf8a952"><div class="ttname"><a href="structutilities___fortran_matrix.html#ab9f79d3504c994076ed576438bf8a952">utilities_FortranMatrix::width</a></div><div class="ttdeci">hypre_longint width</div><div class="ttdef"><b>Definition:</b> <a href="fortran__matrix_8h_source.html#l00023">fortran_matrix.h:23</a></div></div>
+<div class="ttc" id="afortran__matrix_8h_html_a5b9df98a15b76ffbcb046f55de017c35"><div class="ttname"><a href="fortran__matrix_8h.html#a5b9df98a15b76ffbcb046f55de017c35">utilities_FortranMatrixIndexCopy</a></div><div class="ttdeci">void utilities_FortranMatrixIndexCopy(HYPRE_Int *index, utilities_FortranMatrix *src, HYPRE_Int t, utilities_FortranMatrix *dest)</div></div>
+<div class="ttc" id="a__hypre__utilities_8h_html_ac982ae99d78c2c68c627c5dfe59e9e62"><div class="ttname"><a href="__hypre__utilities_8h.html#ac982ae99d78c2c68c627c5dfe59e9e62">hypre_longint</a></div><div class="ttdeci">long int hypre_longint</div><div class="ttdef"><b>Definition:</b> <a href="__hypre__utilities_8h_source.html#l00024">_hypre_utilities.h:24</a></div></div>
+<div class="ttc" id="afortran__matrix_8h_html_a8c28bf4084d81b256493710547fabefb"><div class="ttname"><a href="fortran__matrix_8h.html#a8c28bf4084d81b256493710547fabefb">utilities_FortranMatrixAdd</a></div><div class="ttdeci">void utilities_FortranMatrixAdd(HYPRE_Real a, utilities_FortranMatrix *mtxA, utilities_FortranMatrix *mtxB, utilities_FortranMatrix *mtxC)</div></div>
+<div class="ttc" id="astructutilities___fortran_matrix_html_a95671146a137afe5f362e1ca64256d48"><div class="ttname"><a href="structutilities___fortran_matrix.html#a95671146a137afe5f362e1ca64256d48">utilities_FortranMatrix::value</a></div><div class="ttdeci">HYPRE_Real * value</div><div class="ttdef"><b>Definition:</b> <a href="fortran__matrix_8h_source.html#l00024">fortran_matrix.h:24</a></div></div>
+<div class="ttc" id="afortran__matrix_8h_html_af866ad6d54d2a2b1e6f45764ba334259"><div class="ttname"><a href="fortran__matrix_8h.html#af866ad6d54d2a2b1e6f45764ba334259">utilities_FortranMatrixClearL</a></div><div class="ttdeci">void utilities_FortranMatrixClearL(utilities_FortranMatrix *mtx)</div></div>
+<div class="ttc" id="afortran__matrix_8h_html_aabec1dc3e18070abedf357dc66a37fe5"><div class="ttname"><a href="fortran__matrix_8h.html#aabec1dc3e18070abedf357dc66a37fe5">utilities_FortranMatrixWrap</a></div><div class="ttdeci">void utilities_FortranMatrixWrap(HYPRE_Real *, hypre_longint gh, hypre_longint h, hypre_longint w, utilities_FortranMatrix *mtx)</div></div>
+<div class="ttc" id="afortran__matrix_8h_html_a2b376c5b94e3b1de88769a4ee07da6f3"><div class="ttname"><a href="fortran__matrix_8h.html#a2b376c5b94e3b1de88769a4ee07da6f3">utilities_FortranMatrixFNorm</a></div><div class="ttdeci">HYPRE_Real utilities_FortranMatrixFNorm(utilities_FortranMatrix *mtx)</div></div>
+<div class="ttc" id="afortran__matrix_8h_html_a3ab8059adf66cbab231bdcf27a30a8f0"><div class="ttname"><a href="fortran__matrix_8h.html#a3ab8059adf66cbab231bdcf27a30a8f0">utilities_FortranMatrixSetToIdentity</a></div><div class="ttdeci">void utilities_FortranMatrixSetToIdentity(utilities_FortranMatrix *mtx)</div></div>
+<div class="ttc" id="afortran__matrix_8h_html_ae63570b8cefb75969ceef326fec1b8d0"><div class="ttname"><a href="fortran__matrix_8h.html#ae63570b8cefb75969ceef326fec1b8d0">utilities_FortranMatrixSelectBlock</a></div><div class="ttdeci">void utilities_FortranMatrixSelectBlock(utilities_FortranMatrix *mtx, hypre_longint iFrom, hypre_longint iTo, hypre_longint jFrom, hypre_longint jTo, utilities_FortranMatrix *block)</div></div>
+<div class="ttc" id="afortran__matrix_8h_html_ae03c218af000bf13b216d90f6ee8b268"><div class="ttname"><a href="fortran__matrix_8h.html#ae03c218af000bf13b216d90f6ee8b268">utilities_FortranMatrixMaxValue</a></div><div class="ttdeci">HYPRE_Real utilities_FortranMatrixMaxValue(utilities_FortranMatrix *mtx)</div></div>
+<div class="ttc" id="afortran__matrix_8h_html_a5fc5b8ee2728677773fc1cc17cf0dd7b"><div class="ttname"><a href="fortran__matrix_8h.html#a5fc5b8ee2728677773fc1cc17cf0dd7b">utilities_FortranMatrixValuePtr</a></div><div class="ttdeci">HYPRE_Real * utilities_FortranMatrixValuePtr(utilities_FortranMatrix *mtx, hypre_longint i, hypre_longint j)</div></div>
+<div class="ttc" id="afortran__matrix_8h_html_af3e7f4490762d1c829228d51528a80bd"><div class="ttname"><a href="fortran__matrix_8h.html#af3e7f4490762d1c829228d51528a80bd">utilities_FortranMatrixHeight</a></div><div class="ttdeci">hypre_longint utilities_FortranMatrixHeight(utilities_FortranMatrix *mtx)</div></div>
+<div class="ttc" id="astructutilities___fortran_matrix_html_a96c5606d9592e3d3cf05cc7f2fa15078"><div class="ttname"><a href="structutilities___fortran_matrix.html#a96c5606d9592e3d3cf05cc7f2fa15078">utilities_FortranMatrix::height</a></div><div class="ttdeci">hypre_longint height</div><div class="ttdef"><b>Definition:</b> <a href="fortran__matrix_8h_source.html#l00022">fortran_matrix.h:22</a></div></div>
+<div class="ttc" id="afortran__matrix_8h_html_a5d455842d70a9c8a664682851db391be"><div class="ttname"><a href="fortran__matrix_8h.html#a5d455842d70a9c8a664682851db391be">utilities_FortranMatrixPrint</a></div><div class="ttdeci">HYPRE_Int utilities_FortranMatrixPrint(utilities_FortranMatrix *mtx, const char *fileName)</div></div>
+<div class="ttc" id="afortran__matrix_8h_html_a089ee0afbbfd5a2c641a970271409abe"><div class="ttname"><a href="fortran__matrix_8h.html#a089ee0afbbfd5a2c641a970271409abe">utilities_FortranMatrixWidth</a></div><div class="ttdeci">hypre_longint utilities_FortranMatrixWidth(utilities_FortranMatrix *mtx)</div></div>
+<div class="ttc" id="afortran__matrix_8h_html_a351327763667402a079a6f9eb482d770"><div class="ttname"><a href="fortran__matrix_8h.html#a351327763667402a079a6f9eb482d770">utilities_FortranMatrixValues</a></div><div class="ttdeci">HYPRE_Real * utilities_FortranMatrixValues(utilities_FortranMatrix *mtx)</div></div>
+<div class="ttc" id="afortran__matrix_8h_html_a3a58ff3a4014499baec7c6aefb0b0a6a"><div class="ttname"><a href="fortran__matrix_8h.html#a3a58ff3a4014499baec7c6aefb0b0a6a">utilities_FortranMatrixCopy</a></div><div class="ttdeci">void utilities_FortranMatrixCopy(utilities_FortranMatrix *src, HYPRE_Int t, utilities_FortranMatrix *dest)</div></div>
+<div class="ttc" id="afortran__matrix_8h_html_a4b87cec6ac2cfc6e0d7253d6d6be795b"><div class="ttname"><a href="fortran__matrix_8h.html#a4b87cec6ac2cfc6e0d7253d6d6be795b">utilities_FortranMatrixAllocateData</a></div><div class="ttdeci">void utilities_FortranMatrixAllocateData(hypre_longint h, hypre_longint w, utilities_FortranMatrix *mtx)</div></div>
+<div class="ttc" id="astructutilities___fortran_matrix_html"><div class="ttname"><a href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a></div><div class="ttdef"><b>Definition:</b> <a href="fortran__matrix_8h_source.html#l00019">fortran_matrix.h:19</a></div></div>
+<div class="ttc" id="astructutilities___fortran_matrix_html_a8f2b6c4861d834b11706d1140ce1e84b"><div class="ttname"><a href="structutilities___fortran_matrix.html#a8f2b6c4861d834b11706d1140ce1e84b">utilities_FortranMatrix::globalHeight</a></div><div class="ttdeci">hypre_longint globalHeight</div><div class="ttdef"><b>Definition:</b> <a href="fortran__matrix_8h_source.html#l00021">fortran_matrix.h:21</a></div></div>
+<div class="ttc" id="afortran__matrix_8h_html_abec44351ee781f50875c4411b9c20cfb"><div class="ttname"><a href="fortran__matrix_8h.html#abec44351ee781f50875c4411b9c20cfb">utilities_FortranMatrixSymmetrize</a></div><div class="ttdeci">void utilities_FortranMatrixSymmetrize(utilities_FortranMatrix *mtx)</div></div>
+<div class="ttc" id="afortran__matrix_8h_html_a39289a0bedc2e31300baabd2d5c296da"><div class="ttname"><a href="fortran__matrix_8h.html#a39289a0bedc2e31300baabd2d5c296da">utilities_FortranMatrixGlobalHeight</a></div><div class="ttdeci">hypre_longint utilities_FortranMatrixGlobalHeight(utilities_FortranMatrix *mtx)</div></div>
+<div class="ttc" id="afortran__matrix_8h_html_aaddaeb3e55b4f1becd7e24b961603cab"><div class="ttname"><a href="fortran__matrix_8h.html#aaddaeb3e55b4f1becd7e24b961603cab">utilities_FortranMatrixSetDiagonal</a></div><div class="ttdeci">void utilities_FortranMatrixSetDiagonal(utilities_FortranMatrix *mtx, utilities_FortranMatrix *d)</div></div>
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_1481b2ad69b2eab628871d4fb2bac45c.html">hypre-2.11.1</a></li><li class="navelem"><a class="el" href="fortran__matrix_8h.html">fortran_matrix.h</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

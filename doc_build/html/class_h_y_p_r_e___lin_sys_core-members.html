@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="TDMA_PDD_cpu" />
+<meta property="og:image" content="../preview.png" />
+<meta property="og:description" content="Documentation for Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD_cpu" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="../preview.png" />
+<meta property="og:title" content="TDMA_PDD_cpu" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD_cpu" />
+<!-- END twitter metadata -->
+<title>TDMA_PDD_CPU: Member List</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            messageStyle: "normal",
+            linebreaks: {
+                automatic: false
+            }
+        },
+        tex2jax: { 
+            inlineMath: [["\\(","\\)"]], 
+            displayMath: [["$$","$$"],["\\[","\\]"]], 
+            processEscapes: true
+        },
+        TeX: {
+            Macros: {
+                tr: "{\\scriptscriptstyle\\mathrm{T}}",
+            }
+        }
+    });
+</script>
+<!--MathJax(LaTeX) -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <script type="text/javascript" id="MathJax-script" async  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">  </script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="custom-alternative.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/hugh577/TDMA_PDD_cpu" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 65px;">
+  <td id="projectlogo">
+    <a href="./index.html">
+        <img alt="Logo" src="home.png"/></td>
+    </a>
+  <td id="projectalign" style="padding-left: 0.5em;padding-top: 0.5em;">
+   <div id="projectname">TDMA_PDD_CPU
+   </div>
+   <div id="projectbrief">Documentation</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_h_y_p_r_e___lin_sys_core.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">HYPRE_LinSysCore Member List</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>This is the complete list of members for <a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a>, including all inherited members.</p>
+<table class="directory">
+  <tr class="even"><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a1f49d3af595c3e13c30873d04b64d54a">allocateMatrix</a>(int **colIndices, int *rowLengths)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a25785b738dc6d59b3567696dd3e20a58">beginCreateMapFromSoln</a>()</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a753606fc5d8cfaa9f8d1651ca88d4815">clone</a>()</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a639a77a240ce3520bd50fe82978b93bc">copyInMatrix</a>(double scalar, const Data &amp;data)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#aa51c88634a61cfe7757da69390d8a9a5">copyInRHSVector</a>(double scalar, const Data &amp;data)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a9e1c709fed7c68e758f12c8e40314aee">copyOutMatrix</a>(double scalar, Data &amp;data)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#aba474f838b803d48b100ac6712f45558">copyOutRHSVector</a>(double scalar, Data &amp;data)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a10c1c2ea77e06e3e890c78f403a9ee15">createMatricesAndVectors</a>(int numGlobalEqns, int firstLocalEqn, int numLocalEqns)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a0b37b6601eb09b54c687770e7403e242">destroyMatrixData</a>(Data &amp;data)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a4985a0248416f4f6da5f258b85b9751c">destroyVectorData</a>(Data &amp;data)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a0a4b4999f48da5d6875dc9766aae0c9a">endCreateMapFromSoln</a>()</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#aed9311d8a00db8900dafe490f802856c">enforceEssentialBC</a>(int *globalEqn, double *alpha, double *gamma, int len)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a84d5884a539818ae99ed54fc182b0bda">enforceOtherBC</a>(int *globalEqn, double *alpha, double *beta, double *gamma, int len)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#afbd089384fd25f4cdb2fc30de7638269">enforceRemoteEssBCs</a>(int numEqns, int *globalEqns, int **colIndices, int *colIndLen, double **coefs)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a4833b31ef92ad6f01d144509f00d1fb1">FE_initComplete</a>()</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a17c0853274637d924da2163fd4bd2828">FE_initElemBlock</a>(int nElems, int nNodesPerElem, int numNodeFields, int *nodeFieldIDs)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#abcbbce7e926061c602b8cc2179316674">FE_initElemNodeList</a>(int elemID, int nNodesPerElem, int *nodeIDs)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a31b44b15ccaf39942d66a77d59992913">FE_initFields</a>(int nFields, int *fieldSizes, int *fieldIDs)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#ad41224cc527b4dd8b9a1e9a2e4b8d55d">FE_initSharedNodes</a>(int nShared, int *sharedIDs, int *sharedPLengs, int **sharedProcs)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#ab4fdffc22526f31c76191fc7a5c11816">FE_loadElemMatrix</a>(int elemID, int nNodes, int *elemNodeList, int matDim, double **elemMat)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#ab8f7e86b193b4d109faf0275faca0d1d">fei_hypre_domaindecomposition</a>(int argc, char *argv[])</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a5c446d4e300f8401cfda304e1c9ee671">fei_hypre_test</a>(int argc, char *argv[])</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#abd1c85cb9610ff8f0bedbe4f8719f6a4">formResidual</a>(double *values, int len)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#ac57cea14fc369771fb4abb1b336d5760">getFEDataObject</a>(void **object)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a22b6308fa34b39e7438b46e9d8053642">getFromRHSVector</a>(int num, double *values, const int *indices)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a7686c45f180b0a41925bb7213a7d7ca4">getMatrixPtr</a>(Data &amp;data)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#aa1df31958abfe60c4b0cfd5e44b50d96">getMatrixRow</a>(int row, double *coefs, int *indices, int len, int &amp;rowLength)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#ac5bd88c16b0cbf95241c4c834d353f28">getMatrixRowLength</a>(int row, int &amp;length)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_linear_system_core.html#a19ece4307b1fad22f915cbb9ce920c00">getProperty</a>(const char *, double &amp;)</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a6db60fd797c185e49e3e325080a12c2e">getRHSVectorPtr</a>(Data &amp;data)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a4219f710d94308c7d73b0ebe88f2135d">getSolnEntry</a>(int eqnNumber, double &amp;answer)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a9d41dede769395804c39a313fc14d6c9">getSolution</a>(double *answers, int len)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a23fd0cd8191647f005deeb37e4f116e9">getVersion</a>()</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a1759e606c64f7f2b9ad44f4b9f2d0f2e">HYPRE_LinSysCore</a>(MPI_Comm comm)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#ac63bd48c82cd9e664ab4367614232f59">HYPRE_LSC_Axpby</a>(double, void *, double, void *)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a10f17242f56d27d8e2bc6404fb2ec52a">HYPRE_LSC_GetMatrix</a>()</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#adf6e600e2c17f25503dc29870eacf3ed">HYPRE_LSC_GetRHSVector</a>()</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#ab7215f61efa59aa11b247760efebf005">HYPRE_LSC_GetRNorm</a>()</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#aaec9beccd223802a37cf6a444839b22a">HYPRE_LSC_GetSolVector</a>()</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a79525067077f5e015321a07cae3bc04a">HYPRE_LSC_MatMatMult</a>(void *)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a664941cd9dfa7c5d56773fe68a9bb94e">HYPRE_LSC_Matvec</a>(void *x, void *y)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#ab646b8e0f0cb3663fbba1dfe787437f2">HYPRE_LSC_SetColMap</a>(int, int)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a0f87e5f369771c86639ced0c5616aabe">launchSolver</a>(int &amp;solveStatus, int &amp;iterations)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_linear_system_core.html#a9ef0b9ff1f0e5966df08bd14fdfb5ede">LinearSystemCore</a>()</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a367ceea43c00c9276250c0eb73965ead">loadConstraintNumbers</a>(int length, int *list)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a98ba176d2012e8b2aaa36bb65f26bf23">matrixLoadComplete</a>()</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a9fc244ebba0cccba2dc9eb639ead923f">parameters</a>(int numParams, char **params)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#aa11c760eb3fb46f75cd80696ee7f2075">putInitialGuess</a>(const int *eqnNumbers, const double *values, int len)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#ad30bc9c1bb09ff5c1ee7eae439496910">putIntoMappedMatrix</a>(int row, int numValues, const double *values, const int *scatterIndices)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a9d992f2b7c227203cb3ae46e9d71ea42">putIntoRHSVector</a>(int num, const double *values, const int *indices)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a504fa6ce75b0419ffc4c80099a59fe1f">putIntoSystemMatrix</a>(int numPtRows, const int *ptRows, int numPtCols, const int *ptCols, const double *const *values)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a9448436f7fcc4f7f1deaee38e7b7eda4">putNodalFieldData</a>(int fieldID, int fieldSize, int *nodeNumbers, int numNodes, const double *data)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a27453c0b50050457f214926797bf0159">resetMatrix</a>(double s)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#ae405743b6d81b84aa029c38a5b486cc8">resetMatrixAndVector</a>(double s)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#ab582d0fcf06f291778b6e8a8fdb60543">resetRHSVector</a>(double s)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a7027b06e997efcf5b680e4dee071bbaa">setConnectivities</a>(GlobalID elemBlock, int numElements, int numNodesPerElem, const GlobalID *elemIDs, const int *const *connNodes)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a549e9fb02d8b5d51fccf07756467110e">setGlobalOffsets</a>(int len, int *nodeOffsets, int *eqnOffsets, int *blkEqnOffsets)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a6eced772e962e3cfd262767e6809d63c">setLoadVectors</a>(GlobalID elemBlock, int numElems, const GlobalID *elemIDs, const double *const *load, int numEqnsPerElem, const int *const *eqnIndices)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#aed5ba6bb8201591e031e44d5d79e5dd9">setLookup</a>(Lookup &amp;lookup)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a558151a570bb352f7f2595ac81a24a77">setMatrixStructure</a>(int **ptColIndices, int *ptRowLengths, int **blkColIndices, int *blkRowLengths, int *ptRowsPerBlkRow)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a807c9ae7ae4975c63b82f43d2d48f78a">setMultCREqns</a>(int multCRSetID, int numCRs, int numNodesPerCR, int **nodeNumbers, int **eqnNumbers, int *fieldIDs, int *multiplierEqnNumbers)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a9e0c0dcbab285e5fe7f31a4749b6916e">setNumRHSVectors</a>(int numRHSs, const int *rhsIDs)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#ad8aba86614a0c263faa12b39e371e67b">setPenCREqns</a>(int penCRSetID, int numCRs, int numNodesPerCR, int **nodeNumbers, int **eqnNumbers, int *fieldIDs)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a2fd4229c1e3cb572d10639231e2d6bff">setRHSID</a>(int rhsID)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#afd0dc8d1de4376a1d1ec93d9a3e2971d">setStiffnessMatrices</a>(GlobalID elemBlock, int numElems, const GlobalID *elemIDs, const double *const *const *stiff, int numEqnsPerElem, const int *const *eqnIndices)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a0396323e7da3322010b36ea1174bd1c9">sumInMatrix</a>(double scalar, const Data &amp;data)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#ad19dec9c61ee3910a623e6239c10dd28">sumInRHSVector</a>(double scalar, const Data &amp;data)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#ae4c5efcdc97ce952368cf0a3aafd4f2d">sumIntoRHSVector</a>(int num, const double *values, const int *indices)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#ae3111f1fc2f387bf54e6448e7aaff122">sumIntoSystemMatrix</a>(int numPtRows, const int *ptRows, int numPtCols, const int *ptCols, int numBlkRows, const int *blkRows, int numBlkCols, const int *blkCols, const double *const *values)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a345f16c81910e20914c52afd208f5975">sumIntoSystemMatrix</a>(int numPtRows, const int *ptRows, int numPtCols, const int *ptCols, const double *const *values)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#ac46ddef343eeae2efc1c0c64c3d83d78">sumIntoSystemMatrix</a>(int row, int numValues, const double *values, const int *scatterIndices)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#abdc549daeee03328d639798315705d6e">writeSystem</a>(const char *)</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a5723e35bdcab6469bb235e4037ea4506">~HYPRE_LinSysCore</a>()</td><td class="entry"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_linear_system_core.html#accab3892d7350d9c7e05c9e2d3a727ef">~LinearSystemCore</a>()</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+</table></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

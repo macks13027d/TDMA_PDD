@@ -1,0 +1,1067 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="TDMA_PDD_cpu" />
+<meta property="og:image" content="../preview.png" />
+<meta property="og:description" content="Documentation for Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD_cpu" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="../preview.png" />
+<meta property="og:title" content="TDMA_PDD_cpu" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD_cpu" />
+<!-- END twitter metadata -->
+<title>TDMA_PDD_CPU: include/hypre-2.11.1/HYPRE_LinSysCore.h Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            messageStyle: "normal",
+            linebreaks: {
+                automatic: false
+            }
+        },
+        tex2jax: { 
+            inlineMath: [["\\(","\\)"]], 
+            displayMath: [["$$","$$"],["\\[","\\]"]], 
+            processEscapes: true
+        },
+        TeX: {
+            Macros: {
+                tr: "{\\scriptscriptstyle\\mathrm{T}}",
+            }
+        }
+    });
+</script>
+<!--MathJax(LaTeX) -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <script type="text/javascript" id="MathJax-script" async  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">  </script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="custom-alternative.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/hugh577/TDMA_PDD_cpu" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 65px;">
+  <td id="projectlogo">
+    <a href="./index.html">
+        <img alt="Logo" src="home.png"/></td>
+    </a>
+  <td id="projectalign" style="padding-left: 0.5em;padding-top: 0.5em;">
+   <div id="projectname">TDMA_PDD_CPU
+   </div>
+   <div id="projectbrief">Documentation</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('_h_y_p_r_e___lin_sys_core_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">HYPRE_LinSysCore.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_h_y_p_r_e___lin_sys_core_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*BHEADER**********************************************************************</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Copyright (c) 2008,  Lawrence Livermore National Security, LLC.</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> * Produced at the Lawrence Livermore National Laboratory.</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * This file is part of HYPRE.  See file COPYRIGHT for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * HYPRE is free software; you can redistribute it and/or modify it under the</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> * terms of the GNU Lesser General Public License (as published by the Free</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * Software Foundation) version 2.1 dated February 1999.</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> * $Revision$</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> ***********************************************************************EHEADER*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">// *************************************************************************</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">// This is the HYPRE implementation of LinearSystemCore.</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">// *************************************************************************</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#ifndef _HYPRE_LinSysCore_h_</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#define _HYPRE_LinSysCore_h_</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="_h_y_p_r_e___lin_sys_core_8h.html#af85163447937d285d9a4f6fd692dfbe7">   24</a></span>&#160;<span class="preprocessor">#define HYPRE_FEI_Version() &quot;FEI/HYPRE 2.7.0R1&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">// *************************************************************************</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">// system libraries used</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">// -------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &lt;assert.h&gt;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &lt;math.h&gt;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#ifdef NOFEI</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#undef NOFEI</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">// *************************************************************************</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">// FEI-specific include files</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">// -------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_h_y_p_r_e___f_e_i__includes_8h.html">HYPRE_FEI_includes.h</a>&quot;</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">// *************************************************************************</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">// local enumerations and defines</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">// -------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="_h_y_p_r_e___lin_sys_core_8h.html#a1d714e0ed15c89a882d6ad5560ef26bbafecf853ea66b13098b4e2305393ea06e">   50</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="_h_y_p_r_e___lin_sys_core_8h.html#a1d714e0ed15c89a882d6ad5560ef26bb">HYsolverID</a> {<a class="code" href="_h_y_p_r_e___lin_sys_core_8h.html#a1d714e0ed15c89a882d6ad5560ef26bba08151cdc9c4d99deadf6d75a25fd57e0">HYPCG</a>,<a class="code" href="_h_y_p_r_e___lin_sys_core_8h.html#a1d714e0ed15c89a882d6ad5560ef26bbaeb7aa3087345d5d091a4992fb371914a">HYLSICG</a>,<a class="code" href="_h_y_p_r_e___lin_sys_core_8h.html#a1d714e0ed15c89a882d6ad5560ef26bba824a589d4bae5299499603ae6e243dfa">HYGMRES</a>,<a class="code" href="_h_y_p_r_e___lin_sys_core_8h.html#a1d714e0ed15c89a882d6ad5560ef26bba3cdaaa42154218e928279e9f411f8126">HYFGMRES</a>,<a class="code" href="_h_y_p_r_e___lin_sys_core_8h.html#a1d714e0ed15c89a882d6ad5560ef26bba2251ebab20b83611bcefde5067d95ffb">HYCGSTAB</a>,<a class="code" href="_h_y_p_r_e___lin_sys_core_8h.html#a1d714e0ed15c89a882d6ad5560ef26bbaddfab017f0c378677692aa1b861c7d44">HYCGSTABL</a>,<a class="code" href="_h_y_p_r_e___lin_sys_core_8h.html#a1d714e0ed15c89a882d6ad5560ef26bbafecf853ea66b13098b4e2305393ea06e">HYTFQMR</a>,</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="_h_y_p_r_e___lin_sys_core_8h.html#a1d714e0ed15c89a882d6ad5560ef26bbad27e4d510fc1feb4bff85f0940792bf1">   51</a></span>&#160;                 <a class="code" href="_h_y_p_r_e___lin_sys_core_8h.html#a1d714e0ed15c89a882d6ad5560ef26bba6131868270fc6113647971105a7356ef">HYBICGS</a>,<a class="code" href="_h_y_p_r_e___lin_sys_core_8h.html#a1d714e0ed15c89a882d6ad5560ef26bbad27e4d510fc1feb4bff85f0940792bf1">HYSYMQMR</a>,<a class="code" href="_h_y_p_r_e___lin_sys_core_8h.html#a1d714e0ed15c89a882d6ad5560ef26bba84fe4a747032dd777fb111ba73d53608">HYAMG</a>,<a class="code" href="_h_y_p_r_e___lin_sys_core_8h.html#a1d714e0ed15c89a882d6ad5560ef26bba83e31afc7d385d0188a4e5fb2d362a8a">HYSUPERLU</a>,<a class="code" href="_h_y_p_r_e___lin_sys_core_8h.html#a1d714e0ed15c89a882d6ad5560ef26bba67e1b557a4d789699f587bedb251248c">HYSUPERLUX</a>,<a class="code" href="_h_y_p_r_e___lin_sys_core_8h.html#a1d714e0ed15c89a882d6ad5560ef26bbafc9f8ffaf094a0d603f91f1e0d7d369b">HYDSUPERLU</a>,</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="_h_y_p_r_e___lin_sys_core_8h.html#a1d714e0ed15c89a882d6ad5560ef26bba9963caecfd7db584b0b4eb4ab02cf6cf">   52</a></span>&#160;                 <a class="code" href="_h_y_p_r_e___lin_sys_core_8h.html#a1d714e0ed15c89a882d6ad5560ef26bba9963caecfd7db584b0b4eb4ab02cf6cf">HYY12M</a>,<a class="code" href="_h_y_p_r_e___lin_sys_core_8h.html#a1d714e0ed15c89a882d6ad5560ef26bba96a40a21503300bdb6f47c168f8b2272">HYAMGE</a>,<a class="code" href="_h_y_p_r_e___lin_sys_core_8h.html#a1d714e0ed15c89a882d6ad5560ef26bbacad93a9eda045c4d1f896c3985f03b63">HYHYBRID</a>};</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37">   53</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37">HYpreconID</a> {<a class="code" href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37abdf2873a8413eff635ac7b87654c0a73">HYIDENTITY</a>,<a class="code" href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37a7652fdfac88a379664f25024808e8760">HYDIAGONAL</a>,<a class="code" href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37a181ed9ebae2e6b613f73ed5c1dd18b7e">HYPILUT</a>,<a class="code" href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37a4267f20525ac5a9089988538fdef5f2c">HYPARASAILS</a>,<a class="code" href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37a2cfe1faeab92ab95a63385252347701a">HYBOOMERAMG</a>,<a class="code" href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37a52c1946b862bf9d7b0c03b2fb4f8fb4d">HYML</a>,</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37ab71af527c0daa810ae5fbad34dfd3c28">   54</a></span>&#160;                 <a class="code" href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37ab8b728f98ba57538f71ae822b36497e4">HYDDILUT</a>,<a class="code" href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37aca67f0073207cc5a4ac794005e208390">HYPOLY</a>,<a class="code" href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37a7d4f52b31b06caaa78a599b81b871ca4">HYDDICT</a>,<a class="code" href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37ab71af527c0daa810ae5fbad34dfd3c28">HYSCHWARZ</a>,<a class="code" href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37a2cb889944f1e99f9008cb03f64491caf">HYEUCLID</a>,<a class="code" href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37a0f6c1157e3907d258d3afeebddc6301e">HYBLOCK</a>,<a class="code" href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37a5be565bb05d2632f218574dc2bad7243">HYMLI</a>,</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37af7153049847e4917e9a7119437777637">   55</a></span>&#160;                 <a class="code" href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37af7153049847e4917e9a7119437777637">HYUZAWA</a>,<a class="code" href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37ad21f453761406fa28aef01efa0639797">HYMLMAXWELL</a>,<a class="code" href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37a58dc626834a5bfac39782546820aace5">HYAMS</a>,<a class="code" href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37a1a7df728e25b619753a084f670344e92">HYSYSPDE</a>,<a class="code" href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37ad1dcec0132cac2dee0665b21b8fe03d6">HYDSLU</a>};</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="_h_y_p_r_e___lin_sys_core_8h.html#af4d83e344afcae9aafc942c16ee4f508">   57</a></span>&#160;<span class="preprocessor">#define HYFEI_HIGHMASK     (2147483647-255)</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="_h_y_p_r_e___lin_sys_core_8h.html#a6f714f3ee11126efb4f9eb2d8faf6dce">   58</a></span>&#160;<span class="preprocessor">#define HYFEI_SPECIALMASK              255</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="_h_y_p_r_e___lin_sys_core_8h.html#a3260566e1084b09c20c2052377953cc0">   59</a></span>&#160;<span class="preprocessor">#define HYFEI_SLIDEREDUCE1             256</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="_h_y_p_r_e___lin_sys_core_8h.html#a614284ff1e37d3cf5243c0ed2684f4d9">   60</a></span>&#160;<span class="preprocessor">#define HYFEI_SLIDEREDUCE2             512</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="_h_y_p_r_e___lin_sys_core_8h.html#ae2bc04a9a1d37d61a22e9a203317b9eb">   61</a></span>&#160;<span class="preprocessor">#define HYFEI_SLIDEREDUCE3            1024</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="_h_y_p_r_e___lin_sys_core_8h.html#abeedaba7988da59d0d17f69f5a614213">   62</a></span>&#160;<span class="preprocessor">#define HYFEI_PRINTMAT                2048</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="_h_y_p_r_e___lin_sys_core_8h.html#ab5b1e9d869788c35da86245b11b057b5">   63</a></span>&#160;<span class="preprocessor">#define HYFEI_PRINTREDMAT             4096</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="_h_y_p_r_e___lin_sys_core_8h.html#a2688df1ca52fefe797fdff0c36f14a29">   64</a></span>&#160;<span class="preprocessor">#define HYFEI_PRINTSOL                8192</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="_h_y_p_r_e___lin_sys_core_8h.html#a5c3bc09663063bd5e40ce3a0c7ea6a93">   65</a></span>&#160;<span class="preprocessor">#define HYFEI_DDILUT                 16384</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="_h_y_p_r_e___lin_sys_core_8h.html#a6024bcc87008ce7d921b638ea6d530f4">   66</a></span>&#160;<span class="preprocessor">#define HYFEI_SCHURREDUCE1           32768</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="_h_y_p_r_e___lin_sys_core_8h.html#a66386c8635f7a81906ff14a976c0a141">   67</a></span>&#160;<span class="preprocessor">#define HYFEI_SCHURREDUCE2           65536</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="_h_y_p_r_e___lin_sys_core_8h.html#a8399fa8736d578f05b98d9ae3d06b876">   68</a></span>&#160;<span class="preprocessor">#define HYFEI_SCHURREDUCE3          131072</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="_h_y_p_r_e___lin_sys_core_8h.html#ac3ea6d8c7278de956a678b11982c4e0f">   69</a></span>&#160;<span class="preprocessor">#define HYFEI_PRINTFEINFO           262144</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="_h_y_p_r_e___lin_sys_core_8h.html#ac7731c9c5123093d6b2c65991565b44e">   70</a></span>&#160;<span class="preprocessor">#define HYFEI_AMGDEBUG              524288</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="_h_y_p_r_e___lin_sys_core_8h.html#a7f8549eae8487c8374f1fe219354392a">   71</a></span>&#160;<span class="preprocessor">#define HYFEI_STOPAFTERPRINT       1048576</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="_h_y_p_r_e___lin_sys_core_8h.html#aaeeff388029163a2c7cda9de5e65c125">   72</a></span>&#160;<span class="preprocessor">#define HYFEI_PRINTPARCSRMAT       2097152</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="_h_y_p_r_e___lin_sys_core_8h.html#a6b6251cba323e70045c70627cf43e9ac">   73</a></span>&#160;<span class="preprocessor">#define HYFEI_IMPOSENOBC           4194304</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">// *************************************************************************</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">// substructure definition</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment">// -------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="struct_h_y_p_r_e___f_e_i___a_m_s_data.html">   79</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;{</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="struct_h_y_p_r_e___f_e_i___a_m_s_data.html#ae3623d59c4cf477b95b6aa831a5541c8">   81</a></span>&#160;   <span class="keywordtype">int</span>    *<a class="code" href="struct_h_y_p_r_e___f_e_i___a_m_s_data.html#ae3623d59c4cf477b95b6aa831a5541c8">EdgeNodeList_</a>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="struct_h_y_p_r_e___f_e_i___a_m_s_data.html#a41af158f78f6bc1262799e2cba1c564b">   82</a></span>&#160;   <span class="keywordtype">int</span>    *<a class="code" href="struct_h_y_p_r_e___f_e_i___a_m_s_data.html#a41af158f78f6bc1262799e2cba1c564b">NodeNumbers_</a>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="struct_h_y_p_r_e___f_e_i___a_m_s_data.html#a4843f1973857826bf882669cda88f565">   83</a></span>&#160;   <span class="keywordtype">int</span>    <a class="code" href="struct_h_y_p_r_e___f_e_i___a_m_s_data.html#a4843f1973857826bf882669cda88f565">numEdges_</a>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="struct_h_y_p_r_e___f_e_i___a_m_s_data.html#ae5703cf8c470dab50320bb30efa25370">   84</a></span>&#160;   <span class="keywordtype">int</span>    <a class="code" href="struct_h_y_p_r_e___f_e_i___a_m_s_data.html#ae5703cf8c470dab50320bb30efa25370">numLocalNodes_</a>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="struct_h_y_p_r_e___f_e_i___a_m_s_data.html#a557e5f81fcf4e566564b541648795b47">   85</a></span>&#160;   <span class="keywordtype">int</span>    <a class="code" href="struct_h_y_p_r_e___f_e_i___a_m_s_data.html#a557e5f81fcf4e566564b541648795b47">numNodes_</a>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="struct_h_y_p_r_e___f_e_i___a_m_s_data.html#a6e2d7f7b248d8e8c210e0e52ec12d8a6">   86</a></span>&#160;   <span class="keywordtype">double</span> *<a class="code" href="struct_h_y_p_r_e___f_e_i___a_m_s_data.html#a6e2d7f7b248d8e8c210e0e52ec12d8a6">NodalCoord_</a>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;} <a class="code" href="struct_h_y_p_r_e___f_e_i___a_m_s_data.html">HYPRE_FEI_AMSData</a>;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment">// *************************************************************************</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment">// class definition</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment">// -------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="class_h_y_p_r_e___lin_sys_core.html">   93</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;#ifndef NOFEI</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;           : <span class="keyword">public</span> <a class="code" href="class_linear_system_core.html">LinearSystemCore</a> </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;{</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;   <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#a1759e606c64f7f2b9ad44f4b9f2d0f2e">HYPRE_LinSysCore</a>(MPI_Comm comm);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;   <span class="keyword">virtual</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#a5723e35bdcab6469bb235e4037ea4506">~HYPRE_LinSysCore</a>();</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;   <span class="comment">// for creating another one, w/o knowing the run-time type of &#39;this&#39; one.</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">#ifndef NOFEI</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;   <a class="code" href="class_linear_system_core.html">LinearSystemCore</a>* <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#a753606fc5d8cfaa9f8d1651ca88d4815">clone</a>();</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;   <span class="comment">// parameters : for setting generic argc/argv style parameters.</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#a9fc244ebba0cccba2dc9eb639ead923f">parameters</a>(<span class="keywordtype">int</span> numParams, <span class="keywordtype">char</span>** params);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;   <span class="comment">// new functions in FEI 1.5 and above (not implemented here)</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#aed5ba6bb8201591e031e44d5d79e5dd9">setLookup</a>(<a class="code" href="class_lookup.html">Lookup</a>&amp; lookup);</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#a7027b06e997efcf5b680e4dee071bbaa">setConnectivities</a>(<a class="code" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> elemBlock, <span class="keywordtype">int</span> numElements,</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;           <span class="keywordtype">int</span> numNodesPerElem, <span class="keyword">const</span> <a class="code" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a>* elemIDs,</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;           <span class="keyword">const</span> <span class="keywordtype">int</span>* <span class="keyword">const</span>* connNodes) ;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#afd0dc8d1de4376a1d1ec93d9a3e2971d">setStiffnessMatrices</a>(<a class="code" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> elemBlock, <span class="keywordtype">int</span> numElems,</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;           <span class="keyword">const</span> <a class="code" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a>* elemIDs, <span class="keyword">const</span> <span class="keywordtype">double</span> *<span class="keyword">const</span> *<span class="keyword">const</span> *stiff,</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;           <span class="keywordtype">int</span> numEqnsPerElem, <span class="keyword">const</span> <span class="keywordtype">int</span> *<span class="keyword">const</span> * eqnIndices);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#a6eced772e962e3cfd262767e6809d63c">setLoadVectors</a>(<a class="code" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> elemBlock, <span class="keywordtype">int</span> numElems,</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;           <span class="keyword">const</span> <a class="code" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a>* elemIDs, <span class="keyword">const</span> <span class="keywordtype">double</span> *<span class="keyword">const</span> * load,</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;           <span class="keywordtype">int</span> numEqnsPerElem, <span class="keyword">const</span> <span class="keywordtype">int</span> *<span class="keyword">const</span> * eqnIndices);</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#a807c9ae7ae4975c63b82f43d2d48f78a">setMultCREqns</a>(<span class="keywordtype">int</span> multCRSetID, <span class="keywordtype">int</span> numCRs, <span class="keywordtype">int</span> numNodesPerCR,</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;           <span class="keywordtype">int</span>** nodeNumbers, <span class="keywordtype">int</span>** eqnNumbers, <span class="keywordtype">int</span>* fieldIDs,</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;           <span class="keywordtype">int</span>* multiplierEqnNumbers);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#ad8aba86614a0c263faa12b39e371e67b">setPenCREqns</a>(<span class="keywordtype">int</span> penCRSetID, <span class="keywordtype">int</span> numCRs, <span class="keywordtype">int</span> numNodesPerCR,</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;           <span class="keywordtype">int</span>** nodeNumbers, <span class="keywordtype">int</span>** eqnNumbers, <span class="keywordtype">int</span>* fieldIDs);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;   <span class="comment">// setGlobalOffsets : provide info for initial creation of</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;   <span class="comment">//      matrix/vector data, Equation numbers are 1-based, and local sets</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;   <span class="comment">//      of equation numbers are contiguous.</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#a549e9fb02d8b5d51fccf07756467110e">setGlobalOffsets</a>(<span class="keywordtype">int</span> len, <span class="keywordtype">int</span>* nodeOffsets, <span class="keywordtype">int</span>* eqnOffsets,</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                        <span class="keywordtype">int</span>* blkEqnOffsets);</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;   <span class="comment">// setMatrixStructure : provide enough info to allocate the matrix --</span></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;   <span class="comment">//                      i.e., define the structure.</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; </div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#a558151a570bb352f7f2595ac81a24a77">setMatrixStructure</a>(<span class="keywordtype">int</span>** ptColIndices, <span class="keywordtype">int</span>* ptRowLengths,</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;           <span class="keywordtype">int</span>** blkColIndices, <span class="keywordtype">int</span>* blkRowLengths, <span class="keywordtype">int</span>* ptRowsPerBlkRow);</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;   <span class="comment">// resetMatrixAndVector : don&#39;t destroy the structure of the matrix,</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;   <span class="comment">//      but set the value &#39;s&#39; throughout the matrix and vectors.</span></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#ae405743b6d81b84aa029c38a5b486cc8">resetMatrixAndVector</a>(<span class="keywordtype">double</span> s);</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;   <span class="comment">// reset matrix and vector individually</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#a27453c0b50050457f214926797bf0159">resetMatrix</a>(<span class="keywordtype">double</span> s);</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#ab582d0fcf06f291778b6e8a8fdb60543">resetRHSVector</a>(<span class="keywordtype">double</span> s);</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;   <span class="comment">// sumIntoSystemMatrix:</span></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;   <span class="comment">// this is the primary assembly function. The coefficients &#39;values&#39;</span></div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;   <span class="comment">// are to be accumumlated into (added to any values already in place)</span></div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;   <span class="comment">// global (0-based) equation &#39;row&#39; of the matrix.</span></div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#ae3111f1fc2f387bf54e6448e7aaff122">sumIntoSystemMatrix</a>(<span class="keywordtype">int</span> numPtRows, <span class="keyword">const</span> <span class="keywordtype">int</span>* ptRows,</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;           <span class="keywordtype">int</span> numPtCols, <span class="keyword">const</span> <span class="keywordtype">int</span>* ptCols, <span class="keywordtype">int</span> numBlkRows,</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;           <span class="keyword">const</span> <span class="keywordtype">int</span>* blkRows, <span class="keywordtype">int</span> numBlkCols, <span class="keyword">const</span> <span class="keywordtype">int</span>* blkCols,</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;           <span class="keyword">const</span> <span class="keywordtype">double</span>* <span class="keyword">const</span>* values);</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;   <span class="comment">// sumIntoSystemMatrix:</span></div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;   <span class="comment">// this is the primary assembly function. The coefficients &#39;values&#39;</span></div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;   <span class="comment">// are to be accumumlated into (added to any values already in place)</span></div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;   <span class="comment">// global (1-based) [old - 0-based] equation &#39;row&#39; of the matrix.</span></div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160; </div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#ae3111f1fc2f387bf54e6448e7aaff122">sumIntoSystemMatrix</a>(<span class="keywordtype">int</span> numPtRows, <span class="keyword">const</span> <span class="keywordtype">int</span>* ptRows,</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;                           <span class="keywordtype">int</span> numPtCols, <span class="keyword">const</span> <span class="keywordtype">int</span>* ptCols,</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;                           <span class="keyword">const</span> <span class="keywordtype">double</span>* <span class="keyword">const</span>* values);</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;   <span class="comment">// Point-entry matrix data as for &#39;sumIntoSystemMatrix&#39;, but in this case</span></div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;   <span class="comment">// the data should be &quot;put&quot; into the matrix (i.e., overwrite any coefficients</span></div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;   <span class="comment">// already present) rather than being &quot;summed&quot; into the matrix.</span></div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; </div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#a504fa6ce75b0419ffc4c80099a59fe1f">putIntoSystemMatrix</a>(<span class="keywordtype">int</span> numPtRows, <span class="keyword">const</span> <span class="keywordtype">int</span>* ptRows, <span class="keywordtype">int</span> numPtCols,</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;                           <span class="keyword">const</span> <span class="keywordtype">int</span>* ptCols, <span class="keyword">const</span> <span class="keywordtype">double</span>* <span class="keyword">const</span>* values);</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;   <span class="comment">// Get the length of a row of the matrix.</span></div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160; </div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#ac5bd88c16b0cbf95241c4c834d353f28">getMatrixRowLength</a>(<span class="keywordtype">int</span> row, <span class="keywordtype">int</span>&amp; length);</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160; </div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;   <span class="comment">// Obtain the coefficients and indices for a row of the matrix.</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160; </div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#aa1df31958abfe60c4b0cfd5e44b50d96">getMatrixRow</a>(<span class="keywordtype">int</span> row, <span class="keywordtype">double</span>* coefs, <span class="keywordtype">int</span>* indices, <span class="keywordtype">int</span> len, </div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;                    <span class="keywordtype">int</span>&amp; rowLength);</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160; </div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;   <span class="comment">// sumIntoRHSVector:</span></div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;   <span class="comment">// this is the rhs vector equivalent to sumIntoSystemMatrix above.</span></div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160; </div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#ae4c5efcdc97ce952368cf0a3aafd4f2d">sumIntoRHSVector</a>(<span class="keywordtype">int</span> num, <span class="keyword">const</span> <span class="keywordtype">double</span>* values, <span class="keyword">const</span> <span class="keywordtype">int</span>* indices);</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160; </div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;   <span class="comment">// For putting coefficients into the rhs vector</span></div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160; </div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#a9d992f2b7c227203cb3ae46e9d71ea42">putIntoRHSVector</a>(<span class="keywordtype">int</span> num, <span class="keyword">const</span> <span class="keywordtype">double</span>* values, <span class="keyword">const</span> <span class="keywordtype">int</span>* indices);</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160; </div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;   <span class="comment">// For getting coefficients out of the rhs vector</span></div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160; </div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#a22b6308fa34b39e7438b46e9d8053642">getFromRHSVector</a>(<span class="keywordtype">int</span> num, <span class="keywordtype">double</span>* values, <span class="keyword">const</span> <span class="keywordtype">int</span>* indices);</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160; </div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;   <span class="comment">// matrixLoadComplete:</span></div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;   <span class="comment">// do any internal synchronization/communication.</span></div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160; </div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#a98ba176d2012e8b2aaa36bb65f26bf23">matrixLoadComplete</a>();</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;   </div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;   <span class="comment">// Pass nodal data that probably doesn&#39;t mean anything to the FEI</span></div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;   <span class="comment">// implementation, but may mean something to the linear solver. Examples:</span></div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;   <span class="comment">// geometric coordinates, nullspace data, etc.</span></div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160; </div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#a9448436f7fcc4f7f1deaee38e7b7eda4">putNodalFieldData</a>(<span class="keywordtype">int</span> fieldID, <span class="keywordtype">int</span> fieldSize, <span class="keywordtype">int</span>* nodeNumbers,</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;                         <span class="keywordtype">int</span> numNodes, <span class="keyword">const</span> <span class="keywordtype">double</span>* data);</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160; </div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;   <span class="comment">// functions for enforcing boundary conditions.</span></div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160; </div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#aed9311d8a00db8900dafe490f802856c">enforceEssentialBC</a>(<span class="keywordtype">int</span>* globalEqn,<span class="keywordtype">double</span>* alpha,<span class="keywordtype">double</span>* gamma,<span class="keywordtype">int</span> len);</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160; </div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#afbd089384fd25f4cdb2fc30de7638269">enforceRemoteEssBCs</a>(<span class="keywordtype">int</span> numEqns, <span class="keywordtype">int</span>* globalEqns, <span class="keywordtype">int</span>** colIndices, </div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;                           <span class="keywordtype">int</span>* colIndLen, <span class="keywordtype">double</span>** coefs);</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160; </div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#a84d5884a539818ae99ed54fc182b0bda">enforceOtherBC</a>(<span class="keywordtype">int</span>* globalEqn, <span class="keywordtype">double</span>* alpha, <span class="keywordtype">double</span>* beta, </div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;                      <span class="keywordtype">double</span>* gamma, <span class="keywordtype">int</span> len);</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160; </div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;   <span class="comment">//functions for getting/setting matrix or vector pointers.</span></div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160; </div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;   <span class="comment">// getMatrixPtr:</span></div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;   <span class="comment">// obtain a pointer to the &#39;A&#39; matrix. This should be considered a</span></div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;   <span class="comment">// constant pointer -- i.e., this class remains responsible for the</span></div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;   <span class="comment">// matrix (e.g., de-allocation upon destruction).</span></div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160; </div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;<span class="preprocessor">#ifndef NOFEI</span></div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#a7686c45f180b0a41925bb7213a7d7ca4">getMatrixPtr</a>(<a class="code" href="class_data.html">Data</a>&amp; data);</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160; </div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;   <span class="comment">// copyInMatrix:</span></div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;   <span class="comment">// replaces the internal matrix with a copy of the input argument, scaled</span></div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;   <span class="comment">// by the coefficient &#39;scalar&#39;.</span></div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160; </div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;<span class="preprocessor">#ifndef NOFEI</span></div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#a639a77a240ce3520bd50fe82978b93bc">copyInMatrix</a>(<span class="keywordtype">double</span> scalar, <span class="keyword">const</span> <a class="code" href="class_data.html">Data</a>&amp; data);</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160; </div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;   <span class="comment">// copyOutMatrix:</span></div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;   <span class="comment">// passes out a copy of the internal matrix, scaled by the coefficient</span></div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;   <span class="comment">// &#39;scalar&#39;.</span></div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160; </div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;<span class="preprocessor">#ifndef NOFEI</span></div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#a9e1c709fed7c68e758f12c8e40314aee">copyOutMatrix</a>(<span class="keywordtype">double</span> scalar, <a class="code" href="class_data.html">Data</a>&amp; data);</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160; </div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;   <span class="comment">// sumInMatrix:</span></div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;   <span class="comment">// accumulate (sum) a copy of the input argument into the internal</span></div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;   <span class="comment">// matrix, scaling the input by the coefficient &#39;scalar&#39;.</span></div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160; </div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;<span class="preprocessor">#ifndef NOFEI</span></div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#a0396323e7da3322010b36ea1174bd1c9">sumInMatrix</a>(<span class="keywordtype">double</span> scalar, <span class="keyword">const</span> <a class="code" href="class_data.html">Data</a>&amp; data);</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;<span class="preprocessor">#endif </span></div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160; </div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;   <span class="comment">// get/setRHSVectorPtr:</span></div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;   <span class="comment">// the same semantics apply here as for the matrixPtr functions above.</span></div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160; </div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;<span class="preprocessor">#ifndef NOFEI</span></div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#a6db60fd797c185e49e3e325080a12c2e">getRHSVectorPtr</a>(<a class="code" href="class_data.html">Data</a>&amp; data);</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;<span class="preprocessor">#endif </span></div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160; </div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;   <span class="comment">// copyInRHSVector/copyOutRHSVector/sumInRHSVector:</span></div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;   <span class="comment">// the same semantics apply here as for the matrix functions above.</span></div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160; </div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;<span class="preprocessor">#ifndef NOFEI</span></div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#aa51c88634a61cfe7757da69390d8a9a5">copyInRHSVector</a>(<span class="keywordtype">double</span> scalar, <span class="keyword">const</span> <a class="code" href="class_data.html">Data</a>&amp; data);</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#aba474f838b803d48b100ac6712f45558">copyOutRHSVector</a>(<span class="keywordtype">double</span> scalar, <a class="code" href="class_data.html">Data</a>&amp; data);</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#ad19dec9c61ee3910a623e6239c10dd28">sumInRHSVector</a>(<span class="keywordtype">double</span> scalar, <span class="keyword">const</span> <a class="code" href="class_data.html">Data</a>&amp; data);</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;<span class="preprocessor">#endif </span></div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160; </div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;   <span class="comment">// destroyMatrixData/destroyVectorData:</span></div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;   <span class="comment">// Utility function for destroying the matrix (or vector) in Data</span></div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160; </div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;<span class="preprocessor">#ifndef NOFEI</span></div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#a0b37b6601eb09b54c687770e7403e242">destroyMatrixData</a>(<a class="code" href="class_data.html">Data</a>&amp; data);</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#a4985a0248416f4f6da5f258b85b9751c">destroyVectorData</a>(<a class="code" href="class_data.html">Data</a>&amp; data);</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;<span class="preprocessor">#endif </span></div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160; </div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;   <span class="comment">// functions for managing multiple rhs vectors</span></div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160; </div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#a9e0c0dcbab285e5fe7f31a4749b6916e">setNumRHSVectors</a>(<span class="keywordtype">int</span> numRHSs, <span class="keyword">const</span> <span class="keywordtype">int</span>* rhsIDs);</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160; </div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;   <span class="comment">// setRHSID:</span></div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;   <span class="comment">// set the &#39;current&#39; rhs context, assuming multiple rhs vectors.</span></div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160; </div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#a2fd4229c1e3cb572d10639231e2d6bff">setRHSID</a>(<span class="keywordtype">int</span> rhsID);</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160; </div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;   <span class="comment">// putInitialGuess:</span></div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;   <span class="comment">// function for setting (a subset of) the initial-guess</span></div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;   <span class="comment">// solution values (i.e., in the &#39;x&#39; vector).</span></div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160; </div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#aa11c760eb3fb46f75cd80696ee7f2075">putInitialGuess</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>* eqnNumbers, <span class="keyword">const</span> <span class="keywordtype">double</span>* values,<span class="keywordtype">int</span> len);</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160; </div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;   <span class="comment">// function for getting all of the answers (&#39;x&#39; vector).</span></div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160; </div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#a9d41dede769395804c39a313fc14d6c9">getSolution</a>(<span class="keywordtype">double</span>* answers, <span class="keywordtype">int</span> len);</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160; </div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;   <span class="comment">// function for getting the (single) entry at equation number &#39;eqnNumber&#39;.</span></div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160; </div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#a4219f710d94308c7d73b0ebe88f2135d">getSolnEntry</a>(<span class="keywordtype">int</span> eqnNumber, <span class="keywordtype">double</span>&amp; answer);</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160; </div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;   <span class="comment">// This will be called to request that LinearSystemCore form the residual</span></div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;   <span class="comment">// vector r = b - A*x, and pass the coefficients for r back out in the</span></div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;   <span class="comment">// &#39;values&#39; list.</span></div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160; </div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;   <span class="keywordtype">int</span>    <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#abd1c85cb9610ff8f0bedbe4f8719f6a4">formResidual</a>(<span class="keywordtype">double</span>* values, <span class="keywordtype">int</span> len);</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;   <span class="keywordtype">double</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#ab7215f61efa59aa11b247760efebf005">HYPRE_LSC_GetRNorm</a>();</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160; </div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;   <span class="comment">// function for launching the linear solver</span></div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160; </div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#a0f87e5f369771c86639ced0c5616aabe">launchSolver</a>(<span class="keywordtype">int</span>&amp; solveStatus, <span class="keywordtype">int</span>&amp; iterations);</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160; </div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;   <span class="comment">// other functions</span></div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160; </div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;   <span class="keywordtype">int</span>  <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#abdc549daeee03328d639798315705d6e">writeSystem</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *);</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160; </div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;   <span class="comment">// old functions before FEI 1.5 (but still needed here)</span></div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160; </div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#a10c1c2ea77e06e3e890c78f403a9ee15">createMatricesAndVectors</a>(<span class="keywordtype">int</span> numGlobalEqns, <span class="keywordtype">int</span> firstLocalEqn,</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;                                <span class="keywordtype">int</span> numLocalEqns);</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160; </div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#a1f49d3af595c3e13c30873d04b64d54a">allocateMatrix</a>(<span class="keywordtype">int</span>** colIndices, <span class="keywordtype">int</span>* rowLengths);</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160; </div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#ae3111f1fc2f387bf54e6448e7aaff122">sumIntoSystemMatrix</a>(<span class="keywordtype">int</span> row, <span class="keywordtype">int</span> numValues, <span class="keyword">const</span> <span class="keywordtype">double</span>* values,</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;                            <span class="keyword">const</span> <span class="keywordtype">int</span>* scatterIndices);</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160; </div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;   <span class="comment">// HYPRE-specific public functions</span></div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160; </div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;   <span class="keywordtype">void</span>   <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#a367ceea43c00c9276250c0eb73965ead">loadConstraintNumbers</a>(<span class="keywordtype">int</span> length, <span class="keywordtype">int</span> *list);</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;   <span class="keywordtype">char</span>  *<a class="code" href="class_h_y_p_r_e___lin_sys_core.html#a23fd0cd8191647f005deeb37e4f116e9">getVersion</a>();</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;   <span class="keywordtype">void</span>   <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#a25785b738dc6d59b3567696dd3e20a58">beginCreateMapFromSoln</a>();</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;   <span class="keywordtype">void</span>   <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#a0a4b4999f48da5d6875dc9766aae0c9a">endCreateMapFromSoln</a>();</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;   <span class="keywordtype">void</span>   <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#ad30bc9c1bb09ff5c1ee7eae439496910">putIntoMappedMatrix</a>(<span class="keywordtype">int</span> row, <span class="keywordtype">int</span> numValues, <span class="keyword">const</span> <span class="keywordtype">double</span>* values,</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;                              <span class="keyword">const</span> <span class="keywordtype">int</span>* scatterIndices);</div>
+<div class="line"><a name="l00415"></a><span class="lineno"><a class="line" href="class_h_y_p_r_e___lin_sys_core.html#ac57cea14fc369771fb4abb1b336d5760">  415</a></span>&#160;   <span class="keywordtype">void</span>   <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#ac57cea14fc369771fb4abb1b336d5760">getFEDataObject</a>(<span class="keywordtype">void</span> **<span class="keywordtype">object</span>) { (*object) = feData_; }</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;   <span class="keywordtype">int</span>    <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#a664941cd9dfa7c5d56773fe68a9bb94e">HYPRE_LSC_Matvec</a>(<span class="keywordtype">void</span> *<a class="code" href="namespacegrid__arrays.html#ac9d483b46bf68c490350fdef503cd24f">x</a>, <span class="keywordtype">void</span> *<a class="code" href="namespacegrid__arrays.html#a3f682a0e32086c16202a731f4e312c98">y</a>);</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;   <span class="keywordtype">int</span>    <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#ac63bd48c82cd9e664ab4367614232f59">HYPRE_LSC_Axpby</a>(<span class="keywordtype">double</span>, <span class="keywordtype">void</span> *, <span class="keywordtype">double</span>, <span class="keywordtype">void</span> *);</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;   <span class="keywordtype">void</span>   *<a class="code" href="class_h_y_p_r_e___lin_sys_core.html#adf6e600e2c17f25503dc29870eacf3ed">HYPRE_LSC_GetRHSVector</a>();</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;   <span class="keywordtype">void</span>   *<a class="code" href="class_h_y_p_r_e___lin_sys_core.html#aaec9beccd223802a37cf6a444839b22a">HYPRE_LSC_GetSolVector</a>();</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;   <span class="keywordtype">void</span>   *<a class="code" href="class_h_y_p_r_e___lin_sys_core.html#a10f17242f56d27d8e2bc6404fb2ec52a">HYPRE_LSC_GetMatrix</a>();</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;   <span class="keywordtype">void</span>   *<a class="code" href="class_h_y_p_r_e___lin_sys_core.html#ab646b8e0f0cb3663fbba1dfe787437f2">HYPRE_LSC_SetColMap</a>(<span class="keywordtype">int</span>, <span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;   <span class="keywordtype">void</span>   *<a class="code" href="class_h_y_p_r_e___lin_sys_core.html#a79525067077f5e015321a07cae3bc04a">HYPRE_LSC_MatMatMult</a>(<span class="keywordtype">void</span> *);</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160; </div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;   <span class="comment">// MLI-specific public functions</span></div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160; </div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;   <span class="keywordtype">void</span>   <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#a31b44b15ccaf39942d66a77d59992913">FE_initFields</a>(<span class="keywordtype">int</span> nFields, <span class="keywordtype">int</span> *fieldSizes, <span class="keywordtype">int</span> *fieldIDs);</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;   <span class="keywordtype">void</span>   <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#a17c0853274637d924da2163fd4bd2828">FE_initElemBlock</a>(<span class="keywordtype">int</span> nElems, <span class="keywordtype">int</span> nNodesPerElem, <span class="keywordtype">int</span> numNodeFields,</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;                           <span class="keywordtype">int</span> *nodeFieldIDs);</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;   <span class="keywordtype">void</span>   <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#abcbbce7e926061c602b8cc2179316674">FE_initElemNodeList</a>(<span class="keywordtype">int</span> elemID, <span class="keywordtype">int</span> nNodesPerElem, <span class="keywordtype">int</span> *nodeIDs);</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;   <span class="keywordtype">void</span>   <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#ad41224cc527b4dd8b9a1e9a2e4b8d55d">FE_initSharedNodes</a>(<span class="keywordtype">int</span> nShared, <span class="keywordtype">int</span> *sharedIDs, <span class="keywordtype">int</span> *sharedPLengs,</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;                             <span class="keywordtype">int</span> **sharedProcs);</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;   <span class="keywordtype">void</span>   <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#a4833b31ef92ad6f01d144509f00d1fb1">FE_initComplete</a>(); </div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;   <span class="keywordtype">void</span>   <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#ab4fdffc22526f31c76191fc7a5c11816">FE_loadElemMatrix</a>(<span class="keywordtype">int</span> elemID, <span class="keywordtype">int</span> nNodes, <span class="keywordtype">int</span> *elemNodeList, </div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;                            <span class="keywordtype">int</span> matDim, <span class="keywordtype">double</span> **elemMat);</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160; </div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160; <span class="keyword">private</span>: <span class="comment">//functions</span></div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160; </div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;   <span class="comment">// HYPRE specific private functions</span></div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160; </div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;   <span class="keywordtype">void</span>   setupPCGPrecon();</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;   <span class="keywordtype">void</span>   setupLSICGPrecon();</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;   <span class="keywordtype">void</span>   setupGMRESPrecon();</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;   <span class="keywordtype">void</span>   setupFGMRESPrecon();</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;   <span class="keywordtype">void</span>   setupBiCGSTABPrecon();</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;   <span class="keywordtype">void</span>   setupBiCGSTABLPrecon();</div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;   <span class="keywordtype">void</span>   setupTFQmrPrecon();</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;   <span class="keywordtype">void</span>   setupBiCGSPrecon();</div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;   <span class="keywordtype">void</span>   setupSymQMRPrecon();</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;   <span class="keywordtype">void</span>   setupPreconBoomerAMG();</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;   <span class="keywordtype">void</span>   setupPreconParaSails();</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;   <span class="keywordtype">void</span>   setupPreconDDICT();</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;   <span class="keywordtype">void</span>   setupPreconDDILUT();</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;   <span class="keywordtype">void</span>   setupPreconPILUT();</div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;   <span class="keywordtype">void</span>   setupPreconPoly();</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;   <span class="keywordtype">void</span>   setupPreconSchwarz();</div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;   <span class="keywordtype">void</span>   setupPreconML();</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;   <span class="keywordtype">void</span>   setupPreconMLMaxwell();</div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;   <span class="keywordtype">void</span>   setupPreconAMS();</div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;   <span class="keywordtype">void</span>   setupPreconBlock();</div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;   <span class="keywordtype">void</span>   setupPreconEuclid();</div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;   <span class="keywordtype">void</span>   setupPreconSysPDE();</div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;   <span class="keywordtype">void</span>   solveUsingBoomeramg(<span class="keywordtype">int</span>&amp;);</div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;   <span class="keywordtype">double</span> solveUsingSuperLU(<span class="keywordtype">int</span>&amp;);</div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;   <span class="keywordtype">double</span> solveUsingSuperLUX(<span class="keywordtype">int</span>&amp;);</div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;   <span class="keywordtype">double</span> solveUsingDSuperLU(<span class="keywordtype">int</span>&amp;);</div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;   <span class="keywordtype">void</span>   solveUsingY12M(<span class="keywordtype">int</span>&amp;);</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;   <span class="keywordtype">void</span>   solveUsingAMGe(<span class="keywordtype">int</span>&amp;);</div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;   <span class="keywordtype">void</span>   buildSlideReducedSystem();</div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;   <span class="keywordtype">void</span>   buildSlideReducedSystem2();</div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;   <span class="keywordtype">double</span> buildSlideReducedSoln();</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;   <span class="keywordtype">double</span> buildSlideReducedSoln2();</div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;   <span class="keywordtype">void</span>   buildSchurReducedSystem();</div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;   <span class="keywordtype">void</span>   buildSchurReducedSystem2();</div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;   <span class="keywordtype">void</span>   buildSlideReducedSystemPartA(<span class="keywordtype">int</span>*,<span class="keywordtype">int</span>*,<span class="keywordtype">int</span>,<span class="keywordtype">int</span>,<span class="keywordtype">int</span>*,<span class="keywordtype">int</span>*);</div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;   <span class="keywordtype">void</span>   buildSlideReducedSystemPartB(<span class="keywordtype">int</span>*,<span class="keywordtype">int</span>*,<span class="keywordtype">int</span>,<span class="keywordtype">int</span>,<span class="keywordtype">int</span>*,<span class="keywordtype">int</span>*,</div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;                                       <a class="code" href="structhypre___par_c_s_r_matrix__struct.html">HYPRE_ParCSRMatrix</a> *);</div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;   <span class="keywordtype">void</span>   buildSlideReducedSystemPartC(<span class="keywordtype">int</span>*,<span class="keywordtype">int</span>*,<span class="keywordtype">int</span>,<span class="keywordtype">int</span>,<span class="keywordtype">int</span>*,<span class="keywordtype">int</span>*,</div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;                                       <a class="code" href="structhypre___par_c_s_r_matrix__struct.html">HYPRE_ParCSRMatrix</a>);</div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;   <span class="keywordtype">void</span>   buildSchurReducedRHS();</div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;   <span class="keywordtype">void</span>   buildSchurInitialGuess();</div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;   <span class="keywordtype">double</span> buildSchurReducedSoln();</div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;   <span class="keywordtype">void</span>   computeAConjProjection(<a class="code" href="structhypre___par_c_s_r_matrix__struct.html">HYPRE_ParCSRMatrix</a> A_csr, <a class="code" href="structhypre___par_vector__struct.html">HYPRE_ParVector</a> <a class="code" href="namespacegrid__arrays.html#ac9d483b46bf68c490350fdef503cd24f">x</a>, </div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;                                 <a class="code" href="structhypre___par_vector__struct.html">HYPRE_ParVector</a> b);</div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;   <span class="keywordtype">void</span>   computeMinResProjection(<a class="code" href="structhypre___par_c_s_r_matrix__struct.html">HYPRE_ParCSRMatrix</a> A_csr, <a class="code" href="structhypre___par_vector__struct.html">HYPRE_ParVector</a> <a class="code" href="namespacegrid__arrays.html#ac9d483b46bf68c490350fdef503cd24f">x</a>, </div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;                                  <a class="code" href="structhypre___par_vector__struct.html">HYPRE_ParVector</a> b);</div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;   <span class="keywordtype">void</span>   addToAConjProjectionSpace(<a class="code" href="structhypre___i_j_vector__struct.html">HYPRE_IJVector</a> <a class="code" href="namespacegrid__arrays.html#ac9d483b46bf68c490350fdef503cd24f">x</a>, <a class="code" href="structhypre___i_j_vector__struct.html">HYPRE_IJVector</a> b);</div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;   <span class="keywordtype">void</span>   addToMinResProjectionSpace(<a class="code" href="structhypre___i_j_vector__struct.html">HYPRE_IJVector</a> <a class="code" href="namespacegrid__arrays.html#ac9d483b46bf68c490350fdef503cd24f">x</a>, <a class="code" href="structhypre___i_j_vector__struct.html">HYPRE_IJVector</a> b);</div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;   <span class="keywordtype">int</span>    HYPRE_Schur_Search(<span class="keywordtype">int</span>,<span class="keywordtype">int</span>,<span class="keywordtype">int</span>*,<span class="keywordtype">int</span>*,<span class="keywordtype">int</span>,<span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;   <span class="keywordtype">void</span>   HYPRE_LSI_BuildNodalCoordinates();</div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160; </div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;   <span class="comment">// private functions for selecting solver/preconditioner</span></div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160; </div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;   <span class="keywordtype">void</span>   selectSolver(<span class="keywordtype">char</span>* name);</div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;   <span class="keywordtype">void</span>   selectPreconditioner(<span class="keywordtype">char</span>* name);</div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160; </div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160; <span class="keyword">private</span>: <span class="comment">//variables</span></div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160; </div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;   <span class="comment">// parallel communication information and output levels</span></div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160; </div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;   MPI_Comm        comm_;               <span class="comment">// MPI communicator</span></div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;   <span class="keywordtype">int</span>             numProcs_;           <span class="comment">// number of processors</span></div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;   <span class="keywordtype">int</span>             mypid_;              <span class="comment">// my processor ID</span></div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;   <span class="keywordtype">int</span>             HYOutputLevel_;      <span class="comment">// control print information</span></div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;   <span class="keywordtype">int</span>             memOptimizerFlag_;   <span class="comment">// turn on memory optimizer</span></div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160; </div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;   <span class="comment">// for storing information about how to load matrix directly (bypass FEI)</span></div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160; </div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;   <span class="keywordtype">int</span>             mapFromSolnFlag_;</div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;   <span class="keywordtype">int</span>             mapFromSolnLeng_;</div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;   <span class="keywordtype">int</span>             mapFromSolnLengMax_;</div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;   <span class="keywordtype">int</span>             *mapFromSolnList_;</div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;   <span class="keywordtype">int</span>             *mapFromSolnList2_;</div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160; </div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;   <span class="comment">// matrix and vectors</span></div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160; </div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;   <a class="code" href="structhypre___i_j_matrix__struct.html">HYPRE_IJMatrix</a>  HYA_;                <span class="comment">// the system matrix</span></div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;   <a class="code" href="structhypre___i_j_matrix__struct.html">HYPRE_IJMatrix</a>  HYnormalA_;          <span class="comment">// normalized system matrix</span></div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;   <a class="code" href="structhypre___i_j_vector__struct.html">HYPRE_IJVector</a>  HYb_;                <span class="comment">// the current RHS</span></div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;   <a class="code" href="structhypre___i_j_vector__struct.html">HYPRE_IJVector</a>  HYnormalB_;          <span class="comment">// normalized system rhs</span></div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;   <a class="code" href="structhypre___i_j_vector__struct.html">HYPRE_IJVector</a>  *HYbs_;              <span class="comment">// an array of RHSs</span></div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;   <a class="code" href="structhypre___i_j_vector__struct.html">HYPRE_IJVector</a>  HYx_;                <span class="comment">// the solution vector</span></div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;   <a class="code" href="structhypre___i_j_vector__struct.html">HYPRE_IJVector</a>  HYr_;                <span class="comment">// temporary vector for residual</span></div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;   <a class="code" href="structhypre___i_j_vector__struct.html">HYPRE_IJVector</a>  *HYpxs_;             <span class="comment">// an array of previous solutions</span></div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;   <a class="code" href="structhypre___i_j_vector__struct.html">HYPRE_IJVector</a>  *HYpbs_;             <span class="comment">// an array of previous rhs</span></div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;   <span class="keywordtype">int</span>             numGlobalRows_;</div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;   <span class="keywordtype">int</span>             localStartRow_;</div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;   <span class="keywordtype">int</span>             localEndRow_;</div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;   <span class="keywordtype">int</span>             localStartCol_;</div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;   <span class="keywordtype">int</span>             localEndCol_;</div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;   <span class="keywordtype">int</span>             *rowLengths_;</div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;   <span class="keywordtype">int</span>             **colIndices_;</div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;   <span class="keywordtype">double</span>          **colValues_;</div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;   <span class="keywordtype">double</span>          truncThresh_;</div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;   <span class="keywordtype">double</span>          rnorm_;</div>
+<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160; </div>
+<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;   <span class="comment">// matrix and vectors for reduction</span></div>
+<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160; </div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;   <a class="code" href="structhypre___i_j_matrix__struct.html">HYPRE_IJMatrix</a>  reducedA_;           <span class="comment">// matrix for reduction</span></div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;   <a class="code" href="structhypre___i_j_vector__struct.html">HYPRE_IJVector</a>  reducedB_;           <span class="comment">// RHS vector for reduction</span></div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;   <a class="code" href="structhypre___i_j_vector__struct.html">HYPRE_IJVector</a>  reducedX_;           <span class="comment">// solution vector for reduction</span></div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;   <a class="code" href="structhypre___i_j_vector__struct.html">HYPRE_IJVector</a>  reducedR_;           <span class="comment">// temporary vector for reduction</span></div>
+<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;   <a class="code" href="structhypre___i_j_matrix__struct.html">HYPRE_IJMatrix</a>  HYA21_;              <span class="comment">// (2,1) block in reduction</span></div>
+<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;   <a class="code" href="structhypre___i_j_matrix__struct.html">HYPRE_IJMatrix</a>  HYA12_;              <span class="comment">// (1,2) block in reduction</span></div>
+<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;   <span class="keywordtype">int</span>             A21NRows_;           <span class="comment">// number of rows in (2,1) block</span></div>
+<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;   <span class="keywordtype">int</span>             A21NCols_;           <span class="comment">// number of cols in (2,1) block</span></div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;   <span class="keywordtype">int</span>             reducedAStartRow_;   <span class="comment">// Nrows in reduced system</span></div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;   <a class="code" href="structhypre___i_j_matrix__struct.html">HYPRE_IJMatrix</a>  HYinvA22_;           <span class="comment">// inv(A22) in slide reduction</span></div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160; </div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;   <span class="comment">// pointers to current matrix and vectors for solver</span></div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160; </div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;   <a class="code" href="structhypre___i_j_matrix__struct.html">HYPRE_IJMatrix</a>  currA_;</div>
+<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;   <a class="code" href="structhypre___i_j_vector__struct.html">HYPRE_IJVector</a>  currB_;</div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;   <a class="code" href="structhypre___i_j_vector__struct.html">HYPRE_IJVector</a>  currX_;</div>
+<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;   <a class="code" href="structhypre___i_j_vector__struct.html">HYPRE_IJVector</a>  currR_;</div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;   <span class="keywordtype">int</span>             currentRHS_;</div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;   <span class="keywordtype">int</span>             *rhsIDs_;</div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;   <span class="keywordtype">int</span>             numRHSs_;</div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;   <span class="keywordtype">int</span>             nStored_;</div>
+<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;   <span class="keywordtype">int</span>             *storedIndices_;</div>
+<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;   <span class="keywordtype">int</span>             *auxStoredIndices_;</div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;   <span class="keywordtype">int</span>             mRHSFlag_;</div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;   <span class="keywordtype">int</span>             mRHSNumGEqns_;</div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;   <span class="keywordtype">int</span>             *mRHSGEqnIDs_;</div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;   <span class="keywordtype">int</span>             *mRHSNEntries_;</div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;   <span class="keywordtype">int</span>             *mRHSBCType_;</div>
+<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;   <span class="keywordtype">int</span>             **mRHSRowInds_;</div>
+<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;   <span class="keywordtype">double</span>          **mRHSRowVals_;</div>
+<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160; </div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;   <span class="comment">// flags for matrix assembly, various reductions, and projections</span></div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160; </div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;   <span class="keywordtype">int</span>             matrixVectorsCreated_;</div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;   <span class="keywordtype">int</span>             systemAssembled_;</div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;   <span class="keywordtype">int</span>             slideReduction_;</div>
+<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;   <span class="keywordtype">double</span>          slideReductionMinNorm_;</div>
+<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;   <span class="keywordtype">int</span>             slideReductionScaleMatrix_;</div>
+<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;   <span class="keywordtype">int</span>             schurReduction_;</div>
+<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;   <span class="keywordtype">int</span>             schurReductionCreated_;</div>
+<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;   <span class="keywordtype">int</span>             projectionScheme_;</div>
+<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;   <span class="keywordtype">int</span>             projectSize_;</div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;   <span class="keywordtype">int</span>             projectCurrSize_;</div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;   <span class="keywordtype">double</span>          **projectionMatrix_; </div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;   <span class="keywordtype">int</span>             normalEqnFlag_;</div>
+<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;   <span class="keywordtype">void</span>            *slideObj_;</div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160; </div>
+<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;   <span class="comment">// variables for slide and Schur reduction</span></div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160; </div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;   <span class="keywordtype">int</span>             *selectedList_;</div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;   <span class="keywordtype">int</span>             *selectedListAux_;</div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;   <span class="keywordtype">int</span>             nConstraints_;</div>
+<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;   <span class="keywordtype">int</span>             *constrList_;</div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;   <span class="keywordtype">int</span>             matrixPartition_;</div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160; </div>
+<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;   <span class="comment">// variables for the selected solver and preconditioner</span></div>
+<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160; </div>
+<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;   <span class="keywordtype">char</span>            *HYSolverName_;</div>
+<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;   <a class="code" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a>    HYSolver_;</div>
+<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;   <a class="code" href="_h_y_p_r_e___lin_sys_core_8h.html#a1d714e0ed15c89a882d6ad5560ef26bb">HYsolverID</a>      HYSolverID_;</div>
+<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;   <span class="keywordtype">int</span>             gmresDim_;</div>
+<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;   <span class="keywordtype">int</span>             fgmresUpdateTol_;</div>
+<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;   <span class="keywordtype">int</span>             maxIterations_;</div>
+<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;   <span class="keywordtype">double</span>          tolerance_;</div>
+<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;   <span class="keywordtype">int</span>             normAbsRel_;</div>
+<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;   <span class="keywordtype">int</span>             pcgRecomputeRes_;</div>
+<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160; </div>
+<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;   <span class="keywordtype">char</span>            *HYPreconName_;</div>
+<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;   <a class="code" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a>    HYPrecon_;</div>
+<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;   <a class="code" href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37">HYpreconID</a>      HYPreconID_;</div>
+<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;   <span class="keywordtype">int</span>             HYPreconReuse_;</div>
+<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;   <span class="keywordtype">int</span>             HYPreconSetup_;</div>
+<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160; </div>
+<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;   <span class="comment">// preconditioner specific variables</span></div>
+<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160; </div>
+<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;   <span class="keywordtype">int</span>             amgMaxLevels_;</div>
+<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;   <span class="keywordtype">int</span>             amgCoarsenType_;</div>
+<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;   <span class="keywordtype">int</span>             amgMaxIter_;</div>
+<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;   <span class="keywordtype">int</span>             amgMeasureType_;</div>
+<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;   <span class="keywordtype">int</span>             amgNumSweeps_[4];</div>
+<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;   <span class="keywordtype">int</span>             amgRelaxType_[4];</div>
+<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;   <span class="keywordtype">int</span>             amgGridRlxType_;</div>
+<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;   <span class="keywordtype">double</span>          amgRelaxWeight_[25];</div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;   <span class="keywordtype">double</span>          amgRelaxOmega_[25];</div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;   <span class="keywordtype">double</span>          amgStrongThreshold_;</div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;   <span class="keywordtype">int</span>             amgSystemSize_;</div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;   <span class="keywordtype">int</span>             amgSmoothType_;</div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;   <span class="keywordtype">int</span>             amgSmoothNumLevels_;</div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;   <span class="keywordtype">int</span>             amgSmoothNumSweeps_;</div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;   <span class="keywordtype">int</span>             amgCGSmoothNumSweeps_;</div>
+<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;   <span class="keywordtype">double</span>          amgSchwarzRelaxWt_;</div>
+<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;   <span class="keywordtype">int</span>             amgSchwarzVariant_;</div>
+<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;   <span class="keywordtype">int</span>             amgSchwarzOverlap_;</div>
+<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;   <span class="keywordtype">int</span>             amgSchwarzDomainType_;</div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;   <span class="keywordtype">int</span>             amgUseGSMG_;</div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;   <span class="keywordtype">int</span>             amgGSMGNSamples_;</div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;   <span class="keywordtype">int</span>             amgAggLevels_;</div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;   <span class="keywordtype">int</span>             amgInterpType_;</div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;   <span class="keywordtype">int</span>             amgPmax_;</div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;   <span class="keywordtype">int</span>             pilutFillin_;</div>
+<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;   <span class="keywordtype">double</span>          pilutDropTol_;</div>
+<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;   <span class="keywordtype">int</span>             pilutMaxNnzPerRow_;</div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;   <span class="keywordtype">int</span>             parasailsSym_;</div>
+<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;   <span class="keywordtype">double</span>          parasailsThreshold_;</div>
+<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;   <span class="keywordtype">int</span>             parasailsNlevels_;</div>
+<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;   <span class="keywordtype">double</span>          parasailsFilter_;</div>
+<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;   <span class="keywordtype">double</span>          parasailsLoadbal_;</div>
+<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;   <span class="keywordtype">int</span>             parasailsReuse_;</div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;   <span class="keywordtype">int</span>             mlMethod_;</div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;   <span class="keywordtype">int</span>             mlNumPreSweeps_;</div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;   <span class="keywordtype">int</span>             mlNumPostSweeps_;</div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;   <span class="keywordtype">int</span>             mlPresmootherType_;</div>
+<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;   <span class="keywordtype">int</span>             mlPostsmootherType_;</div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;   <span class="keywordtype">double</span>          mlRelaxWeight_;</div>
+<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;   <span class="keywordtype">double</span>          mlStrongThreshold_;</div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;   <span class="keywordtype">int</span>             mlCoarseSolver_;</div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;   <span class="keywordtype">int</span>             mlCoarsenScheme_;</div>
+<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;   <span class="keywordtype">int</span>             mlNumPDEs_;</div>
+<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;   <span class="keywordtype">int</span>             superluOrdering_;</div>
+<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;   <span class="keywordtype">char</span>            superluScale_[1];</div>
+<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;   <span class="keywordtype">double</span>          ddilutFillin_;</div>
+<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;   <span class="keywordtype">double</span>          ddilutDropTol_;</div>
+<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;   <span class="keywordtype">int</span>             ddilutOverlap_;</div>
+<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;   <span class="keywordtype">int</span>             ddilutReorder_;</div>
+<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;   <span class="keywordtype">double</span>          ddictFillin_;</div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;   <span class="keywordtype">double</span>          ddictDropTol_;</div>
+<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;   <span class="keywordtype">double</span>          schwarzFillin_;</div>
+<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;   <span class="keywordtype">int</span>             schwarzNblocks_;</div>
+<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;   <span class="keywordtype">int</span>             schwarzBlksize_;</div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;   <span class="keywordtype">int</span>             polyOrder_;</div>
+<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;   <span class="keywordtype">int</span>             euclidargc_;</div>
+<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;   <span class="keywordtype">char</span>            **euclidargv_;</div>
+<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;   <a class="code" href="structhypre___i_j_vector__struct.html">HYPRE_IJVector</a>  amsX_;</div>
+<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;   <a class="code" href="structhypre___i_j_vector__struct.html">HYPRE_IJVector</a>  amsY_;</div>
+<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;   <a class="code" href="structhypre___i_j_vector__struct.html">HYPRE_IJVector</a>  amsZ_;</div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;   <span class="keywordtype">int</span>             localStartRowAMSV_;</div>
+<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;   <span class="keywordtype">int</span>             localEndRowAMSV_;</div>
+<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;   <a class="code" href="structhypre___i_j_matrix__struct.html">HYPRE_IJMatrix</a>  amsG_;</div>
+<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;   <a class="code" href="structhypre___i_j_matrix__struct.html">HYPRE_IJMatrix</a>  amsD0_;</div>
+<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;   <a class="code" href="structhypre___i_j_matrix__struct.html">HYPRE_IJMatrix</a>  amsD1_;</div>
+<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;   <span class="keywordtype">int</span>             localStartRowAMSG_;</div>
+<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;   <span class="keywordtype">int</span>             localEndRowAMSG_;</div>
+<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;   <span class="keywordtype">int</span>             localStartColAMSG_;</div>
+<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;   <span class="keywordtype">int</span>             localEndColAMSG_;</div>
+<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;   <a class="code" href="structhypre___par_c_s_r_matrix__struct.html">HYPRE_ParCSRMatrix</a>  amsBetaPoisson_;</div>
+<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;   <span class="keywordtype">int</span>             amsNumPDEs_;</div>
+<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;   <span class="keywordtype">int</span>             amsMaxIter_;</div>
+<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;   <span class="keywordtype">double</span>          amsTol_;</div>
+<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;   <span class="keywordtype">int</span>             amsCycleType_;</div>
+<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;   <span class="keywordtype">int</span>             amsRelaxType_;</div>
+<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;   <span class="keywordtype">int</span>             amsRelaxTimes_;</div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;   <span class="keywordtype">double</span>          amsRelaxWt_;</div>
+<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;   <span class="keywordtype">double</span>          amsRelaxOmega_;</div>
+<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;   <span class="keywordtype">int</span>             amsPrintLevel_;</div>
+<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;   <span class="keywordtype">int</span>             amsAlphaCoarsenType_;</div>
+<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;   <span class="keywordtype">int</span>             amsAlphaAggLevels_;</div>
+<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;   <span class="keywordtype">int</span>             amsAlphaRelaxType_;</div>
+<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;   <span class="keywordtype">double</span>          amsAlphaStrengthThresh_;</div>
+<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;   <span class="keywordtype">int</span>             amsAlphaInterpType_;</div>
+<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;   <span class="keywordtype">int</span>             amsAlphaPmax_;</div>
+<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;   <span class="keywordtype">int</span>             amsBetaCoarsenType_;</div>
+<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;   <span class="keywordtype">int</span>             amsBetaAggLevels_;</div>
+<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;   <span class="keywordtype">int</span>             amsBetaRelaxType_;</div>
+<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;   <span class="keywordtype">double</span>          amsBetaStrengthThresh_;</div>
+<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;   <span class="keywordtype">int</span>             amsBetaInterpType_;</div>
+<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;   <span class="keywordtype">int</span>             amsBetaPmax_;</div>
+<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;   <span class="keywordtype">int</span>             sysPDEMethod_;</div>
+<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;   <span class="keywordtype">int</span>             sysPDEFormat_;</div>
+<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;   <span class="keywordtype">double</span>          sysPDETol_;</div>
+<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;   <span class="keywordtype">int</span>             sysPDEMaxIter_;</div>
+<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;   <span class="keywordtype">int</span>             sysPDENumPre_;</div>
+<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;   <span class="keywordtype">int</span>             sysPDENumPost_;</div>
+<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;   <span class="keywordtype">int</span>             sysPDENVars_;</div>
+<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160; </div>
+<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;   <span class="comment">// FEI and MLI variables</span></div>
+<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160; </div>
+<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;   <span class="keywordtype">void</span>            *feData_;</div>
+<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;   <span class="keywordtype">int</span>             haveFEData_;</div>
+<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;   <a class="code" href="class_lookup.html">Lookup</a>          *lookup_;</div>
+<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;   <span class="keywordtype">int</span>             haveLookup_;</div>
+<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;   <span class="keywordtype">int</span>             MLI_NumNodes_;</div>
+<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;   <span class="keywordtype">int</span>             MLI_FieldSize_;</div>
+<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;   <span class="keywordtype">int</span>             *MLI_EqnNumbers_;</div>
+<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;   <span class="keywordtype">double</span>          *MLI_NodalCoord_;</div>
+<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;   <span class="keywordtype">int</span>             MLI_Hybrid_NSIncr_;</div>
+<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;   <span class="keywordtype">int</span>             MLI_Hybrid_GSA_;</div>
+<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;   <span class="keywordtype">int</span>             MLI_Hybrid_MaxIter_;</div>
+<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;   <span class="keywordtype">double</span>          MLI_Hybrid_ConvRate_;</div>
+<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;   <span class="keywordtype">int</span>             MLI_Hybrid_NTrials_;</div>
+<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;   <a class="code" href="struct_h_y_p_r_e___f_e_i___a_m_s_data.html">HYPRE_FEI_AMSData</a> AMSData_;</div>
+<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;   <span class="keywordtype">int</span>             FEI_mixedDiagFlag_;</div>
+<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;   <span class="keywordtype">double</span>          *FEI_mixedDiag_;</div>
+<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160; </div>
+<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;   <span class="comment">// ML Maxwell variables</span></div>
+<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160; </div>
+<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;   <a class="code" href="structhypre___par_c_s_r_matrix__struct.html">HYPRE_ParCSRMatrix</a>  maxwellANN_;           <span class="comment">// Maxwell nodal matrix </span></div>
+<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;   <a class="code" href="structhypre___par_c_s_r_matrix__struct.html">HYPRE_ParCSRMatrix</a>  maxwellGEN_;           <span class="comment">// Maxwell gradient matrix </span></div>
+<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160; </div>
+<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;   <span class="comment">// temporary functions for testing purposes</span></div>
+<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;   <span class="comment">// ----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160; </div>
+<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;   <span class="keyword">friend</span> <span class="keywordtype">void</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#a5c446d4e300f8401cfda304e1c9ee671">fei_hypre_test</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv[]);</div>
+<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;   <span class="keyword">friend</span> <span class="keywordtype">void</span> <a class="code" href="class_h_y_p_r_e___lin_sys_core.html#ab8f7e86b193b4d109faf0275faca0d1d">fei_hypre_domaindecomposition</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv[]);</div>
+<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160; </div>
+<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;};</div>
+<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160; </div>
+<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160; </div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="a_h_y_p_r_e___lin_sys_core_8h_html_a1d714e0ed15c89a882d6ad5560ef26bba08151cdc9c4d99deadf6d75a25fd57e0"><div class="ttname"><a href="_h_y_p_r_e___lin_sys_core_8h.html#a1d714e0ed15c89a882d6ad5560ef26bba08151cdc9c4d99deadf6d75a25fd57e0">HYPCG</a></div><div class="ttdeci">@ HYPCG</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00050">HYPRE_LinSysCore.h:50</a></div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_adf6e600e2c17f25503dc29870eacf3ed"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#adf6e600e2c17f25503dc29870eacf3ed">HYPRE_LinSysCore::HYPRE_LSC_GetRHSVector</a></div><div class="ttdeci">void * HYPRE_LSC_GetRHSVector()</div></div>
+<div class="ttc" id="a_h_y_p_r_e___lin_sys_core_8h_html_a1d714e0ed15c89a882d6ad5560ef26bba3cdaaa42154218e928279e9f411f8126"><div class="ttname"><a href="_h_y_p_r_e___lin_sys_core_8h.html#a1d714e0ed15c89a882d6ad5560ef26bba3cdaaa42154218e928279e9f411f8126">HYFGMRES</a></div><div class="ttdeci">@ HYFGMRES</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00050">HYPRE_LinSysCore.h:50</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e___lin_sys_core_8h_html_ad58b07760f4c85dee9fffd363aae6a37a58dc626834a5bfac39782546820aace5"><div class="ttname"><a href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37a58dc626834a5bfac39782546820aace5">HYAMS</a></div><div class="ttdeci">@ HYAMS</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00055">HYPRE_LinSysCore.h:55</a></div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_ac63bd48c82cd9e664ab4367614232f59"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#ac63bd48c82cd9e664ab4367614232f59">HYPRE_LinSysCore::HYPRE_LSC_Axpby</a></div><div class="ttdeci">int HYPRE_LSC_Axpby(double, void *, double, void *)</div></div>
+<div class="ttc" id="a_h_y_p_r_e___lin_sys_core_8h_html_ad58b07760f4c85dee9fffd363aae6a37a181ed9ebae2e6b613f73ed5c1dd18b7e"><div class="ttname"><a href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37a181ed9ebae2e6b613f73ed5c1dd18b7e">HYPILUT</a></div><div class="ttdeci">@ HYPILUT</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00053">HYPRE_LinSysCore.h:53</a></div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_a2fd4229c1e3cb572d10639231e2d6bff"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#a2fd4229c1e3cb572d10639231e2d6bff">HYPRE_LinSysCore::setRHSID</a></div><div class="ttdeci">int setRHSID(int rhsID)</div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_ae4c5efcdc97ce952368cf0a3aafd4f2d"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#ae4c5efcdc97ce952368cf0a3aafd4f2d">HYPRE_LinSysCore::sumIntoRHSVector</a></div><div class="ttdeci">int sumIntoRHSVector(int num, const double *values, const int *indices)</div></div>
+<div class="ttc" id="a_h_y_p_r_e___lin_sys_core_8h_html_ad58b07760f4c85dee9fffd363aae6a37aca67f0073207cc5a4ac794005e208390"><div class="ttname"><a href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37aca67f0073207cc5a4ac794005e208390">HYPOLY</a></div><div class="ttdeci">@ HYPOLY</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00054">HYPRE_LinSysCore.h:54</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e__krylov_8h_html_a75a4de46a9e5cb0e0081f247a2505cb7"><div class="ttname"><a href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a></div><div class="ttdeci">struct hypre_Solver_struct * HYPRE_Solver</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e__krylov_8h_source.html#l00050">HYPRE_krylov.h:50</a></div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_a0b37b6601eb09b54c687770e7403e242"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#a0b37b6601eb09b54c687770e7403e242">HYPRE_LinSysCore::destroyMatrixData</a></div><div class="ttdeci">int destroyMatrixData(Data &amp;data)</div></div>
+<div class="ttc" id="a_h_y_p_r_e___lin_sys_core_8h_html_ad58b07760f4c85dee9fffd363aae6a37af7153049847e4917e9a7119437777637"><div class="ttname"><a href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37af7153049847e4917e9a7119437777637">HYUZAWA</a></div><div class="ttdeci">@ HYUZAWA</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00055">HYPRE_LinSysCore.h:55</a></div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_a5c446d4e300f8401cfda304e1c9ee671"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#a5c446d4e300f8401cfda304e1c9ee671">HYPRE_LinSysCore::fei_hypre_test</a></div><div class="ttdeci">friend void fei_hypre_test(int argc, char *argv[])</div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_a10f17242f56d27d8e2bc6404fb2ec52a"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#a10f17242f56d27d8e2bc6404fb2ec52a">HYPRE_LinSysCore::HYPRE_LSC_GetMatrix</a></div><div class="ttdeci">void * HYPRE_LSC_GetMatrix()</div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_a1759e606c64f7f2b9ad44f4b9f2d0f2e"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#a1759e606c64f7f2b9ad44f4b9f2d0f2e">HYPRE_LinSysCore::HYPRE_LinSysCore</a></div><div class="ttdeci">HYPRE_LinSysCore(MPI_Comm comm)</div></div>
+<div class="ttc" id="a_h_y_p_r_e___lin_sys_core_8h_html_ad58b07760f4c85dee9fffd363aae6a37a2cfe1faeab92ab95a63385252347701a"><div class="ttname"><a href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37a2cfe1faeab92ab95a63385252347701a">HYBOOMERAMG</a></div><div class="ttdeci">@ HYBOOMERAMG</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00053">HYPRE_LinSysCore.h:53</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e___lin_sys_core_8h_html_ad58b07760f4c85dee9fffd363aae6a37a1a7df728e25b619753a084f670344e92"><div class="ttname"><a href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37a1a7df728e25b619753a084f670344e92">HYSYSPDE</a></div><div class="ttdeci">@ HYSYSPDE</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00055">HYPRE_LinSysCore.h:55</a></div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_a22b6308fa34b39e7438b46e9d8053642"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#a22b6308fa34b39e7438b46e9d8053642">HYPRE_LinSysCore::getFromRHSVector</a></div><div class="ttdeci">int getFromRHSVector(int num, double *values, const int *indices)</div></div>
+<div class="ttc" id="a_h_y_p_r_e___lin_sys_core_8h_html_ad58b07760f4c85dee9fffd363aae6a37a52c1946b862bf9d7b0c03b2fb4f8fb4d"><div class="ttname"><a href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37a52c1946b862bf9d7b0c03b2fb4f8fb4d">HYML</a></div><div class="ttdeci">@ HYML</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00053">HYPRE_LinSysCore.h:53</a></div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_aa11c760eb3fb46f75cd80696ee7f2075"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#aa11c760eb3fb46f75cd80696ee7f2075">HYPRE_LinSysCore::putInitialGuess</a></div><div class="ttdeci">int putInitialGuess(const int *eqnNumbers, const double *values, int len)</div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_a9e0c0dcbab285e5fe7f31a4749b6916e"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#a9e0c0dcbab285e5fe7f31a4749b6916e">HYPRE_LinSysCore::setNumRHSVectors</a></div><div class="ttdeci">int setNumRHSVectors(int numRHSs, const int *rhsIDs)</div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_a0a4b4999f48da5d6875dc9766aae0c9a"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#a0a4b4999f48da5d6875dc9766aae0c9a">HYPRE_LinSysCore::endCreateMapFromSoln</a></div><div class="ttdeci">void endCreateMapFromSoln()</div></div>
+<div class="ttc" id="a_h_y_p_r_e___lin_sys_core_8h_html_a1d714e0ed15c89a882d6ad5560ef26bbaddfab017f0c378677692aa1b861c7d44"><div class="ttname"><a href="_h_y_p_r_e___lin_sys_core_8h.html#a1d714e0ed15c89a882d6ad5560ef26bbaddfab017f0c378677692aa1b861c7d44">HYCGSTABL</a></div><div class="ttdeci">@ HYCGSTABL</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00050">HYPRE_LinSysCore.h:50</a></div></div>
+<div class="ttc" id="astructhypre___i_j_vector__struct_html"><div class="ttname"><a href="structhypre___i_j_vector__struct.html">hypre_IJVector_struct</a></div><div class="ttdef"><b>Definition:</b> <a href="__hypre___i_j__mv_8h_source.html#l00275">_hypre_IJ_mv.h:275</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e___lin_sys_core_8h_html_a1d714e0ed15c89a882d6ad5560ef26bba67e1b557a4d789699f587bedb251248c"><div class="ttname"><a href="_h_y_p_r_e___lin_sys_core_8h.html#a1d714e0ed15c89a882d6ad5560ef26bba67e1b557a4d789699f587bedb251248c">HYSUPERLUX</a></div><div class="ttdeci">@ HYSUPERLUX</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00051">HYPRE_LinSysCore.h:51</a></div></div>
+<div class="ttc" id="astruct_h_y_p_r_e___f_e_i___a_m_s_data_html_ae5703cf8c470dab50320bb30efa25370"><div class="ttname"><a href="struct_h_y_p_r_e___f_e_i___a_m_s_data.html#ae5703cf8c470dab50320bb30efa25370">HYPRE_FEI_AMSData::numLocalNodes_</a></div><div class="ttdeci">int numLocalNodes_</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00084">HYPRE_LinSysCore.h:84</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e___lin_sys_core_8h_html_a1d714e0ed15c89a882d6ad5560ef26bba96a40a21503300bdb6f47c168f8b2272"><div class="ttname"><a href="_h_y_p_r_e___lin_sys_core_8h.html#a1d714e0ed15c89a882d6ad5560ef26bba96a40a21503300bdb6f47c168f8b2272">HYAMGE</a></div><div class="ttdeci">@ HYAMGE</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00052">HYPRE_LinSysCore.h:52</a></div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_aed9311d8a00db8900dafe490f802856c"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#aed9311d8a00db8900dafe490f802856c">HYPRE_LinSysCore::enforceEssentialBC</a></div><div class="ttdeci">int enforceEssentialBC(int *globalEqn, double *alpha, double *gamma, int len)</div></div>
+<div class="ttc" id="anamespacegrid__arrays_html_a3f682a0e32086c16202a731f4e312c98"><div class="ttname"><a href="namespacegrid__arrays.html#a3f682a0e32086c16202a731f4e312c98">grid_arrays::y</a></div><div class="ttdeci">real(kind=cgreal), dimension(:), allocatable y</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00277">pdd_host.f90:277</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e___lin_sys_core_8h_html_a1d714e0ed15c89a882d6ad5560ef26bbad27e4d510fc1feb4bff85f0940792bf1"><div class="ttname"><a href="_h_y_p_r_e___lin_sys_core_8h.html#a1d714e0ed15c89a882d6ad5560ef26bbad27e4d510fc1feb4bff85f0940792bf1">HYSYMQMR</a></div><div class="ttdeci">@ HYSYMQMR</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00051">HYPRE_LinSysCore.h:51</a></div></div>
+<div class="ttc" id="anamespacegrid__arrays_html_ac9d483b46bf68c490350fdef503cd24f"><div class="ttname"><a href="namespacegrid__arrays.html#ac9d483b46bf68c490350fdef503cd24f">grid_arrays::x</a></div><div class="ttdeci">real(kind=cgreal), dimension(:), allocatable x</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00277">pdd_host.f90:277</a></div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_a9d41dede769395804c39a313fc14d6c9"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#a9d41dede769395804c39a313fc14d6c9">HYPRE_LinSysCore::getSolution</a></div><div class="ttdeci">int getSolution(double *answers, int len)</div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_ae405743b6d81b84aa029c38a5b486cc8"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#ae405743b6d81b84aa029c38a5b486cc8">HYPRE_LinSysCore::resetMatrixAndVector</a></div><div class="ttdeci">int resetMatrixAndVector(double s)</div></div>
+<div class="ttc" id="astructhypre___par_c_s_r_matrix__struct_html"><div class="ttname"><a href="structhypre___par_c_s_r_matrix__struct.html">hypre_ParCSRMatrix_struct</a></div><div class="ttdef"><b>Definition:</b> <a href="__hypre__parcsr__mv_8h_source.html#l00309">_hypre_parcsr_mv.h:309</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e___lin_sys_core_8h_html_a1d714e0ed15c89a882d6ad5560ef26bba84fe4a747032dd777fb111ba73d53608"><div class="ttname"><a href="_h_y_p_r_e___lin_sys_core_8h.html#a1d714e0ed15c89a882d6ad5560ef26bba84fe4a747032dd777fb111ba73d53608">HYAMG</a></div><div class="ttdeci">@ HYAMG</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00051">HYPRE_LinSysCore.h:51</a></div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_ab646b8e0f0cb3663fbba1dfe787437f2"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#ab646b8e0f0cb3663fbba1dfe787437f2">HYPRE_LinSysCore::HYPRE_LSC_SetColMap</a></div><div class="ttdeci">void * HYPRE_LSC_SetColMap(int, int)</div></div>
+<div class="ttc" id="a_h_y_p_r_e___lin_sys_core_8h_html_a1d714e0ed15c89a882d6ad5560ef26bbacad93a9eda045c4d1f896c3985f03b63"><div class="ttname"><a href="_h_y_p_r_e___lin_sys_core_8h.html#a1d714e0ed15c89a882d6ad5560ef26bbacad93a9eda045c4d1f896c3985f03b63">HYHYBRID</a></div><div class="ttdeci">@ HYHYBRID</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00052">HYPRE_LinSysCore.h:52</a></div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_a1f49d3af595c3e13c30873d04b64d54a"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#a1f49d3af595c3e13c30873d04b64d54a">HYPRE_LinSysCore::allocateMatrix</a></div><div class="ttdeci">int allocateMatrix(int **colIndices, int *rowLengths)</div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_a504fa6ce75b0419ffc4c80099a59fe1f"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#a504fa6ce75b0419ffc4c80099a59fe1f">HYPRE_LinSysCore::putIntoSystemMatrix</a></div><div class="ttdeci">int putIntoSystemMatrix(int numPtRows, const int *ptRows, int numPtCols, const int *ptCols, const double *const *values)</div></div>
+<div class="ttc" id="a_h_y_p_r_e___lin_sys_core_8h_html_ad58b07760f4c85dee9fffd363aae6a37ad1dcec0132cac2dee0665b21b8fe03d6"><div class="ttname"><a href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37ad1dcec0132cac2dee0665b21b8fe03d6">HYDSLU</a></div><div class="ttdeci">@ HYDSLU</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00055">HYPRE_LinSysCore.h:55</a></div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_ad19dec9c61ee3910a623e6239c10dd28"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#ad19dec9c61ee3910a623e6239c10dd28">HYPRE_LinSysCore::sumInRHSVector</a></div><div class="ttdeci">int sumInRHSVector(double scalar, const Data &amp;data)</div></div>
+<div class="ttc" id="a_h_y_p_r_e___lin_sys_core_8h_html_ad58b07760f4c85dee9fffd363aae6a37a0f6c1157e3907d258d3afeebddc6301e"><div class="ttname"><a href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37a0f6c1157e3907d258d3afeebddc6301e">HYBLOCK</a></div><div class="ttdeci">@ HYBLOCK</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00054">HYPRE_LinSysCore.h:54</a></div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_ab8f7e86b193b4d109faf0275faca0d1d"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#ab8f7e86b193b4d109faf0275faca0d1d">HYPRE_LinSysCore::fei_hypre_domaindecomposition</a></div><div class="ttdeci">friend void fei_hypre_domaindecomposition(int argc, char *argv[])</div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_abd1c85cb9610ff8f0bedbe4f8719f6a4"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#abd1c85cb9610ff8f0bedbe4f8719f6a4">HYPRE_LinSysCore::formResidual</a></div><div class="ttdeci">int formResidual(double *values, int len)</div></div>
+<div class="ttc" id="aclass_linear_system_core_html"><div class="ttname"><a href="class_linear_system_core.html">LinearSystemCore</a></div><div class="ttdef"><b>Definition:</b> <a href="fei___linear_system_core_8hpp_source.html#l00123">fei_LinearSystemCore.hpp:123</a></div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_a7686c45f180b0a41925bb7213a7d7ca4"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#a7686c45f180b0a41925bb7213a7d7ca4">HYPRE_LinSysCore::getMatrixPtr</a></div><div class="ttdeci">int getMatrixPtr(Data &amp;data)</div></div>
+<div class="ttc" id="a_h_y_p_r_e___lin_sys_core_8h_html_a1d714e0ed15c89a882d6ad5560ef26bba83e31afc7d385d0188a4e5fb2d362a8a"><div class="ttname"><a href="_h_y_p_r_e___lin_sys_core_8h.html#a1d714e0ed15c89a882d6ad5560ef26bba83e31afc7d385d0188a4e5fb2d362a8a">HYSUPERLU</a></div><div class="ttdeci">@ HYSUPERLU</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00051">HYPRE_LinSysCore.h:51</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e___lin_sys_core_8h_html_ad58b07760f4c85dee9fffd363aae6a37a7652fdfac88a379664f25024808e8760"><div class="ttname"><a href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37a7652fdfac88a379664f25024808e8760">HYDIAGONAL</a></div><div class="ttdeci">@ HYDIAGONAL</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00053">HYPRE_LinSysCore.h:53</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e___lin_sys_core_8h_html_a1d714e0ed15c89a882d6ad5560ef26bba824a589d4bae5299499603ae6e243dfa"><div class="ttname"><a href="_h_y_p_r_e___lin_sys_core_8h.html#a1d714e0ed15c89a882d6ad5560ef26bba824a589d4bae5299499603ae6e243dfa">HYGMRES</a></div><div class="ttdeci">@ HYGMRES</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00050">HYPRE_LinSysCore.h:50</a></div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_a7027b06e997efcf5b680e4dee071bbaa"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#a7027b06e997efcf5b680e4dee071bbaa">HYPRE_LinSysCore::setConnectivities</a></div><div class="ttdeci">int setConnectivities(GlobalID elemBlock, int numElements, int numNodesPerElem, const GlobalID *elemIDs, const int *const *connNodes)</div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_ad8aba86614a0c263faa12b39e371e67b"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#ad8aba86614a0c263faa12b39e371e67b">HYPRE_LinSysCore::setPenCREqns</a></div><div class="ttdeci">int setPenCREqns(int penCRSetID, int numCRs, int numNodesPerCR, int **nodeNumbers, int **eqnNumbers, int *fieldIDs)</div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_a9e1c709fed7c68e758f12c8e40314aee"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#a9e1c709fed7c68e758f12c8e40314aee">HYPRE_LinSysCore::copyOutMatrix</a></div><div class="ttdeci">int copyOutMatrix(double scalar, Data &amp;data)</div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_a4219f710d94308c7d73b0ebe88f2135d"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#a4219f710d94308c7d73b0ebe88f2135d">HYPRE_LinSysCore::getSolnEntry</a></div><div class="ttdeci">int getSolnEntry(int eqnNumber, double &amp;answer)</div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_a4985a0248416f4f6da5f258b85b9751c"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#a4985a0248416f4f6da5f258b85b9751c">HYPRE_LinSysCore::destroyVectorData</a></div><div class="ttdeci">int destroyVectorData(Data &amp;data)</div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_a25785b738dc6d59b3567696dd3e20a58"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#a25785b738dc6d59b3567696dd3e20a58">HYPRE_LinSysCore::beginCreateMapFromSoln</a></div><div class="ttdeci">void beginCreateMapFromSoln()</div></div>
+<div class="ttc" id="aclass_data_html"><div class="ttname"><a href="class_data.html">Data</a></div><div class="ttdef"><b>Definition:</b> <a href="fei___data_8hpp_source.html#l00019">fei_Data.hpp:19</a></div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_ac5bd88c16b0cbf95241c4c834d353f28"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#ac5bd88c16b0cbf95241c4c834d353f28">HYPRE_LinSysCore::getMatrixRowLength</a></div><div class="ttdeci">int getMatrixRowLength(int row, int &amp;length)</div></div>
+<div class="ttc" id="astruct_h_y_p_r_e___f_e_i___a_m_s_data_html_ae3623d59c4cf477b95b6aa831a5541c8"><div class="ttname"><a href="struct_h_y_p_r_e___f_e_i___a_m_s_data.html#ae3623d59c4cf477b95b6aa831a5541c8">HYPRE_FEI_AMSData::EdgeNodeList_</a></div><div class="ttdeci">int * EdgeNodeList_</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00081">HYPRE_LinSysCore.h:81</a></div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_ab582d0fcf06f291778b6e8a8fdb60543"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#ab582d0fcf06f291778b6e8a8fdb60543">HYPRE_LinSysCore::resetRHSVector</a></div><div class="ttdeci">int resetRHSVector(double s)</div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_a753606fc5d8cfaa9f8d1651ca88d4815"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#a753606fc5d8cfaa9f8d1651ca88d4815">HYPRE_LinSysCore::clone</a></div><div class="ttdeci">LinearSystemCore * clone()</div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_a0f87e5f369771c86639ced0c5616aabe"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#a0f87e5f369771c86639ced0c5616aabe">HYPRE_LinSysCore::launchSolver</a></div><div class="ttdeci">int launchSolver(int &amp;solveStatus, int &amp;iterations)</div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_abdc549daeee03328d639798315705d6e"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#abdc549daeee03328d639798315705d6e">HYPRE_LinSysCore::writeSystem</a></div><div class="ttdeci">int writeSystem(const char *)</div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_a5723e35bdcab6469bb235e4037ea4506"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#a5723e35bdcab6469bb235e4037ea4506">HYPRE_LinSysCore::~HYPRE_LinSysCore</a></div><div class="ttdeci">virtual ~HYPRE_LinSysCore()</div></div>
+<div class="ttc" id="a_h_y_p_r_e___lin_sys_core_8h_html_a1d714e0ed15c89a882d6ad5560ef26bba9963caecfd7db584b0b4eb4ab02cf6cf"><div class="ttname"><a href="_h_y_p_r_e___lin_sys_core_8h.html#a1d714e0ed15c89a882d6ad5560ef26bba9963caecfd7db584b0b4eb4ab02cf6cf">HYY12M</a></div><div class="ttdeci">@ HYY12M</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00052">HYPRE_LinSysCore.h:52</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e___lin_sys_core_8h_html_ad58b07760f4c85dee9fffd363aae6a37ab71af527c0daa810ae5fbad34dfd3c28"><div class="ttname"><a href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37ab71af527c0daa810ae5fbad34dfd3c28">HYSCHWARZ</a></div><div class="ttdeci">@ HYSCHWARZ</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00054">HYPRE_LinSysCore.h:54</a></div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_a17c0853274637d924da2163fd4bd2828"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#a17c0853274637d924da2163fd4bd2828">HYPRE_LinSysCore::FE_initElemBlock</a></div><div class="ttdeci">void FE_initElemBlock(int nElems, int nNodesPerElem, int numNodeFields, int *nodeFieldIDs)</div></div>
+<div class="ttc" id="a_h_y_p_r_e___f_e_i__includes_8h_html"><div class="ttname"><a href="_h_y_p_r_e___f_e_i__includes_8h.html">HYPRE_FEI_includes.h</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e___lin_sys_core_8h_html_ad58b07760f4c85dee9fffd363aae6a37ad21f453761406fa28aef01efa0639797"><div class="ttname"><a href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37ad21f453761406fa28aef01efa0639797">HYMLMAXWELL</a></div><div class="ttdeci">@ HYMLMAXWELL</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00055">HYPRE_LinSysCore.h:55</a></div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_a9d992f2b7c227203cb3ae46e9d71ea42"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#a9d992f2b7c227203cb3ae46e9d71ea42">HYPRE_LinSysCore::putIntoRHSVector</a></div><div class="ttdeci">int putIntoRHSVector(int num, const double *values, const int *indices)</div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_a6eced772e962e3cfd262767e6809d63c"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#a6eced772e962e3cfd262767e6809d63c">HYPRE_LinSysCore::setLoadVectors</a></div><div class="ttdeci">int setLoadVectors(GlobalID elemBlock, int numElems, const GlobalID *elemIDs, const double *const *load, int numEqnsPerElem, const int *const *eqnIndices)</div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_aa1df31958abfe60c4b0cfd5e44b50d96"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#aa1df31958abfe60c4b0cfd5e44b50d96">HYPRE_LinSysCore::getMatrixRow</a></div><div class="ttdeci">int getMatrixRow(int row, double *coefs, int *indices, int len, int &amp;rowLength)</div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_ac57cea14fc369771fb4abb1b336d5760"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#ac57cea14fc369771fb4abb1b336d5760">HYPRE_LinSysCore::getFEDataObject</a></div><div class="ttdeci">void getFEDataObject(void **object)</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00415">HYPRE_LinSysCore.h:415</a></div></div>
+<div class="ttc" id="astructhypre___i_j_matrix__struct_html"><div class="ttname"><a href="structhypre___i_j_matrix__struct.html">hypre_IJMatrix_struct</a></div><div class="ttdef"><b>Definition:</b> <a href="__hypre___i_j__mv_8h_source.html#l00182">_hypre_IJ_mv.h:182</a></div></div>
+<div class="ttc" id="astruct_h_y_p_r_e___f_e_i___a_m_s_data_html_a41af158f78f6bc1262799e2cba1c564b"><div class="ttname"><a href="struct_h_y_p_r_e___f_e_i___a_m_s_data.html#a41af158f78f6bc1262799e2cba1c564b">HYPRE_FEI_AMSData::NodeNumbers_</a></div><div class="ttdeci">int * NodeNumbers_</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00082">HYPRE_LinSysCore.h:82</a></div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_afbd089384fd25f4cdb2fc30de7638269"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#afbd089384fd25f4cdb2fc30de7638269">HYPRE_LinSysCore::enforceRemoteEssBCs</a></div><div class="ttdeci">int enforceRemoteEssBCs(int numEqns, int *globalEqns, int **colIndices, int *colIndLen, double **coefs)</div></div>
+<div class="ttc" id="astruct_h_y_p_r_e___f_e_i___a_m_s_data_html_a557e5f81fcf4e566564b541648795b47"><div class="ttname"><a href="struct_h_y_p_r_e___f_e_i___a_m_s_data.html#a557e5f81fcf4e566564b541648795b47">HYPRE_FEI_AMSData::numNodes_</a></div><div class="ttdeci">int numNodes_</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00085">HYPRE_LinSysCore.h:85</a></div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_aaec9beccd223802a37cf6a444839b22a"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#aaec9beccd223802a37cf6a444839b22a">HYPRE_LinSysCore::HYPRE_LSC_GetSolVector</a></div><div class="ttdeci">void * HYPRE_LSC_GetSolVector()</div></div>
+<div class="ttc" id="afei__defs_8h_html_a2a3f81aba499311b764d5d4c9bc22841"><div class="ttname"><a href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a></div><div class="ttdeci">int GlobalID</div><div class="ttdef"><b>Definition:</b> <a href="fei__defs_8h_source.html#l00018">fei_defs.h:18</a></div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_ab7215f61efa59aa11b247760efebf005"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#ab7215f61efa59aa11b247760efebf005">HYPRE_LinSysCore::HYPRE_LSC_GetRNorm</a></div><div class="ttdeci">double HYPRE_LSC_GetRNorm()</div></div>
+<div class="ttc" id="a_h_y_p_r_e___lin_sys_core_8h_html_a1d714e0ed15c89a882d6ad5560ef26bbaeb7aa3087345d5d091a4992fb371914a"><div class="ttname"><a href="_h_y_p_r_e___lin_sys_core_8h.html#a1d714e0ed15c89a882d6ad5560ef26bbaeb7aa3087345d5d091a4992fb371914a">HYLSICG</a></div><div class="ttdeci">@ HYLSICG</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00050">HYPRE_LinSysCore.h:50</a></div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_a98ba176d2012e8b2aaa36bb65f26bf23"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#a98ba176d2012e8b2aaa36bb65f26bf23">HYPRE_LinSysCore::matrixLoadComplete</a></div><div class="ttdeci">int matrixLoadComplete()</div></div>
+<div class="ttc" id="astruct_h_y_p_r_e___f_e_i___a_m_s_data_html_a6e2d7f7b248d8e8c210e0e52ec12d8a6"><div class="ttname"><a href="struct_h_y_p_r_e___f_e_i___a_m_s_data.html#a6e2d7f7b248d8e8c210e0e52ec12d8a6">HYPRE_FEI_AMSData::NodalCoord_</a></div><div class="ttdeci">double * NodalCoord_</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00086">HYPRE_LinSysCore.h:86</a></div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_a31b44b15ccaf39942d66a77d59992913"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#a31b44b15ccaf39942d66a77d59992913">HYPRE_LinSysCore::FE_initFields</a></div><div class="ttdeci">void FE_initFields(int nFields, int *fieldSizes, int *fieldIDs)</div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_a0396323e7da3322010b36ea1174bd1c9"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#a0396323e7da3322010b36ea1174bd1c9">HYPRE_LinSysCore::sumInMatrix</a></div><div class="ttdeci">int sumInMatrix(double scalar, const Data &amp;data)</div></div>
+<div class="ttc" id="a_h_y_p_r_e___lin_sys_core_8h_html_ad58b07760f4c85dee9fffd363aae6a37a4267f20525ac5a9089988538fdef5f2c"><div class="ttname"><a href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37a4267f20525ac5a9089988538fdef5f2c">HYPARASAILS</a></div><div class="ttdeci">@ HYPARASAILS</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00053">HYPRE_LinSysCore.h:53</a></div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_abcbbce7e926061c602b8cc2179316674"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#abcbbce7e926061c602b8cc2179316674">HYPRE_LinSysCore::FE_initElemNodeList</a></div><div class="ttdeci">void FE_initElemNodeList(int elemID, int nNodesPerElem, int *nodeIDs)</div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_ab4fdffc22526f31c76191fc7a5c11816"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#ab4fdffc22526f31c76191fc7a5c11816">HYPRE_LinSysCore::FE_loadElemMatrix</a></div><div class="ttdeci">void FE_loadElemMatrix(int elemID, int nNodes, int *elemNodeList, int matDim, double **elemMat)</div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_a549e9fb02d8b5d51fccf07756467110e"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#a549e9fb02d8b5d51fccf07756467110e">HYPRE_LinSysCore::setGlobalOffsets</a></div><div class="ttdeci">int setGlobalOffsets(int len, int *nodeOffsets, int *eqnOffsets, int *blkEqnOffsets)</div></div>
+<div class="ttc" id="aclass_lookup_html"><div class="ttname"><a href="class_lookup.html">Lookup</a></div><div class="ttdef"><b>Definition:</b> <a href="fei___lookup_8hpp_source.html#l00047">fei_Lookup.hpp:47</a></div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_a9fc244ebba0cccba2dc9eb639ead923f"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#a9fc244ebba0cccba2dc9eb639ead923f">HYPRE_LinSysCore::parameters</a></div><div class="ttdeci">int parameters(int numParams, char **params)</div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_a639a77a240ce3520bd50fe82978b93bc"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#a639a77a240ce3520bd50fe82978b93bc">HYPRE_LinSysCore::copyInMatrix</a></div><div class="ttdeci">int copyInMatrix(double scalar, const Data &amp;data)</div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_a6db60fd797c185e49e3e325080a12c2e"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#a6db60fd797c185e49e3e325080a12c2e">HYPRE_LinSysCore::getRHSVectorPtr</a></div><div class="ttdeci">int getRHSVectorPtr(Data &amp;data)</div></div>
+<div class="ttc" id="a_h_y_p_r_e___lin_sys_core_8h_html_ad58b07760f4c85dee9fffd363aae6a37a5be565bb05d2632f218574dc2bad7243"><div class="ttname"><a href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37a5be565bb05d2632f218574dc2bad7243">HYMLI</a></div><div class="ttdeci">@ HYMLI</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00054">HYPRE_LinSysCore.h:54</a></div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_a23fd0cd8191647f005deeb37e4f116e9"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#a23fd0cd8191647f005deeb37e4f116e9">HYPRE_LinSysCore::getVersion</a></div><div class="ttdeci">char * getVersion()</div></div>
+<div class="ttc" id="astruct_h_y_p_r_e___f_e_i___a_m_s_data_html"><div class="ttname"><a href="struct_h_y_p_r_e___f_e_i___a_m_s_data.html">HYPRE_FEI_AMSData</a></div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00079">HYPRE_LinSysCore.h:79</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e___lin_sys_core_8h_html_a1d714e0ed15c89a882d6ad5560ef26bba2251ebab20b83611bcefde5067d95ffb"><div class="ttname"><a href="_h_y_p_r_e___lin_sys_core_8h.html#a1d714e0ed15c89a882d6ad5560ef26bba2251ebab20b83611bcefde5067d95ffb">HYCGSTAB</a></div><div class="ttdeci">@ HYCGSTAB</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00050">HYPRE_LinSysCore.h:50</a></div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_a664941cd9dfa7c5d56773fe68a9bb94e"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#a664941cd9dfa7c5d56773fe68a9bb94e">HYPRE_LinSysCore::HYPRE_LSC_Matvec</a></div><div class="ttdeci">int HYPRE_LSC_Matvec(void *x, void *y)</div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_ad30bc9c1bb09ff5c1ee7eae439496910"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#ad30bc9c1bb09ff5c1ee7eae439496910">HYPRE_LinSysCore::putIntoMappedMatrix</a></div><div class="ttdeci">void putIntoMappedMatrix(int row, int numValues, const double *values, const int *scatterIndices)</div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_a84d5884a539818ae99ed54fc182b0bda"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#a84d5884a539818ae99ed54fc182b0bda">HYPRE_LinSysCore::enforceOtherBC</a></div><div class="ttdeci">int enforceOtherBC(int *globalEqn, double *alpha, double *beta, double *gamma, int len)</div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_ad41224cc527b4dd8b9a1e9a2e4b8d55d"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#ad41224cc527b4dd8b9a1e9a2e4b8d55d">HYPRE_LinSysCore::FE_initSharedNodes</a></div><div class="ttdeci">void FE_initSharedNodes(int nShared, int *sharedIDs, int *sharedPLengs, int **sharedProcs)</div></div>
+<div class="ttc" id="a_h_y_p_r_e___lin_sys_core_8h_html_a1d714e0ed15c89a882d6ad5560ef26bbafecf853ea66b13098b4e2305393ea06e"><div class="ttname"><a href="_h_y_p_r_e___lin_sys_core_8h.html#a1d714e0ed15c89a882d6ad5560ef26bbafecf853ea66b13098b4e2305393ea06e">HYTFQMR</a></div><div class="ttdeci">@ HYTFQMR</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00050">HYPRE_LinSysCore.h:50</a></div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_a807c9ae7ae4975c63b82f43d2d48f78a"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#a807c9ae7ae4975c63b82f43d2d48f78a">HYPRE_LinSysCore::setMultCREqns</a></div><div class="ttdeci">int setMultCREqns(int multCRSetID, int numCRs, int numNodesPerCR, int **nodeNumbers, int **eqnNumbers, int *fieldIDs, int *multiplierEqnNumbers)</div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_a9448436f7fcc4f7f1deaee38e7b7eda4"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#a9448436f7fcc4f7f1deaee38e7b7eda4">HYPRE_LinSysCore::putNodalFieldData</a></div><div class="ttdeci">int putNodalFieldData(int fieldID, int fieldSize, int *nodeNumbers, int numNodes, const double *data)</div></div>
+<div class="ttc" id="a_h_y_p_r_e___lin_sys_core_8h_html_a1d714e0ed15c89a882d6ad5560ef26bba6131868270fc6113647971105a7356ef"><div class="ttname"><a href="_h_y_p_r_e___lin_sys_core_8h.html#a1d714e0ed15c89a882d6ad5560ef26bba6131868270fc6113647971105a7356ef">HYBICGS</a></div><div class="ttdeci">@ HYBICGS</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00051">HYPRE_LinSysCore.h:51</a></div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_a367ceea43c00c9276250c0eb73965ead"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#a367ceea43c00c9276250c0eb73965ead">HYPRE_LinSysCore::loadConstraintNumbers</a></div><div class="ttdeci">void loadConstraintNumbers(int length, int *list)</div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_a10c1c2ea77e06e3e890c78f403a9ee15"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#a10c1c2ea77e06e3e890c78f403a9ee15">HYPRE_LinSysCore::createMatricesAndVectors</a></div><div class="ttdeci">int createMatricesAndVectors(int numGlobalEqns, int firstLocalEqn, int numLocalEqns)</div></div>
+<div class="ttc" id="astruct_h_y_p_r_e___f_e_i___a_m_s_data_html_a4843f1973857826bf882669cda88f565"><div class="ttname"><a href="struct_h_y_p_r_e___f_e_i___a_m_s_data.html#a4843f1973857826bf882669cda88f565">HYPRE_FEI_AMSData::numEdges_</a></div><div class="ttdeci">int numEdges_</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00083">HYPRE_LinSysCore.h:83</a></div></div>
+<div class="ttc" id="astructhypre___par_vector__struct_html"><div class="ttname"><a href="structhypre___par_vector__struct.html">hypre_ParVector_struct</a></div><div class="ttdef"><b>Definition:</b> <a href="__hypre__parcsr__mv_8h_source.html#l00234">_hypre_parcsr_mv.h:234</a></div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00093">HYPRE_LinSysCore.h:93</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e___lin_sys_core_8h_html_a1d714e0ed15c89a882d6ad5560ef26bb"><div class="ttname"><a href="_h_y_p_r_e___lin_sys_core_8h.html#a1d714e0ed15c89a882d6ad5560ef26bb">HYsolverID</a></div><div class="ttdeci">HYsolverID</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00050">HYPRE_LinSysCore.h:50</a></div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_a558151a570bb352f7f2595ac81a24a77"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#a558151a570bb352f7f2595ac81a24a77">HYPRE_LinSysCore::setMatrixStructure</a></div><div class="ttdeci">int setMatrixStructure(int **ptColIndices, int *ptRowLengths, int **blkColIndices, int *blkRowLengths, int *ptRowsPerBlkRow)</div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_ae3111f1fc2f387bf54e6448e7aaff122"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#ae3111f1fc2f387bf54e6448e7aaff122">HYPRE_LinSysCore::sumIntoSystemMatrix</a></div><div class="ttdeci">int sumIntoSystemMatrix(int numPtRows, const int *ptRows, int numPtCols, const int *ptCols, int numBlkRows, const int *blkRows, int numBlkCols, const int *blkCols, const double *const *values)</div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_aba474f838b803d48b100ac6712f45558"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#aba474f838b803d48b100ac6712f45558">HYPRE_LinSysCore::copyOutRHSVector</a></div><div class="ttdeci">int copyOutRHSVector(double scalar, Data &amp;data)</div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_aed5ba6bb8201591e031e44d5d79e5dd9"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#aed5ba6bb8201591e031e44d5d79e5dd9">HYPRE_LinSysCore::setLookup</a></div><div class="ttdeci">int setLookup(Lookup &amp;lookup)</div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_aa51c88634a61cfe7757da69390d8a9a5"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#aa51c88634a61cfe7757da69390d8a9a5">HYPRE_LinSysCore::copyInRHSVector</a></div><div class="ttdeci">int copyInRHSVector(double scalar, const Data &amp;data)</div></div>
+<div class="ttc" id="a_h_y_p_r_e___lin_sys_core_8h_html_a1d714e0ed15c89a882d6ad5560ef26bbafc9f8ffaf094a0d603f91f1e0d7d369b"><div class="ttname"><a href="_h_y_p_r_e___lin_sys_core_8h.html#a1d714e0ed15c89a882d6ad5560ef26bbafc9f8ffaf094a0d603f91f1e0d7d369b">HYDSUPERLU</a></div><div class="ttdeci">@ HYDSUPERLU</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00051">HYPRE_LinSysCore.h:51</a></div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_afd0dc8d1de4376a1d1ec93d9a3e2971d"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#afd0dc8d1de4376a1d1ec93d9a3e2971d">HYPRE_LinSysCore::setStiffnessMatrices</a></div><div class="ttdeci">int setStiffnessMatrices(GlobalID elemBlock, int numElems, const GlobalID *elemIDs, const double *const *const *stiff, int numEqnsPerElem, const int *const *eqnIndices)</div></div>
+<div class="ttc" id="a_h_y_p_r_e___lin_sys_core_8h_html_ad58b07760f4c85dee9fffd363aae6a37ab8b728f98ba57538f71ae822b36497e4"><div class="ttname"><a href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37ab8b728f98ba57538f71ae822b36497e4">HYDDILUT</a></div><div class="ttdeci">@ HYDDILUT</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00054">HYPRE_LinSysCore.h:54</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e___lin_sys_core_8h_html_ad58b07760f4c85dee9fffd363aae6a37"><div class="ttname"><a href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37">HYpreconID</a></div><div class="ttdeci">HYpreconID</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00053">HYPRE_LinSysCore.h:53</a></div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_a27453c0b50050457f214926797bf0159"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#a27453c0b50050457f214926797bf0159">HYPRE_LinSysCore::resetMatrix</a></div><div class="ttdeci">int resetMatrix(double s)</div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_a79525067077f5e015321a07cae3bc04a"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#a79525067077f5e015321a07cae3bc04a">HYPRE_LinSysCore::HYPRE_LSC_MatMatMult</a></div><div class="ttdeci">void * HYPRE_LSC_MatMatMult(void *)</div></div>
+<div class="ttc" id="a_h_y_p_r_e___lin_sys_core_8h_html_ad58b07760f4c85dee9fffd363aae6a37a7d4f52b31b06caaa78a599b81b871ca4"><div class="ttname"><a href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37a7d4f52b31b06caaa78a599b81b871ca4">HYDDICT</a></div><div class="ttdeci">@ HYDDICT</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00054">HYPRE_LinSysCore.h:54</a></div></div>
+<div class="ttc" id="aclass_h_y_p_r_e___lin_sys_core_html_a4833b31ef92ad6f01d144509f00d1fb1"><div class="ttname"><a href="class_h_y_p_r_e___lin_sys_core.html#a4833b31ef92ad6f01d144509f00d1fb1">HYPRE_LinSysCore::FE_initComplete</a></div><div class="ttdeci">void FE_initComplete()</div></div>
+<div class="ttc" id="a_h_y_p_r_e___lin_sys_core_8h_html_ad58b07760f4c85dee9fffd363aae6a37a2cb889944f1e99f9008cb03f64491caf"><div class="ttname"><a href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37a2cb889944f1e99f9008cb03f64491caf">HYEUCLID</a></div><div class="ttdeci">@ HYEUCLID</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00054">HYPRE_LinSysCore.h:54</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e___lin_sys_core_8h_html_ad58b07760f4c85dee9fffd363aae6a37abdf2873a8413eff635ac7b87654c0a73"><div class="ttname"><a href="_h_y_p_r_e___lin_sys_core_8h.html#ad58b07760f4c85dee9fffd363aae6a37abdf2873a8413eff635ac7b87654c0a73">HYIDENTITY</a></div><div class="ttdeci">@ HYIDENTITY</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00053">HYPRE_LinSysCore.h:53</a></div></div>
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_1481b2ad69b2eab628871d4fb2bac45c.html">hypre-2.11.1</a></li><li class="navelem"><a class="el" href="_h_y_p_r_e___lin_sys_core_8h.html">HYPRE_LinSysCore.h</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+var structhypre___flex_g_m_r_e_s_data =
+[
+    [ "A", "structhypre___flex_g_m_r_e_s_data.html#a36f02ab3ef6c0a0cf2373a8f887e8536", null ],
+    [ "a_tol", "structhypre___flex_g_m_r_e_s_data.html#adde43a62dd77d17c7e81da1d865d4543", null ],
+    [ "cf_tol", "structhypre___flex_g_m_r_e_s_data.html#a03ce67d76344a7724f7b8ce0a7734884", null ],
+    [ "converged", "structhypre___flex_g_m_r_e_s_data.html#ac1257d6eaf3fde1c70da0962b9454e2d", null ],
+    [ "functions", "structhypre___flex_g_m_r_e_s_data.html#afdf80a6c61ec25c8bb904fc3f6e1203a", null ],
+    [ "k_dim", "structhypre___flex_g_m_r_e_s_data.html#a578d418c5ee342e88bd638c4a523b857", null ],
+    [ "log_file_name", "structhypre___flex_g_m_r_e_s_data.html#aa3eb62e053f9c8d8a258477a098ba33d", null ],
+    [ "logging", "structhypre___flex_g_m_r_e_s_data.html#a71107191711575c87638ceb291ea8737", null ],
+    [ "matvec_data", "structhypre___flex_g_m_r_e_s_data.html#ae7317747c69a19b2749c5197a4e5dcf1", null ],
+    [ "max_iter", "structhypre___flex_g_m_r_e_s_data.html#a78cad8d6896f76e8a8342cb155c480d9", null ],
+    [ "min_iter", "structhypre___flex_g_m_r_e_s_data.html#adecd6fd672d16d9ccc9a9d8c709c1713", null ],
+    [ "norms", "structhypre___flex_g_m_r_e_s_data.html#aaad3c74f1e77b89d2bc76cfeecc37419", null ],
+    [ "num_iterations", "structhypre___flex_g_m_r_e_s_data.html#a8ec71fe6fef76e6372f602152f121912", null ],
+    [ "p", "structhypre___flex_g_m_r_e_s_data.html#a58ba9d95ee0139d259ecfde9b4756286", null ],
+    [ "pre_vecs", "structhypre___flex_g_m_r_e_s_data.html#ae9dff80a02ca6a56760949c238d9e83a", null ],
+    [ "precond_data", "structhypre___flex_g_m_r_e_s_data.html#a840c75ed56e5b85226f35a92540f8552", null ],
+    [ "print_level", "structhypre___flex_g_m_r_e_s_data.html#aed3c8eb3c77511065645e364527a5584", null ],
+    [ "r", "structhypre___flex_g_m_r_e_s_data.html#a76dea87322970e0a8482c7667e774103", null ],
+    [ "rel_change", "structhypre___flex_g_m_r_e_s_data.html#a08b87aaeaf2e7e16a2992786e723cd86", null ],
+    [ "rel_residual_norm", "structhypre___flex_g_m_r_e_s_data.html#ac9064b92ad273cc541b178216124427a", null ],
+    [ "stop_crit", "structhypre___flex_g_m_r_e_s_data.html#abf4dddb742911d38e6ff0860d4b39f92", null ],
+    [ "tol", "structhypre___flex_g_m_r_e_s_data.html#adc4ae2ebda2d7b2bc6a051668dfdfe5d", null ],
+    [ "w", "structhypre___flex_g_m_r_e_s_data.html#a15c06c33ec91e06f78619ede06f03234", null ],
+    [ "w_2", "structhypre___flex_g_m_r_e_s_data.html#a2a28618441f4b171def21fb31eac1085", null ]
+];

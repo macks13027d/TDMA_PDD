@@ -1,0 +1,424 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="TDMA_PDD_cpu" />
+<meta property="og:image" content="../preview.png" />
+<meta property="og:description" content="Documentation for Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD_cpu" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="../preview.png" />
+<meta property="og:title" content="TDMA_PDD_cpu" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD_cpu" />
+<!-- END twitter metadata -->
+<title>TDMA_PDD_CPU: Data Fields</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            messageStyle: "normal",
+            linebreaks: {
+                automatic: false
+            }
+        },
+        tex2jax: { 
+            inlineMath: [["\\(","\\)"]], 
+            displayMath: [["$$","$$"],["\\[","\\]"]], 
+            processEscapes: true
+        },
+        TeX: {
+            Macros: {
+                tr: "{\\scriptscriptstyle\\mathrm{T}}",
+            }
+        }
+    });
+</script>
+<!--MathJax(LaTeX) -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <script type="text/javascript" id="MathJax-script" async  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">  </script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="custom-alternative.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/hugh577/TDMA_PDD_cpu" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 65px;">
+  <td id="projectlogo">
+    <a href="./index.html">
+        <img alt="Logo" src="home.png"/></td>
+    </a>
+  <td id="projectalign" style="padding-left: 0.5em;padding-top: 0.5em;">
+   <div id="projectname">TDMA_PDD_CPU
+   </div>
+   <div id="projectbrief">Documentation</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('functions_g.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="contents">
+<div class="textblock">Here is a list of all data types members with links to the data types they belong to:</div>
+
+<h3><a id="index_g"></a>- g -</h3><ul>
+<li>gather_regions
+: <a class="el" href="structhypre___box_manager.html#abfd9fe852f4de495ad46f8236032907a">hypre_BoxManager</a>
+</li>
+<li>getAssociatedFieldID()
+: <a class="el" href="class_lookup.html#af7112c327052118238b393a4dcff9a88">Lookup</a>
+</li>
+<li>getAssociatedNodeNumber()
+: <a class="el" href="class_lookup.html#a1585c5599db7897590db1237ab01c1b4">Lookup</a>
+</li>
+<li>getBlkEqnSize()
+: <a class="el" href="class_lookup.html#a360042b747a9c1d9ef09ff13c2a0055a">Lookup</a>
+</li>
+<li>getBlockNodeIDList()
+: <a class="el" href="class_l_l_n_l___f_e_i___fei.html#a07498b8c273c35cfd1e285cde48cf039">LLNL_FEI_Fei</a>
+, <a class="el" href="class_l_l_n_l___f_e_i___impl.html#a3bcb9475cb0a6ed73809fb9e448c3c5a">LLNL_FEI_Impl</a>
+</li>
+<li>getBlockNodeSolution()
+: <a class="el" href="class_l_l_n_l___f_e_i___fei.html#a3fbaa079ea21fd3b62f5fba954844ae5">LLNL_FEI_Fei</a>
+, <a class="el" href="class_l_l_n_l___f_e_i___impl.html#a4fa9d62b3957866531065cfdc9b602b3">LLNL_FEI_Impl</a>
+</li>
+<li>getCurrentElem()
+: <a class="el" href="class_l_l_n_l___f_e_i___elem___block.html#a70f85a124a90d1735972b0c896f97230">LLNL_FEI_Elem_Block</a>
+</li>
+<li>getDataPtr()
+: <a class="el" href="class_data.html#a73cbf696eefefe5a7ef9397f6f68a386">Data</a>
+</li>
+<li>getElemBlockID()
+: <a class="el" href="class_l_l_n_l___f_e_i___elem___block.html#abf4f06ecb69e0a7f7fbc6e7404ac09a3">LLNL_FEI_Elem_Block</a>
+</li>
+<li>getElemBlockIDs()
+: <a class="el" href="class_lookup.html#a863e67be995d4c46062f4ea6fd1251a8">Lookup</a>
+</li>
+<li>getElemBlockInfo()
+: <a class="el" href="class_lookup.html#a8ea30d911f735a846366910d8c21d207">Lookup</a>
+</li>
+<li>getElemMatrices()
+: <a class="el" href="class_l_l_n_l___f_e_i___elem___block.html#a2eb72eab0653bf180a6030052448b46b">LLNL_FEI_Elem_Block</a>
+</li>
+<li>getElemNodeLists()
+: <a class="el" href="class_l_l_n_l___f_e_i___elem___block.html#a5b82e291f685112c440fd3f2d19b5526">LLNL_FEI_Elem_Block</a>
+</li>
+<li>getElemNumNodes()
+: <a class="el" href="class_l_l_n_l___f_e_i___elem___block.html#ab5a58f0af8486bd5ea5f03bcf6d47030">LLNL_FEI_Elem_Block</a>
+</li>
+<li>getEqnNumber()
+: <a class="el" href="class_lookup.html#a10cdd7f4ac482c9fef05a9d0eb653371">Lookup</a>
+</li>
+<li>getEqnOffsets()
+: <a class="el" href="class_l_l_n_l___f_e_i___matrix.html#a4ed6fb406310bccb310b33c003fdb0aa">LLNL_FEI_Matrix</a>
+</li>
+<li>getExtMatrix()
+: <a class="el" href="class_l_l_n_l___f_e_i___matrix.html#a2de371bfbdac0f77e414700dd339f7ba">LLNL_FEI_Matrix</a>
+</li>
+<li>getFEDataObject()
+: <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#ac57cea14fc369771fb4abb1b336d5760">HYPRE_LinSysCore</a>
+</li>
+<li>getFieldIDsPtr()
+: <a class="el" href="class_lookup.html#af2893d4c6d9720f8afce8ed2494a6d3a">Lookup</a>
+</li>
+<li>getFieldIDsTable()
+: <a class="el" href="class_lookup.html#af864c6273e7b5ed4933a5c2f5b9398da">Lookup</a>
+</li>
+<li>getFieldSize()
+: <a class="el" href="class_lookup.html#a68cadfa0fbd7898df13f0b4d637e04f9">Lookup</a>
+</li>
+<li>getFieldSizesPtr()
+: <a class="el" href="class_lookup.html#a1d662d8516ea87b176b7db13b3b7713c">Lookup</a>
+</li>
+<li>getFromRHSVector()
+: <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a22b6308fa34b39e7438b46e9d8053642">HYPRE_LinSysCore</a>
+, <a class="el" href="class_linear_system_core.html#a1d6687366d37e46f8744b66594a35a52">LinearSystemCore</a>
+</li>
+<li>getLocalMatrix()
+: <a class="el" href="class_l_l_n_l___f_e_i___matrix.html#ad66e82d1c07041e9bf55a06351fb570a">LLNL_FEI_Matrix</a>
+</li>
+<li>getMatrix()
+: <a class="el" href="class_l_l_n_l___f_e_i___fei.html#a7e7b011c400176e28b7ec78ad4de3f4d">LLNL_FEI_Fei</a>
+</li>
+<li>getMatrixDiagonal()
+: <a class="el" href="class_l_l_n_l___f_e_i___matrix.html#a850024779f9876d04286285889607ac3">LLNL_FEI_Matrix</a>
+</li>
+<li>getMatrixPtr()
+: <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a7686c45f180b0a41925bb7213a7d7ca4">HYPRE_LinSysCore</a>
+, <a class="el" href="class_linear_system_core.html#ab6a123f512f5d63f5ca85178a8649366">LinearSystemCore</a>
+</li>
+<li>getMatrixRow()
+: <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#aa1df31958abfe60c4b0cfd5e44b50d96">HYPRE_LinSysCore</a>
+, <a class="el" href="class_linear_system_core.html#a13a1b3fdd8ee94ad059d2a288bc99eaf">LinearSystemCore</a>
+</li>
+<li>getMatrixRowLength()
+: <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#ac5bd88c16b0cbf95241c4c834d353f28">HYPRE_LinSysCore</a>
+, <a class="el" href="class_linear_system_core.html#a508ae024c24ad7ddac14098edc863942">LinearSystemCore</a>
+</li>
+<li>getNumBlockActEqns()
+: <a class="el" href="class_l_l_n_l___f_e_i___fei.html#a327c486b18c82a62d9e7b3e4a4231ffd">LLNL_FEI_Fei</a>
+, <a class="el" href="class_l_l_n_l___f_e_i___impl.html#aefef92d15e1d88c90f8e5688c36dc78f">LLNL_FEI_Impl</a>
+</li>
+<li>getNumBlockActNodes()
+: <a class="el" href="class_l_l_n_l___f_e_i___fei.html#ab99fdd4c70f51eef327b56986ca07ae3">LLNL_FEI_Fei</a>
+, <a class="el" href="class_l_l_n_l___f_e_i___impl.html#a1bf6ce478d66a6bb4af19f7c09192b5a">LLNL_FEI_Impl</a>
+</li>
+<li>getNumElemBlocks()
+: <a class="el" href="class_lookup.html#addc137ad9027b88b45c2599bc5d5cbbd">Lookup</a>
+</li>
+<li>getNumElems()
+: <a class="el" href="class_l_l_n_l___f_e_i___elem___block.html#a6c3ef4d25ddd3d234d37d23eeebe3d2f">LLNL_FEI_Elem_Block</a>
+</li>
+<li>getNumExtRows()
+: <a class="el" href="class_l_l_n_l___f_e_i___matrix.html#a2e974c26ad61682646a1b67b8bcaac4e">LLNL_FEI_Matrix</a>
+</li>
+<li>getNumFields()
+: <a class="el" href="class_lookup.html#aaa42a7c2b95938d3404caf0021e05f2a">Lookup</a>
+</li>
+<li>getNumFieldsPerNode()
+: <a class="el" href="class_lookup.html#a5220498d0d1fb4e275bb4785297fccc8">Lookup</a>
+</li>
+<li>getNumLocalRows()
+: <a class="el" href="class_l_l_n_l___f_e_i___matrix.html#a0d8184abba726a69c415033a7179f39c">LLNL_FEI_Matrix</a>
+</li>
+<li>getNumSharedNodes()
+: <a class="el" href="class_lookup.html#ad97d6cb92a4e411cb90a941fbde239c0">Lookup</a>
+</li>
+<li>getNumSharingProcs()
+: <a class="el" href="class_lookup.html#a0633f69b7a9db442811c27de4cd7b4da">Lookup</a>
+</li>
+<li>getNumSubdomains()
+: <a class="el" href="class_lookup.html#aeffc67a5eb920a7653261f69701077a8">Lookup</a>
+</li>
+<li>getOffsetIntoBlkEqn()
+: <a class="el" href="class_lookup.html#a7673c448e46c3370bb31f3c0ec7c68d1">Lookup</a>
+</li>
+<li>getProperty()
+: <a class="el" href="class_linear_system_core.html#a19ece4307b1fad22f915cbb9ce920c00">LinearSystemCore</a>
+</li>
+<li>getResidualNorm()
+: <a class="el" href="class_l_l_n_l___f_e_i___solver.html#acff201b1f3acde22996aa533520f50f8">LLNL_FEI_Solver</a>
+</li>
+<li>getRHSVector()
+: <a class="el" href="class_l_l_n_l___f_e_i___fei.html#a6a58dac7a272e9fea0b49dc07d1d3bf7">LLNL_FEI_Fei</a>
+</li>
+<li>getRHSVectorPtr()
+: <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a6db60fd797c185e49e3e325080a12c2e">HYPRE_LinSysCore</a>
+, <a class="el" href="class_linear_system_core.html#a7b9fba0b1fb9d1e9e0235477ed42a447">LinearSystemCore</a>
+</li>
+<li>getRHSVectors()
+: <a class="el" href="class_l_l_n_l___f_e_i___elem___block.html#ad8673e0024c1a537b2ded2968127d5e0">LLNL_FEI_Elem_Block</a>
+</li>
+<li>getrowactive
+: <a class="el" href="structhypre___par_c_s_r_block_matrix.html#aa30a9d3e978f460e9d131a15b4957715">hypre_ParCSRBlockMatrix</a>
+, <a class="el" href="structhypre___par_c_s_r_boolean_matrix.html#a260414483b4869766e13e4c70fb08e5a">hypre_ParCSRBooleanMatrix</a>
+, <a class="el" href="structhypre___par_c_s_r_matrix__struct.html#adfb26dd8a5734da9ad6daede61b4beda">hypre_ParCSRMatrix_struct</a>
+</li>
+<li>getSharedNodeNumbers()
+: <a class="el" href="class_lookup.html#af32dadbb8633d1a7240127187025d465">Lookup</a>
+</li>
+<li>getSharedNodeProcs()
+: <a class="el" href="class_lookup.html#a3ad26c5bf13daa39274c8309f2386a35">Lookup</a>
+</li>
+<li>getSolnEntry()
+: <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a4219f710d94308c7d73b0ebe88f2135d">HYPRE_LinSysCore</a>
+, <a class="el" href="class_linear_system_core.html#ae5ed92e086e130c77636db717fe52205">LinearSystemCore</a>
+, <a class="el" href="class_l_l_n_l___f_e_i___l_s_core.html#a0d3eb7d4404948dcd7bdb5fc3214150d">LLNL_FEI_LSCore</a>
+</li>
+<li>getSolnVector()
+: <a class="el" href="class_l_l_n_l___f_e_i___fei.html#a92c414dced965f383763973aeea133e3">LLNL_FEI_Fei</a>
+</li>
+<li>getSolnVectors()
+: <a class="el" href="class_l_l_n_l___f_e_i___elem___block.html#aaa72d20e7d95692e0792a1eda71dd90f">LLNL_FEI_Elem_Block</a>
+</li>
+<li>getSolution()
+: <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a9d41dede769395804c39a313fc14d6c9">HYPRE_LinSysCore</a>
+, <a class="el" href="class_linear_system_core.html#a8b80a874cacdbfedb297b729139e6554">LinearSystemCore</a>
+, <a class="el" href="class_l_l_n_l___f_e_i___l_s_core.html#accbfcdc42b65ee328bb94216fb933435">LLNL_FEI_LSCore</a>
+</li>
+<li>getSolveTime()
+: <a class="el" href="class_l_l_n_l___f_e_i___solver.html#a742c409d8377cf786100505087cee33f">LLNL_FEI_Solver</a>
+</li>
+<li>getSubdomainList()
+: <a class="el" href="class_lookup.html#acd5322d79a9129bda409c669e0cfd767">Lookup</a>
+</li>
+<li>getTypeName()
+: <a class="el" href="class_data.html#a4c449b2fe9ca37ab8ed63ef568f463da">Data</a>
+</li>
+<li>getVersion()
+: <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a23fd0cd8191647f005deeb37e4f116e9">HYPRE_LinSysCore</a>
+</li>
+<li>ghlocal_size
+: <a class="el" href="structhypre___s_struct_grid__struct.html#a154ef56b561d4c5cca6a13be2d180fa0">hypre_SStructGrid_struct</a>
+, <a class="el" href="structhypre___s_struct_p_grid.html#a833e382d0583a23a0e65de4ac73348a2">hypre_SStructPGrid</a>
+, <a class="el" href="structhypre___struct_grid__struct.html#a8280db64330c4248e8e2ffdee7283527">hypre_StructGrid_struct</a>
+</li>
+<li>ghoffset
+: <a class="el" href="structhypre___s_struct_box_man_info.html#adfd7378d3f0eb6f2ad387416bbde7438">hypre_SStructBoxManInfo</a>
+, <a class="el" href="structhypre___s_struct_box_man_nbor_info.html#ae05086fd168cb511e6f4623f70d5064c">hypre_SStructBoxManNborInfo</a>
+</li>
+<li>ghstart_rank
+: <a class="el" href="structhypre___s_struct_grid__struct.html#a9bb9d0b47af81b15211b7caab3009fb6">hypre_SStructGrid_struct</a>
+</li>
+<li>ghstride
+: <a class="el" href="structhypre___s_struct_box_man_nbor_info.html#afea7761f7000c0fddb66f5c083701080">hypre_SStructBoxManNborInfo</a>
+</li>
+<li>global_first_col
+: <a class="el" href="structhypre___i_j_matrix__struct.html#a76a2e57ff5a1e7ed7504c563fd5a1e4d">hypre_IJMatrix_struct</a>
+</li>
+<li>global_first_row
+: <a class="el" href="structhypre___i_j_matrix__struct.html#acc9393d052e886c52b2501417880f0b0">hypre_IJMatrix_struct</a>
+, <a class="el" href="structhypre___i_j_vector__struct.html#a38fe8b8462630fa2dacb8e1aecd2990e">hypre_IJVector_struct</a>
+</li>
+<li>global_num_cols
+: <a class="el" href="structhypre___i_j_matrix__struct.html#ab0d81c2edcb53b51029599ff2145769a">hypre_IJMatrix_struct</a>
+, <a class="el" href="structhypre___par_c_s_r_block_matrix.html#a0e16a50774c36e7225b756625737d130">hypre_ParCSRBlockMatrix</a>
+, <a class="el" href="structhypre___par_c_s_r_boolean_matrix.html#a7308d143068db4280d638093034e0c08">hypre_ParCSRBooleanMatrix</a>
+, <a class="el" href="structhypre___par_c_s_r_matrix__struct.html#aed72f4db8a7b5ec60103f8914b3521f0">hypre_ParCSRMatrix_struct</a>
+</li>
+<li>global_num_rows
+: <a class="el" href="structhypre___i_j_matrix__struct.html#a343bb620c2e4555156760e1f8c179c13">hypre_IJMatrix_struct</a>
+, <a class="el" href="structhypre___i_j_vector__struct.html#a5691b97eb198df7f783e3900faa286e1">hypre_IJVector_struct</a>
+, <a class="el" href="structhypre___par_c_s_r_block_matrix.html#a9860414655985c5c83c631da835181e2">hypre_ParCSRBlockMatrix</a>
+, <a class="el" href="structhypre___par_c_s_r_boolean_matrix.html#a336ec64a819bfd0956e0a021fc7ac5f8">hypre_ParCSRBooleanMatrix</a>
+, <a class="el" href="structhypre___par_c_s_r_matrix__struct.html#a0312290112602ef41fd51845499e50be">hypre_ParCSRMatrix_struct</a>
+</li>
+<li>global_size
+: <a class="el" href="structhypre___par_multivector.html#a6c42224f722355f64960e0b323f3548a">hypre_ParMultivector</a>
+, <a class="el" href="structhypre___par_vector__struct.html#a0111c8cac302f57a30832c851b21db97">hypre_ParVector_struct</a>
+, <a class="el" href="structhypre___s_struct_grid__struct.html#abee29603ff014baedda6f3f4f913ef42">hypre_SStructGrid_struct</a>
+, <a class="el" href="structhypre___s_struct_matrix__struct.html#a7b9bed2a4046ff56cca9fd14c92c1e2f">hypre_SStructMatrix_struct</a>
+, <a class="el" href="structhypre___s_struct_p_grid.html#ad112c5784831aada67959f0d0de8319c">hypre_SStructPGrid</a>
+, <a class="el" href="structhypre___s_struct_vector__struct.html#a3cc810640dced07b2e61c7004c083236">hypre_SStructVector_struct</a>
+, <a class="el" href="structhypre___struct_grid__struct.html#af6bbb23138fcd77f0c5e31d9e8006bb1">hypre_StructGrid_struct</a>
+, <a class="el" href="structhypre___struct_matrix__struct.html#a411e85f3b1b4573c37f2fd1fd97f7504">hypre_StructMatrix_struct</a>
+, <a class="el" href="structhypre___struct_vector__struct.html#aac2523f5279b49e52aa7a46301a35362">hypre_StructVector_struct</a>
+</li>
+<li>globalHeight
+: <a class="el" href="structutilities___fortran_matrix.html#a8f2b6c4861d834b11706d1140ce1e84b">utilities_FortranMatrix</a>
+</li>
+<li>graph
+: <a class="el" href="structhypre___s_struct_matrix__struct.html#ac2a0033309ea881a061f2c85275568a9">hypre_SStructMatrix_struct</a>
+</li>
+<li>graph_entries
+: <a class="el" href="structhypre___s_struct_graph__struct.html#a095dab27bfe067d3599779306838754a">hypre_SStructGraph_struct</a>
+</li>
+<li>grid
+: <a class="el" href="structhypre___compute_pkg__struct.html#ad03821326388e42cf553d590d6306228">hypre_ComputePkg_struct</a>
+, <a class="el" href="structhypre___s_struct_graph__struct.html#a37dcf4b4db701069ee2733ea7625c205">hypre_SStructGraph_struct</a>
+, <a class="el" href="structhypre___s_struct_vector__struct.html#a3bd1d69ef0764ccb4f72bce2a063cf8f">hypre_SStructVector_struct</a>
+, <a class="el" href="structhypre___struct_matrix__struct.html#a8d1fbd9bb511786f79ed351e944e31bb">hypre_StructMatrix_struct</a>
+, <a class="el" href="structhypre___struct_vector__struct.html#a25b397389e0d537e23fa3ff0dfa56743">hypre_StructVector_struct</a>
+</li>
+<li>grid_relax_points
+: <a class="el" href="structhypre___par_a_m_g_data.html#a29262d6b33d1bc58cde6b86ccc790200">hypre_ParAMGData</a>
+</li>
+<li>grid_relax_type
+: <a class="el" href="structhypre___par_a_m_g_data.html#a27015a215ed5adac0fa5eb92f4e5d870">hypre_ParAMGData</a>
+</li>
+<li>gsmg
+: <a class="el" href="structhypre___par_a_m_g_data.html#a185e411b581705543d90598b63d0644c">hypre_ParAMGData</a>
+</li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

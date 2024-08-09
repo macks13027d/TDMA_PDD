@@ -1,0 +1,789 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="TDMA_PDD_cpu" />
+<meta property="og:image" content="../preview.png" />
+<meta property="og:description" content="Documentation for Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD_cpu" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="../preview.png" />
+<meta property="og:title" content="TDMA_PDD_cpu" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD_cpu" />
+<!-- END twitter metadata -->
+<title>TDMA_PDD_CPU: include/hypre-2.11.1/HYPRE_lobpcg.h File Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            messageStyle: "normal",
+            linebreaks: {
+                automatic: false
+            }
+        },
+        tex2jax: { 
+            inlineMath: [["\\(","\\)"]], 
+            displayMath: [["$$","$$"],["\\[","\\]"]], 
+            processEscapes: true
+        },
+        TeX: {
+            Macros: {
+                tr: "{\\scriptscriptstyle\\mathrm{T}}",
+            }
+        }
+    });
+</script>
+<!--MathJax(LaTeX) -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <script type="text/javascript" id="MathJax-script" async  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">  </script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="custom-alternative.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/hugh577/TDMA_PDD_cpu" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 65px;">
+  <td id="projectlogo">
+    <a href="./index.html">
+        <img alt="Logo" src="home.png"/></td>
+    </a>
+  <td id="projectalign" style="padding-left: 0.5em;padding-top: 0.5em;">
+   <div id="projectname">TDMA_PDD_CPU
+   </div>
+   <div id="projectbrief">Documentation</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('_h_y_p_r_e__lobpcg_8h.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">HYPRE_lobpcg.h File Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="_h_y_p_r_e__krylov_8h_source.html">HYPRE_krylov.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="fortran__matrix_8h_source.html">fortran_matrix.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="multivector_8h_source.html">multivector.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="interpreter_8h_source.html">interpreter.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_h_y_p_r_e___matvec_functions_8h_source.html">HYPRE_MatvecFunctions.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for HYPRE_lobpcg.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="_h_y_p_r_e__lobpcg_8h__incl.png" border="0" usemap="#include_2hypre-2_811_81_2_h_y_p_r_e__lobpcg_8h" alt=""/></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="_h_y_p_r_e__lobpcg_8h__dep__incl.png" border="0" usemap="#include_2hypre-2_811_81_2_h_y_p_r_e__lobpcg_8hdep" alt=""/></div>
+</div>
+</div>
+<p><a href="_h_y_p_r_e__lobpcg_8h_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr><td colspan="2"><div class="groupHeader">LOBPCG Eigensolver</div></td></tr>
+<tr class="memitem:aafb465d8a2fc575b6fd0509076144164"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__lobpcg_8h.html#aafb465d8a2fc575b6fd0509076144164">HYPRE_LOBPCGCreate</a> (<a class="el" href="structmv___interface_interpreter.html">mv_InterfaceInterpreter</a> *interpreter, <a class="el" href="struct_h_y_p_r_e___matvec_functions.html">HYPRE_MatvecFunctions</a> *mvfunctions, <a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a> *solver)</td></tr>
+<tr class="separator:aafb465d8a2fc575b6fd0509076144164"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1120f6e9c9e68617bd95a8b0151e2741"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__lobpcg_8h.html#a1120f6e9c9e68617bd95a8b0151e2741">HYPRE_LOBPCGDestroy</a> (<a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a> solver)</td></tr>
+<tr class="separator:a1120f6e9c9e68617bd95a8b0151e2741"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a6b933a5c116b6b9d049e0356f6021e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__lobpcg_8h.html#a7a6b933a5c116b6b9d049e0356f6021e">HYPRE_LOBPCGSetPrecond</a> (<a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a> solver, <a class="el" href="_h_y_p_r_e__krylov_8h.html#aa37e5900db7a6f85c334cc4a390df3ea">HYPRE_PtrToSolverFcn</a> precond, <a class="el" href="_h_y_p_r_e__krylov_8h.html#aa37e5900db7a6f85c334cc4a390df3ea">HYPRE_PtrToSolverFcn</a> precond_setup, <a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a> precond_solver)</td></tr>
+<tr class="separator:a7a6b933a5c116b6b9d049e0356f6021e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab25faddec1aaa92f35c9002c8c878be4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__lobpcg_8h.html#ab25faddec1aaa92f35c9002c8c878be4">HYPRE_LOBPCGGetPrecond</a> (<a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a> solver, <a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a> *precond_data_ptr)</td></tr>
+<tr class="separator:ab25faddec1aaa92f35c9002c8c878be4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad60226615dcc05cfc340f7f4c4551b2c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__lobpcg_8h.html#ad60226615dcc05cfc340f7f4c4551b2c">HYPRE_LOBPCGSetup</a> (<a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a> solver, <a class="el" href="_h_y_p_r_e__krylov_8h.html#a445e2180161eaff4b226997566df12fd">HYPRE_Matrix</a> A, <a class="el" href="_h_y_p_r_e__krylov_8h.html#acade2ef834640dfa686ca0a92dfe2d8f">HYPRE_Vector</a> b, <a class="el" href="_h_y_p_r_e__krylov_8h.html#acade2ef834640dfa686ca0a92dfe2d8f">HYPRE_Vector</a> x)</td></tr>
+<tr class="separator:ad60226615dcc05cfc340f7f4c4551b2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab53f1afccbce8960b97ab6adb67bd578"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__lobpcg_8h.html#ab53f1afccbce8960b97ab6adb67bd578">HYPRE_LOBPCGSetupB</a> (<a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a> solver, <a class="el" href="_h_y_p_r_e__krylov_8h.html#a445e2180161eaff4b226997566df12fd">HYPRE_Matrix</a> B, <a class="el" href="_h_y_p_r_e__krylov_8h.html#acade2ef834640dfa686ca0a92dfe2d8f">HYPRE_Vector</a> x)</td></tr>
+<tr class="separator:ab53f1afccbce8960b97ab6adb67bd578"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d72e2f648f72d51183ef51644145c68"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__lobpcg_8h.html#a9d72e2f648f72d51183ef51644145c68">HYPRE_LOBPCGSetupT</a> (<a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a> solver, <a class="el" href="_h_y_p_r_e__krylov_8h.html#a445e2180161eaff4b226997566df12fd">HYPRE_Matrix</a> T, <a class="el" href="_h_y_p_r_e__krylov_8h.html#acade2ef834640dfa686ca0a92dfe2d8f">HYPRE_Vector</a> x)</td></tr>
+<tr class="separator:a9d72e2f648f72d51183ef51644145c68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8af37f5bd59939ff5ae483137c5dfb3b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__lobpcg_8h.html#a8af37f5bd59939ff5ae483137c5dfb3b">HYPRE_LOBPCGSolve</a> (<a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a> solver, <a class="el" href="multivector_8h.html#a34bf02b10aa12be5e14db8b92f105b9a">mv_MultiVectorPtr</a> y, <a class="el" href="multivector_8h.html#a34bf02b10aa12be5e14db8b92f105b9a">mv_MultiVectorPtr</a> x, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> *lambda)</td></tr>
+<tr class="separator:a8af37f5bd59939ff5ae483137c5dfb3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af24d853c8a793ac8718c492d78c07249"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__lobpcg_8h.html#af24d853c8a793ac8718c492d78c07249">HYPRE_LOBPCGSetTol</a> (<a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a> solver, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> tol)</td></tr>
+<tr class="separator:af24d853c8a793ac8718c492d78c07249"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87a5a5cff3cc08c9c932b8c48e61563a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__lobpcg_8h.html#a87a5a5cff3cc08c9c932b8c48e61563a">HYPRE_LOBPCGSetRTol</a> (<a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a> solver, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> tol)</td></tr>
+<tr class="separator:a87a5a5cff3cc08c9c932b8c48e61563a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb7cfd8bc4cc9be4df25c76cf08dc2a1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__lobpcg_8h.html#abb7cfd8bc4cc9be4df25c76cf08dc2a1">HYPRE_LOBPCGSetMaxIter</a> (<a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a> solver, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> max_iter)</td></tr>
+<tr class="separator:abb7cfd8bc4cc9be4df25c76cf08dc2a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a765a636af20bfc3e94d0a354e3576a52"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__lobpcg_8h.html#a765a636af20bfc3e94d0a354e3576a52">HYPRE_LOBPCGSetPrecondUsageMode</a> (<a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a> solver, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> mode)</td></tr>
+<tr class="separator:a765a636af20bfc3e94d0a354e3576a52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a152f81054d8015729c72782969127d08"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__lobpcg_8h.html#a152f81054d8015729c72782969127d08">HYPRE_LOBPCGSetPrintLevel</a> (<a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a> solver, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> level)</td></tr>
+<tr class="separator:a152f81054d8015729c72782969127d08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31dd86e36d285418b6e820bec5333143"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__lobpcg_8h.html#a31dd86e36d285418b6e820bec5333143">HYPRE_LOBPCGResidualNorms</a> (<a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a> solver)</td></tr>
+<tr class="separator:a31dd86e36d285418b6e820bec5333143"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa701f063999030b9e72176f8d3477ab0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__lobpcg_8h.html#aa701f063999030b9e72176f8d3477ab0">HYPRE_LOBPCGResidualNormsHistory</a> (<a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a> solver)</td></tr>
+<tr class="separator:aa701f063999030b9e72176f8d3477ab0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b4767b90e5da48c6dd4d2f8387c6924"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__lobpcg_8h.html#a6b4767b90e5da48c6dd4d2f8387c6924">HYPRE_LOBPCGEigenvaluesHistory</a> (<a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a> solver)</td></tr>
+<tr class="separator:a6b4767b90e5da48c6dd4d2f8387c6924"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27a739dc0a2e3c768fc9e43eaa02f024"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__lobpcg_8h.html#a27a739dc0a2e3c768fc9e43eaa02f024">HYPRE_LOBPCGIterations</a> (<a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a> solver)</td></tr>
+<tr class="separator:a27a739dc0a2e3c768fc9e43eaa02f024"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ec9e8a8d3abc1830fd01ab858622638"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__lobpcg_8h.html#a8ec9e8a8d3abc1830fd01ab858622638">hypre_LOBPCGMultiOperatorB</a> (void *data, void *x, void *y)</td></tr>
+<tr class="separator:a8ec9e8a8d3abc1830fd01ab858622638"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf06a5fbb59b24ba0072e88729712fbb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__lobpcg_8h.html#aaf06a5fbb59b24ba0072e88729712fbb">lobpcg_MultiVectorByMultiVector</a> (<a class="el" href="multivector_8h.html#a34bf02b10aa12be5e14db8b92f105b9a">mv_MultiVectorPtr</a> x, <a class="el" href="multivector_8h.html#a34bf02b10aa12be5e14db8b92f105b9a">mv_MultiVectorPtr</a> y, <a class="el" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a> *xy)</td></tr>
+<tr class="separator:aaf06a5fbb59b24ba0072e88729712fbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="aafb465d8a2fc575b6fd0509076144164"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafb465d8a2fc575b6fd0509076144164">&#9670;&nbsp;</a></span>HYPRE_LOBPCGCreate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_LOBPCGCreate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmv___interface_interpreter.html">mv_InterfaceInterpreter</a> *&#160;</td>
+          <td class="paramname"><em>interpreter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_h_y_p_r_e___matvec_functions.html">HYPRE_MatvecFunctions</a> *&#160;</td>
+          <td class="paramname"><em>mvfunctions</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a> *&#160;</td>
+          <td class="paramname"><em>solver</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>LOBPCG constructor. </p>
+
+</div>
+</div>
+<a id="a1120f6e9c9e68617bd95a8b0151e2741"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1120f6e9c9e68617bd95a8b0151e2741">&#9670;&nbsp;</a></span>HYPRE_LOBPCGDestroy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_LOBPCGDestroy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a>&#160;</td>
+          <td class="paramname"><em>solver</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>LOBPCG destructor. </p>
+
+</div>
+</div>
+<a id="a6b4767b90e5da48c6dd4d2f8387c6924"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b4767b90e5da48c6dd4d2f8387c6924">&#9670;&nbsp;</a></span>HYPRE_LOBPCGEigenvaluesHistory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* HYPRE_LOBPCGEigenvaluesHistory </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a>&#160;</td>
+          <td class="paramname"><em>solver</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab25faddec1aaa92f35c9002c8c878be4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab25faddec1aaa92f35c9002c8c878be4">&#9670;&nbsp;</a></span>HYPRE_LOBPCGGetPrecond()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_LOBPCGGetPrecond </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a>&#160;</td>
+          <td class="paramname"><em>solver</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a> *&#160;</td>
+          <td class="paramname"><em>precond_data_ptr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a27a739dc0a2e3c768fc9e43eaa02f024"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27a739dc0a2e3c768fc9e43eaa02f024">&#9670;&nbsp;</a></span>HYPRE_LOBPCGIterations()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_LOBPCGIterations </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a>&#160;</td>
+          <td class="paramname"><em>solver</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8ec9e8a8d3abc1830fd01ab858622638"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ec9e8a8d3abc1830fd01ab858622638">&#9670;&nbsp;</a></span>hypre_LOBPCGMultiOperatorB()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void hypre_LOBPCGMultiOperatorB </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a31dd86e36d285418b6e820bec5333143"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31dd86e36d285418b6e820bec5333143">&#9670;&nbsp;</a></span>HYPRE_LOBPCGResidualNorms()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* HYPRE_LOBPCGResidualNorms </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a>&#160;</td>
+          <td class="paramname"><em>solver</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa701f063999030b9e72176f8d3477ab0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa701f063999030b9e72176f8d3477ab0">&#9670;&nbsp;</a></span>HYPRE_LOBPCGResidualNormsHistory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a>* HYPRE_LOBPCGResidualNormsHistory </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a>&#160;</td>
+          <td class="paramname"><em>solver</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abb7cfd8bc4cc9be4df25c76cf08dc2a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb7cfd8bc4cc9be4df25c76cf08dc2a1">&#9670;&nbsp;</a></span>HYPRE_LOBPCGSetMaxIter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_LOBPCGSetMaxIter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a>&#160;</td>
+          <td class="paramname"><em>solver</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>max_iter</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>(Optional) Set maximum number of iterations. </p>
+
+</div>
+</div>
+<a id="a7a6b933a5c116b6b9d049e0356f6021e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a6b933a5c116b6b9d049e0356f6021e">&#9670;&nbsp;</a></span>HYPRE_LOBPCGSetPrecond()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_LOBPCGSetPrecond </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a>&#160;</td>
+          <td class="paramname"><em>solver</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__krylov_8h.html#aa37e5900db7a6f85c334cc4a390df3ea">HYPRE_PtrToSolverFcn</a>&#160;</td>
+          <td class="paramname"><em>precond</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__krylov_8h.html#aa37e5900db7a6f85c334cc4a390df3ea">HYPRE_PtrToSolverFcn</a>&#160;</td>
+          <td class="paramname"><em>precond_setup</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a>&#160;</td>
+          <td class="paramname"><em>precond_solver</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>(Optional) Set the preconditioner to use. If not called, preconditioning is not used. </p>
+
+</div>
+</div>
+<a id="a765a636af20bfc3e94d0a354e3576a52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a765a636af20bfc3e94d0a354e3576a52">&#9670;&nbsp;</a></span>HYPRE_LOBPCGSetPrecondUsageMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_LOBPCGSetPrecondUsageMode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a>&#160;</td>
+          <td class="paramname"><em>solver</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>mode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Define which initial guess for inner PCG iterations to use: {\tt mode} = 0: use zero initial guess, otherwise use RHS. </p>
+
+</div>
+</div>
+<a id="a152f81054d8015729c72782969127d08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a152f81054d8015729c72782969127d08">&#9670;&nbsp;</a></span>HYPRE_LOBPCGSetPrintLevel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_LOBPCGSetPrintLevel </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a>&#160;</td>
+          <td class="paramname"><em>solver</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>level</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>(Optional) Set the amount of printing to do to the screen. </p>
+
+</div>
+</div>
+<a id="a87a5a5cff3cc08c9c932b8c48e61563a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87a5a5cff3cc08c9c932b8c48e61563a">&#9670;&nbsp;</a></span>HYPRE_LOBPCGSetRTol()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_LOBPCGSetRTol </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a>&#160;</td>
+          <td class="paramname"><em>solver</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>&#160;</td>
+          <td class="paramname"><em>tol</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>(Optional) Set the relative convergence tolerance. </p>
+
+</div>
+</div>
+<a id="af24d853c8a793ac8718c492d78c07249"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af24d853c8a793ac8718c492d78c07249">&#9670;&nbsp;</a></span>HYPRE_LOBPCGSetTol()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_LOBPCGSetTol </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a>&#160;</td>
+          <td class="paramname"><em>solver</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>&#160;</td>
+          <td class="paramname"><em>tol</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>(Optional) Set the absolute convergence tolerance. </p>
+
+</div>
+</div>
+<a id="ad60226615dcc05cfc340f7f4c4551b2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad60226615dcc05cfc340f7f4c4551b2c">&#9670;&nbsp;</a></span>HYPRE_LOBPCGSetup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_LOBPCGSetup </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a>&#160;</td>
+          <td class="paramname"><em>solver</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__krylov_8h.html#a445e2180161eaff4b226997566df12fd">HYPRE_Matrix</a>&#160;</td>
+          <td class="paramname"><em>A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__krylov_8h.html#acade2ef834640dfa686ca0a92dfe2d8f">HYPRE_Vector</a>&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__krylov_8h.html#acade2ef834640dfa686ca0a92dfe2d8f">HYPRE_Vector</a>&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set up {\tt A} and the preconditioner (if there is one). </p>
+
+</div>
+</div>
+<a id="ab53f1afccbce8960b97ab6adb67bd578"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab53f1afccbce8960b97ab6adb67bd578">&#9670;&nbsp;</a></span>HYPRE_LOBPCGSetupB()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_LOBPCGSetupB </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a>&#160;</td>
+          <td class="paramname"><em>solver</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__krylov_8h.html#a445e2180161eaff4b226997566df12fd">HYPRE_Matrix</a>&#160;</td>
+          <td class="paramname"><em>B</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__krylov_8h.html#acade2ef834640dfa686ca0a92dfe2d8f">HYPRE_Vector</a>&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>(Optional) Set up {\tt B}. If not called, B = I. </p>
+
+</div>
+</div>
+<a id="a9d72e2f648f72d51183ef51644145c68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d72e2f648f72d51183ef51644145c68">&#9670;&nbsp;</a></span>HYPRE_LOBPCGSetupT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_LOBPCGSetupT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a>&#160;</td>
+          <td class="paramname"><em>solver</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__krylov_8h.html#a445e2180161eaff4b226997566df12fd">HYPRE_Matrix</a>&#160;</td>
+          <td class="paramname"><em>T</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__krylov_8h.html#acade2ef834640dfa686ca0a92dfe2d8f">HYPRE_Vector</a>&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>(Optional) Set the preconditioning to be applied to Tx = b, not Ax = b. </p>
+
+</div>
+</div>
+<a id="a8af37f5bd59939ff5ae483137c5dfb3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8af37f5bd59939ff5ae483137c5dfb3b">&#9670;&nbsp;</a></span>HYPRE_LOBPCGSolve()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_LOBPCGSolve </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a>&#160;</td>
+          <td class="paramname"><em>solver</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="multivector_8h.html#a34bf02b10aa12be5e14db8b92f105b9a">mv_MultiVectorPtr</a>&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="multivector_8h.html#a34bf02b10aa12be5e14db8b92f105b9a">mv_MultiVectorPtr</a>&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> *&#160;</td>
+          <td class="paramname"><em>lambda</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Solve A x = lambda B x, y'x = 0. </p>
+
+</div>
+</div>
+<a id="aaf06a5fbb59b24ba0072e88729712fbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf06a5fbb59b24ba0072e88729712fbb">&#9670;&nbsp;</a></span>lobpcg_MultiVectorByMultiVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lobpcg_MultiVectorByMultiVector </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="multivector_8h.html#a34bf02b10aa12be5e14db8b92f105b9a">mv_MultiVectorPtr</a>&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="multivector_8h.html#a34bf02b10aa12be5e14db8b92f105b9a">mv_MultiVectorPtr</a>&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structutilities___fortran_matrix.html">utilities_FortranMatrix</a> *&#160;</td>
+          <td class="paramname"><em>xy</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_1481b2ad69b2eab628871d4fb2bac45c.html">hypre-2.11.1</a></li><li class="navelem"><a class="el" href="_h_y_p_r_e__lobpcg_8h.html">HYPRE_lobpcg.h</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

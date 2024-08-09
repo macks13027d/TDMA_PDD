@@ -1,0 +1,715 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="TDMA_PDD_cpu" />
+<meta property="og:image" content="../preview.png" />
+<meta property="og:description" content="Documentation for Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD_cpu" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="../preview.png" />
+<meta property="og:title" content="TDMA_PDD_cpu" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD_cpu" />
+<!-- END twitter metadata -->
+<title>TDMA_PDD_CPU: LLNL_FEI_LSCore Class Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            messageStyle: "normal",
+            linebreaks: {
+                automatic: false
+            }
+        },
+        tex2jax: { 
+            inlineMath: [["\\(","\\)"]], 
+            displayMath: [["$$","$$"],["\\[","\\]"]], 
+            processEscapes: true
+        },
+        TeX: {
+            Macros: {
+                tr: "{\\scriptscriptstyle\\mathrm{T}}",
+            }
+        }
+    });
+</script>
+<!--MathJax(LaTeX) -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <script type="text/javascript" id="MathJax-script" async  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">  </script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="custom-alternative.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/hugh577/TDMA_PDD_cpu" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 65px;">
+  <td id="projectlogo">
+    <a href="./index.html">
+        <img alt="Logo" src="home.png"/></td>
+    </a>
+  <td id="projectalign" style="padding-left: 0.5em;padding-top: 0.5em;">
+   <div id="projectname">TDMA_PDD_CPU
+   </div>
+   <div id="projectbrief">Documentation</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_l_l_n_l___f_e_i___l_s_core.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="class_l_l_n_l___f_e_i___l_s_core-members.html">List of all members</a>  </div>
+  <div class="headertitle">
+<div class="title">LLNL_FEI_LSCore Class Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_l_l_n_l___f_e_i___l_s_core_8h_source.html">LLNL_FEI_LSCore.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for LLNL_FEI_LSCore:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_l_l_n_l___f_e_i___l_s_core__coll__graph.png" border="0" usemap="#_l_l_n_l___f_e_i___l_s_core_coll__map" alt="Collaboration graph"/></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:abc20d3e586832d753d70f7ba6932deac"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_l_n_l___f_e_i___l_s_core.html#abc20d3e586832d753d70f7ba6932deac">LLNL_FEI_LSCore</a> (<a class="el" href="_l_l_n_l___f_e_i___l_s_core_8h.html#a6c6fc83b53fcd4319d27ea95718c7059">SolverLib_t</a> tmp)</td></tr>
+<tr class="separator:abc20d3e586832d753d70f7ba6932deac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c199c41648686db953e8dd1eb7ea4ea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_l_n_l___f_e_i___l_s_core.html#a8c199c41648686db953e8dd1eb7ea4ea">~LLNL_FEI_LSCore</a> ()</td></tr>
+<tr class="separator:a8c199c41648686db953e8dd1eb7ea4ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7d62c904b320824f180ab6b16886641"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_l_n_l___f_e_i___l_s_core.html#ab7d62c904b320824f180ab6b16886641">setGlobalOffsets</a> (int leng, int *nodeOffsets, int *eqnOffsets, int *blkEqnOffsets)</td></tr>
+<tr class="separator:ab7d62c904b320824f180ab6b16886641"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0b58ae79bcbafd4d7b10ae6a5241813"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_l_n_l___f_e_i___l_s_core.html#aa0b58ae79bcbafd4d7b10ae6a5241813">setMatrixStructure</a> (int **ptColIndices, int *ptRowLengths, int **blkColIndices, int *blkRowLengths, int *ptRowsPerBlkRow)</td></tr>
+<tr class="separator:aa0b58ae79bcbafd4d7b10ae6a5241813"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a912df43a48d4fea65afc7ffcc688d0b1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_l_n_l___f_e_i___l_s_core.html#a912df43a48d4fea65afc7ffcc688d0b1">sumIntoSystemMatrix</a> (int nRows, const int *rows, int nCols, const int *cols, const double *const *vals)</td></tr>
+<tr class="separator:a912df43a48d4fea65afc7ffcc688d0b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcbc02ffba7cc59de5478fabb3402998"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_l_n_l___f_e_i___l_s_core.html#abcbc02ffba7cc59de5478fabb3402998">putIntoSystemMatrix</a> (int nRows, const int *rows, int nCols, const int *cols, const double *const *vals)</td></tr>
+<tr class="separator:abcbc02ffba7cc59de5478fabb3402998"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92bffcc048c2f61525758acfa21277cc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_l_n_l___f_e_i___l_s_core.html#a92bffcc048c2f61525758acfa21277cc">matrixLoadComplete</a> ()</td></tr>
+<tr class="separator:a92bffcc048c2f61525758acfa21277cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cd12d53b69380673e1f898485c49454"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_l_n_l___f_e_i___l_s_core.html#a2cd12d53b69380673e1f898485c49454">sumIntoRHSVector</a> (int num, const double *vals, const int *indices)</td></tr>
+<tr class="separator:a2cd12d53b69380673e1f898485c49454"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fc991de2d2f91d2fe4e4b8dee17d0c7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_l_n_l___f_e_i___l_s_core.html#a6fc991de2d2f91d2fe4e4b8dee17d0c7">putIntoRHSVector</a> (int num, const double *vals, const int *indices)</td></tr>
+<tr class="separator:a6fc991de2d2f91d2fe4e4b8dee17d0c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a257764e23bfe28d1cba28db243485454"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_l_n_l___f_e_i___l_s_core.html#a257764e23bfe28d1cba28db243485454">putInitialGuess</a> (const int *eqnNumbers, const double *values, int leng)</td></tr>
+<tr class="separator:a257764e23bfe28d1cba28db243485454"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac36fff0b1bea72bee0c1516b26e7029"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_l_n_l___f_e_i___l_s_core.html#aac36fff0b1bea72bee0c1516b26e7029">parameters</a> (int nParams, char **params)</td></tr>
+<tr class="separator:aac36fff0b1bea72bee0c1516b26e7029"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d0b9f4baf48d98b7b917512c4d16aa8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_l_n_l___f_e_i___l_s_core.html#a7d0b9f4baf48d98b7b917512c4d16aa8">solve</a> (int *status, int *iterations)</td></tr>
+<tr class="separator:a7d0b9f4baf48d98b7b917512c4d16aa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c447c7f692fa52079d164545845b5a4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_l_n_l___f_e_i___l_s_core.html#a7c447c7f692fa52079d164545845b5a4">formResidual</a> (double *values, int leng)</td></tr>
+<tr class="separator:a7c447c7f692fa52079d164545845b5a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accbfcdc42b65ee328bb94216fb933435"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_l_n_l___f_e_i___l_s_core.html#accbfcdc42b65ee328bb94216fb933435">getSolution</a> (double *answers, int leng)</td></tr>
+<tr class="separator:accbfcdc42b65ee328bb94216fb933435"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d3eb7d4404948dcd7bdb5fc3214150d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_l_n_l___f_e_i___l_s_core.html#a0d3eb7d4404948dcd7bdb5fc3214150d">getSolnEntry</a> (int eqnNum, double *answers)</td></tr>
+<tr class="separator:a0d3eb7d4404948dcd7bdb5fc3214150d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a98c8065ad08ef70a05d7182004ecf479"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_l_n_l___f_e_i___l_s_core.html#a98c8065ad08ef70a05d7182004ecf479">lsc_</a></td></tr>
+<tr class="separator:a98c8065ad08ef70a05d7182004ecf479"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="_l_l_n_l___f_e_i___l_s_core_8h_source.html#l00040">40</a> of file <a class="el" href="_l_l_n_l___f_e_i___l_s_core_8h_source.html">LLNL_FEI_LSCore.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="abc20d3e586832d753d70f7ba6932deac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc20d3e586832d753d70f7ba6932deac">&#9670;&nbsp;</a></span>LLNL_FEI_LSCore()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LLNL_FEI_LSCore::LLNL_FEI_LSCore </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_l_l_n_l___f_e_i___l_s_core_8h.html#a6c6fc83b53fcd4319d27ea95718c7059">SolverLib_t</a>&#160;</td>
+          <td class="paramname"><em>tmp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8c199c41648686db953e8dd1eb7ea4ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c199c41648686db953e8dd1eb7ea4ea">&#9670;&nbsp;</a></span>~LLNL_FEI_LSCore()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LLNL_FEI_LSCore::~LLNL_FEI_LSCore </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a7c447c7f692fa52079d164545845b5a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c447c7f692fa52079d164545845b5a4">&#9670;&nbsp;</a></span>formResidual()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int LLNL_FEI_LSCore::formResidual </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>values</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>leng</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0d3eb7d4404948dcd7bdb5fc3214150d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d3eb7d4404948dcd7bdb5fc3214150d">&#9670;&nbsp;</a></span>getSolnEntry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int LLNL_FEI_LSCore::getSolnEntry </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>eqnNum</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>answers</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="accbfcdc42b65ee328bb94216fb933435"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accbfcdc42b65ee328bb94216fb933435">&#9670;&nbsp;</a></span>getSolution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int LLNL_FEI_LSCore::getSolution </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>answers</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>leng</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a92bffcc048c2f61525758acfa21277cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92bffcc048c2f61525758acfa21277cc">&#9670;&nbsp;</a></span>matrixLoadComplete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int LLNL_FEI_LSCore::matrixLoadComplete </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aac36fff0b1bea72bee0c1516b26e7029"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac36fff0b1bea72bee0c1516b26e7029">&#9670;&nbsp;</a></span>parameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int LLNL_FEI_LSCore::parameters </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nParams</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>params</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a257764e23bfe28d1cba28db243485454"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a257764e23bfe28d1cba28db243485454">&#9670;&nbsp;</a></span>putInitialGuess()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int LLNL_FEI_LSCore::putInitialGuess </td>
+          <td>(</td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>eqnNumbers</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *&#160;</td>
+          <td class="paramname"><em>values</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>leng</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6fc991de2d2f91d2fe4e4b8dee17d0c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fc991de2d2f91d2fe4e4b8dee17d0c7">&#9670;&nbsp;</a></span>putIntoRHSVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int LLNL_FEI_LSCore::putIntoRHSVector </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *&#160;</td>
+          <td class="paramname"><em>vals</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>indices</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abcbc02ffba7cc59de5478fabb3402998"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcbc02ffba7cc59de5478fabb3402998">&#9670;&nbsp;</a></span>putIntoSystemMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int LLNL_FEI_LSCore::putIntoSystemMatrix </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nRows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>rows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nCols</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>cols</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *const *&#160;</td>
+          <td class="paramname"><em>vals</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab7d62c904b320824f180ab6b16886641"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7d62c904b320824f180ab6b16886641">&#9670;&nbsp;</a></span>setGlobalOffsets()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int LLNL_FEI_LSCore::setGlobalOffsets </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>leng</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>nodeOffsets</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>eqnOffsets</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>blkEqnOffsets</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa0b58ae79bcbafd4d7b10ae6a5241813"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0b58ae79bcbafd4d7b10ae6a5241813">&#9670;&nbsp;</a></span>setMatrixStructure()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int LLNL_FEI_LSCore::setMatrixStructure </td>
+          <td>(</td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>ptColIndices</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>ptRowLengths</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>blkColIndices</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>blkRowLengths</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>ptRowsPerBlkRow</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7d0b9f4baf48d98b7b917512c4d16aa8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d0b9f4baf48d98b7b917512c4d16aa8">&#9670;&nbsp;</a></span>solve()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int LLNL_FEI_LSCore::solve </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>status</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>iterations</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2cd12d53b69380673e1f898485c49454"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cd12d53b69380673e1f898485c49454">&#9670;&nbsp;</a></span>sumIntoRHSVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int LLNL_FEI_LSCore::sumIntoRHSVector </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *&#160;</td>
+          <td class="paramname"><em>vals</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>indices</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a912df43a48d4fea65afc7ffcc688d0b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a912df43a48d4fea65afc7ffcc688d0b1">&#9670;&nbsp;</a></span>sumIntoSystemMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int LLNL_FEI_LSCore::sumIntoSystemMatrix </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nRows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>rows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nCols</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>cols</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *const *&#160;</td>
+          <td class="paramname"><em>vals</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a98c8065ad08ef70a05d7182004ecf479"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98c8065ad08ef70a05d7182004ecf479">&#9670;&nbsp;</a></span>lsc_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a>* LLNL_FEI_LSCore::lsc_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_l_l_n_l___f_e_i___l_s_core_8h_source.html#l00048">48</a> of file <a class="el" href="_l_l_n_l___f_e_i___l_s_core_8h_source.html">LLNL_FEI_LSCore.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>include/hypre-2.11.1/<a class="el" href="_l_l_n_l___f_e_i___l_s_core_8h_source.html">LLNL_FEI_LSCore.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_l_l_n_l___f_e_i___l_s_core.html">LLNL_FEI_LSCore</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

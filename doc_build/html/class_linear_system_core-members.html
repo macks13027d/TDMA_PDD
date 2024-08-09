@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="TDMA_PDD_cpu" />
+<meta property="og:image" content="../preview.png" />
+<meta property="og:description" content="Documentation for Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD_cpu" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="../preview.png" />
+<meta property="og:title" content="TDMA_PDD_cpu" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD_cpu" />
+<!-- END twitter metadata -->
+<title>TDMA_PDD_CPU: Member List</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            messageStyle: "normal",
+            linebreaks: {
+                automatic: false
+            }
+        },
+        tex2jax: { 
+            inlineMath: [["\\(","\\)"]], 
+            displayMath: [["$$","$$"],["\\[","\\]"]], 
+            processEscapes: true
+        },
+        TeX: {
+            Macros: {
+                tr: "{\\scriptscriptstyle\\mathrm{T}}",
+            }
+        }
+    });
+</script>
+<!--MathJax(LaTeX) -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <script type="text/javascript" id="MathJax-script" async  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">  </script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="custom-alternative.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/hugh577/TDMA_PDD_cpu" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 65px;">
+  <td id="projectlogo">
+    <a href="./index.html">
+        <img alt="Logo" src="home.png"/></td>
+    </a>
+  <td id="projectalign" style="padding-left: 0.5em;padding-top: 0.5em;">
+   <div id="projectname">TDMA_PDD_CPU
+   </div>
+   <div id="projectbrief">Documentation</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_linear_system_core.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">LinearSystemCore Member List</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>This is the complete list of members for <a class="el" href="class_linear_system_core.html">LinearSystemCore</a>, including all inherited members.</p>
+<table class="directory">
+  <tr class="even"><td class="entry"><a class="el" href="class_linear_system_core.html#a55fe55e790445e329ee131ada2d157ba">clone</a>()=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_linear_system_core.html#a51d2491d874e8fba9e6f55b2832f4fba">copyInMatrix</a>(double scalar, const Data &amp;data)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_linear_system_core.html#a124a84a9b66d91f2c68ef3ae7c9f6d54">copyInRHSVector</a>(double scalar, const Data &amp;data)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_linear_system_core.html#a8c21aaa3377f1b449f7b5e89d6e5a77f">copyOutMatrix</a>(double scalar, Data &amp;data)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_linear_system_core.html#a612af8541297e0a692ee7c0c8e0e797f">copyOutRHSVector</a>(double scalar, Data &amp;data)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_linear_system_core.html#a7ddaabe1b1913a3af9c5576b0135a022">destroyMatrixData</a>(Data &amp;data)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_linear_system_core.html#a2ea60fe33c63c7371b310335855a7d4c">destroyVectorData</a>(Data &amp;data)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_linear_system_core.html#a3996d48023c18bca8d116e38639408c1">enforceEssentialBC</a>(int *globalEqn, double *alpha, double *gamma, int len)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_linear_system_core.html#a07d8cf8a1d7b72bb3e519e3f6d66280a">enforceOtherBC</a>(int *globalEqn, double *alpha, double *beta, double *gamma, int len)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_linear_system_core.html#aff96d089f89fc241a2634c154912a734">enforceRemoteEssBCs</a>(int numEqns, int *globalEqns, int **colIndices, int *colIndLen, double **coefs)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_linear_system_core.html#a2a93a2ecabb4780e58318e4a7b0b45d3">formResidual</a>(double *values, int len)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_linear_system_core.html#a1d6687366d37e46f8744b66594a35a52">getFromRHSVector</a>(int num, double *values, const int *indices)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_linear_system_core.html#ab6a123f512f5d63f5ca85178a8649366">getMatrixPtr</a>(Data &amp;data)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_linear_system_core.html#a13a1b3fdd8ee94ad059d2a288bc99eaf">getMatrixRow</a>(int row, double *coefs, int *indices, int len, int &amp;rowLength)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_linear_system_core.html#a508ae024c24ad7ddac14098edc863942">getMatrixRowLength</a>(int row, int &amp;length)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_linear_system_core.html#a19ece4307b1fad22f915cbb9ce920c00">getProperty</a>(const char *, double &amp;)</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_linear_system_core.html#a7b9fba0b1fb9d1e9e0235477ed42a447">getRHSVectorPtr</a>(Data &amp;data)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_linear_system_core.html#ae5ed92e086e130c77636db717fe52205">getSolnEntry</a>(int eqnNumber, double &amp;answer)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_linear_system_core.html#a8b80a874cacdbfedb297b729139e6554">getSolution</a>(double *answers, int len)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_linear_system_core.html#aacab77eafa84515071b4f429f3b03ea0">launchSolver</a>(int &amp;solveStatus, int &amp;iterations)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_linear_system_core.html#a9ef0b9ff1f0e5966df08bd14fdfb5ede">LinearSystemCore</a>()</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_linear_system_core.html#a8d0884d1d216af462a6bf1e494ba17be">matrixLoadComplete</a>()=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_linear_system_core.html#a926f3c2f179e4bc92acba1d4b845db26">parameters</a>(int numParams, char **params)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_linear_system_core.html#af1a4288cbff62c6929cbf3c955a77a9f">putInitialGuess</a>(const int *eqnNumbers, const double *values, int len)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_linear_system_core.html#a8d785bd49fdec79fa859cbd126f98cb4">putIntoRHSVector</a>(int num, const double *values, const int *indices)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_linear_system_core.html#a1b892eb26a69fd4dc238239561f7d63b">putIntoSystemMatrix</a>(int numPtRows, const int *ptRows, int numPtCols, const int *ptCols, const double *const *values)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_linear_system_core.html#afe02febc84c656cb81ee3c73404f0ba3">putNodalFieldData</a>(int fieldID, int fieldSize, int *nodeNumbers, int numNodes, const double *data)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_linear_system_core.html#a7bc028c014735393e3e6d0360d1f26b1">resetMatrix</a>(double s)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_linear_system_core.html#a4d4e3707f49019b4ad5c983caae79843">resetMatrixAndVector</a>(double s)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_linear_system_core.html#a9fc04454615772616c0d737818276aff">resetRHSVector</a>(double s)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_linear_system_core.html#a57d90556afa201ee0b841e4c0f26918c">setConnectivities</a>(GlobalID elemBlock, int numElements, int numNodesPerElem, const GlobalID *elemIDs, const int *const *connNodes)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_linear_system_core.html#adf48a26acea8af60d8510c4e79e58558">setGlobalOffsets</a>(int len, int *nodeOffsets, int *eqnOffsets, int *blkEqnOffsets)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_linear_system_core.html#a49032423fb8d37f1f81bc804b5b8ec13">setLoadVectors</a>(GlobalID elemBlock, int numElems, const GlobalID *elemIDs, const double *const *load, int numEqnsPerElem, const int *const *eqnIndices)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_linear_system_core.html#a1f8471c595c7302de4fef9e209768a9b">setLookup</a>(Lookup &amp;lookup)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_linear_system_core.html#af2bea8785cefd57e6b52b4b6c4fdca9f">setMatrixStructure</a>(int **ptColIndices, int *ptRrowLengths, int **blkColIndices, int *blkRowLengths, int *ptRowsPerBlkRow)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_linear_system_core.html#ab596df5bdc212a240a68715a7451f2d7">setMultCREqns</a>(int multCRSetID, int numCRs, int numNodesPerCR, int **nodeNumbers, int **eqnNumbers, int *fieldIDs, int *multiplierEqnNumbers)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_linear_system_core.html#a16b0f112937850195ed14b8b68d8d328">setNumRHSVectors</a>(int numRHSs, const int *rhsIDs)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_linear_system_core.html#a867ca428d7259bc7b93b6aa638059b33">setPenCREqns</a>(int penCRSetID, int numCRs, int numNodesPerCR, int **nodeNumbers, int **eqnNumbers, int *fieldIDs)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_linear_system_core.html#abf643e5d255cd2c38315ec66b8f4e32a">setRHSID</a>(int rhsID)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_linear_system_core.html#aa3add667614d7c9b24fd2996a9181b1e">setStiffnessMatrices</a>(GlobalID elemBlock, int numElems, const GlobalID *elemIDs, const double *const *const *stiff, int numEqnsPerElem, const int *const *eqnIndices)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_linear_system_core.html#a224cc2a202b667e1f2795bfa93b157c9">sumInMatrix</a>(double scalar, const Data &amp;data)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_linear_system_core.html#adf1dec4fa2dcc233df18d58c75f84cc4">sumInRHSVector</a>(double scalar, const Data &amp;data)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_linear_system_core.html#a2bc570a8ac743d8403284fc4ad36243b">sumIntoRHSVector</a>(int num, const double *values, const int *indices)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_linear_system_core.html#a17a1050b6c7249911efd11c953cc21d0">sumIntoSystemMatrix</a>(int numPtRows, const int *ptRows, int numPtCols, const int *ptCols, int numBlkRows, const int *blkRows, int numBlkCols, const int *blkCols, const double *const *values)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_linear_system_core.html#a76aac7c0e7af43c8f29ed749c69f0dfc">sumIntoSystemMatrix</a>(int numPtRows, const int *ptRows, int numPtCols, const int *ptCols, const double *const *values)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_linear_system_core.html#a551bbc75e810ffdd3778b580ea0c1216">writeSystem</a>(const char *name)=0</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_linear_system_core.html#accab3892d7350d9c7e05c9e2d3a727ef">~LinearSystemCore</a>()</td><td class="entry"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+</table></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

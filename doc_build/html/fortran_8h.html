@@ -1,0 +1,895 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="TDMA_PDD_cpu" />
+<meta property="og:image" content="../preview.png" />
+<meta property="og:description" content="Documentation for Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD_cpu" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="../preview.png" />
+<meta property="og:title" content="TDMA_PDD_cpu" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD_cpu" />
+<!-- END twitter metadata -->
+<title>TDMA_PDD_CPU: include/hypre-2.11.1/fortran.h File Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            messageStyle: "normal",
+            linebreaks: {
+                automatic: false
+            }
+        },
+        tex2jax: { 
+            inlineMath: [["\\(","\\)"]], 
+            displayMath: [["$$","$$"],["\\[","\\]"]], 
+            processEscapes: true
+        },
+        TeX: {
+            Macros: {
+                tr: "{\\scriptscriptstyle\\mathrm{T}}",
+            }
+        }
+    });
+</script>
+<!--MathJax(LaTeX) -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <script type="text/javascript" id="MathJax-script" async  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">  </script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="custom-alternative.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/hugh577/TDMA_PDD_cpu" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 65px;">
+  <td id="projectlogo">
+    <a href="./index.html">
+        <img alt="Logo" src="home.png"/></td>
+    </a>
+  <td id="projectalign" style="padding-left: 0.5em;padding-top: 0.5em;">
+   <div id="projectname">TDMA_PDD_CPU
+   </div>
+   <div id="projectbrief">Documentation</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('fortran_8h.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a>  </div>
+  <div class="headertitle">
+<div class="title">fortran.h File Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="__hypre__utilities_8h_source.html">_hypre_utilities.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for fortran.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="fortran_8h__incl.png" border="0" usemap="#include_2hypre-2_811_81_2fortran_8h" alt=""/></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="fortran_8h__dep__incl.png" border="0" usemap="#include_2hypre-2_811_81_2fortran_8hdep" alt=""/></div>
+</div>
+</div>
+<p><a href="fortran_8h_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a8668617c89fe2205d4b6bbaa61a3073f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fortran_8h.html#a8668617c89fe2205d4b6bbaa61a3073f">hypre_F90_NAME_1</a>(name,  NAME)&#160;&#160;&#160;name</td></tr>
+<tr class="separator:a8668617c89fe2205d4b6bbaa61a3073f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae17f77bfe2112be5eca36c8b8766c94c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fortran_8h.html#ae17f77bfe2112be5eca36c8b8766c94c">hypre_F90_NAME_2</a>(name,  NAME)&#160;&#160;&#160;name##_</td></tr>
+<tr class="separator:ae17f77bfe2112be5eca36c8b8766c94c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada8f3cc04a0fcd87dd2beebe48751e73"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fortran_8h.html#ada8f3cc04a0fcd87dd2beebe48751e73">hypre_F90_NAME_3</a>(name,  NAME)&#160;&#160;&#160;name##__</td></tr>
+<tr class="separator:ada8f3cc04a0fcd87dd2beebe48751e73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66de4d3d32b6a398e9734221814e8682"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fortran_8h.html#a66de4d3d32b6a398e9734221814e8682">hypre_F90_NAME_4</a>(name,  NAME)&#160;&#160;&#160;NAME</td></tr>
+<tr class="separator:a66de4d3d32b6a398e9734221814e8682"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81e3098bf47f9437e47d860d115deee4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fortran_8h.html#a81e3098bf47f9437e47d860d115deee4">hypre_F90_NAME</a>(name,  NAME)&#160;&#160;&#160;<a class="el" href="_h_y_p_r_e__config_8h.html#a432f43ba5a2fe757d8ae2c6294ce3651">HYPRE_FC_FUNC_</a>(name,NAME)</td></tr>
+<tr class="separator:a81e3098bf47f9437e47d860d115deee4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a705bc7828f19954359c475680090f822"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fortran_8h.html#a705bc7828f19954359c475680090f822">hypre_F90_IFACE</a>(name,  NAME)&#160;&#160;&#160;<a class="el" href="fortran_8h.html#a81e3098bf47f9437e47d860d115deee4">hypre_F90_NAME</a>(name,NAME)</td></tr>
+<tr class="separator:a705bc7828f19954359c475680090f822"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac97ec183f0f7e51551507170246e84b7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fortran_8h.html#ac97ec183f0f7e51551507170246e84b7">hypre_F90_NAME_BLAS</a>(name,  NAME)&#160;&#160;&#160;hypre_##name</td></tr>
+<tr class="separator:ac97ec183f0f7e51551507170246e84b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cac2e14c30d0c488acc3e327e01008d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fortran_8h.html#a4cac2e14c30d0c488acc3e327e01008d">hypre_F90_NAME_LAPACK</a>(name,  NAME)&#160;&#160;&#160;hypre_##name</td></tr>
+<tr class="separator:a4cac2e14c30d0c488acc3e327e01008d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fe859a089bc875441992428f7b7e318"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fortran_8h.html#a0fe859a089bc875441992428f7b7e318">hypre_F90_PassComm</a>(arg)&#160;&#160;&#160;(<a class="el" href="__hypre__utilities_8h.html#a5a87b6b031d1663d7ca03bf0477d10ea">hypre_MPI_Comm_f2c</a>(*arg))</td></tr>
+<tr class="separator:a0fe859a089bc875441992428f7b7e318"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58f23a5b56148c4af13cafb9e79fd7b8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fortran_8h.html#a58f23a5b56148c4af13cafb9e79fd7b8">hypre_F90_PassInt</a>(arg)&#160;&#160;&#160;((<a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>) *arg)</td></tr>
+<tr class="separator:a58f23a5b56148c4af13cafb9e79fd7b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0743f56fa7e0dacc3b6d2af42ab044d8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fortran_8h.html#a0743f56fa7e0dacc3b6d2af42ab044d8">hypre_F90_PassIntRef</a>(arg)&#160;&#160;&#160;((<a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *) arg)</td></tr>
+<tr class="separator:a0743f56fa7e0dacc3b6d2af42ab044d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34613e7084ab077cb951bacd85796252"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fortran_8h.html#a34613e7084ab077cb951bacd85796252">hypre_F90_PassIntArray</a>(arg)&#160;&#160;&#160;((<a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *) arg)</td></tr>
+<tr class="separator:a34613e7084ab077cb951bacd85796252"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49ecb6c55cc6540e7993924b1ae4dddc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fortran_8h.html#a49ecb6c55cc6540e7993924b1ae4dddc">hypre_F90_PassReal</a>(arg)&#160;&#160;&#160;((<a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>) *arg)</td></tr>
+<tr class="separator:a49ecb6c55cc6540e7993924b1ae4dddc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e07b62d64815c299dff7fb04fe802a6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fortran_8h.html#a9e07b62d64815c299dff7fb04fe802a6">hypre_F90_PassRealRef</a>(arg)&#160;&#160;&#160;((<a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> *) arg)</td></tr>
+<tr class="separator:a9e07b62d64815c299dff7fb04fe802a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59d19f624282d49862f3bb34b12fedb6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fortran_8h.html#a59d19f624282d49862f3bb34b12fedb6">hypre_F90_PassRealArray</a>(arg)&#160;&#160;&#160;((<a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> *) arg)</td></tr>
+<tr class="separator:a59d19f624282d49862f3bb34b12fedb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c469df82609b5e9aa1d2facb64078a4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fortran_8h.html#a4c469df82609b5e9aa1d2facb64078a4">hypre_F90_PassComplex</a>(arg)&#160;&#160;&#160;((<a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a>) *arg)</td></tr>
+<tr class="separator:a4c469df82609b5e9aa1d2facb64078a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78468d5acdeb90324cc4d12dbbd215f9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fortran_8h.html#a78468d5acdeb90324cc4d12dbbd215f9">hypre_F90_PassComplexRef</a>(arg)&#160;&#160;&#160;((<a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *) arg)</td></tr>
+<tr class="separator:a78468d5acdeb90324cc4d12dbbd215f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0125467985cd39a3c937721517bc284"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fortran_8h.html#af0125467985cd39a3c937721517bc284">hypre_F90_PassComplexArray</a>(arg)&#160;&#160;&#160;((<a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *) arg)</td></tr>
+<tr class="separator:af0125467985cd39a3c937721517bc284"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ac65e841f1cae325733b6f2dcf885aa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fortran_8h.html#a9ac65e841f1cae325733b6f2dcf885aa">hypre_F90_PassObj</a>(obj,  arg)&#160;&#160;&#160;((obj) *arg)</td></tr>
+<tr class="separator:a9ac65e841f1cae325733b6f2dcf885aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af583f48c8a557da3e400612798fc3407"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fortran_8h.html#af583f48c8a557da3e400612798fc3407">hypre_F90_PassObjRef</a>(obj,  arg)&#160;&#160;&#160;((obj *) arg)</td></tr>
+<tr class="separator:af583f48c8a557da3e400612798fc3407"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ab65bb04ccef90c673b0084ab774fa96c"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="__hypre__utilities_8h.html#a3f78b1af01ef2cb9bb9e85e92947400e">hypre_int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fortran_8h.html#ab65bb04ccef90c673b0084ab774fa96c">hypre_F90_Comm</a></td></tr>
+<tr class="separator:ab65bb04ccef90c673b0084ab774fa96c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af127669f2c9532392de8de6ffad9e7f2"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fortran_8h.html#af127669f2c9532392de8de6ffad9e7f2">hypre_F90_Int</a></td></tr>
+<tr class="separator:af127669f2c9532392de8de6ffad9e7f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc966971495b380ad6089d6b27bf8ab1"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fortran_8h.html#afc966971495b380ad6089d6b27bf8ab1">hypre_F90_IntArray</a></td></tr>
+<tr class="separator:afc966971495b380ad6089d6b27bf8ab1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32abc84cf09e545a3a6a4f07d505f988"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fortran_8h.html#a32abc84cf09e545a3a6a4f07d505f988">hypre_F90_Real</a></td></tr>
+<tr class="separator:a32abc84cf09e545a3a6a4f07d505f988"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a672da5d71d9d47048a4dd3514ecaf629"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fortran_8h.html#a672da5d71d9d47048a4dd3514ecaf629">hypre_F90_RealArray</a></td></tr>
+<tr class="separator:a672da5d71d9d47048a4dd3514ecaf629"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab89531f080af8e6e46bb786a1c11b7b"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fortran_8h.html#aab89531f080af8e6e46bb786a1c11b7b">hypre_F90_Complex</a></td></tr>
+<tr class="separator:aab89531f080af8e6e46bb786a1c11b7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36509a3dab2f90d8ec2928da0ddbc5b3"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fortran_8h.html#a36509a3dab2f90d8ec2928da0ddbc5b3">hypre_F90_ComplexArray</a></td></tr>
+<tr class="separator:a36509a3dab2f90d8ec2928da0ddbc5b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72cc975dd67a144c11cfa2950abccbf1"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fortran_8h.html#a72cc975dd67a144c11cfa2950abccbf1">hypre_F90_Obj</a></td></tr>
+<tr class="separator:a72cc975dd67a144c11cfa2950abccbf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54a77cc669a811c6013033a9dd23e978"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fortran_8h.html#a54a77cc669a811c6013033a9dd23e978">hypre_F90_ObjRef</a></td></tr>
+<tr class="separator:a54a77cc669a811c6013033a9dd23e978"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a705bc7828f19954359c475680090f822"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a705bc7828f19954359c475680090f822">&#9670;&nbsp;</a></span>hypre_F90_IFACE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_F90_IFACE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">NAME&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;<a class="el" href="fortran_8h.html#a81e3098bf47f9437e47d860d115deee4">hypre_F90_NAME</a>(name,NAME)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="fortran_8h_source.html#l00065">65</a> of file <a class="el" href="fortran_8h_source.html">fortran.h</a>.</p>
+
+</div>
+</div>
+<a id="a81e3098bf47f9437e47d860d115deee4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81e3098bf47f9437e47d860d115deee4">&#9670;&nbsp;</a></span>hypre_F90_NAME</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_F90_NAME</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">NAME&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;<a class="el" href="_h_y_p_r_e__config_8h.html#a432f43ba5a2fe757d8ae2c6294ce3651">HYPRE_FC_FUNC_</a>(name,NAME)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="fortran_8h_source.html#l00058">58</a> of file <a class="el" href="fortran_8h_source.html">fortran.h</a>.</p>
+
+</div>
+</div>
+<a id="a8668617c89fe2205d4b6bbaa61a3073f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8668617c89fe2205d4b6bbaa61a3073f">&#9670;&nbsp;</a></span>hypre_F90_NAME_1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_F90_NAME_1</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">NAME&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;name</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="fortran_8h_source.html#l00038">38</a> of file <a class="el" href="fortran_8h_source.html">fortran.h</a>.</p>
+
+</div>
+</div>
+<a id="ae17f77bfe2112be5eca36c8b8766c94c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae17f77bfe2112be5eca36c8b8766c94c">&#9670;&nbsp;</a></span>hypre_F90_NAME_2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_F90_NAME_2</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">NAME&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;name##_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="fortran_8h_source.html#l00039">39</a> of file <a class="el" href="fortran_8h_source.html">fortran.h</a>.</p>
+
+</div>
+</div>
+<a id="ada8f3cc04a0fcd87dd2beebe48751e73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada8f3cc04a0fcd87dd2beebe48751e73">&#9670;&nbsp;</a></span>hypre_F90_NAME_3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_F90_NAME_3</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">NAME&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;name##__</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="fortran_8h_source.html#l00040">40</a> of file <a class="el" href="fortran_8h_source.html">fortran.h</a>.</p>
+
+</div>
+</div>
+<a id="a66de4d3d32b6a398e9734221814e8682"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66de4d3d32b6a398e9734221814e8682">&#9670;&nbsp;</a></span>hypre_F90_NAME_4</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_F90_NAME_4</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">NAME&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;NAME</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="fortran_8h_source.html#l00041">41</a> of file <a class="el" href="fortran_8h_source.html">fortran.h</a>.</p>
+
+</div>
+</div>
+<a id="ac97ec183f0f7e51551507170246e84b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac97ec183f0f7e51551507170246e84b7">&#9670;&nbsp;</a></span>hypre_F90_NAME_BLAS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_F90_NAME_BLAS</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">NAME&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;hypre_##name</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="fortran_8h_source.html#l00072">72</a> of file <a class="el" href="fortran_8h_source.html">fortran.h</a>.</p>
+
+</div>
+</div>
+<a id="a4cac2e14c30d0c488acc3e327e01008d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cac2e14c30d0c488acc3e327e01008d">&#9670;&nbsp;</a></span>hypre_F90_NAME_LAPACK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_F90_NAME_LAPACK</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">NAME&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;hypre_##name</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="fortran_8h_source.html#l00097">97</a> of file <a class="el" href="fortran_8h_source.html">fortran.h</a>.</p>
+
+</div>
+</div>
+<a id="a0fe859a089bc875441992428f7b7e318"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fe859a089bc875441992428f7b7e318">&#9670;&nbsp;</a></span>hypre_F90_PassComm</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_F90_PassComm</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">arg</td><td>)</td>
+          <td>&#160;&#160;&#160;(<a class="el" href="__hypre__utilities_8h.html#a5a87b6b031d1663d7ca03bf0477d10ea">hypre_MPI_Comm_f2c</a>(*arg))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="fortran_8h_source.html#l00134">134</a> of file <a class="el" href="fortran_8h_source.html">fortran.h</a>.</p>
+
+</div>
+</div>
+<a id="a4c469df82609b5e9aa1d2facb64078a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c469df82609b5e9aa1d2facb64078a4">&#9670;&nbsp;</a></span>hypre_F90_PassComplex</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_F90_PassComplex</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">arg</td><td>)</td>
+          <td>&#160;&#160;&#160;((<a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a>) *arg)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="fortran_8h_source.html#l00141">141</a> of file <a class="el" href="fortran_8h_source.html">fortran.h</a>.</p>
+
+</div>
+</div>
+<a id="af0125467985cd39a3c937721517bc284"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0125467985cd39a3c937721517bc284">&#9670;&nbsp;</a></span>hypre_F90_PassComplexArray</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_F90_PassComplexArray</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">arg</td><td>)</td>
+          <td>&#160;&#160;&#160;((<a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *) arg)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="fortran_8h_source.html#l00143">143</a> of file <a class="el" href="fortran_8h_source.html">fortran.h</a>.</p>
+
+</div>
+</div>
+<a id="a78468d5acdeb90324cc4d12dbbd215f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78468d5acdeb90324cc4d12dbbd215f9">&#9670;&nbsp;</a></span>hypre_F90_PassComplexRef</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_F90_PassComplexRef</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">arg</td><td>)</td>
+          <td>&#160;&#160;&#160;((<a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *) arg)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="fortran_8h_source.html#l00142">142</a> of file <a class="el" href="fortran_8h_source.html">fortran.h</a>.</p>
+
+</div>
+</div>
+<a id="a58f23a5b56148c4af13cafb9e79fd7b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58f23a5b56148c4af13cafb9e79fd7b8">&#9670;&nbsp;</a></span>hypre_F90_PassInt</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_F90_PassInt</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">arg</td><td>)</td>
+          <td>&#160;&#160;&#160;((<a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>) *arg)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="fortran_8h_source.html#l00135">135</a> of file <a class="el" href="fortran_8h_source.html">fortran.h</a>.</p>
+
+</div>
+</div>
+<a id="a34613e7084ab077cb951bacd85796252"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34613e7084ab077cb951bacd85796252">&#9670;&nbsp;</a></span>hypre_F90_PassIntArray</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_F90_PassIntArray</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">arg</td><td>)</td>
+          <td>&#160;&#160;&#160;((<a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *) arg)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="fortran_8h_source.html#l00137">137</a> of file <a class="el" href="fortran_8h_source.html">fortran.h</a>.</p>
+
+</div>
+</div>
+<a id="a0743f56fa7e0dacc3b6d2af42ab044d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0743f56fa7e0dacc3b6d2af42ab044d8">&#9670;&nbsp;</a></span>hypre_F90_PassIntRef</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_F90_PassIntRef</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">arg</td><td>)</td>
+          <td>&#160;&#160;&#160;((<a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *) arg)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="fortran_8h_source.html#l00136">136</a> of file <a class="el" href="fortran_8h_source.html">fortran.h</a>.</p>
+
+</div>
+</div>
+<a id="a9ac65e841f1cae325733b6f2dcf885aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ac65e841f1cae325733b6f2dcf885aa">&#9670;&nbsp;</a></span>hypre_F90_PassObj</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_F90_PassObj</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">obj, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">arg&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;((obj) *arg)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="fortran_8h_source.html#l00144">144</a> of file <a class="el" href="fortran_8h_source.html">fortran.h</a>.</p>
+
+</div>
+</div>
+<a id="af583f48c8a557da3e400612798fc3407"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af583f48c8a557da3e400612798fc3407">&#9670;&nbsp;</a></span>hypre_F90_PassObjRef</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_F90_PassObjRef</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">obj, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">arg&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;((obj *) arg)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="fortran_8h_source.html#l00145">145</a> of file <a class="el" href="fortran_8h_source.html">fortran.h</a>.</p>
+
+</div>
+</div>
+<a id="a49ecb6c55cc6540e7993924b1ae4dddc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49ecb6c55cc6540e7993924b1ae4dddc">&#9670;&nbsp;</a></span>hypre_F90_PassReal</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_F90_PassReal</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">arg</td><td>)</td>
+          <td>&#160;&#160;&#160;((<a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>) *arg)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="fortran_8h_source.html#l00138">138</a> of file <a class="el" href="fortran_8h_source.html">fortran.h</a>.</p>
+
+</div>
+</div>
+<a id="a59d19f624282d49862f3bb34b12fedb6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59d19f624282d49862f3bb34b12fedb6">&#9670;&nbsp;</a></span>hypre_F90_PassRealArray</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_F90_PassRealArray</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">arg</td><td>)</td>
+          <td>&#160;&#160;&#160;((<a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> *) arg)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="fortran_8h_source.html#l00140">140</a> of file <a class="el" href="fortran_8h_source.html">fortran.h</a>.</p>
+
+</div>
+</div>
+<a id="a9e07b62d64815c299dff7fb04fe802a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e07b62d64815c299dff7fb04fe802a6">&#9670;&nbsp;</a></span>hypre_F90_PassRealRef</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_F90_PassRealRef</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">arg</td><td>)</td>
+          <td>&#160;&#160;&#160;((<a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> *) arg)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="fortran_8h_source.html#l00139">139</a> of file <a class="el" href="fortran_8h_source.html">fortran.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="ab65bb04ccef90c673b0084ab774fa96c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab65bb04ccef90c673b0084ab774fa96c">&#9670;&nbsp;</a></span>hypre_F90_Comm</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="__hypre__utilities_8h.html#a3f78b1af01ef2cb9bb9e85e92947400e">hypre_int</a> <a class="el" href="fortran_8h.html#ab65bb04ccef90c673b0084ab774fa96c">hypre_F90_Comm</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="fortran_8h_source.html#l00124">124</a> of file <a class="el" href="fortran_8h_source.html">fortran.h</a>.</p>
+
+</div>
+</div>
+<a id="aab89531f080af8e6e46bb786a1c11b7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab89531f080af8e6e46bb786a1c11b7b">&#9670;&nbsp;</a></span>hypre_F90_Complex</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> <a class="el" href="fortran_8h.html#aab89531f080af8e6e46bb786a1c11b7b">hypre_F90_Complex</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="fortran_8h_source.html#l00129">129</a> of file <a class="el" href="fortran_8h_source.html">fortran.h</a>.</p>
+
+</div>
+</div>
+<a id="a36509a3dab2f90d8ec2928da0ddbc5b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36509a3dab2f90d8ec2928da0ddbc5b3">&#9670;&nbsp;</a></span>hypre_F90_ComplexArray</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> <a class="el" href="fortran_8h.html#a36509a3dab2f90d8ec2928da0ddbc5b3">hypre_F90_ComplexArray</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="fortran_8h_source.html#l00130">130</a> of file <a class="el" href="fortran_8h_source.html">fortran.h</a>.</p>
+
+</div>
+</div>
+<a id="af127669f2c9532392de8de6ffad9e7f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af127669f2c9532392de8de6ffad9e7f2">&#9670;&nbsp;</a></span>hypre_F90_Int</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> <a class="el" href="fortran_8h.html#af127669f2c9532392de8de6ffad9e7f2">hypre_F90_Int</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="fortran_8h_source.html#l00125">125</a> of file <a class="el" href="fortran_8h_source.html">fortran.h</a>.</p>
+
+</div>
+</div>
+<a id="afc966971495b380ad6089d6b27bf8ab1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc966971495b380ad6089d6b27bf8ab1">&#9670;&nbsp;</a></span>hypre_F90_IntArray</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> <a class="el" href="fortran_8h.html#afc966971495b380ad6089d6b27bf8ab1">hypre_F90_IntArray</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="fortran_8h_source.html#l00126">126</a> of file <a class="el" href="fortran_8h_source.html">fortran.h</a>.</p>
+
+</div>
+</div>
+<a id="a72cc975dd67a144c11cfa2950abccbf1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72cc975dd67a144c11cfa2950abccbf1">&#9670;&nbsp;</a></span>hypre_F90_Obj</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>* <a class="el" href="fortran_8h.html#a72cc975dd67a144c11cfa2950abccbf1">hypre_F90_Obj</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="fortran_8h_source.html#l00131">131</a> of file <a class="el" href="fortran_8h_source.html">fortran.h</a>.</p>
+
+</div>
+</div>
+<a id="a54a77cc669a811c6013033a9dd23e978"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54a77cc669a811c6013033a9dd23e978">&#9670;&nbsp;</a></span>hypre_F90_ObjRef</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>* <a class="el" href="fortran_8h.html#a54a77cc669a811c6013033a9dd23e978">hypre_F90_ObjRef</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="fortran_8h_source.html#l00132">132</a> of file <a class="el" href="fortran_8h_source.html">fortran.h</a>.</p>
+
+</div>
+</div>
+<a id="a32abc84cf09e545a3a6a4f07d505f988"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32abc84cf09e545a3a6a4f07d505f988">&#9670;&nbsp;</a></span>hypre_F90_Real</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> <a class="el" href="fortran_8h.html#a32abc84cf09e545a3a6a4f07d505f988">hypre_F90_Real</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="fortran_8h_source.html#l00127">127</a> of file <a class="el" href="fortran_8h_source.html">fortran.h</a>.</p>
+
+</div>
+</div>
+<a id="a672da5d71d9d47048a4dd3514ecaf629"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a672da5d71d9d47048a4dd3514ecaf629">&#9670;&nbsp;</a></span>hypre_F90_RealArray</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> <a class="el" href="fortran_8h.html#a672da5d71d9d47048a4dd3514ecaf629">hypre_F90_RealArray</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="fortran_8h_source.html#l00128">128</a> of file <a class="el" href="fortran_8h_source.html">fortran.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_1481b2ad69b2eab628871d4fb2bac45c.html">hypre-2.11.1</a></li><li class="navelem"><a class="el" href="fortran_8h.html">fortran.h</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

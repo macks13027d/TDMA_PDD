@@ -1,0 +1,2545 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="TDMA_PDD_cpu" />
+<meta property="og:image" content="../preview.png" />
+<meta property="og:description" content="Documentation for Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD_cpu" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="../preview.png" />
+<meta property="og:title" content="TDMA_PDD_cpu" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD_cpu" />
+<!-- END twitter metadata -->
+<title>TDMA_PDD_CPU: LinearSystemCore Class Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            messageStyle: "normal",
+            linebreaks: {
+                automatic: false
+            }
+        },
+        tex2jax: { 
+            inlineMath: [["\\(","\\)"]], 
+            displayMath: [["$$","$$"],["\\[","\\]"]], 
+            processEscapes: true
+        },
+        TeX: {
+            Macros: {
+                tr: "{\\scriptscriptstyle\\mathrm{T}}",
+            }
+        }
+    });
+</script>
+<!--MathJax(LaTeX) -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <script type="text/javascript" id="MathJax-script" async  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">  </script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="custom-alternative.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/hugh577/TDMA_PDD_cpu" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 65px;">
+  <td id="projectlogo">
+    <a href="./index.html">
+        <img alt="Logo" src="home.png"/></td>
+    </a>
+  <td id="projectalign" style="padding-left: 0.5em;padding-top: 0.5em;">
+   <div id="projectname">TDMA_PDD_CPU
+   </div>
+   <div id="projectbrief">Documentation</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_linear_system_core.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="class_linear_system_core-members.html">List of all members</a>  </div>
+  <div class="headertitle">
+<div class="title">LinearSystemCore Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="fei___linear_system_core_8hpp_source.html">fei_LinearSystemCore.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for LinearSystemCore:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_linear_system_core__inherit__graph.png" border="0" usemap="#_linear_system_core_inherit__map" alt="Inheritance graph"/></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a9ef0b9ff1f0e5966df08bd14fdfb5ede"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#a9ef0b9ff1f0e5966df08bd14fdfb5ede">LinearSystemCore</a> ()</td></tr>
+<tr class="separator:a9ef0b9ff1f0e5966df08bd14fdfb5ede"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accab3892d7350d9c7e05c9e2d3a727ef"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#accab3892d7350d9c7e05c9e2d3a727ef">~LinearSystemCore</a> ()</td></tr>
+<tr class="separator:accab3892d7350d9c7e05c9e2d3a727ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55fe55e790445e329ee131ada2d157ba"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#a55fe55e790445e329ee131ada2d157ba">clone</a> ()=0</td></tr>
+<tr class="separator:a55fe55e790445e329ee131ada2d157ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a926f3c2f179e4bc92acba1d4b845db26"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#a926f3c2f179e4bc92acba1d4b845db26">parameters</a> (int numParams, char **params)=0</td></tr>
+<tr class="separator:a926f3c2f179e4bc92acba1d4b845db26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f8471c595c7302de4fef9e209768a9b"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#a1f8471c595c7302de4fef9e209768a9b">setLookup</a> (<a class="el" href="class_lookup.html">Lookup</a> &amp;lookup)=0</td></tr>
+<tr class="separator:a1f8471c595c7302de4fef9e209768a9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19ece4307b1fad22f915cbb9ce920c00"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#a19ece4307b1fad22f915cbb9ce920c00">getProperty</a> (const char *, double &amp;)</td></tr>
+<tr class="separator:a19ece4307b1fad22f915cbb9ce920c00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf48a26acea8af60d8510c4e79e58558"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#adf48a26acea8af60d8510c4e79e58558">setGlobalOffsets</a> (int len, int *nodeOffsets, int *eqnOffsets, int *blkEqnOffsets)=0</td></tr>
+<tr class="separator:adf48a26acea8af60d8510c4e79e58558"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57d90556afa201ee0b841e4c0f26918c"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#a57d90556afa201ee0b841e4c0f26918c">setConnectivities</a> (<a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> elemBlock, int numElements, int numNodesPerElem, const <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *elemIDs, const int *const *connNodes)=0</td></tr>
+<tr class="separator:a57d90556afa201ee0b841e4c0f26918c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3add667614d7c9b24fd2996a9181b1e"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#aa3add667614d7c9b24fd2996a9181b1e">setStiffnessMatrices</a> (<a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> elemBlock, int numElems, const <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *elemIDs, const double *const *const *stiff, int numEqnsPerElem, const int *const *eqnIndices)=0</td></tr>
+<tr class="separator:aa3add667614d7c9b24fd2996a9181b1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49032423fb8d37f1f81bc804b5b8ec13"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#a49032423fb8d37f1f81bc804b5b8ec13">setLoadVectors</a> (<a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> elemBlock, int numElems, const <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *elemIDs, const double *const *load, int numEqnsPerElem, const int *const *eqnIndices)=0</td></tr>
+<tr class="separator:a49032423fb8d37f1f81bc804b5b8ec13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2bea8785cefd57e6b52b4b6c4fdca9f"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#af2bea8785cefd57e6b52b4b6c4fdca9f">setMatrixStructure</a> (int **ptColIndices, int *ptRrowLengths, int **blkColIndices, int *blkRowLengths, int *ptRowsPerBlkRow)=0</td></tr>
+<tr class="separator:af2bea8785cefd57e6b52b4b6c4fdca9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab596df5bdc212a240a68715a7451f2d7"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#ab596df5bdc212a240a68715a7451f2d7">setMultCREqns</a> (int multCRSetID, int numCRs, int numNodesPerCR, int **nodeNumbers, int **eqnNumbers, int *fieldIDs, int *multiplierEqnNumbers)=0</td></tr>
+<tr class="separator:ab596df5bdc212a240a68715a7451f2d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a867ca428d7259bc7b93b6aa638059b33"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#a867ca428d7259bc7b93b6aa638059b33">setPenCREqns</a> (int penCRSetID, int numCRs, int numNodesPerCR, int **nodeNumbers, int **eqnNumbers, int *fieldIDs)=0</td></tr>
+<tr class="separator:a867ca428d7259bc7b93b6aa638059b33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17a1050b6c7249911efd11c953cc21d0"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#a17a1050b6c7249911efd11c953cc21d0">sumIntoSystemMatrix</a> (int numPtRows, const int *ptRows, int numPtCols, const int *ptCols, int numBlkRows, const int *blkRows, int numBlkCols, const int *blkCols, const double *const *values)=0</td></tr>
+<tr class="separator:a17a1050b6c7249911efd11c953cc21d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76aac7c0e7af43c8f29ed749c69f0dfc"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#a76aac7c0e7af43c8f29ed749c69f0dfc">sumIntoSystemMatrix</a> (int numPtRows, const int *ptRows, int numPtCols, const int *ptCols, const double *const *values)=0</td></tr>
+<tr class="separator:a76aac7c0e7af43c8f29ed749c69f0dfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b892eb26a69fd4dc238239561f7d63b"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#a1b892eb26a69fd4dc238239561f7d63b">putIntoSystemMatrix</a> (int numPtRows, const int *ptRows, int numPtCols, const int *ptCols, const double *const *values)=0</td></tr>
+<tr class="separator:a1b892eb26a69fd4dc238239561f7d63b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a508ae024c24ad7ddac14098edc863942"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#a508ae024c24ad7ddac14098edc863942">getMatrixRowLength</a> (int row, int &amp;length)=0</td></tr>
+<tr class="separator:a508ae024c24ad7ddac14098edc863942"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13a1b3fdd8ee94ad059d2a288bc99eaf"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#a13a1b3fdd8ee94ad059d2a288bc99eaf">getMatrixRow</a> (int row, double *coefs, int *indices, int len, int &amp;rowLength)=0</td></tr>
+<tr class="separator:a13a1b3fdd8ee94ad059d2a288bc99eaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bc570a8ac743d8403284fc4ad36243b"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#a2bc570a8ac743d8403284fc4ad36243b">sumIntoRHSVector</a> (int num, const double *values, const int *indices)=0</td></tr>
+<tr class="separator:a2bc570a8ac743d8403284fc4ad36243b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d785bd49fdec79fa859cbd126f98cb4"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#a8d785bd49fdec79fa859cbd126f98cb4">putIntoRHSVector</a> (int num, const double *values, const int *indices)=0</td></tr>
+<tr class="separator:a8d785bd49fdec79fa859cbd126f98cb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d6687366d37e46f8744b66594a35a52"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#a1d6687366d37e46f8744b66594a35a52">getFromRHSVector</a> (int num, double *values, const int *indices)=0</td></tr>
+<tr class="separator:a1d6687366d37e46f8744b66594a35a52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d0884d1d216af462a6bf1e494ba17be"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#a8d0884d1d216af462a6bf1e494ba17be">matrixLoadComplete</a> ()=0</td></tr>
+<tr class="separator:a8d0884d1d216af462a6bf1e494ba17be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe02febc84c656cb81ee3c73404f0ba3"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#afe02febc84c656cb81ee3c73404f0ba3">putNodalFieldData</a> (int fieldID, int fieldSize, int *nodeNumbers, int numNodes, const double *data)=0</td></tr>
+<tr class="separator:afe02febc84c656cb81ee3c73404f0ba3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d4e3707f49019b4ad5c983caae79843"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#a4d4e3707f49019b4ad5c983caae79843">resetMatrixAndVector</a> (double s)=0</td></tr>
+<tr class="separator:a4d4e3707f49019b4ad5c983caae79843"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bc028c014735393e3e6d0360d1f26b1"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#a7bc028c014735393e3e6d0360d1f26b1">resetMatrix</a> (double s)=0</td></tr>
+<tr class="separator:a7bc028c014735393e3e6d0360d1f26b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fc04454615772616c0d737818276aff"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#a9fc04454615772616c0d737818276aff">resetRHSVector</a> (double s)=0</td></tr>
+<tr class="separator:a9fc04454615772616c0d737818276aff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3996d48023c18bca8d116e38639408c1"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#a3996d48023c18bca8d116e38639408c1">enforceEssentialBC</a> (int *globalEqn, double *alpha, double *gamma, int len)=0</td></tr>
+<tr class="separator:a3996d48023c18bca8d116e38639408c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff96d089f89fc241a2634c154912a734"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#aff96d089f89fc241a2634c154912a734">enforceRemoteEssBCs</a> (int numEqns, int *globalEqns, int **colIndices, int *colIndLen, double **coefs)=0</td></tr>
+<tr class="separator:aff96d089f89fc241a2634c154912a734"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07d8cf8a1d7b72bb3e519e3f6d66280a"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#a07d8cf8a1d7b72bb3e519e3f6d66280a">enforceOtherBC</a> (int *globalEqn, double *alpha, double *beta, double *gamma, int len)=0</td></tr>
+<tr class="separator:a07d8cf8a1d7b72bb3e519e3f6d66280a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6a123f512f5d63f5ca85178a8649366"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#ab6a123f512f5d63f5ca85178a8649366">getMatrixPtr</a> (<a class="el" href="class_data.html">Data</a> &amp;data)=0</td></tr>
+<tr class="separator:ab6a123f512f5d63f5ca85178a8649366"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51d2491d874e8fba9e6f55b2832f4fba"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#a51d2491d874e8fba9e6f55b2832f4fba">copyInMatrix</a> (double scalar, const <a class="el" href="class_data.html">Data</a> &amp;data)=0</td></tr>
+<tr class="separator:a51d2491d874e8fba9e6f55b2832f4fba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c21aaa3377f1b449f7b5e89d6e5a77f"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#a8c21aaa3377f1b449f7b5e89d6e5a77f">copyOutMatrix</a> (double scalar, <a class="el" href="class_data.html">Data</a> &amp;data)=0</td></tr>
+<tr class="separator:a8c21aaa3377f1b449f7b5e89d6e5a77f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a224cc2a202b667e1f2795bfa93b157c9"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#a224cc2a202b667e1f2795bfa93b157c9">sumInMatrix</a> (double scalar, const <a class="el" href="class_data.html">Data</a> &amp;data)=0</td></tr>
+<tr class="separator:a224cc2a202b667e1f2795bfa93b157c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b9fba0b1fb9d1e9e0235477ed42a447"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#a7b9fba0b1fb9d1e9e0235477ed42a447">getRHSVectorPtr</a> (<a class="el" href="class_data.html">Data</a> &amp;data)=0</td></tr>
+<tr class="separator:a7b9fba0b1fb9d1e9e0235477ed42a447"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a124a84a9b66d91f2c68ef3ae7c9f6d54"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#a124a84a9b66d91f2c68ef3ae7c9f6d54">copyInRHSVector</a> (double scalar, const <a class="el" href="class_data.html">Data</a> &amp;data)=0</td></tr>
+<tr class="separator:a124a84a9b66d91f2c68ef3ae7c9f6d54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a612af8541297e0a692ee7c0c8e0e797f"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#a612af8541297e0a692ee7c0c8e0e797f">copyOutRHSVector</a> (double scalar, <a class="el" href="class_data.html">Data</a> &amp;data)=0</td></tr>
+<tr class="separator:a612af8541297e0a692ee7c0c8e0e797f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf1dec4fa2dcc233df18d58c75f84cc4"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#adf1dec4fa2dcc233df18d58c75f84cc4">sumInRHSVector</a> (double scalar, const <a class="el" href="class_data.html">Data</a> &amp;data)=0</td></tr>
+<tr class="separator:adf1dec4fa2dcc233df18d58c75f84cc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ddaabe1b1913a3af9c5576b0135a022"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#a7ddaabe1b1913a3af9c5576b0135a022">destroyMatrixData</a> (<a class="el" href="class_data.html">Data</a> &amp;data)=0</td></tr>
+<tr class="separator:a7ddaabe1b1913a3af9c5576b0135a022"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ea60fe33c63c7371b310335855a7d4c"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#a2ea60fe33c63c7371b310335855a7d4c">destroyVectorData</a> (<a class="el" href="class_data.html">Data</a> &amp;data)=0</td></tr>
+<tr class="separator:a2ea60fe33c63c7371b310335855a7d4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16b0f112937850195ed14b8b68d8d328"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#a16b0f112937850195ed14b8b68d8d328">setNumRHSVectors</a> (int numRHSs, const int *rhsIDs)=0</td></tr>
+<tr class="separator:a16b0f112937850195ed14b8b68d8d328"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf643e5d255cd2c38315ec66b8f4e32a"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#abf643e5d255cd2c38315ec66b8f4e32a">setRHSID</a> (int rhsID)=0</td></tr>
+<tr class="separator:abf643e5d255cd2c38315ec66b8f4e32a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1a4288cbff62c6929cbf3c955a77a9f"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#af1a4288cbff62c6929cbf3c955a77a9f">putInitialGuess</a> (const int *eqnNumbers, const double *values, int len)=0</td></tr>
+<tr class="separator:af1a4288cbff62c6929cbf3c955a77a9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b80a874cacdbfedb297b729139e6554"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#a8b80a874cacdbfedb297b729139e6554">getSolution</a> (double *answers, int len)=0</td></tr>
+<tr class="separator:a8b80a874cacdbfedb297b729139e6554"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5ed92e086e130c77636db717fe52205"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#ae5ed92e086e130c77636db717fe52205">getSolnEntry</a> (int eqnNumber, double &amp;answer)=0</td></tr>
+<tr class="separator:ae5ed92e086e130c77636db717fe52205"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a93a2ecabb4780e58318e4a7b0b45d3"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#a2a93a2ecabb4780e58318e4a7b0b45d3">formResidual</a> (double *values, int len)=0</td></tr>
+<tr class="separator:a2a93a2ecabb4780e58318e4a7b0b45d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacab77eafa84515071b4f429f3b03ea0"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#aacab77eafa84515071b4f429f3b03ea0">launchSolver</a> (int &amp;solveStatus, int &amp;iterations)=0</td></tr>
+<tr class="separator:aacab77eafa84515071b4f429f3b03ea0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a551bbc75e810ffdd3778b580ea0c1216"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#a551bbc75e810ffdd3778b580ea0c1216">writeSystem</a> (const char *name)=0</td></tr>
+<tr class="separator:a551bbc75e810ffdd3778b580ea0c1216"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This is the original internal FEI interface to solver-libraries &ndash; the destination for the data being assembled into a linear system by the FEI implementation.</p>
+<p>When creating a specific FEI implementation, i.e., a version that supports a specific underlying linear solver library, the main task that must be performed is the implementation of this interface, <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> (Note: the <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> interface is being replaced by the ESI_Broker interface.).</p>
+<p>To date (as of August 2001), implementations of this interface exist for coupling the following solver libraries to the FEI implementation: </p><ul>
+<li>
+Aztec </li>
+<li>
+HYPRE </li>
+<li>
+ISIS++ </li>
+<li>
+PETSc </li>
+<li>
+Prometheus </li>
+<li>
+SPOOLES </li>
+</ul>
+<p>An implementation of <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> holds and manipulates all solver-library-specific stuff, such as matrices/vectors, solvers/preconditioners, etc. An instance of this class is owned and used by the class that implements the public FEI spec. i.e., when element contributions, etc., are received from the finite-element application, the data is ultimately passed to this class for assembly into the sparse matrix and associated vectors. This class will also be asked to launch any underlying solver, and finally to return the solution.</p>
+<p>Terminology notes:</p><ul>
+<li>I generally refer to connectivities as nodes or nodeIDs, which are finite-element entities. However, the <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> interface functions don't receive nodeIDs &ndash; instead, nodeNumbers are provided by the FEI implementation code layer. See note 3 below.</li>
+<li>I refer to the rows of a matrix or entries in a vector as equations or equation-numbers, which are linear-algebra entities.</li>
+<li>An equation can be mapped to a node/field pair. i.e., given a globally unique node number, and a solution field on that node, a global equation number can be obtained, and vice versa.</li>
+<li><p class="startli">The term 'block' is used in two different ways here. A block-entry matrix is a matrix made up of dense sub-blocks, with each sub-block containing a number of equations. An element-block is a finite-element term, denoting a group of elements which are homogeneous in topology. i.e., all elements in an element-block have the same number of nodes, and the same numbers of fields per node.</p>
+<p class="startli">Key services provided by the FEI implementation layer:</p>
+<p class="startli">Mappings: Map from node/field pairs to equation numbers. Map from lagrange multipliers to equation numbers. Map from element-dofs to equation numbers.</p>
+<p class="startli">Partitioning and communication: Decide which processor shared equations belong to. Move element-contributions for shared equations from the sharing/contributing processor to the owning processor. i.e., the <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> object will only be given local equation data.</p>
+</li>
+</ul>
+<p>NOTES:</p>
+<ol type="1">
+<li>The <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> object is given a '<a class="el" href="class_lookup.html">Lookup</a>' interface, from which it can obtain information about the structure of the finite-element problem. e.g., it can look up the number of fields, the fields' sizes, the number of element-blocks, etc., etc. For details on the <a class="el" href="class_lookup.html">Lookup</a> interface, see the file Lookup.h.</li>
+<li>Except for making calls on the <a class="el" href="class_lookup.html">Lookup</a> object, <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> is reactive. All of the functions below are member functions of <a class="el" href="class_linear_system_core.html">LinearSystemCore</a>, which are called by FEI code. 'set' and 'put' functions are for information to be provided TO <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> by the FEI implementation layer, while 'get' functions are for information to be requested FROM <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> by the FEI implementation layer.</li>
+<li>Node-numbers that are given to <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> (through setConnectivities, etc.,) are 0-based and contiguous. Each processor owns a contiguous block of node-numbers. However, non-local node-numbers may of course appear in connectivity lists. These node-numbers are not the same as the 'nodeIDs' that appear in the FEI public interface, and throughout the FEI implementation code. nodeIDs are provided by the application, and may not be assumed to be 0-based or contiguous. They are arbitrary node identifiers which need only be globally unique. nodeIDs never appear in <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> functions.</li>
+<li>Not all <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> functions are necessary for assembling a linear system. For instance, many implementations will ignore the data that is passed in by 'setConnectivities', 'setStiffnessMatrices', etc.</li>
+<li><p class="startli">Some data is passed into <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> redundantly. i.e., matrix coefficient data appears in the 'setStiffnessMatrices' function as well as the 'sumIntoSystemMatrix/sumIntoSystemBlkMatrix' function. The difference is, only local data is supplied through sumIntoSystemMatrix. Additionally, the FEI implementation layer performs the necessary communication to ensure that data from shared finite-element nodes is moved onto the 'owning' processor before being passed to <a class="el" href="class_linear_system_core.html#a17a1050b6c7249911efd11c953cc21d0">LinearSystemCore::sumIntoSystemMatrix</a>. The finite-element application doesn't have the concept of node ownership, instead processors can equally share nodes. The FEI implementation designates a single processor as the owner of these nodes, and moves any shared stiffness data onto the appropriate owning processor. The data supplied through setStiffnessMatrices is the un-modified stiffness data supplied by the application, including any shared-non-local portions.</p>
+<p class="startli">Similarly for setLoadVectors and sumIntoRHSVector. sumIntoRHSVector only provides local data, while setLoadVectors supplies the un-modified element- load vectors from the application, including any shared portions. </p>
+</li>
+</ol>
+
+<p class="definition">Definition at line <a class="el" href="fei___linear_system_core_8hpp_source.html#l00123">123</a> of file <a class="el" href="fei___linear_system_core_8hpp_source.html">fei_LinearSystemCore.hpp</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a9ef0b9ff1f0e5966df08bd14fdfb5ede"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ef0b9ff1f0e5966df08bd14fdfb5ede">&#9670;&nbsp;</a></span>LinearSystemCore()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">LinearSystemCore::LinearSystemCore </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Default constructor, typically overridden by the implementing class, which probably requires an MPI Communicator, and possibly other arguments. </p>
+
+<p class="definition">Definition at line <a class="el" href="fei___linear_system_core_8hpp_source.html#l00128">128</a> of file <a class="el" href="fei___linear_system_core_8hpp_source.html">fei_LinearSystemCore.hpp</a>.</p>
+
+</div>
+</div>
+<a id="accab3892d7350d9c7e05c9e2d3a727ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accab3892d7350d9c7e05c9e2d3a727ef">&#9670;&nbsp;</a></span>~LinearSystemCore()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual LinearSystemCore::~LinearSystemCore </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Destructor, should call through to the implementation's destructor and destroy all allocated memory, internal objects, etc. Exceptions: objects created in reponse to calls to the functions 'copyOutMatrix' and 'copyOutRHSVector' are not destroyed here. The caller is assumed to have taken responsibility for those matrix/vector copies. </p>
+
+<p class="definition">Definition at line <a class="el" href="fei___linear_system_core_8hpp_source.html#l00136">136</a> of file <a class="el" href="fei___linear_system_core_8hpp_source.html">fei_LinearSystemCore.hpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a55fe55e790445e329ee131ada2d157ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55fe55e790445e329ee131ada2d157ba">&#9670;&nbsp;</a></span>clone()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="class_linear_system_core.html">LinearSystemCore</a>* LinearSystemCore::clone </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>For cloning a <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> instance. Caller recieves a pointer to a new instantiation of the implementing object. </p>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a753606fc5d8cfaa9f8d1651ca88d4815">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="a51d2491d874e8fba9e6f55b2832f4fba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51d2491d874e8fba9e6f55b2832f4fba">&#9670;&nbsp;</a></span>copyInMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::copyInMatrix </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>scalar</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_data.html">Data</a> &amp;&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p><a class="el" href="class_linear_system_core.html">LinearSystemCore</a>'s internal 'A-matrix' should be replaced with a scaled copy of the incoming data. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scalar</td><td>coefficient by which to scale the incoming data. </td></tr>
+    <tr><td class="paramname">data</td><td>See documentation for <a class="el" href="class_data.html">Data</a> class. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a639a77a240ce3520bd50fe82978b93bc">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="a124a84a9b66d91f2c68ef3ae7c9f6d54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a124a84a9b66d91f2c68ef3ae7c9f6d54">&#9670;&nbsp;</a></span>copyInRHSVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::copyInRHSVector </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>scalar</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_data.html">Data</a> &amp;&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Same semantics as copyInMatrix, but applied to rhs vector. </p>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#aa51c88634a61cfe7757da69390d8a9a5">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="a8c21aaa3377f1b449f7b5e89d6e5a77f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c21aaa3377f1b449f7b5e89d6e5a77f">&#9670;&nbsp;</a></span>copyOutMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::copyOutMatrix </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>scalar</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_data.html">Data</a> &amp;&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The FEI implementation calls this function to request a scaled copy of the internal 'A-matrix' data. The FEI implementation will then be responsible for deciding when this matrix data should be destroyed. The <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> implementation should not keep a reference to the pointer that was handed out. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scalar</td><td></td></tr>
+    <tr><td class="paramname">data</td><td>See documentation for <a class="el" href="class_data.html">Data</a> class. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a9e1c709fed7c68e758f12c8e40314aee">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="a612af8541297e0a692ee7c0c8e0e797f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a612af8541297e0a692ee7c0c8e0e797f">&#9670;&nbsp;</a></span>copyOutRHSVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::copyOutRHSVector </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>scalar</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_data.html">Data</a> &amp;&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Same semantics as copyOutMatrix, but applied to rhs vector. </p>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#aba474f838b803d48b100ac6712f45558">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="a7ddaabe1b1913a3af9c5576b0135a022"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ddaabe1b1913a3af9c5576b0135a022">&#9670;&nbsp;</a></span>destroyMatrixData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::destroyMatrixData </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_data.html">Data</a> &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Utility function for destroying the matrix in a <a class="el" href="class_data.html">Data</a> container. The caller (owner of 'data') can't destroy the matrix because they don't know what concrete type it is and can't get to its destructor. The contents of 'data' is a matrix previously passed out via 'copyOutMatrix'. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>See documentation for <a class="el" href="class_data.html">Data</a> class. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a0b37b6601eb09b54c687770e7403e242">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="a2ea60fe33c63c7371b310335855a7d4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ea60fe33c63c7371b310335855a7d4c">&#9670;&nbsp;</a></span>destroyVectorData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::destroyVectorData </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_data.html">Data</a> &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Utility function for destroying the vector in a <a class="el" href="class_data.html">Data</a> container. The caller (owner of 'data') can't destroy the vector because they don't know what concrete type it is and can't get to its destructor. The contents of 'data' is a vector previously passed out via 'copyOutRHSVector'. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>See documentation for <a class="el" href="class_data.html">Data</a> class. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a4985a0248416f4f6da5f258b85b9751c">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="a3996d48023c18bca8d116e38639408c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3996d48023c18bca8d116e38639408c1">&#9670;&nbsp;</a></span>enforceEssentialBC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::enforceEssentialBC </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>globalEqn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>alpha</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>gamma</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The FEI implementation calls this function to inform <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> of equations that need to have essential (Dirichlet) boundary conditions enforced on them. The intent is that the <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> implementation will perform the column-modification b[i] = gamma[i]/alpha[i] if i == globalEqn[i], otherwise b[i] -= gamma[i]/alpha[i] * A(i,globalEqn[i]) if i != globalEqn[i]. After this operation is performed, all of row globalEqn[i] and column globalEqn[i] should be set to 0.0, except for the diagonal position. (Naturally the implementer is free to enforce the boundary condition another way if they wish.) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">globalEqn</td><td>List, of length 'len', of global 0-based equation numbers. </td></tr>
+    <tr><td class="paramname">alpha</td><td>List, of length 'len', of coefficients. When the solution to the linear system is later requested, the solution value for globalEqn[i] should be gamma[i]/alpha[i]. </td></tr>
+    <tr><td class="paramname">gamma</td><td></td></tr>
+    <tr><td class="paramname">len</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#aed9311d8a00db8900dafe490f802856c">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="a07d8cf8a1d7b72bb3e519e3f6d66280a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07d8cf8a1d7b72bb3e519e3f6d66280a">&#9670;&nbsp;</a></span>enforceOtherBC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::enforceOtherBC </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>globalEqn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>alpha</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>beta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>gamma</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function is called to inform <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> that natural (or Neumann) or mixed boundary conditions are to be enforce on some equations. Basically, these can be enforced by performing this operation: A(globalEqn[i], globalEqn[i]) += alpha[i]/beta[i], and b(globalEqn[i]) += gamma[i]/beta[i], for all i in [0 .. len-1]. (Note that alpha[i]==0.0 implies a Natural or Neumann boundary condition, while gamma[i]==0.0 implies a mixed boundary condition. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">globalEqn</td><td>List, length 'len', of equation on which to impose boundary conditions. </td></tr>
+    <tr><td class="paramname">alpha</td><td>List, length 'len', of coefficients described above. </td></tr>
+    <tr><td class="paramname">beta</td><td></td></tr>
+    <tr><td class="paramname">gamma</td><td></td></tr>
+    <tr><td class="paramname">len</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a84d5884a539818ae99ed54fc182b0bda">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="aff96d089f89fc241a2634c154912a734"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff96d089f89fc241a2634c154912a734">&#9670;&nbsp;</a></span>enforceRemoteEssBCs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::enforceRemoteEssBCs </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numEqns</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>globalEqns</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>colIndices</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>colIndLen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double **&#160;</td>
+          <td class="paramname"><em>coefs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The FEI implementation calls this function to inform <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> that certain local equations need column-modifications made due to essential boundary-conditions being enforced on other processors. The column modification is roughly this: b(globalEqns[i]) -= A(globalEqns[i], colIndices[i][j]) * coefs[i][j], for i in [0..numEqns-1] and j in [0.. colIndLen[i]-1]. (Note that A(globalEqns[i], colIndices[i][j]) should be set = 0.0 after the appropriate value has been accumulated into b also.) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">numEqns</td><td>Length of 'globalEqns' </td></tr>
+    <tr><td class="paramname">globalEqns</td><td>Equations that are local to this processor. </td></tr>
+    <tr><td class="paramname">colIndices</td><td>Table, with 'numEqns' rows, and the i-th row is of length colIndLen[i]. The i-th row contains column indices in equation globalEqns[i]. These column indices correspond to equations (rows) that are owned by other processors, and those other processors are imposing essential boundary conditions on those equations. </td></tr>
+    <tr><td class="paramname">colIndLen</td><td>List of length 'numEqns'. </td></tr>
+    <tr><td class="paramname">coefs</td><td>This table holds the gamma/alpha coeficients that are the value of the boundary conditions being enforced on each of the remote equations in the 'colIndices' table. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#afbd089384fd25f4cdb2fc30de7638269">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="a2a93a2ecabb4780e58318e4a7b0b45d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a93a2ecabb4780e58318e4a7b0b45d3">&#9670;&nbsp;</a></span>formResidual()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::formResidual </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>values</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This will be called to request that <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> form the residual vector r = b - A*x, and pass the coefficients for r back out in the 'values' list. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">values</td><td></td></tr>
+    <tr><td class="paramname">len</td><td>This should equal num-local-eqns. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#abd1c85cb9610ff8f0bedbe4f8719f6a4">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="a1d6687366d37e46f8744b66594a35a52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d6687366d37e46f8744b66594a35a52">&#9670;&nbsp;</a></span>getFromRHSVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::getFromRHSVector </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>values</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>indices</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>For getting coefficients out of the rhs vector </p>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a22b6308fa34b39e7438b46e9d8053642">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="ab6a123f512f5d63f5ca85178a8649366"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6a123f512f5d63f5ca85178a8649366">&#9670;&nbsp;</a></span>getMatrixPtr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::getMatrixPtr </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_data.html">Data</a> &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The FEI implementation calls this function to request a pointer to the internal 'A-matrix' data. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>See <a class="el" href="class_data.html">Data</a> class documentation. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a7686c45f180b0a41925bb7213a7d7ca4">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="a13a1b3fdd8ee94ad059d2a288bc99eaf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13a1b3fdd8ee94ad059d2a288bc99eaf">&#9670;&nbsp;</a></span>getMatrixRow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::getMatrixRow </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>coefs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>indices</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>len</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>rowLength</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Obtain the coefficients and indices for a row of the matrix. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">row</td><td>Global 0-based equation number </td></tr>
+    <tr><td class="paramname">coefs</td><td>Caller-allocated array, length 'len', to be filled with coefficients </td></tr>
+    <tr><td class="paramname">indices</td><td>Caller-allocated array, length 'len', to be filled with indices. (These indices will be global 0-based equation numbers.) </td></tr>
+    <tr><td class="paramname">len</td><td>Length of the caller-allocated coefs and indices arrays </td></tr>
+    <tr><td class="paramname">rowLength</td><td>Output. Actual length of this row. Not referenced if row is not in the local portion of the matrix. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>error-code non-zero if any error occurs, e.g., row is not local. </dd></dl>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#aa1df31958abfe60c4b0cfd5e44b50d96">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="a508ae024c24ad7ddac14098edc863942"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a508ae024c24ad7ddac14098edc863942">&#9670;&nbsp;</a></span>getMatrixRowLength()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::getMatrixRowLength </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Get the length of a row of the matrix. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">row</td><td>Global 0-based equation number </td></tr>
+    <tr><td class="paramname">length</td><td>Output. Length of the row. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>error-code non-zero if any error occurs, e.g., row is not local. </dd></dl>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#ac5bd88c16b0cbf95241c4c834d353f28">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="a19ece4307b1fad22f915cbb9ce920c00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19ece4307b1fad22f915cbb9ce920c00">&#9670;&nbsp;</a></span>getProperty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::getProperty </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Query a named property (such as timing statistics, etc.) from the solver library. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>Input. Name of the property for which a value is being requested. @pararm value Output. Requested property's value. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>error-code 0 if successful. -1 probably indicates that the named property is not recognized. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="fei___linear_system_core_8hpp_source.html#l00170">170</a> of file <a class="el" href="fei___linear_system_core_8hpp_source.html">fei_LinearSystemCore.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a7b9fba0b1fb9d1e9e0235477ed42a447"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b9fba0b1fb9d1e9e0235477ed42a447">&#9670;&nbsp;</a></span>getRHSVectorPtr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::getRHSVectorPtr </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_data.html">Data</a> &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Same semantics as getMatrixPtr, but applied to rhs vector. </p>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a6db60fd797c185e49e3e325080a12c2e">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="ae5ed92e086e130c77636db717fe52205"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5ed92e086e130c77636db717fe52205">&#9670;&nbsp;</a></span>getSolnEntry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::getSolnEntry </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>eqnNumber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;&#160;</td>
+          <td class="paramname"><em>answer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The FEI implementation will call this function to request a single solution value. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">eqnNumber</td><td>Global 0-based equation number. </td></tr>
+    <tr><td class="paramname">answer</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a4219f710d94308c7d73b0ebe88f2135d">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="a8b80a874cacdbfedb297b729139e6554"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b80a874cacdbfedb297b729139e6554">&#9670;&nbsp;</a></span>getSolution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::getSolution </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>answers</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The FEI implementation will call this function to request all local solution values. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">answers</td><td>Solution coefficients. </td></tr>
+    <tr><td class="paramname">len</td><td>This should equal the number of local equations. If it is less, the <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> implementation should simply pass out the first 'len' local solution values. If it is more, then just pass out numLocalEqns solution values. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a9d41dede769395804c39a313fc14d6c9">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="aacab77eafa84515071b4f429f3b03ea0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacab77eafa84515071b4f429f3b03ea0">&#9670;&nbsp;</a></span>launchSolver()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::launchSolver </td>
+          <td>(</td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>solveStatus</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>iterations</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Function called to request the launching of the linear solver. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">solveStatus</td><td>Output, should indicate the status of the solve. A successful solve is usually indicated by a value of 0. </td></tr>
+    <tr><td class="paramname">iterations</td><td>Output, how many iterations were performed. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>error-code, 0 if convergence tolerance was achieved within the specified maximum number of iterations. If error return is non-zero, the calling application will be expected to check solveStatus, and consult the solver-library's documentation to figure out exactly what happened. </dd></dl>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a0f87e5f369771c86639ced0c5616aabe">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="a8d0884d1d216af462a6bf1e494ba17be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d0884d1d216af462a6bf1e494ba17be">&#9670;&nbsp;</a></span>matrixLoadComplete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::matrixLoadComplete </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The FEI implementation calls this function to signal the linsyscore object that data-loading is finished. </p>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a98ba176d2012e8b2aaa36bb65f26bf23">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="a926f3c2f179e4bc92acba1d4b845db26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a926f3c2f179e4bc92acba1d4b845db26">&#9670;&nbsp;</a></span>parameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::parameters </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numParams</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>params</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>For setting argc/argv style parameters. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">numParams</td><td>Number of strings in the params argument </td></tr>
+    <tr><td class="paramname">params</td><td>A list of strings which will usually contain space-separated key-value pairs. Example: "debugOutput /usr/users/me/work_dir" </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a9fc244ebba0cccba2dc9eb639ead923f">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="af1a4288cbff62c6929cbf3c955a77a9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1a4288cbff62c6929cbf3c955a77a9f">&#9670;&nbsp;</a></span>putInitialGuess()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::putInitialGuess </td>
+          <td>(</td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>eqnNumbers</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *&#160;</td>
+          <td class="paramname"><em>values</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The FEI implementation will call this function to supply initial-guess data that should be used as the starting 'x-vector' if an iterative solution is to be performed. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">eqnNumbers</td><td>Global 0-based equation numbers for which the initial guess should be set. </td></tr>
+    <tr><td class="paramname">values</td><td>The initial guess data. </td></tr>
+    <tr><td class="paramname">len</td><td>Number of equations for which an initial guess is being supplied. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#aa11c760eb3fb46f75cd80696ee7f2075">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="a8d785bd49fdec79fa859cbd126f98cb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d785bd49fdec79fa859cbd126f98cb4">&#9670;&nbsp;</a></span>putIntoRHSVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::putIntoRHSVector </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *&#160;</td>
+          <td class="paramname"><em>values</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>indices</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>For putting coefficients into the rhs vector </p>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a9d992f2b7c227203cb3ae46e9d71ea42">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="a1b892eb26a69fd4dc238239561f7d63b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b892eb26a69fd4dc238239561f7d63b">&#9670;&nbsp;</a></span>putIntoSystemMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::putIntoSystemMatrix </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numPtRows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>ptRows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numPtCols</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>ptCols</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *const *&#160;</td>
+          <td class="paramname"><em>values</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Point-entry matrix data as for 'sumIntoSystemMatrix', but in this case the data should be "put" into the matrix (i.e., overwrite any coefficients already present) rather than being "summed" into the matrix. </p>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a504fa6ce75b0419ffc4c80099a59fe1f">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="afe02febc84c656cb81ee3c73404f0ba3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe02febc84c656cb81ee3c73404f0ba3">&#9670;&nbsp;</a></span>putNodalFieldData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::putNodalFieldData </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fieldID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fieldSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>nodeNumbers</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numNodes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Pass nodal data that probably doesn't mean anything to the FEI implementation, but may mean something to the linear solver. Examples: geometric coordinates, nullspace data, etc. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fieldID</td><td>Identifier for the field that describes this data. Lists of field identifiers and field sizes defined for the finite-element problem may be obtained from the <a class="el" href="class_lookup.html">Lookup</a> interface that is supplied to the <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> by the FEI implementation. </td></tr>
+    <tr><td class="paramname">nodeNumbers</td><td>List of nodes for which data is being supplied. </td></tr>
+    <tr><td class="paramname">numNodes</td><td></td></tr>
+    <tr><td class="paramname">data</td><td>List of length numNodes * (size of field 'fieldID') </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a9448436f7fcc4f7f1deaee38e7b7eda4">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="a7bc028c014735393e3e6d0360d1f26b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bc028c014735393e3e6d0360d1f26b1">&#9670;&nbsp;</a></span>resetMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::resetMatrix </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>For setting the scalar 's' (usually 0.0) throughout the matrix. </p>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a27453c0b50050457f214926797bf0159">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="a4d4e3707f49019b4ad5c983caae79843"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d4e3707f49019b4ad5c983caae79843">&#9670;&nbsp;</a></span>resetMatrixAndVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::resetMatrixAndVector </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>For setting the scalar 's' (usually 0.0) throughout the matrix rhs vector. </p>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#ae405743b6d81b84aa029c38a5b486cc8">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="a9fc04454615772616c0d737818276aff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fc04454615772616c0d737818276aff">&#9670;&nbsp;</a></span>resetRHSVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::resetRHSVector </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>For setting the scalar 's' (usually 0.0) throughout the rhs vector. </p>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#ab582d0fcf06f291778b6e8a8fdb60543">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="a57d90556afa201ee0b841e4c0f26918c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57d90556afa201ee0b841e4c0f26918c">&#9670;&nbsp;</a></span>setConnectivities()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::setConnectivities </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a>&#160;</td>
+          <td class="paramname"><em>elemBlock</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numElements</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numNodesPerElem</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>elemIDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *const *&#160;</td>
+          <td class="paramname"><em>connNodes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>For passing element-connectivity arrays. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">elemBlock</td><td>Identifier for the element-block that these elements belong to. </td></tr>
+    <tr><td class="paramname">numElements</td><td>Length of the elemIDs list. </td></tr>
+    <tr><td class="paramname">numNodesPerElem</td><td>Length of each row in the connNodes table. </td></tr>
+    <tr><td class="paramname">elemIDs</td><td>Identifiers for each element for which connectivities are being supplied. </td></tr>
+    <tr><td class="paramname">connNodes</td><td>Table, with one row for each element. Each row is a list of the nodes that are connected to that element. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a7027b06e997efcf5b680e4dee071bbaa">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="adf48a26acea8af60d8510c4e79e58558"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf48a26acea8af60d8510c4e79e58558">&#9670;&nbsp;</a></span>setGlobalOffsets()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::setGlobalOffsets </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>len</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>nodeOffsets</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>eqnOffsets</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>blkEqnOffsets</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Supply <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> with global offset information for the problem being assembled. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">len</td><td>Length of the following list arguments. This will be numProcs+1 </td></tr>
+    <tr><td class="paramname">nodeOffsets</td><td>The FEI implementation assigns a global 0-based numbering to the finite-element nodes in the problem. Each processor is given ownership of a contiguous subset of these node-numbers. nodeOffsets[i] gives the first local node-number for processor i. nodeOffsets[len-1] gives the total number of nodes. </td></tr>
+    <tr><td class="paramname">eqnOffsets</td><td>eqnOffsets[i] gives the first local equation number for processor i, eqnOffsets[len-1] gives the global number of equations. </td></tr>
+    <tr><td class="paramname">blkEqnOffsets</td><td>Contains the same kind of information as eqnOffsets, but for 'block-equations'. A block-equation contains all of the point-equations present at a finite-element node. Special case: if this problem contains Lagrange Multiplier constraints, they will be equations that don't correspond to any node, and there will only be one of these equations mapped to a block-equation. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a549e9fb02d8b5d51fccf07756467110e">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="a49032423fb8d37f1f81bc804b5b8ec13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49032423fb8d37f1f81bc804b5b8ec13">&#9670;&nbsp;</a></span>setLoadVectors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::setLoadVectors </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a>&#160;</td>
+          <td class="paramname"><em>elemBlock</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numElems</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>elemIDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *const *&#160;</td>
+          <td class="paramname"><em>load</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numEqnsPerElem</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *const *&#160;</td>
+          <td class="paramname"><em>eqnIndices</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>For passing element-load vectors. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">elemBlock</td><td>Identifier for the element-block that these elements belong to. </td></tr>
+    <tr><td class="paramname">numElems</td><td>Length of the elemIDs list. </td></tr>
+    <tr><td class="paramname">elemIDs</td><td>Identifiers for each element for which a load vector is being supplied. </td></tr>
+    <tr><td class="paramname">load</td><td>Table with 'numElems' rows, each row is of length 'numEqnsPerElem'. </td></tr>
+    <tr><td class="paramname">numEqnsPerElem</td><td></td></tr>
+    <tr><td class="paramname">eqnIndices</td><td>Table, with 'numElems' rows, each row being a list of 'numEqnsPerElem' scatter indices (0-based global equation numbers). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a6eced772e962e3cfd262767e6809d63c">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="a1f8471c595c7302de4fef9e209768a9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f8471c595c7302de4fef9e209768a9b">&#9670;&nbsp;</a></span>setLookup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::setLookup </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_lookup.html">Lookup</a> &amp;&#160;</td>
+          <td class="paramname"><em>lookup</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Supply the <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> implementation with an object (created and owned by the caller) that can be used to obtain various information about problem layout, shared finite-element nodes, etc. For details, see the documentation for the <a class="el" href="class_lookup.html">Lookup</a> interface. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lookup</td><td>Input. Reference to an implementation of the <a class="el" href="class_lookup.html">Lookup</a> interface </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#aed5ba6bb8201591e031e44d5d79e5dd9">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="af2bea8785cefd57e6b52b4b6c4fdca9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2bea8785cefd57e6b52b4b6c4fdca9f">&#9670;&nbsp;</a></span>setMatrixStructure()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::setMatrixStructure </td>
+          <td>(</td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>ptColIndices</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>ptRrowLengths</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>blkColIndices</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>blkRowLengths</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>ptRowsPerBlkRow</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Supply <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> with information defining the structure of the sparse matrix to be assembled. Implementers of <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> may safely assume that this function will not be called until after the function 'setGlobalOffsets' has been called. Using the information provided via setGlobalOffsets, the number-of-local-equations can be trivially calculated. After setMatrixStructure has been called, there should be enough information to instantiate internal linear-algebra entities, such as vectors, matrix, etc. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptColIndices</td><td>Table, with num-local-eqns rows, and the i-th row is of length ptRowLengths[i]. </td></tr>
+    <tr><td class="paramname">ptRowLengths</td><td></td></tr>
+    <tr><td class="paramname">blkColIndices</td><td>Table, with num-local-blkEqns rows, and the i-th row is of length blkRowLengths[i]. </td></tr>
+    <tr><td class="paramname">blkRowLengths</td><td></td></tr>
+    <tr><td class="paramname">ptRowsPerBlkRow</td><td>The i-th local block-equation corresponds to ptRowsPerBlkRow[i] point-equations. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a558151a570bb352f7f2595ac81a24a77">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="ab596df5bdc212a240a68715a7451f2d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab596df5bdc212a240a68715a7451f2d7">&#9670;&nbsp;</a></span>setMultCREqns()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::setMultCREqns </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>multCRSetID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numCRs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numNodesPerCR</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>nodeNumbers</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>eqnNumbers</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>fieldIDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>multiplierEqnNumbers</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Specify which global equation numbers correspond to Lagrange Multiplier equations. This function won't be called if there are no Lagrange Multiplier constraints in the problem. If this function is called, it is guaranteed to be called after 'setGlobalOffsets' and before 'setMatrixStructure'. The primary purpose of this function is to give <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> implementers the opportunity to deal with constraints in a special way, rather than assembling everything into one matrix. If the problem being assembled does have Lagrange constraints, then the FEI implementation will request an ESI_MatrixRowWriteAccess interface for "C_Matrix" from <a class="el" href="class_linear_system_core.html">LinearSystemCore</a>. If that is not available, then the FEI implementation will request "A_Matrix" and assemble everything into that. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">numCRs</td><td>number of constraint relations </td></tr>
+    <tr><td class="paramname">numNodesPerCR</td><td>number of constrained node in each constraint relation </td></tr>
+    <tr><td class="paramname">nodeNumbers</td><td>Table of constrained nodes. 'numCRs' rows, with the i-th row being of length numNodesPerCR[i]. </td></tr>
+    <tr><td class="paramname">eqnNumbers</td><td>Table, same dimensions as 'nodeNumbers'. These are the global 0-based matrix column indices of the constraint coefficients. </td></tr>
+    <tr><td class="paramname">multiplierEqnNumbers</td><td>Equation numbers that the Lagrange Multipliers correspond to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a807c9ae7ae4975c63b82f43d2d48f78a">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="a16b0f112937850195ed14b8b68d8d328"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16b0f112937850195ed14b8b68d8d328">&#9670;&nbsp;</a></span>setNumRHSVectors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::setNumRHSVectors </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numRHSs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>rhsIDs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Indicate the number of rhs-vectors being assembled/solved for. This function will be called by the FEI implementation at or near the beginning of the problem assembly. If numRHSs is greater than 1, then calls to 'getMemberInterface' requesting an interface to an rhs vector will use the 'objName' argument "b_Vector_n", where n is in [0 .. numRHSs-1]. If there is only one rhs-vector, then 'objName' will be simply "b_Vector". </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">numRHSs</td><td>Length of the rhsIDs list. </td></tr>
+    <tr><td class="paramname">rhsIDs</td><td>Caller-supplied integer identifiers for the rhs vectors. This argument will probably be removed, as it is obsolete (a carry-over from <a class="el" href="class_linear_system_core.html">LinearSystemCore</a>). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a9e0c0dcbab285e5fe7f31a4749b6916e">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="a867ca428d7259bc7b93b6aa638059b33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a867ca428d7259bc7b93b6aa638059b33">&#9670;&nbsp;</a></span>setPenCREqns()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::setPenCREqns </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>penCRSetID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numCRs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numNodesPerCR</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>nodeNumbers</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>eqnNumbers</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>fieldIDs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Specify which nodes and equation numbers correspond to penalty constraints. This function is included for completeness, but hasn't yet been proven to be useful or necessary, and will probably not be included in the successor to <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> (ESI_LSManager). </p>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#ad8aba86614a0c263faa12b39e371e67b">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="abf643e5d255cd2c38315ec66b8f4e32a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf643e5d255cd2c38315ec66b8f4e32a">&#9670;&nbsp;</a></span>setRHSID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::setRHSID </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>rhsID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Set the 'current context' to the rhs-vector corresponding to rhsID. Subsequent data received via 'sumIntoRHSVector' should be directed into this rhs-vector. Any other function-calls having to do with the rhs-vector should also effect this rhs-vector. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhsID</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a2fd4229c1e3cb572d10639231e2d6bff">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="aa3add667614d7c9b24fd2996a9181b1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3add667614d7c9b24fd2996a9181b1e">&#9670;&nbsp;</a></span>setStiffnessMatrices()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::setStiffnessMatrices </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a>&#160;</td>
+          <td class="paramname"><em>elemBlock</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numElems</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>elemIDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *const *const *&#160;</td>
+          <td class="paramname"><em>stiff</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numEqnsPerElem</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *const *&#160;</td>
+          <td class="paramname"><em>eqnIndices</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>For passing element-stiffness arrays. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">elemBlock</td><td>Identifier for the element-block that these elements belong to. </td></tr>
+    <tr><td class="paramname">numElems</td><td>Length of the elemIDs list. </td></tr>
+    <tr><td class="paramname">elemIDs</td><td>Identifiers for each element for which a stiffness array is being supplied. </td></tr>
+    <tr><td class="paramname">stiff</td><td>List of 'numElems' tables, each table is of size 'numEqnsPerElem' X 'numEqnsPerElem'. </td></tr>
+    <tr><td class="paramname">numEqnsPerElem</td><td></td></tr>
+    <tr><td class="paramname">eqnIndices</td><td>Table, with 'numElems' rows, each row being a list of 'numEqnsPerElem' scatter indices (0-based global matrix row/column indices). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#afd0dc8d1de4376a1d1ec93d9a3e2971d">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="a224cc2a202b667e1f2795bfa93b157c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a224cc2a202b667e1f2795bfa93b157c9">&#9670;&nbsp;</a></span>sumInMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::sumInMatrix </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>scalar</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_data.html">Data</a> &amp;&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>A scaled copy of the incoming data should be added to the internal 'A-matrix'. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scalar</td><td></td></tr>
+    <tr><td class="paramname">data</td><td>See documentation for <a class="el" href="class_data.html">Data</a> class. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a0396323e7da3322010b36ea1174bd1c9">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="adf1dec4fa2dcc233df18d58c75f84cc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf1dec4fa2dcc233df18d58c75f84cc4">&#9670;&nbsp;</a></span>sumInRHSVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::sumInRHSVector </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>scalar</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_data.html">Data</a> &amp;&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Same semantics as sumInMatrix, but applied to rhs vector. </p>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#ad19dec9c61ee3910a623e6239c10dd28">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="a2bc570a8ac743d8403284fc4ad36243b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bc570a8ac743d8403284fc4ad36243b">&#9670;&nbsp;</a></span>sumIntoRHSVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::sumIntoRHSVector </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *&#160;</td>
+          <td class="paramname"><em>values</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>indices</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>For accumulating coefficients into the rhs vector </p>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#ae4c5efcdc97ce952368cf0a3aafd4f2d">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="a76aac7c0e7af43c8f29ed749c69f0dfc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76aac7c0e7af43c8f29ed749c69f0dfc">&#9670;&nbsp;</a></span>sumIntoSystemMatrix() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::sumIntoSystemMatrix </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numPtRows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>ptRows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numPtCols</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>ptCols</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *const *&#160;</td>
+          <td class="paramname"><em>values</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Purely point-entry version for accumulating coefficient data into the matrix. This will be called when a matrix contribution fills only part of a block-equation. e.g., when a penalty constraint is being applied to a single solution field on a node that has several solution fields. (A block-equation contains all solution field equations at a node.) </p>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a345f16c81910e20914c52afd208f5975">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="a17a1050b6c7249911efd11c953cc21d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17a1050b6c7249911efd11c953cc21d0">&#9670;&nbsp;</a></span>sumIntoSystemMatrix() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::sumIntoSystemMatrix </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numPtRows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>ptRows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numPtCols</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>ptCols</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numBlkRows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>blkRows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numBlkCols</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>blkCols</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *const *&#160;</td>
+          <td class="paramname"><em>values</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Provides point-entry data, as well as block-entry data. This is the primary assembly function, through which the FEI implementation provides the local equation contributions of all element contributions. </p>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#ae3111f1fc2f387bf54e6448e7aaff122">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<a id="a551bbc75e810ffdd3778b580ea0c1216"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a551bbc75e810ffdd3778b580ea0c1216">&#9670;&nbsp;</a></span>writeSystem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int LinearSystemCore::writeSystem </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function's intent is to provide a file-name to be used by <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> in writing the linear system into disk files. Format is not specified. Implementers may choose to augment this name in the style of writing 3 files: A_name, x_name, b_name, or some other convention. This function is ill-defined, obsolete, and will probably never be called by the FEI implementation. </p>
+
+<p>Implemented in <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#abdc549daeee03328d639798315705d6e">HYPRE_LinSysCore</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>include/hypre-2.11.1/<a class="el" href="fei___linear_system_core_8hpp_source.html">fei_LinearSystemCore.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

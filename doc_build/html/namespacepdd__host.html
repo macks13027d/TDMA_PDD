@@ -1,0 +1,2148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="TDMA_PDD_cpu" />
+<meta property="og:image" content="../preview.png" />
+<meta property="og:description" content="Documentation for Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD_cpu" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="../preview.png" />
+<meta property="og:title" content="TDMA_PDD_cpu" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD_cpu" />
+<!-- END twitter metadata -->
+<title>TDMA_PDD_CPU: pdd_host Module Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            messageStyle: "normal",
+            linebreaks: {
+                automatic: false
+            }
+        },
+        tex2jax: { 
+            inlineMath: [["\\(","\\)"]], 
+            displayMath: [["$$","$$"],["\\[","\\]"]], 
+            processEscapes: true
+        },
+        TeX: {
+            Macros: {
+                tr: "{\\scriptscriptstyle\\mathrm{T}}",
+            }
+        }
+    });
+</script>
+<!--MathJax(LaTeX) -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <script type="text/javascript" id="MathJax-script" async  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">  </script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="custom-alternative.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/hugh577/TDMA_PDD_cpu" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 65px;">
+  <td id="projectlogo">
+    <a href="./index.html">
+        <img alt="Logo" src="home.png"/></td>
+    </a>
+  <td id="projectalign" style="padding-left: 0.5em;padding-top: 0.5em;">
+   <div id="projectname">TDMA_PDD_CPU
+   </div>
+   <div id="projectbrief">Documentation</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('namespacepdd__host.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions/Subroutines</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">pdd_host Module Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>======================================================================  
+<a href="namespacepdd__host.html#details">More...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions/Subroutines</h2></td></tr>
+<tr class="memitem:aec1b859f1ea4c47792c6242cc091e9c9"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#aec1b859f1ea4c47792c6242cc091e9c9">malloc_pdd</a></td></tr>
+<tr class="memdesc:aec1b859f1ea4c47792c6242cc091e9c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">======================================================================  <a href="namespacepdd__host.html#aec1b859f1ea4c47792c6242cc091e9c9">More...</a><br /></td></tr>
+<tr class="separator:aec1b859f1ea4c47792c6242cc091e9c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac747b152f8d8d0a21dd9556eb9962960"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#ac747b152f8d8d0a21dd9556eb9962960">free_pdd</a></td></tr>
+<tr class="memdesc:ac747b152f8d8d0a21dd9556eb9962960"><td class="mdescLeft">&#160;</td><td class="mdescRight">======================================================================  <a href="namespacepdd__host.html#ac747b152f8d8d0a21dd9556eb9962960">More...</a><br /></td></tr>
+<tr class="separator:ac747b152f8d8d0a21dd9556eb9962960"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a6667bdd9bb5547f27caa262ad61867db"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a6667bdd9bb5547f27caa262ad61867db">pi</a></td></tr>
+<tr class="memdesc:a6667bdd9bb5547f27caa262ad61867db"><td class="mdescLeft">&#160;</td><td class="mdescRight">&ndash;Constant  <a href="namespacepdd__host.html#a6667bdd9bb5547f27caa262ad61867db">More...</a><br /></td></tr>
+<tr class="separator:a6667bdd9bb5547f27caa262ad61867db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a919fee0591fed6e29ed4c111f582740f"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a919fee0591fed6e29ed4c111f582740f">nproc_x</a></td></tr>
+<tr class="memdesc:a919fee0591fed6e29ed4c111f582740f"><td class="mdescLeft">&#160;</td><td class="mdescRight">&ndash;Input parameter  <a href="namespacepdd__host.html#a919fee0591fed6e29ed4c111f582740f">More...</a><br /></td></tr>
+<tr class="separator:a919fee0591fed6e29ed4c111f582740f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afacf9a211383ab0e1e56b979ebb50e8e"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#afacf9a211383ab0e1e56b979ebb50e8e">nproc_y</a></td></tr>
+<tr class="separator:afacf9a211383ab0e1e56b979ebb50e8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab05335500c1818af9eb486d71a521fb5"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#ab05335500c1818af9eb486d71a521fb5">nproc_z</a></td></tr>
+<tr class="separator:ab05335500c1818af9eb486d71a521fb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a006b1be2706e259875fcd2f261d0f068"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a006b1be2706e259875fcd2f261d0f068">ndim</a></td></tr>
+<tr class="separator:a006b1be2706e259875fcd2f261d0f068"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48c2f82a0963b94d16300ead144e54bb"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a48c2f82a0963b94d16300ead144e54bb">dir</a></td></tr>
+<tr class="separator:a48c2f82a0963b94d16300ead144e54bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf2d0b449f40cc98ab668175de619d45"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#aaf2d0b449f40cc98ab668175de619d45">nx0</a></td></tr>
+<tr class="separator:aaf2d0b449f40cc98ab668175de619d45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe24c059a4ed5a36108ea464eb05b789"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#afe24c059a4ed5a36108ea464eb05b789">ny0</a></td></tr>
+<tr class="separator:afe24c059a4ed5a36108ea464eb05b789"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8e69013c04fa393521bfe1fe5238178"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#af8e69013c04fa393521bfe1fe5238178">nz0</a></td></tr>
+<tr class="separator:af8e69013c04fa393521bfe1fe5238178"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a691192c39b1cbeb70e9a7fd65c8312f2"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a691192c39b1cbeb70e9a7fd65c8312f2">rank</a></td></tr>
+<tr class="memdesc:a691192c39b1cbeb70e9a7fd65c8312f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">&ndash;MPI variables  <a href="namespacepdd__host.html#a691192c39b1cbeb70e9a7fd65c8312f2">More...</a><br /></td></tr>
+<tr class="separator:a691192c39b1cbeb70e9a7fd65c8312f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae248eccc3f9c70ac450f8b7f03aeea12"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#ae248eccc3f9c70ac450f8b7f03aeea12">nprocs</a></td></tr>
+<tr class="separator:ae248eccc3f9c70ac450f8b7f03aeea12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80cebe9629a9c2ecebab51ca599b0adc"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a80cebe9629a9c2ecebab51ca599b0adc">comm_cart</a></td></tr>
+<tr class="memdesc:a80cebe9629a9c2ecebab51ca599b0adc"><td class="mdescLeft">&#160;</td><td class="mdescRight">&ndash;MPI coordinate description  <a href="namespacepdd__host.html#a80cebe9629a9c2ecebab51ca599b0adc">More...</a><br /></td></tr>
+<tr class="separator:a80cebe9629a9c2ecebab51ca599b0adc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3872585da8b22a90d8a9fe3a08c87cc"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#ad3872585da8b22a90d8a9fe3a08c87cc">ierr</a></td></tr>
+<tr class="separator:ad3872585da8b22a90d8a9fe3a08c87cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f536b3bc53ee18f7f83041c868037ec"><td class="memItemLeft" align="right" valign="top">integer, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a4f536b3bc53ee18f7f83041c868037ec">pdim</a></td></tr>
+<tr class="separator:a4f536b3bc53ee18f7f83041c868037ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c0c76f19b22bd7672aca2745cbcebc2"><td class="memItemLeft" align="right" valign="top">integer, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a9c0c76f19b22bd7672aca2745cbcebc2">coords</a></td></tr>
+<tr class="separator:a9c0c76f19b22bd7672aca2745cbcebc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83a967592622c3910cb6b2718fd33c7d"><td class="memItemLeft" align="right" valign="top">logical, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a83a967592622c3910cb6b2718fd33c7d">period</a></td></tr>
+<tr class="separator:a83a967592622c3910cb6b2718fd33c7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72c0b704a102c7c293632fcd69b0ee88"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a72c0b704a102c7c293632fcd69b0ee88">n1i</a></td></tr>
+<tr class="separator:a72c0b704a102c7c293632fcd69b0ee88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ec3598c97732fed504c8cdc6263489a"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a1ec3598c97732fed504c8cdc6263489a">n1f</a></td></tr>
+<tr class="separator:a1ec3598c97732fed504c8cdc6263489a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1227373138858396004f9626a3e577e"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#ab1227373138858396004f9626a3e577e">n2i</a></td></tr>
+<tr class="separator:ab1227373138858396004f9626a3e577e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6da9410cf2efca8eefef44ba49fd5fe4"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a6da9410cf2efca8eefef44ba49fd5fe4">n2f</a></td></tr>
+<tr class="separator:a6da9410cf2efca8eefef44ba49fd5fe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7897dde7cabbf98dfb472db1ff895b4"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#ac7897dde7cabbf98dfb472db1ff895b4">n3i</a></td></tr>
+<tr class="separator:ac7897dde7cabbf98dfb472db1ff895b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2dd8f37c33c7d2d37946bdf00389ecd4"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a2dd8f37c33c7d2d37946bdf00389ecd4">n3f</a></td></tr>
+<tr class="separator:a2dd8f37c33c7d2d37946bdf00389ecd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbead525d881fcb8bedb9c687fbbef88"><td class="memItemLeft" align="right" valign="top">integer, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#afbead525d881fcb8bedb9c687fbbef88">is_neig</a></td></tr>
+<tr class="memdesc:afbead525d881fcb8bedb9c687fbbef88"><td class="mdescLeft">&#160;</td><td class="mdescRight">&ndash;MPI communication parameter 1  <a href="namespacepdd__host.html#afbead525d881fcb8bedb9c687fbbef88">More...</a><br /></td></tr>
+<tr class="separator:afbead525d881fcb8bedb9c687fbbef88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a585e82dc812634df2e873ebb19268b46"><td class="memItemLeft" align="right" valign="top">integer, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a585e82dc812634df2e873ebb19268b46">ie_neig</a></td></tr>
+<tr class="separator:a585e82dc812634df2e873ebb19268b46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70b4d724e313a3cd2ada4b798660970f"><td class="memItemLeft" align="right" valign="top">integer, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a70b4d724e313a3cd2ada4b798660970f">js_neig</a></td></tr>
+<tr class="separator:a70b4d724e313a3cd2ada4b798660970f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff63bb1724deeeb8cb36b61554f5f70d"><td class="memItemLeft" align="right" valign="top">integer, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#aff63bb1724deeeb8cb36b61554f5f70d">je_neig</a></td></tr>
+<tr class="separator:aff63bb1724deeeb8cb36b61554f5f70d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac197fdbd528feafb7f50248a1c726bc4"><td class="memItemLeft" align="right" valign="top">integer, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#ac197fdbd528feafb7f50248a1c726bc4">ks_neig</a></td></tr>
+<tr class="separator:ac197fdbd528feafb7f50248a1c726bc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5978a1dda86826e87319a9a07f53730"><td class="memItemLeft" align="right" valign="top">integer, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#af5978a1dda86826e87319a9a07f53730">ke_neig</a></td></tr>
+<tr class="separator:af5978a1dda86826e87319a9a07f53730"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab21b4c0d3408ee7899ceef92a5102d84"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#ab21b4c0d3408ee7899ceef92a5102d84">nxloc_mpi</a></td></tr>
+<tr class="separator:ab21b4c0d3408ee7899ceef92a5102d84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54a3e9c9764da685103c1f61b27fb2db"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a54a3e9c9764da685103c1f61b27fb2db">nyloc_mpi</a></td></tr>
+<tr class="separator:a54a3e9c9764da685103c1f61b27fb2db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1969118bd0c03237ef99dc77017e4ae"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#ae1969118bd0c03237ef99dc77017e4ae">nzloc_mpi</a></td></tr>
+<tr class="separator:ae1969118bd0c03237ef99dc77017e4ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a7ee5f6e78aaf3b20f259860eb67a9b"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a8a7ee5f6e78aaf3b20f259860eb67a9b">nloc_mpi</a></td></tr>
+<tr class="separator:a8a7ee5f6e78aaf3b20f259860eb67a9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa2ca3af1972a33edc2e069250dff76f"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#aaa2ca3af1972a33edc2e069250dff76f">nx</a></td></tr>
+<tr class="separator:aaa2ca3af1972a33edc2e069250dff76f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf6d9dd585973753915cef6fe26c04b2"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#adf6d9dd585973753915cef6fe26c04b2">ny</a></td></tr>
+<tr class="separator:adf6d9dd585973753915cef6fe26c04b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fe2bcec723994e5f8d2b1c55e32c63a"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a2fe2bcec723994e5f8d2b1c55e32c63a">nz</a></td></tr>
+<tr class="separator:a2fe2bcec723994e5f8d2b1c55e32c63a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6618cf5979af6e2291f82f1c972723f8"><td class="memItemLeft" align="right" valign="top">integer, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a6618cf5979af6e2291f82f1c972723f8">thrdr_neig</a></td></tr>
+<tr class="separator:a6618cf5979af6e2291f82f1c972723f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad95c5c892c4b4183d104edbeec504d9d"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#ad95c5c892c4b4183d104edbeec504d9d">comm_new_x</a></td></tr>
+<tr class="memdesc:ad95c5c892c4b4183d104edbeec504d9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">&ndash;MPI communication parameter 2 (<a class="el" href="class_data.html">Data</a> collection)  <a href="namespacepdd__host.html#ad95c5c892c4b4183d104edbeec504d9d">More...</a><br /></td></tr>
+<tr class="separator:ad95c5c892c4b4183d104edbeec504d9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acff52f2e08e91a6f4556ee6986d20fe5"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#acff52f2e08e91a6f4556ee6986d20fe5">comm_new_y</a></td></tr>
+<tr class="separator:acff52f2e08e91a6f4556ee6986d20fe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a429540ac1c31ddaf02124c4d11d8e248"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a429540ac1c31ddaf02124c4d11d8e248">comm_new_z</a></td></tr>
+<tr class="separator:a429540ac1c31ddaf02124c4d11d8e248"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae263250978782cc2f8ce9da87c398bfc"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#ae263250978782cc2f8ce9da87c398bfc">rank_new_x</a></td></tr>
+<tr class="separator:ae263250978782cc2f8ce9da87c398bfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ca10da1d41f13f22918066772e8cf1f"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a1ca10da1d41f13f22918066772e8cf1f">rank_new_y</a></td></tr>
+<tr class="separator:a1ca10da1d41f13f22918066772e8cf1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abee71855328feee0520f96f8f13d9350"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#abee71855328feee0520f96f8f13d9350">rank_new_z</a></td></tr>
+<tr class="separator:abee71855328feee0520f96f8f13d9350"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3ab6fef1d725b5a0530dcf6f8931c04"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#af3ab6fef1d725b5a0530dcf6f8931c04">newtype1</a></td></tr>
+<tr class="separator:af3ab6fef1d725b5a0530dcf6f8931c04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5189bcde19f844eea9a620880503700"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#aa5189bcde19f844eea9a620880503700">newtype2</a></td></tr>
+<tr class="separator:aa5189bcde19f844eea9a620880503700"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5ff228c50b2d4d39c82f56942ebffd1"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#af5ff228c50b2d4d39c82f56942ebffd1">newtype3</a></td></tr>
+<tr class="separator:af5ff228c50b2d4d39c82f56942ebffd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37cf2e2de492b68d5f1230fa1aff6db8"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a37cf2e2de492b68d5f1230fa1aff6db8">dat0</a></td></tr>
+<tr class="memdesc:a37cf2e2de492b68d5f1230fa1aff6db8"><td class="mdescLeft">&#160;</td><td class="mdescRight">&ndash;3D data  <a href="namespacepdd__host.html#a37cf2e2de492b68d5f1230fa1aff6db8">More...</a><br /></td></tr>
+<tr class="separator:a37cf2e2de492b68d5f1230fa1aff6db8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e98346b8dc577c67c4bfd3e5df9d5b4"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a4e98346b8dc577c67c4bfd3e5df9d5b4">dat1_j</a></td></tr>
+<tr class="separator:a4e98346b8dc577c67c4bfd3e5df9d5b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac466642172ed7c2fbe381d02db4a0701"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#ac466642172ed7c2fbe381d02db4a0701">dat1_k</a></td></tr>
+<tr class="separator:ac466642172ed7c2fbe381d02db4a0701"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acdd8574f0b9b428728268d3d4eee8146"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#acdd8574f0b9b428728268d3d4eee8146">glb_dat</a></td></tr>
+<tr class="separator:acdd8574f0b9b428728268d3d4eee8146"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8eac5a0fd1e6bb0eb4b3108f6af586eb"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a8eac5a0fd1e6bb0eb4b3108f6af586eb">mat_a</a></td></tr>
+<tr class="separator:a8eac5a0fd1e6bb0eb4b3108f6af586eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2e0144778cbbc109422b60fd697cf5b"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#ad2e0144778cbbc109422b60fd697cf5b">mat_b</a></td></tr>
+<tr class="separator:ad2e0144778cbbc109422b60fd697cf5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ff58aec99193c9d66226fb81b54b5d7"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a2ff58aec99193c9d66226fb81b54b5d7">mat_c</a></td></tr>
+<tr class="separator:a2ff58aec99193c9d66226fb81b54b5d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c6f9e3e481465dfddf2a7bce055d777"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a4c6f9e3e481465dfddf2a7bce055d777">glb_mat_a</a></td></tr>
+<tr class="separator:a4c6f9e3e481465dfddf2a7bce055d777"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af838d80fee729ef7c5ae0159184bf6a7"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#af838d80fee729ef7c5ae0159184bf6a7">glb_mat_b</a></td></tr>
+<tr class="separator:af838d80fee729ef7c5ae0159184bf6a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a362263961a51c87c34fed5111f39f7"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a2a362263961a51c87c34fed5111f39f7">glb_mat_c</a></td></tr>
+<tr class="separator:a2a362263961a51c87c34fed5111f39f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5319f75e2cd6f5d7ece3966fdff43d7"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#ac5319f75e2cd6f5d7ece3966fdff43d7">sol_tmp_i</a></td></tr>
+<tr class="memdesc:ac5319f75e2cd6f5d7ece3966fdff43d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">&ndash;TDMA_3d temporary parameter  <a href="namespacepdd__host.html#ac5319f75e2cd6f5d7ece3966fdff43d7">More...</a><br /></td></tr>
+<tr class="separator:ac5319f75e2cd6f5d7ece3966fdff43d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c22b894d19da1408b5c83433a1325f2"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a6c22b894d19da1408b5c83433a1325f2">xx_i</a></td></tr>
+<tr class="separator:a6c22b894d19da1408b5c83433a1325f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b364e86fec1538bf50ef6de4ccd2e0a"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a7b364e86fec1538bf50ef6de4ccd2e0a">vv_i</a></td></tr>
+<tr class="separator:a7b364e86fec1538bf50ef6de4ccd2e0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae96a35da7806f49559bd9cb8e34511b4"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#ae96a35da7806f49559bd9cb8e34511b4">ww_i</a></td></tr>
+<tr class="separator:ae96a35da7806f49559bd9cb8e34511b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace83372a74416b9f59b1d335df88cfd1"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#ace83372a74416b9f59b1d335df88cfd1">xxs_i</a></td></tr>
+<tr class="separator:ace83372a74416b9f59b1d335df88cfd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ae7c3e1ca4723eb75245c0e675ff508"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a2ae7c3e1ca4723eb75245c0e675ff508">vvs_i</a></td></tr>
+<tr class="separator:a2ae7c3e1ca4723eb75245c0e675ff508"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace3aaf619738240560a2e2541d85339c"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#ace3aaf619738240560a2e2541d85339c">xxr_i</a></td></tr>
+<tr class="separator:ace3aaf619738240560a2e2541d85339c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12bf9445c594636119bd341b4bc4c546"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a12bf9445c594636119bd341b4bc4c546">vvr_i</a></td></tr>
+<tr class="separator:a12bf9445c594636119bd341b4bc4c546"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6faf7f1e239c82db2bec7a6e4a45aa1e"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a6faf7f1e239c82db2bec7a6e4a45aa1e">xxe_i</a></td></tr>
+<tr class="separator:a6faf7f1e239c82db2bec7a6e4a45aa1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80059f5dc22d6d2c5a478feaba730c3b"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a80059f5dc22d6d2c5a478feaba730c3b">wwe_i</a></td></tr>
+<tr class="separator:a80059f5dc22d6d2c5a478feaba730c3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c8305539dbcabb9a7a429a1a59bde25"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a6c8305539dbcabb9a7a429a1a59bde25">yv_i</a></td></tr>
+<tr class="separator:a6c8305539dbcabb9a7a429a1a59bde25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a022d6290282220db909725706138f0af"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a022d6290282220db909725706138f0af">yw_i</a></td></tr>
+<tr class="separator:a022d6290282220db909725706138f0af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7a077f61837060c59361ac1c1566515"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#af7a077f61837060c59361ac1c1566515">yv2_i</a></td></tr>
+<tr class="separator:af7a077f61837060c59361ac1c1566515"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb66dd75430c229b7f8826b29159f65b"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#acb66dd75430c229b7f8826b29159f65b">vv_arr_i</a></td></tr>
+<tr class="separator:acb66dd75430c229b7f8826b29159f65b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4032ddb0a87f034067a6f8badfdc373b"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a4032ddb0a87f034067a6f8badfdc373b">ww_arr_i</a></td></tr>
+<tr class="separator:a4032ddb0a87f034067a6f8badfdc373b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01e65bac3774612ceeac2c0019ea0b1f"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a01e65bac3774612ceeac2c0019ea0b1f">sol_tmp_j</a></td></tr>
+<tr class="separator:a01e65bac3774612ceeac2c0019ea0b1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2a8aab2ba2513e09e3117f798858c7c"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#ad2a8aab2ba2513e09e3117f798858c7c">xx_j</a></td></tr>
+<tr class="separator:ad2a8aab2ba2513e09e3117f798858c7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fc2b0a39bdedc953c7074c4761f517b"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a3fc2b0a39bdedc953c7074c4761f517b">vv_j</a></td></tr>
+<tr class="separator:a3fc2b0a39bdedc953c7074c4761f517b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93a7e3e35ad732bc33b3e0313b825af2"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a93a7e3e35ad732bc33b3e0313b825af2">ww_j</a></td></tr>
+<tr class="separator:a93a7e3e35ad732bc33b3e0313b825af2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc2683c8531779614edca855efd81a57"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#abc2683c8531779614edca855efd81a57">xxs_j</a></td></tr>
+<tr class="separator:abc2683c8531779614edca855efd81a57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ba7f5990dfc9dfbc292d076504d7beb"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a1ba7f5990dfc9dfbc292d076504d7beb">vvs_j</a></td></tr>
+<tr class="separator:a1ba7f5990dfc9dfbc292d076504d7beb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae92296412f486c8671c72dc6a91016f0"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#ae92296412f486c8671c72dc6a91016f0">xxr_j</a></td></tr>
+<tr class="separator:ae92296412f486c8671c72dc6a91016f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ac901414a0b10541b58cdb41b56e42a"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a1ac901414a0b10541b58cdb41b56e42a">vvr_j</a></td></tr>
+<tr class="separator:a1ac901414a0b10541b58cdb41b56e42a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4772230d0296fa91b0704dd8ad713835"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a4772230d0296fa91b0704dd8ad713835">xxe_j</a></td></tr>
+<tr class="separator:a4772230d0296fa91b0704dd8ad713835"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1985f35d0f8001ba8637d24b5d708cd"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#ae1985f35d0f8001ba8637d24b5d708cd">wwe_j</a></td></tr>
+<tr class="separator:ae1985f35d0f8001ba8637d24b5d708cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a448e54f8d6c847582da7f41f7d453e54"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a448e54f8d6c847582da7f41f7d453e54">yv_j</a></td></tr>
+<tr class="separator:a448e54f8d6c847582da7f41f7d453e54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4eab742619670ea00b9c7c2d33d4c40f"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a4eab742619670ea00b9c7c2d33d4c40f">yw_j</a></td></tr>
+<tr class="separator:a4eab742619670ea00b9c7c2d33d4c40f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63fa055df996573265a8b29bb3284c1d"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a63fa055df996573265a8b29bb3284c1d">yv2_j</a></td></tr>
+<tr class="separator:a63fa055df996573265a8b29bb3284c1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28581cc4ba6b1ec5872651cf2d09be03"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a28581cc4ba6b1ec5872651cf2d09be03">vv_arr_j</a></td></tr>
+<tr class="separator:a28581cc4ba6b1ec5872651cf2d09be03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12df8a8fbc5911ce6cfa5976480b8407"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a12df8a8fbc5911ce6cfa5976480b8407">ww_arr_j</a></td></tr>
+<tr class="separator:a12df8a8fbc5911ce6cfa5976480b8407"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa848c3aae79e06a56e5b8eae952ac50b"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#aa848c3aae79e06a56e5b8eae952ac50b">sol_tmp_k</a></td></tr>
+<tr class="separator:aa848c3aae79e06a56e5b8eae952ac50b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4d59d588afa34d64bd8d4b7ac41a2aa"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#ab4d59d588afa34d64bd8d4b7ac41a2aa">xx_k</a></td></tr>
+<tr class="separator:ab4d59d588afa34d64bd8d4b7ac41a2aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a944fab30b3223a77e06e39db72964bdc"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a944fab30b3223a77e06e39db72964bdc">vv_k</a></td></tr>
+<tr class="separator:a944fab30b3223a77e06e39db72964bdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5c336358865c24fc3b95fa56ae73e5e"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#ad5c336358865c24fc3b95fa56ae73e5e">ww_k</a></td></tr>
+<tr class="separator:ad5c336358865c24fc3b95fa56ae73e5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62c55c655428cd0ba04d4ccc49b40fc0"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a62c55c655428cd0ba04d4ccc49b40fc0">xxs_k</a></td></tr>
+<tr class="separator:a62c55c655428cd0ba04d4ccc49b40fc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a456bac29b0f6b81ec74e31a65b1d49f2"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a456bac29b0f6b81ec74e31a65b1d49f2">vvs_k</a></td></tr>
+<tr class="separator:a456bac29b0f6b81ec74e31a65b1d49f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4da59f5c62ad6f39a2eaf981718199e"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#ae4da59f5c62ad6f39a2eaf981718199e">xxr_k</a></td></tr>
+<tr class="separator:ae4da59f5c62ad6f39a2eaf981718199e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad74ac8939d77966d6ccc7496444dc4af"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#ad74ac8939d77966d6ccc7496444dc4af">vvr_k</a></td></tr>
+<tr class="separator:ad74ac8939d77966d6ccc7496444dc4af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a567379f26c629a26296a3bd7ddc465e4"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a567379f26c629a26296a3bd7ddc465e4">xxe_k</a></td></tr>
+<tr class="separator:a567379f26c629a26296a3bd7ddc465e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41f37bbd521e9f14d41a3de5cab0cd05"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a41f37bbd521e9f14d41a3de5cab0cd05">wwe_k</a></td></tr>
+<tr class="separator:a41f37bbd521e9f14d41a3de5cab0cd05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a27e29260c389856f736a7ffc7061e6"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a1a27e29260c389856f736a7ffc7061e6">yv_k</a></td></tr>
+<tr class="separator:a1a27e29260c389856f736a7ffc7061e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34670eb571c58ba264b71be1ae979aeb"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a34670eb571c58ba264b71be1ae979aeb">yw_k</a></td></tr>
+<tr class="separator:a34670eb571c58ba264b71be1ae979aeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3b7ee838f64ae8eea1d1b0c70d606a1"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#ad3b7ee838f64ae8eea1d1b0c70d606a1">yv2_k</a></td></tr>
+<tr class="separator:ad3b7ee838f64ae8eea1d1b0c70d606a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36927f4132e62bcfcaf7e73d560c6056"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a36927f4132e62bcfcaf7e73d560c6056">vv_arr_k</a></td></tr>
+<tr class="separator:a36927f4132e62bcfcaf7e73d560c6056"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a521e7f96864ec31c62bee80604f2fec6"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a521e7f96864ec31c62bee80604f2fec6">ww_arr_k</a></td></tr>
+<tr class="separator:a521e7f96864ec31c62bee80604f2fec6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98d8c4ec262263727c6d7fc9c409f07f"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#a98d8c4ec262263727c6d7fc9c409f07f">gam</a></td></tr>
+<tr class="memdesc:a98d8c4ec262263727c6d7fc9c409f07f"><td class="mdescLeft">&#160;</td><td class="mdescRight">&ndash;PDD algorithm temporary parameter  <a href="namespacepdd__host.html#a98d8c4ec262263727c6d7fc9c409f07f">More...</a><br /></td></tr>
+<tr class="separator:a98d8c4ec262263727c6d7fc9c409f07f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3da57c51126bf4140717676ca8d63c8"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#ac3da57c51126bf4140717676ca8d63c8">var_dump</a></td></tr>
+<tr class="memdesc:ac3da57c51126bf4140717676ca8d63c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">&ndash;Communication file temporary parameter  <a href="namespacepdd__host.html#ac3da57c51126bf4140717676ca8d63c8">More...</a><br /></td></tr>
+<tr class="separator:ac3da57c51126bf4140717676ca8d63c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0ed31d1c89dc13d0d48d07afc9916df"><td class="memItemLeft" align="right" valign="top">real(kind=cgreal), dimension(:,:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepdd__host.html#aa0ed31d1c89dc13d0d48d07afc9916df">glb_dat_dump</a></td></tr>
+<tr class="separator:aa0ed31d1c89dc13d0d48d07afc9916df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>====================================================================== </p>
+</div><h2 class="groupheader">Function/Subroutine Documentation</h2>
+<a id="ac747b152f8d8d0a21dd9556eb9962960"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac747b152f8d8d0a21dd9556eb9962960">&#9670;&nbsp;</a></span>free_pdd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine pdd_host::free_pdd</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>====================================================================== </p>
+<h1><a class="anchor" id="autotoc_md26"></a>
+Free CPU PDD-related host memory</h1>
+<p>&ndash;MPI coordinate description</p>
+<p>&ndash;MPI communication parameter 1</p>
+<p>&ndash;3D data</p>
+<p>&ndash;TDMA_3d temporary parameter</p>
+<p>&ndash;PDD algorithm temporary parameter</p>
+<p>&ndash;Communication file temporary parameter</p>
+<p>&ndash;global 3D data</p>
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00216">216</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacepdd__host_ac747b152f8d8d0a21dd9556eb9962960_icgraph.png" border="0" usemap="#namespacepdd__host_ac747b152f8d8d0a21dd9556eb9962960_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="aec1b859f1ea4c47792c6242cc091e9c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec1b859f1ea4c47792c6242cc091e9c9">&#9670;&nbsp;</a></span>malloc_pdd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine pdd_host::malloc_pdd</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>====================================================================== </p>
+<h1><a class="anchor" id="autotoc_md24"></a>
+CPU PDD-related memory allocation</h1>
+<p>&ndash;MPI coordinate description</p>
+<p>&ndash;MPI communication parameter 1</p>
+<p>=================================================================== </p>
+<h1><a class="anchor" id="autotoc_md25"></a>
+MPI coordinate description</h1>
+<p>&ndash; create coordinate variable</p>
+<p>&ndash; MPI x coordinate description</p>
+<p>&ndash; MPI y coordinate description</p>
+<p>&ndash; MPI z coordinate description</p>
+<p>&ndash;3D data</p>
+<p>&ndash;TDMA_3d temporary parameter dir = 1</p>
+<p>dir = 2</p>
+<p>dir = 3</p>
+<p>&ndash;PDD algorithm temporary parameter</p>
+<p>&ndash;Communication file temporary parameter</p>
+<p>&ndash;global 3D data</p>
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00087">87</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacepdd__host_aec1b859f1ea4c47792c6242cc091e9c9_icgraph.png" border="0" usemap="#namespacepdd__host_aec1b859f1ea4c47792c6242cc091e9c9_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a80cebe9629a9c2ecebab51ca599b0adc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80cebe9629a9c2ecebab51ca599b0adc">&#9670;&nbsp;</a></span>comm_cart</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer pdd_host::comm_cart</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>&ndash;MPI coordinate description </p>
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00042">42</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="ad95c5c892c4b4183d104edbeec504d9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad95c5c892c4b4183d104edbeec504d9d">&#9670;&nbsp;</a></span>comm_new_x</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer pdd_host::comm_new_x</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>&ndash;MPI communication parameter 2 (<a class="el" href="class_data.html">Data</a> collection) </p>
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00053">53</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="acff52f2e08e91a6f4556ee6986d20fe5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acff52f2e08e91a6f4556ee6986d20fe5">&#9670;&nbsp;</a></span>comm_new_y</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer pdd_host::comm_new_y</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00053">53</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a429540ac1c31ddaf02124c4d11d8e248"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a429540ac1c31ddaf02124c4d11d8e248">&#9670;&nbsp;</a></span>comm_new_z</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer pdd_host::comm_new_z</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00053">53</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a9c0c76f19b22bd7672aca2745cbcebc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c0c76f19b22bd7672aca2745cbcebc2">&#9670;&nbsp;</a></span>coords</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, dimension(:), allocatable pdd_host::coords</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00043">43</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a37cf2e2de492b68d5f1230fa1aff6db8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37cf2e2de492b68d5f1230fa1aff6db8">&#9670;&nbsp;</a></span>dat0</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:,:), allocatable pdd_host::dat0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>&ndash;3D data </p>
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00058">58</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a4e98346b8dc577c67c4bfd3e5df9d5b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e98346b8dc577c67c4bfd3e5df9d5b4">&#9670;&nbsp;</a></span>dat1_j</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:,:), allocatable pdd_host::dat1_j</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00058">58</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="ac466642172ed7c2fbe381d02db4a0701"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac466642172ed7c2fbe381d02db4a0701">&#9670;&nbsp;</a></span>dat1_k</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:,:), allocatable pdd_host::dat1_k</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00058">58</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a48c2f82a0963b94d16300ead144e54bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48c2f82a0963b94d16300ead144e54bb">&#9670;&nbsp;</a></span>dir</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer pdd_host::dir</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00035">35</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a98d8c4ec262263727c6d7fc9c409f07f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98d8c4ec262263727c6d7fc9c409f07f">&#9670;&nbsp;</a></span>gam</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:), allocatable pdd_host::gam</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>&ndash;PDD algorithm temporary parameter </p>
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00076">76</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="acdd8574f0b9b428728268d3d4eee8146"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acdd8574f0b9b428728268d3d4eee8146">&#9670;&nbsp;</a></span>glb_dat</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:,:), allocatable pdd_host::glb_dat</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00058">58</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="aa0ed31d1c89dc13d0d48d07afc9916df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0ed31d1c89dc13d0d48d07afc9916df">&#9670;&nbsp;</a></span>glb_dat_dump</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:,:), allocatable pdd_host::glb_dat_dump</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00079">79</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a4c6f9e3e481465dfddf2a7bce055d777"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c6f9e3e481465dfddf2a7bce055d777">&#9670;&nbsp;</a></span>glb_mat_a</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:,:), allocatable pdd_host::glb_mat_a</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00060">60</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="af838d80fee729ef7c5ae0159184bf6a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af838d80fee729ef7c5ae0159184bf6a7">&#9670;&nbsp;</a></span>glb_mat_b</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:,:), allocatable pdd_host::glb_mat_b</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00060">60</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a2a362263961a51c87c34fed5111f39f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a362263961a51c87c34fed5111f39f7">&#9670;&nbsp;</a></span>glb_mat_c</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:,:), allocatable pdd_host::glb_mat_c</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00060">60</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a585e82dc812634df2e873ebb19268b46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a585e82dc812634df2e873ebb19268b46">&#9670;&nbsp;</a></span>ie_neig</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, dimension(:), allocatable pdd_host::ie_neig</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00048">48</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="ad3872585da8b22a90d8a9fe3a08c87cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3872585da8b22a90d8a9fe3a08c87cc">&#9670;&nbsp;</a></span>ierr</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer pdd_host::ierr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00042">42</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="afbead525d881fcb8bedb9c687fbbef88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbead525d881fcb8bedb9c687fbbef88">&#9670;&nbsp;</a></span>is_neig</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, dimension(:), allocatable pdd_host::is_neig</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>&ndash;MPI communication parameter 1 </p>
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00048">48</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="aff63bb1724deeeb8cb36b61554f5f70d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff63bb1724deeeb8cb36b61554f5f70d">&#9670;&nbsp;</a></span>je_neig</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, dimension(:), allocatable pdd_host::je_neig</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00048">48</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a70b4d724e313a3cd2ada4b798660970f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70b4d724e313a3cd2ada4b798660970f">&#9670;&nbsp;</a></span>js_neig</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, dimension(:), allocatable pdd_host::js_neig</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00048">48</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="af5978a1dda86826e87319a9a07f53730"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5978a1dda86826e87319a9a07f53730">&#9670;&nbsp;</a></span>ke_neig</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, dimension(:), allocatable pdd_host::ke_neig</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00048">48</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="ac197fdbd528feafb7f50248a1c726bc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac197fdbd528feafb7f50248a1c726bc4">&#9670;&nbsp;</a></span>ks_neig</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, dimension(:), allocatable pdd_host::ks_neig</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00048">48</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a8eac5a0fd1e6bb0eb4b3108f6af586eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8eac5a0fd1e6bb0eb4b3108f6af586eb">&#9670;&nbsp;</a></span>mat_a</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:,:), allocatable pdd_host::mat_a</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00059">59</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="ad2e0144778cbbc109422b60fd697cf5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2e0144778cbbc109422b60fd697cf5b">&#9670;&nbsp;</a></span>mat_b</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:,:), allocatable pdd_host::mat_b</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00059">59</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a2ff58aec99193c9d66226fb81b54b5d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ff58aec99193c9d66226fb81b54b5d7">&#9670;&nbsp;</a></span>mat_c</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:,:), allocatable pdd_host::mat_c</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00059">59</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a1ec3598c97732fed504c8cdc6263489a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ec3598c97732fed504c8cdc6263489a">&#9670;&nbsp;</a></span>n1f</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer pdd_host::n1f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00045">45</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a72c0b704a102c7c293632fcd69b0ee88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72c0b704a102c7c293632fcd69b0ee88">&#9670;&nbsp;</a></span>n1i</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer pdd_host::n1i</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00045">45</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a6da9410cf2efca8eefef44ba49fd5fe4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6da9410cf2efca8eefef44ba49fd5fe4">&#9670;&nbsp;</a></span>n2f</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer pdd_host::n2f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00045">45</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="ab1227373138858396004f9626a3e577e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1227373138858396004f9626a3e577e">&#9670;&nbsp;</a></span>n2i</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer pdd_host::n2i</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00045">45</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a2dd8f37c33c7d2d37946bdf00389ecd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2dd8f37c33c7d2d37946bdf00389ecd4">&#9670;&nbsp;</a></span>n3f</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer pdd_host::n3f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00045">45</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="ac7897dde7cabbf98dfb472db1ff895b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7897dde7cabbf98dfb472db1ff895b4">&#9670;&nbsp;</a></span>n3i</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer pdd_host::n3i</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00045">45</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a006b1be2706e259875fcd2f261d0f068"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a006b1be2706e259875fcd2f261d0f068">&#9670;&nbsp;</a></span>ndim</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer pdd_host::ndim</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00035">35</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="af3ab6fef1d725b5a0530dcf6f8931c04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3ab6fef1d725b5a0530dcf6f8931c04">&#9670;&nbsp;</a></span>newtype1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer pdd_host::newtype1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00055">55</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="aa5189bcde19f844eea9a620880503700"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5189bcde19f844eea9a620880503700">&#9670;&nbsp;</a></span>newtype2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer pdd_host::newtype2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00055">55</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="af5ff228c50b2d4d39c82f56942ebffd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5ff228c50b2d4d39c82f56942ebffd1">&#9670;&nbsp;</a></span>newtype3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer pdd_host::newtype3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00055">55</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a8a7ee5f6e78aaf3b20f259860eb67a9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a7ee5f6e78aaf3b20f259860eb67a9b">&#9670;&nbsp;</a></span>nloc_mpi</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer pdd_host::nloc_mpi</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00049">49</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a919fee0591fed6e29ed4c111f582740f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a919fee0591fed6e29ed4c111f582740f">&#9670;&nbsp;</a></span>nproc_x</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer pdd_host::nproc_x</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>&ndash;Input parameter </p>
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00034">34</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="afacf9a211383ab0e1e56b979ebb50e8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afacf9a211383ab0e1e56b979ebb50e8e">&#9670;&nbsp;</a></span>nproc_y</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer pdd_host::nproc_y</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00034">34</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="ab05335500c1818af9eb486d71a521fb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab05335500c1818af9eb486d71a521fb5">&#9670;&nbsp;</a></span>nproc_z</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer pdd_host::nproc_z</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00034">34</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="ae248eccc3f9c70ac450f8b7f03aeea12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae248eccc3f9c70ac450f8b7f03aeea12">&#9670;&nbsp;</a></span>nprocs</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer pdd_host::nprocs</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00039">39</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="aaa2ca3af1972a33edc2e069250dff76f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa2ca3af1972a33edc2e069250dff76f">&#9670;&nbsp;</a></span>nx</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer pdd_host::nx</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00049">49</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="aaf2d0b449f40cc98ab668175de619d45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf2d0b449f40cc98ab668175de619d45">&#9670;&nbsp;</a></span>nx0</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer pdd_host::nx0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00036">36</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="ab21b4c0d3408ee7899ceef92a5102d84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab21b4c0d3408ee7899ceef92a5102d84">&#9670;&nbsp;</a></span>nxloc_mpi</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer pdd_host::nxloc_mpi</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00049">49</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="adf6d9dd585973753915cef6fe26c04b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf6d9dd585973753915cef6fe26c04b2">&#9670;&nbsp;</a></span>ny</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer pdd_host::ny</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00049">49</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="afe24c059a4ed5a36108ea464eb05b789"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe24c059a4ed5a36108ea464eb05b789">&#9670;&nbsp;</a></span>ny0</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer pdd_host::ny0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00036">36</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a54a3e9c9764da685103c1f61b27fb2db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54a3e9c9764da685103c1f61b27fb2db">&#9670;&nbsp;</a></span>nyloc_mpi</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer pdd_host::nyloc_mpi</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00049">49</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a2fe2bcec723994e5f8d2b1c55e32c63a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fe2bcec723994e5f8d2b1c55e32c63a">&#9670;&nbsp;</a></span>nz</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer pdd_host::nz</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00049">49</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="af8e69013c04fa393521bfe1fe5238178"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8e69013c04fa393521bfe1fe5238178">&#9670;&nbsp;</a></span>nz0</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer pdd_host::nz0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00036">36</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="ae1969118bd0c03237ef99dc77017e4ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1969118bd0c03237ef99dc77017e4ae">&#9670;&nbsp;</a></span>nzloc_mpi</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer pdd_host::nzloc_mpi</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00049">49</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a4f536b3bc53ee18f7f83041c868037ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f536b3bc53ee18f7f83041c868037ec">&#9670;&nbsp;</a></span>pdim</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, dimension(:), allocatable pdd_host::pdim</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00043">43</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a83a967592622c3910cb6b2718fd33c7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83a967592622c3910cb6b2718fd33c7d">&#9670;&nbsp;</a></span>period</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">logical, dimension(:), allocatable pdd_host::period</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00044">44</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a6667bdd9bb5547f27caa262ad61867db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6667bdd9bb5547f27caa262ad61867db">&#9670;&nbsp;</a></span>pi</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal) pdd_host::pi</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>&ndash;Constant </p>
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00031">31</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a691192c39b1cbeb70e9a7fd65c8312f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a691192c39b1cbeb70e9a7fd65c8312f2">&#9670;&nbsp;</a></span>rank</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer pdd_host::rank</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>&ndash;MPI variables </p>
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00039">39</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="ae263250978782cc2f8ce9da87c398bfc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae263250978782cc2f8ce9da87c398bfc">&#9670;&nbsp;</a></span>rank_new_x</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer pdd_host::rank_new_x</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00054">54</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a1ca10da1d41f13f22918066772e8cf1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ca10da1d41f13f22918066772e8cf1f">&#9670;&nbsp;</a></span>rank_new_y</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer pdd_host::rank_new_y</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00054">54</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="abee71855328feee0520f96f8f13d9350"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abee71855328feee0520f96f8f13d9350">&#9670;&nbsp;</a></span>rank_new_z</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer pdd_host::rank_new_z</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00054">54</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="ac5319f75e2cd6f5d7ece3966fdff43d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5319f75e2cd6f5d7ece3966fdff43d7">&#9670;&nbsp;</a></span>sol_tmp_i</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:), allocatable pdd_host::sol_tmp_i</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>&ndash;TDMA_3d temporary parameter </p>
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00063">63</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a01e65bac3774612ceeac2c0019ea0b1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01e65bac3774612ceeac2c0019ea0b1f">&#9670;&nbsp;</a></span>sol_tmp_j</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:), allocatable pdd_host::sol_tmp_j</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00067">67</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="aa848c3aae79e06a56e5b8eae952ac50b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa848c3aae79e06a56e5b8eae952ac50b">&#9670;&nbsp;</a></span>sol_tmp_k</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:), allocatable pdd_host::sol_tmp_k</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00071">71</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a6618cf5979af6e2291f82f1c972723f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6618cf5979af6e2291f82f1c972723f8">&#9670;&nbsp;</a></span>thrdr_neig</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, dimension(:), allocatable pdd_host::thrdr_neig</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00050">50</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="ac3da57c51126bf4140717676ca8d63c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3da57c51126bf4140717676ca8d63c8">&#9670;&nbsp;</a></span>var_dump</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:,:), allocatable pdd_host::var_dump</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>&ndash;Communication file temporary parameter </p>
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00079">79</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="acb66dd75430c229b7f8826b29159f65b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb66dd75430c229b7f8826b29159f65b">&#9670;&nbsp;</a></span>vv_arr_i</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:,:), allocatable pdd_host::vv_arr_i</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00065">65</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a28581cc4ba6b1ec5872651cf2d09be03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28581cc4ba6b1ec5872651cf2d09be03">&#9670;&nbsp;</a></span>vv_arr_j</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:,:), allocatable pdd_host::vv_arr_j</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00069">69</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a36927f4132e62bcfcaf7e73d560c6056"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36927f4132e62bcfcaf7e73d560c6056">&#9670;&nbsp;</a></span>vv_arr_k</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:,:), allocatable pdd_host::vv_arr_k</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00073">73</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a7b364e86fec1538bf50ef6de4ccd2e0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b364e86fec1538bf50ef6de4ccd2e0a">&#9670;&nbsp;</a></span>vv_i</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:), allocatable pdd_host::vv_i</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00063">63</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a3fc2b0a39bdedc953c7074c4761f517b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fc2b0a39bdedc953c7074c4761f517b">&#9670;&nbsp;</a></span>vv_j</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:), allocatable pdd_host::vv_j</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00067">67</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a944fab30b3223a77e06e39db72964bdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a944fab30b3223a77e06e39db72964bdc">&#9670;&nbsp;</a></span>vv_k</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:), allocatable pdd_host::vv_k</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00071">71</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a12bf9445c594636119bd341b4bc4c546"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12bf9445c594636119bd341b4bc4c546">&#9670;&nbsp;</a></span>vvr_i</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:), allocatable pdd_host::vvr_i</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00064">64</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a1ac901414a0b10541b58cdb41b56e42a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ac901414a0b10541b58cdb41b56e42a">&#9670;&nbsp;</a></span>vvr_j</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:), allocatable pdd_host::vvr_j</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00068">68</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="ad74ac8939d77966d6ccc7496444dc4af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad74ac8939d77966d6ccc7496444dc4af">&#9670;&nbsp;</a></span>vvr_k</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:), allocatable pdd_host::vvr_k</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00072">72</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a2ae7c3e1ca4723eb75245c0e675ff508"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ae7c3e1ca4723eb75245c0e675ff508">&#9670;&nbsp;</a></span>vvs_i</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:), allocatable pdd_host::vvs_i</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00064">64</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a1ba7f5990dfc9dfbc292d076504d7beb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ba7f5990dfc9dfbc292d076504d7beb">&#9670;&nbsp;</a></span>vvs_j</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:), allocatable pdd_host::vvs_j</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00068">68</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a456bac29b0f6b81ec74e31a65b1d49f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a456bac29b0f6b81ec74e31a65b1d49f2">&#9670;&nbsp;</a></span>vvs_k</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:), allocatable pdd_host::vvs_k</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00072">72</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a4032ddb0a87f034067a6f8badfdc373b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4032ddb0a87f034067a6f8badfdc373b">&#9670;&nbsp;</a></span>ww_arr_i</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:,:), allocatable pdd_host::ww_arr_i</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00065">65</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a12df8a8fbc5911ce6cfa5976480b8407"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12df8a8fbc5911ce6cfa5976480b8407">&#9670;&nbsp;</a></span>ww_arr_j</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:,:), allocatable pdd_host::ww_arr_j</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00069">69</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a521e7f96864ec31c62bee80604f2fec6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a521e7f96864ec31c62bee80604f2fec6">&#9670;&nbsp;</a></span>ww_arr_k</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:,:), allocatable pdd_host::ww_arr_k</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00073">73</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="ae96a35da7806f49559bd9cb8e34511b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae96a35da7806f49559bd9cb8e34511b4">&#9670;&nbsp;</a></span>ww_i</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:), allocatable pdd_host::ww_i</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00063">63</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a93a7e3e35ad732bc33b3e0313b825af2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93a7e3e35ad732bc33b3e0313b825af2">&#9670;&nbsp;</a></span>ww_j</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:), allocatable pdd_host::ww_j</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00067">67</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="ad5c336358865c24fc3b95fa56ae73e5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5c336358865c24fc3b95fa56ae73e5e">&#9670;&nbsp;</a></span>ww_k</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:), allocatable pdd_host::ww_k</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00071">71</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a80059f5dc22d6d2c5a478feaba730c3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80059f5dc22d6d2c5a478feaba730c3b">&#9670;&nbsp;</a></span>wwe_i</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:), allocatable pdd_host::wwe_i</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00064">64</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="ae1985f35d0f8001ba8637d24b5d708cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1985f35d0f8001ba8637d24b5d708cd">&#9670;&nbsp;</a></span>wwe_j</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:), allocatable pdd_host::wwe_j</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00068">68</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a41f37bbd521e9f14d41a3de5cab0cd05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41f37bbd521e9f14d41a3de5cab0cd05">&#9670;&nbsp;</a></span>wwe_k</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:), allocatable pdd_host::wwe_k</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00072">72</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a6c22b894d19da1408b5c83433a1325f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c22b894d19da1408b5c83433a1325f2">&#9670;&nbsp;</a></span>xx_i</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:), allocatable pdd_host::xx_i</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00063">63</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="ad2a8aab2ba2513e09e3117f798858c7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2a8aab2ba2513e09e3117f798858c7c">&#9670;&nbsp;</a></span>xx_j</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:), allocatable pdd_host::xx_j</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00067">67</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="ab4d59d588afa34d64bd8d4b7ac41a2aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4d59d588afa34d64bd8d4b7ac41a2aa">&#9670;&nbsp;</a></span>xx_k</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:), allocatable pdd_host::xx_k</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00071">71</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a6faf7f1e239c82db2bec7a6e4a45aa1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6faf7f1e239c82db2bec7a6e4a45aa1e">&#9670;&nbsp;</a></span>xxe_i</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:), allocatable pdd_host::xxe_i</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00064">64</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a4772230d0296fa91b0704dd8ad713835"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4772230d0296fa91b0704dd8ad713835">&#9670;&nbsp;</a></span>xxe_j</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:), allocatable pdd_host::xxe_j</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00068">68</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a567379f26c629a26296a3bd7ddc465e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a567379f26c629a26296a3bd7ddc465e4">&#9670;&nbsp;</a></span>xxe_k</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:), allocatable pdd_host::xxe_k</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00072">72</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="ace3aaf619738240560a2e2541d85339c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace3aaf619738240560a2e2541d85339c">&#9670;&nbsp;</a></span>xxr_i</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:), allocatable pdd_host::xxr_i</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00064">64</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="ae92296412f486c8671c72dc6a91016f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae92296412f486c8671c72dc6a91016f0">&#9670;&nbsp;</a></span>xxr_j</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:), allocatable pdd_host::xxr_j</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00068">68</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="ae4da59f5c62ad6f39a2eaf981718199e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4da59f5c62ad6f39a2eaf981718199e">&#9670;&nbsp;</a></span>xxr_k</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:), allocatable pdd_host::xxr_k</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00072">72</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="ace83372a74416b9f59b1d335df88cfd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace83372a74416b9f59b1d335df88cfd1">&#9670;&nbsp;</a></span>xxs_i</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:), allocatable pdd_host::xxs_i</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00064">64</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="abc2683c8531779614edca855efd81a57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc2683c8531779614edca855efd81a57">&#9670;&nbsp;</a></span>xxs_j</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:), allocatable pdd_host::xxs_j</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00068">68</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a62c55c655428cd0ba04d4ccc49b40fc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62c55c655428cd0ba04d4ccc49b40fc0">&#9670;&nbsp;</a></span>xxs_k</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:), allocatable pdd_host::xxs_k</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00072">72</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="af7a077f61837060c59361ac1c1566515"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7a077f61837060c59361ac1c1566515">&#9670;&nbsp;</a></span>yv2_i</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:), allocatable pdd_host::yv2_i</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00064">64</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a63fa055df996573265a8b29bb3284c1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63fa055df996573265a8b29bb3284c1d">&#9670;&nbsp;</a></span>yv2_j</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:), allocatable pdd_host::yv2_j</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00068">68</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="ad3b7ee838f64ae8eea1d1b0c70d606a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3b7ee838f64ae8eea1d1b0c70d606a1">&#9670;&nbsp;</a></span>yv2_k</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:), allocatable pdd_host::yv2_k</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00072">72</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a6c8305539dbcabb9a7a429a1a59bde25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c8305539dbcabb9a7a429a1a59bde25">&#9670;&nbsp;</a></span>yv_i</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:), allocatable pdd_host::yv_i</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00064">64</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a448e54f8d6c847582da7f41f7d453e54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a448e54f8d6c847582da7f41f7d453e54">&#9670;&nbsp;</a></span>yv_j</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:), allocatable pdd_host::yv_j</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00068">68</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a1a27e29260c389856f736a7ffc7061e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a27e29260c389856f736a7ffc7061e6">&#9670;&nbsp;</a></span>yv_k</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:), allocatable pdd_host::yv_k</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00072">72</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a022d6290282220db909725706138f0af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a022d6290282220db909725706138f0af">&#9670;&nbsp;</a></span>yw_i</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:), allocatable pdd_host::yw_i</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00064">64</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a4eab742619670ea00b9c7c2d33d4c40f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4eab742619670ea00b9c7c2d33d4c40f">&#9670;&nbsp;</a></span>yw_j</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:), allocatable pdd_host::yw_j</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00068">68</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+<a id="a34670eb571c58ba264b71be1ae979aeb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34670eb571c58ba264b71be1ae979aeb">&#9670;&nbsp;</a></span>yw_k</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind=cgreal), dimension(:,:), allocatable pdd_host::yw_k</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pdd__host_8f90_source.html#l00072">72</a> of file <a class="el" href="pdd__host_8f90_source.html">pdd_host.f90</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacepdd__host.html">pdd_host</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

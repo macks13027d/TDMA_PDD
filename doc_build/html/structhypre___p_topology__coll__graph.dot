@@ -1,0 +1,9 @@
+digraph "hypre_PTopology"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="hypre_PTopology",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" Element_Face\nElement_Edge\nEdge_iedge\nFace_iedge\nElement_iedge" ,fontname="Helvetica"];
+  Node2 [label="hypre_IJMatrix_struct",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structhypre___i_j_matrix__struct.html",tooltip=" "];
+}
