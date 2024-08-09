@@ -1,0 +1,345 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="TDMA_PDD" />
+<meta property="og:image" content="../preview.png" />
+<meta property="og:description" content="Documentation for Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="../preview.png" />
+<meta property="og:title" content="TDMA_PDD" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD" />
+<!-- END twitter metadata -->
+<title>TDMA_PDD: include/hypre-2.11.1/temp_multivector.h Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            messageStyle: "normal",
+            linebreaks: {
+                automatic: false
+            }
+        },
+        tex2jax: { 
+            inlineMath: [["\\(","\\)"]], 
+            displayMath: [["$$","$$"],["\\[","\\]"]], 
+            processEscapes: true
+        },
+        TeX: {
+            Macros: {
+                tr: "{\\scriptscriptstyle\\mathrm{T}}",
+            }
+        }
+    });
+</script>
+<!--MathJax(LaTeX) -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <script type="text/javascript" id="MathJax-script" async  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">  </script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="custom-alternative.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/hugh577/TDMA_PDD" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 65px;">
+  <td id="projectlogo">
+    <a href="./index.html">
+        <img alt="Logo" src="home.png"/></td>
+    </a>
+  <td id="projectalign" style="padding-left: 0.5em;padding-top: 0.5em;">
+   <div id="projectname">TDMA_PDD
+   </div>
+   <div id="projectbrief">Documentation</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('temp__multivector_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">temp_multivector.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="temp__multivector_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*BHEADER**********************************************************************</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Copyright (c) 2008,  Lawrence Livermore National Security, LLC.</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> * Produced at the Lawrence Livermore National Laboratory.</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * This file is part of HYPRE.  See file COPYRIGHT for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * HYPRE is free software; you can redistribute it and/or modify it under the</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> * terms of the GNU Lesser General Public License (as published by the Free</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * Software Foundation) version 2.1 dated February 1999.</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> * $Revision$</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> ***********************************************************************EHEADER*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#ifndef TEMPORARY_MULTIVECTOR_FUNCTION_PROTOTYPES</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#define TEMPORARY_MULTIVECTOR_FUNCTION_PROTOTYPES</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="interpreter_8h.html">interpreter.h</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structmv___temp_multi_vector.html">   18</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structmv___temp_multi_vector.html#a3e8486caebfcac0c7b86dcf3028a6c3d">   20</a></span>&#160;  <a class="code" href="__hypre__utilities_8h.html#ac982ae99d78c2c68c627c5dfe59e9e62">hypre_longint</a>  <a class="code" href="structmv___temp_multi_vector.html#a3e8486caebfcac0c7b86dcf3028a6c3d">numVectors</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="structmv___temp_multi_vector.html#a136f5b6f05c6c581b8be373e558c2bee">   21</a></span>&#160;  <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>*   <a class="code" href="structmv___temp_multi_vector.html#a136f5b6f05c6c581b8be373e558c2bee">mask</a>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="structmv___temp_multi_vector.html#a549b7b6c3a597a21ab2b02d8a2842c56">   22</a></span>&#160;  <span class="keywordtype">void</span>** <a class="code" href="structmv___temp_multi_vector.html#a549b7b6c3a597a21ab2b02d8a2842c56">vector</a>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="structmv___temp_multi_vector.html#a0912794771761d3cba525b3555ad7ed5">   23</a></span>&#160;  <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>  <a class="code" href="structmv___temp_multi_vector.html#a0912794771761d3cba525b3555ad7ed5">ownsVectors</a>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="structmv___temp_multi_vector.html#a1e3b1deb369b67c5cf5fba9964fa6bfb">   24</a></span>&#160;  <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>    <a class="code" href="structmv___temp_multi_vector.html#a1e3b1deb369b67c5cf5fba9964fa6bfb">ownsMask</a>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="structmv___temp_multi_vector.html#a6ea3f1276a5faa6ad7b23ab7ed50971d">   26</a></span>&#160;  <a class="code" href="structmv___interface_interpreter.html">mv_InterfaceInterpreter</a>* <a class="code" href="structmv___temp_multi_vector.html#a6ea3f1276a5faa6ad7b23ab7ed50971d">interpreter</a>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;} <a class="code" href="structmv___temp_multi_vector.html">mv_TempMultiVector</a>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">/*typedef struct mv_TempMultiVector* mv_TempMultiVectorPtr;  */</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="temp__multivector_8h.html#a87687dde42730ce34b37b1e8767d330b">   31</a></span>&#160;<span class="keyword">typedef</span>  <a class="code" href="structmv___temp_multi_vector.html">mv_TempMultiVector</a>* <a class="code" href="temp__multivector_8h.html#a87687dde42730ce34b37b1e8767d330b">mv_TempMultiVectorPtr</a>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">/*******************************************************************/</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">The above is a temporary implementation of the hypre_MultiVector</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">data type, just to get things going with LOBPCG eigensolver.</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">A more proper implementation would be to define hypre_MultiParVector,</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">hypre_MultiStructVector and hypre_MultiSStructVector by adding a new </span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">record</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">HYPRE_Int numVectors;</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">in hypre_ParVector, hypre_StructVector and hypre_SStructVector,</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">and increasing the size of data numVectors times. Respective</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">modifications of most vector operations are straightforward</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">(it is strongly suggested that BLAS routines are used wherever</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">possible), efficient implementation of matrix-by-multivector </span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">multiplication may be more difficult.</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">With the above implementation of hypre vectors, the definition</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">of hypre_MultiVector becomes simply (cf. multivector.h)</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">typedef struct</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">{</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">  void* multiVector;</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">  HYPRE_InterfaceInterpreter* interpreter;  </span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">} hypre_MultiVector;</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">with pointers to abstract multivector functions added to the structure</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">HYPRE_InterfaceInterpreter (cf. HYPRE_interpreter.h; particular values</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">are assigned to these pointers by functions </span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">HYPRE_ParCSRSetupInterpreter, HYPRE_StructSetupInterpreter and</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">HYPRE_Int HYPRE_SStructSetupInterpreter),</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">and the abstract multivector functions become simply interfaces</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">to the actual multivector functions of the form (cf. multivector.c):</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">void </span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">hypre_MultiVectorCopy( hypre_MultiVectorPtr src_, hypre_MultiVectorPtr dest_ ) {</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">  hypre_MultiVector* src = (hypre_MultiVector*)src_;</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">  hypre_MultiVector* dest = (hypre_MultiVector*)dest_;</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">  assert( src != NULL &amp;&amp; dest != NULL );</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">  (src-&gt;interpreter-&gt;CopyMultiVector)( src-&gt;data, dest-&gt;data );</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">}</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">/*********************************************************************/</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keywordtype">void</span>*</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<a class="code" href="temp__multivector_8h.html#ad113f6367f6dedd435ebc48cfa0f4c56">mv_TempMultiVectorCreateFromSampleVector</a>( <span class="keywordtype">void</span>*, <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> n, <span class="keywordtype">void</span>* sample );</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keywordtype">void</span>*</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<a class="code" href="temp__multivector_8h.html#a4c6cf15d1ae4a4f215dece372dc3f5c8">mv_TempMultiVectorCreateCopy</a>( <span class="keywordtype">void</span>*, <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> copyValues );</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<a class="code" href="temp__multivector_8h.html#a4675288b1e9254322e42b2cccbaa5df1">mv_TempMultiVectorDestroy</a>( <span class="keywordtype">void</span>* );</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<a class="code" href="temp__multivector_8h.html#a23b6fa8d7aeca5da9b700b268d742170">mv_TempMultiVectorWidth</a>( <span class="keywordtype">void</span>* v );</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<a class="code" href="temp__multivector_8h.html#a26f8849b89dad261e9e1681b659e5f49">mv_TempMultiVectorHeight</a>( <span class="keywordtype">void</span>* v );</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keywordtype">void</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<a class="code" href="temp__multivector_8h.html#a56202a914841b232c05cc37473ce7124">mv_TempMultiVectorSetMask</a>( <span class="keywordtype">void</span>* v, <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>* mask );</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<a class="code" href="temp__multivector_8h.html#a1e7f43f7ef46f24656b4d6b4e6f1e399">mv_TempMultiVectorClear</a>( <span class="keywordtype">void</span>* );</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<a class="code" href="temp__multivector_8h.html#a7f20799026e9ab3d7f001a72f0d91c7d">mv_TempMultiVectorSetRandom</a>( <span class="keywordtype">void</span>* v, <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> seed );</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<a class="code" href="temp__multivector_8h.html#a81591faea740b3f425ce2422114b457c">mv_TempMultiVectorCopy</a>( <span class="keywordtype">void</span>* src, <span class="keywordtype">void</span>* dest );</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<a class="code" href="temp__multivector_8h.html#a13c13ac8043413a688373327d0e5773d">mv_TempMultiVectorAxpy</a>( <a class="code" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a>, <span class="keywordtype">void</span>*, <span class="keywordtype">void</span>* ); </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<a class="code" href="temp__multivector_8h.html#a40085e826e021fbbec22f2b03d03a510">mv_TempMultiVectorByMultiVector</a>( <span class="keywordtype">void</span>*, <span class="keywordtype">void</span>*,</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                    <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> gh, <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> h, <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> w, <a class="code" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a>* v );</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<a class="code" href="temp__multivector_8h.html#aa48adbb5940604615fde8029041b4c7c">mv_TempMultiVectorByMultiVectorDiag</a>( <span class="keywordtype">void</span>* <a class="code" href="namespacegrid__arrays.html#ac9d483b46bf68c490350fdef503cd24f">x</a>, <span class="keywordtype">void</span>* <a class="code" href="namespacegrid__arrays.html#a3f682a0e32086c16202a731f4e312c98">y</a>,</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                    <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>* mask, <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> n, <a class="code" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a>* diag );</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<a class="code" href="temp__multivector_8h.html#a96ec8c26406372a4348e71b151250d02">mv_TempMultiVectorByMatrix</a>( <span class="keywordtype">void</span>*, </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                   <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> gh, <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> h, <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> w, <a class="code" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a>* v,</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                   <span class="keywordtype">void</span>* );</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<a class="code" href="temp__multivector_8h.html#a4c11b3538efb3195f37f43a0f0ebaae4">mv_TempMultiVectorXapy</a>( <span class="keywordtype">void</span>* <a class="code" href="namespacegrid__arrays.html#ac9d483b46bf68c490350fdef503cd24f">x</a>, </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;               <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> gh, <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> h, <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> w, <a class="code" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a>* v,</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;               <span class="keywordtype">void</span>* <a class="code" href="namespacegrid__arrays.html#a3f682a0e32086c16202a731f4e312c98">y</a> );</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="keywordtype">void</span> <a class="code" href="temp__multivector_8h.html#a7707cf6ffd5d8afe28d809d4b6385496">mv_TempMultiVectorByDiagonal</a>( <span class="keywordtype">void</span>* <a class="code" href="namespacegrid__arrays.html#ac9d483b46bf68c490350fdef503cd24f">x</a>, </div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                      <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>* mask, <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> n, <a class="code" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a>* diag,</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                      <span class="keywordtype">void</span>* <a class="code" href="namespacegrid__arrays.html#a3f682a0e32086c16202a731f4e312c98">y</a> );</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<a class="code" href="temp__multivector_8h.html#a1e76baa40974ef2fb36424bdc3e32eb8">mv_TempMultiVectorEval</a>( <span class="keywordtype">void</span> (*f)( <span class="keywordtype">void</span>*, <span class="keywordtype">void</span>*, <span class="keywordtype">void</span>* ), <span class="keywordtype">void</span>* par,</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;               <span class="keywordtype">void</span>* <a class="code" href="namespacegrid__arrays.html#ac9d483b46bf68c490350fdef503cd24f">x</a>, <span class="keywordtype">void</span>* <a class="code" href="namespacegrid__arrays.html#a3f682a0e32086c16202a731f4e312c98">y</a> );</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;}</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* MULTIVECTOR_FUNCTION_PROTOTYPES */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="astructmv___temp_multi_vector_html_a549b7b6c3a597a21ab2b02d8a2842c56"><div class="ttname"><a href="structmv___temp_multi_vector.html#a549b7b6c3a597a21ab2b02d8a2842c56">mv_TempMultiVector::vector</a></div><div class="ttdeci">void ** vector</div><div class="ttdef"><b>Definition:</b> <a href="temp__multivector_8h_source.html#l00022">temp_multivector.h:22</a></div></div>
+<div class="ttc" id="atemp__multivector_8h_html_a26f8849b89dad261e9e1681b659e5f49"><div class="ttname"><a href="temp__multivector_8h.html#a26f8849b89dad261e9e1681b659e5f49">mv_TempMultiVectorHeight</a></div><div class="ttdeci">HYPRE_Int mv_TempMultiVectorHeight(void *v)</div></div>
+<div class="ttc" id="atemp__multivector_8h_html_a87687dde42730ce34b37b1e8767d330b"><div class="ttname"><a href="temp__multivector_8h.html#a87687dde42730ce34b37b1e8767d330b">mv_TempMultiVectorPtr</a></div><div class="ttdeci">mv_TempMultiVector * mv_TempMultiVectorPtr</div><div class="ttdef"><b>Definition:</b> <a href="temp__multivector_8h_source.html#l00031">temp_multivector.h:31</a></div></div>
+<div class="ttc" id="astructmv___temp_multi_vector_html"><div class="ttname"><a href="structmv___temp_multi_vector.html">mv_TempMultiVector</a></div><div class="ttdef"><b>Definition:</b> <a href="temp__multivector_8h_source.html#l00018">temp_multivector.h:18</a></div></div>
+<div class="ttc" id="atemp__multivector_8h_html_a4c11b3538efb3195f37f43a0f0ebaae4"><div class="ttname"><a href="temp__multivector_8h.html#a4c11b3538efb3195f37f43a0f0ebaae4">mv_TempMultiVectorXapy</a></div><div class="ttdeci">void mv_TempMultiVectorXapy(void *x, HYPRE_Int gh, HYPRE_Int h, HYPRE_Int w, HYPRE_Complex *v, void *y)</div></div>
+<div class="ttc" id="atemp__multivector_8h_html_a4c6cf15d1ae4a4f215dece372dc3f5c8"><div class="ttname"><a href="temp__multivector_8h.html#a4c6cf15d1ae4a4f215dece372dc3f5c8">mv_TempMultiVectorCreateCopy</a></div><div class="ttdeci">void * mv_TempMultiVectorCreateCopy(void *, HYPRE_Int copyValues)</div></div>
+<div class="ttc" id="anamespacegrid__arrays_html_a3f682a0e32086c16202a731f4e312c98"><div class="ttname"><a href="namespacegrid__arrays.html#a3f682a0e32086c16202a731f4e312c98">grid_arrays::y</a></div><div class="ttdeci">real(kind=cgreal), dimension(:), allocatable y</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00277">pdd_host.f90:277</a></div></div>
+<div class="ttc" id="astructmv___temp_multi_vector_html_a136f5b6f05c6c581b8be373e558c2bee"><div class="ttname"><a href="structmv___temp_multi_vector.html#a136f5b6f05c6c581b8be373e558c2bee">mv_TempMultiVector::mask</a></div><div class="ttdeci">HYPRE_Int * mask</div><div class="ttdef"><b>Definition:</b> <a href="temp__multivector_8h_source.html#l00021">temp_multivector.h:21</a></div></div>
+<div class="ttc" id="anamespacegrid__arrays_html_ac9d483b46bf68c490350fdef503cd24f"><div class="ttname"><a href="namespacegrid__arrays.html#ac9d483b46bf68c490350fdef503cd24f">grid_arrays::x</a></div><div class="ttdeci">real(kind=cgreal), dimension(:), allocatable x</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00277">pdd_host.f90:277</a></div></div>
+<div class="ttc" id="ainterpreter_8h_html"><div class="ttname"><a href="interpreter_8h.html">interpreter.h</a></div></div>
+<div class="ttc" id="atemp__multivector_8h_html_a40085e826e021fbbec22f2b03d03a510"><div class="ttname"><a href="temp__multivector_8h.html#a40085e826e021fbbec22f2b03d03a510">mv_TempMultiVectorByMultiVector</a></div><div class="ttdeci">void mv_TempMultiVectorByMultiVector(void *, void *, HYPRE_Int gh, HYPRE_Int h, HYPRE_Int w, HYPRE_Complex *v)</div></div>
+<div class="ttc" id="astructmv___temp_multi_vector_html_a0912794771761d3cba525b3555ad7ed5"><div class="ttname"><a href="structmv___temp_multi_vector.html#a0912794771761d3cba525b3555ad7ed5">mv_TempMultiVector::ownsVectors</a></div><div class="ttdeci">HYPRE_Int ownsVectors</div><div class="ttdef"><b>Definition:</b> <a href="temp__multivector_8h_source.html#l00023">temp_multivector.h:23</a></div></div>
+<div class="ttc" id="atemp__multivector_8h_html_a1e76baa40974ef2fb36424bdc3e32eb8"><div class="ttname"><a href="temp__multivector_8h.html#a1e76baa40974ef2fb36424bdc3e32eb8">mv_TempMultiVectorEval</a></div><div class="ttdeci">void mv_TempMultiVectorEval(void(*f)(void *, void *, void *), void *par, void *x, void *y)</div></div>
+<div class="ttc" id="astructmv___temp_multi_vector_html_a1e3b1deb369b67c5cf5fba9964fa6bfb"><div class="ttname"><a href="structmv___temp_multi_vector.html#a1e3b1deb369b67c5cf5fba9964fa6bfb">mv_TempMultiVector::ownsMask</a></div><div class="ttdeci">HYPRE_Int ownsMask</div><div class="ttdef"><b>Definition:</b> <a href="temp__multivector_8h_source.html#l00024">temp_multivector.h:24</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e__utilities_8h_html_a1b5547e62770096da46d1932024e30b9"><div class="ttname"><a href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a></div><div class="ttdeci">int HYPRE_Int</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e__utilities_8h_source.html#l00050">HYPRE_utilities.h:50</a></div></div>
+<div class="ttc" id="atemp__multivector_8h_html_aa48adbb5940604615fde8029041b4c7c"><div class="ttname"><a href="temp__multivector_8h.html#aa48adbb5940604615fde8029041b4c7c">mv_TempMultiVectorByMultiVectorDiag</a></div><div class="ttdeci">void mv_TempMultiVectorByMultiVectorDiag(void *x, void *y, HYPRE_Int *mask, HYPRE_Int n, HYPRE_Complex *diag)</div></div>
+<div class="ttc" id="atemp__multivector_8h_html_a56202a914841b232c05cc37473ce7124"><div class="ttname"><a href="temp__multivector_8h.html#a56202a914841b232c05cc37473ce7124">mv_TempMultiVectorSetMask</a></div><div class="ttdeci">void mv_TempMultiVectorSetMask(void *v, HYPRE_Int *mask)</div></div>
+<div class="ttc" id="a__hypre__utilities_8h_html_ac982ae99d78c2c68c627c5dfe59e9e62"><div class="ttname"><a href="__hypre__utilities_8h.html#ac982ae99d78c2c68c627c5dfe59e9e62">hypre_longint</a></div><div class="ttdeci">long int hypre_longint</div><div class="ttdef"><b>Definition:</b> <a href="__hypre__utilities_8h_source.html#l00024">_hypre_utilities.h:24</a></div></div>
+<div class="ttc" id="atemp__multivector_8h_html_a81591faea740b3f425ce2422114b457c"><div class="ttname"><a href="temp__multivector_8h.html#a81591faea740b3f425ce2422114b457c">mv_TempMultiVectorCopy</a></div><div class="ttdeci">void mv_TempMultiVectorCopy(void *src, void *dest)</div></div>
+<div class="ttc" id="atemp__multivector_8h_html_a7f20799026e9ab3d7f001a72f0d91c7d"><div class="ttname"><a href="temp__multivector_8h.html#a7f20799026e9ab3d7f001a72f0d91c7d">mv_TempMultiVectorSetRandom</a></div><div class="ttdeci">void mv_TempMultiVectorSetRandom(void *v, HYPRE_Int seed)</div></div>
+<div class="ttc" id="astructmv___temp_multi_vector_html_a3e8486caebfcac0c7b86dcf3028a6c3d"><div class="ttname"><a href="structmv___temp_multi_vector.html#a3e8486caebfcac0c7b86dcf3028a6c3d">mv_TempMultiVector::numVectors</a></div><div class="ttdeci">hypre_longint numVectors</div><div class="ttdef"><b>Definition:</b> <a href="temp__multivector_8h_source.html#l00020">temp_multivector.h:20</a></div></div>
+<div class="ttc" id="atemp__multivector_8h_html_a23b6fa8d7aeca5da9b700b268d742170"><div class="ttname"><a href="temp__multivector_8h.html#a23b6fa8d7aeca5da9b700b268d742170">mv_TempMultiVectorWidth</a></div><div class="ttdeci">HYPRE_Int mv_TempMultiVectorWidth(void *v)</div></div>
+<div class="ttc" id="atemp__multivector_8h_html_a96ec8c26406372a4348e71b151250d02"><div class="ttname"><a href="temp__multivector_8h.html#a96ec8c26406372a4348e71b151250d02">mv_TempMultiVectorByMatrix</a></div><div class="ttdeci">void mv_TempMultiVectorByMatrix(void *, HYPRE_Int gh, HYPRE_Int h, HYPRE_Int w, HYPRE_Complex *v, void *)</div></div>
+<div class="ttc" id="atemp__multivector_8h_html_a1e7f43f7ef46f24656b4d6b4e6f1e399"><div class="ttname"><a href="temp__multivector_8h.html#a1e7f43f7ef46f24656b4d6b4e6f1e399">mv_TempMultiVectorClear</a></div><div class="ttdeci">void mv_TempMultiVectorClear(void *)</div></div>
+<div class="ttc" id="atemp__multivector_8h_html_a13c13ac8043413a688373327d0e5773d"><div class="ttname"><a href="temp__multivector_8h.html#a13c13ac8043413a688373327d0e5773d">mv_TempMultiVectorAxpy</a></div><div class="ttdeci">void mv_TempMultiVectorAxpy(HYPRE_Complex, void *, void *)</div></div>
+<div class="ttc" id="atemp__multivector_8h_html_a4675288b1e9254322e42b2cccbaa5df1"><div class="ttname"><a href="temp__multivector_8h.html#a4675288b1e9254322e42b2cccbaa5df1">mv_TempMultiVectorDestroy</a></div><div class="ttdeci">void mv_TempMultiVectorDestroy(void *)</div></div>
+<div class="ttc" id="atemp__multivector_8h_html_ad113f6367f6dedd435ebc48cfa0f4c56"><div class="ttname"><a href="temp__multivector_8h.html#ad113f6367f6dedd435ebc48cfa0f4c56">mv_TempMultiVectorCreateFromSampleVector</a></div><div class="ttdeci">void * mv_TempMultiVectorCreateFromSampleVector(void *, HYPRE_Int n, void *sample)</div></div>
+<div class="ttc" id="astructmv___interface_interpreter_html"><div class="ttname"><a href="structmv___interface_interpreter.html">mv_InterfaceInterpreter</a></div><div class="ttdef"><b>Definition:</b> <a href="interpreter_8h_source.html#l00018">interpreter.h:18</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e__utilities_8h_html_a0ffb2128084bcd038afd6ea649bb7d1d"><div class="ttname"><a href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a></div><div class="ttdeci">HYPRE_Real HYPRE_Complex</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e__utilities_8h_source.html#l00065">HYPRE_utilities.h:65</a></div></div>
+<div class="ttc" id="astructmv___temp_multi_vector_html_a6ea3f1276a5faa6ad7b23ab7ed50971d"><div class="ttname"><a href="structmv___temp_multi_vector.html#a6ea3f1276a5faa6ad7b23ab7ed50971d">mv_TempMultiVector::interpreter</a></div><div class="ttdeci">mv_InterfaceInterpreter * interpreter</div><div class="ttdef"><b>Definition:</b> <a href="temp__multivector_8h_source.html#l00026">temp_multivector.h:26</a></div></div>
+<div class="ttc" id="atemp__multivector_8h_html_a7707cf6ffd5d8afe28d809d4b6385496"><div class="ttname"><a href="temp__multivector_8h.html#a7707cf6ffd5d8afe28d809d4b6385496">mv_TempMultiVectorByDiagonal</a></div><div class="ttdeci">void mv_TempMultiVectorByDiagonal(void *x, HYPRE_Int *mask, HYPRE_Int n, HYPRE_Complex *diag, void *y)</div></div>
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_1481b2ad69b2eab628871d4fb2bac45c.html">hypre-2.11.1</a></li><li class="navelem"><a class="el" href="temp__multivector_8h.html">temp_multivector.h</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

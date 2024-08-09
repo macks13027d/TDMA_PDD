@@ -1,0 +1,3327 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="TDMA_PDD" />
+<meta property="og:image" content="../preview.png" />
+<meta property="og:description" content="Documentation for Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="../preview.png" />
+<meta property="og:title" content="TDMA_PDD" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD" />
+<!-- END twitter metadata -->
+<title>TDMA_PDD: include/hypre-2.11.1/slu_cdefs.h File Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            messageStyle: "normal",
+            linebreaks: {
+                automatic: false
+            }
+        },
+        tex2jax: { 
+            inlineMath: [["\\(","\\)"]], 
+            displayMath: [["$$","$$"],["\\[","\\]"]], 
+            processEscapes: true
+        },
+        TeX: {
+            Macros: {
+                tr: "{\\scriptscriptstyle\\mathrm{T}}",
+            }
+        }
+    });
+</script>
+<!--MathJax(LaTeX) -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <script type="text/javascript" id="MathJax-script" async  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">  </script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="custom-alternative.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/hugh577/TDMA_PDD" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 65px;">
+  <td id="projectlogo">
+    <a href="./index.html">
+        <img alt="Logo" src="home.png"/></td>
+    </a>
+  <td id="projectalign" style="padding-left: 0.5em;padding-top: 0.5em;">
+   <div id="projectname">TDMA_PDD
+   </div>
+   <div id="projectbrief">Documentation</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('slu__cdefs_8h.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle">
+<div class="title">slu_cdefs.h File Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="slu___cnames_8h_source.html">slu_Cnames.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="supermatrix_8h_source.html">supermatrix.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="slu__util_8h_source.html">slu_util.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="slu__scomplex_8h_source.html">slu_scomplex.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for slu_cdefs.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="slu__cdefs_8h__incl.png" border="0" usemap="#include_2hypre-2_811_81_2slu__cdefs_8h" alt=""/></div>
+</div>
+</div>
+<p><a href="slu__cdefs_8h_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_global_l_u__t.html">GlobalLU_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmem__usage__t.html">mem_usage_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ab6fd6105e64ed14a0c9281326f05e623"><td class="memItemLeft" align="right" valign="top">typedef int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#ab6fd6105e64ed14a0c9281326f05e623">int_t</a></td></tr>
+<tr class="separator:ab6fd6105e64ed14a0c9281326f05e623"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a58aff6521bb64732e981ce5779820a89"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#a58aff6521bb64732e981ce5779820a89">cgssv</a> (<a class="el" href="structsuperlu__options__t.html">superlu_options_t</a> *, <a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, int *, int *, <a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, <a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, <a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, <a class="el" href="struct_super_l_u_stat__t.html">SuperLUStat_t</a> *, int *)</td></tr>
+<tr class="separator:a58aff6521bb64732e981ce5779820a89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a264b6681cc04244cdd116978acfe4e2a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#a264b6681cc04244cdd116978acfe4e2a">cgssvx</a> (<a class="el" href="structsuperlu__options__t.html">superlu_options_t</a> *, <a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, int *, int *, int *, char *, float *, float *, <a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, <a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, void *, int, <a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, <a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, float *, float *, float *, float *, <a class="el" href="structmem__usage__t.html">mem_usage_t</a> *, <a class="el" href="struct_super_l_u_stat__t.html">SuperLUStat_t</a> *, int *)</td></tr>
+<tr class="separator:a264b6681cc04244cdd116978acfe4e2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f54bdbff678075fdf06720bbb299346"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#a4f54bdbff678075fdf06720bbb299346">cCreate_CompCol_Matrix</a> (<a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, int, int, int, <a class="el" href="structcomplex.html">complex</a> *, int *, int *, <a class="el" href="supermatrix_8h.html#a9d2ddedeb2a3d92e950811c61d0b8796">Stype_t</a>, <a class="el" href="supermatrix_8h.html#a7987cb2a28ec879b39a90e9e48e29190">Dtype_t</a>, <a class="el" href="supermatrix_8h.html#a5962adac634f3feebe487ad443802d60">Mtype_t</a>)</td></tr>
+<tr class="separator:a4f54bdbff678075fdf06720bbb299346"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a866240e7f5a35e821bc898d2e5ba26fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#a866240e7f5a35e821bc898d2e5ba26fc">cCreate_CompRow_Matrix</a> (<a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, int, int, int, <a class="el" href="structcomplex.html">complex</a> *, int *, int *, <a class="el" href="supermatrix_8h.html#a9d2ddedeb2a3d92e950811c61d0b8796">Stype_t</a>, <a class="el" href="supermatrix_8h.html#a7987cb2a28ec879b39a90e9e48e29190">Dtype_t</a>, <a class="el" href="supermatrix_8h.html#a5962adac634f3feebe487ad443802d60">Mtype_t</a>)</td></tr>
+<tr class="separator:a866240e7f5a35e821bc898d2e5ba26fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b7edfb65023104b0f88f5aaab393248"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#a2b7edfb65023104b0f88f5aaab393248">cCopy_CompCol_Matrix</a> (<a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, <a class="el" href="struct_super_matrix.html">SuperMatrix</a> *)</td></tr>
+<tr class="separator:a2b7edfb65023104b0f88f5aaab393248"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9af123cab0520e5800a1b60668a09de6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#a9af123cab0520e5800a1b60668a09de6">cCreate_Dense_Matrix</a> (<a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, int, int, <a class="el" href="structcomplex.html">complex</a> *, int, <a class="el" href="supermatrix_8h.html#a9d2ddedeb2a3d92e950811c61d0b8796">Stype_t</a>, <a class="el" href="supermatrix_8h.html#a7987cb2a28ec879b39a90e9e48e29190">Dtype_t</a>, <a class="el" href="supermatrix_8h.html#a5962adac634f3feebe487ad443802d60">Mtype_t</a>)</td></tr>
+<tr class="separator:a9af123cab0520e5800a1b60668a09de6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63d7d14c6a2312b9f95844e5055deae9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#a63d7d14c6a2312b9f95844e5055deae9">cCreate_SuperNode_Matrix</a> (<a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, int, int, int, <a class="el" href="structcomplex.html">complex</a> *, int *, int *, int *, int *, int *, <a class="el" href="supermatrix_8h.html#a9d2ddedeb2a3d92e950811c61d0b8796">Stype_t</a>, <a class="el" href="supermatrix_8h.html#a7987cb2a28ec879b39a90e9e48e29190">Dtype_t</a>, <a class="el" href="supermatrix_8h.html#a5962adac634f3feebe487ad443802d60">Mtype_t</a>)</td></tr>
+<tr class="separator:a63d7d14c6a2312b9f95844e5055deae9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7378a64fc445fa7e0101059d7353f4ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#a7378a64fc445fa7e0101059d7353f4ac">cCopy_Dense_Matrix</a> (int, int, <a class="el" href="structcomplex.html">complex</a> *, int, <a class="el" href="structcomplex.html">complex</a> *, int)</td></tr>
+<tr class="separator:a7378a64fc445fa7e0101059d7353f4ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8086902aa8be3fc7d04c3c82ec3a79dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#a8086902aa8be3fc7d04c3c82ec3a79dc">countnz</a> (const int, int *, int *, int *, <a class="el" href="struct_global_l_u__t.html">GlobalLU_t</a> *)</td></tr>
+<tr class="separator:a8086902aa8be3fc7d04c3c82ec3a79dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7061332d759d7e4d73c1b2e5cb0bf2bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#a7061332d759d7e4d73c1b2e5cb0bf2bf">fixupL</a> (const int, const int *, <a class="el" href="struct_global_l_u__t.html">GlobalLU_t</a> *)</td></tr>
+<tr class="separator:a7061332d759d7e4d73c1b2e5cb0bf2bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22ec97af17a44cd9aae6aeae3de50e87"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#a22ec97af17a44cd9aae6aeae3de50e87">callocateA</a> (int, int, <a class="el" href="structcomplex.html">complex</a> **, int **, int **)</td></tr>
+<tr class="separator:a22ec97af17a44cd9aae6aeae3de50e87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a877cd41521f1bf5fca49411c62be1f32"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#a877cd41521f1bf5fca49411c62be1f32">cgstrf</a> (<a class="el" href="structsuperlu__options__t.html">superlu_options_t</a> *, <a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, float, int, int, int *, void *, int, int *, int *, <a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, <a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, <a class="el" href="struct_super_l_u_stat__t.html">SuperLUStat_t</a> *, int *)</td></tr>
+<tr class="separator:a877cd41521f1bf5fca49411c62be1f32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac98da7d6b5809dadb1cae9bc019619ce"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#ac98da7d6b5809dadb1cae9bc019619ce">csnode_dfs</a> (const int, const int, const int *, const int *, const int *, int *, int *, <a class="el" href="struct_global_l_u__t.html">GlobalLU_t</a> *)</td></tr>
+<tr class="separator:ac98da7d6b5809dadb1cae9bc019619ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab1987caf36c8eedcf605b59e56a9d5d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#aab1987caf36c8eedcf605b59e56a9d5d">csnode_bmod</a> (const int, const int, const int, <a class="el" href="structcomplex.html">complex</a> *, <a class="el" href="structcomplex.html">complex</a> *, <a class="el" href="struct_global_l_u__t.html">GlobalLU_t</a> *, <a class="el" href="struct_super_l_u_stat__t.html">SuperLUStat_t</a> *)</td></tr>
+<tr class="separator:aab1987caf36c8eedcf605b59e56a9d5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a780968651deed587e187bd7661edbb20"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#a780968651deed587e187bd7661edbb20">cpanel_dfs</a> (const int, const int, const int, <a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, int *, int *, <a class="el" href="structcomplex.html">complex</a> *, int *, int *, int *, int *, int *, int *, int *, <a class="el" href="struct_global_l_u__t.html">GlobalLU_t</a> *)</td></tr>
+<tr class="separator:a780968651deed587e187bd7661edbb20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac37d9a28b8745daf72ae1d5ad29c140d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#ac37d9a28b8745daf72ae1d5ad29c140d">cpanel_bmod</a> (const int, const int, const int, const int, <a class="el" href="structcomplex.html">complex</a> *, <a class="el" href="structcomplex.html">complex</a> *, int *, int *, <a class="el" href="struct_global_l_u__t.html">GlobalLU_t</a> *, <a class="el" href="struct_super_l_u_stat__t.html">SuperLUStat_t</a> *)</td></tr>
+<tr class="separator:ac37d9a28b8745daf72ae1d5ad29c140d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6aace79c0009c9a5a32219753f51b695"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#a6aace79c0009c9a5a32219753f51b695">ccolumn_dfs</a> (const int, const int, int *, int *, int *, int *, int *, int *, int *, int *, int *, <a class="el" href="struct_global_l_u__t.html">GlobalLU_t</a> *)</td></tr>
+<tr class="separator:a6aace79c0009c9a5a32219753f51b695"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19d15802e430420a5512a8e9bbe42d64"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#a19d15802e430420a5512a8e9bbe42d64">ccolumn_bmod</a> (const int, const int, <a class="el" href="structcomplex.html">complex</a> *, <a class="el" href="structcomplex.html">complex</a> *, int *, int *, int, <a class="el" href="struct_global_l_u__t.html">GlobalLU_t</a> *, <a class="el" href="struct_super_l_u_stat__t.html">SuperLUStat_t</a> *)</td></tr>
+<tr class="separator:a19d15802e430420a5512a8e9bbe42d64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a247f30177d193339d293899fe702afe6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#a247f30177d193339d293899fe702afe6">ccopy_to_ucol</a> (int, int, int *, int *, int *, <a class="el" href="structcomplex.html">complex</a> *, <a class="el" href="struct_global_l_u__t.html">GlobalLU_t</a> *)</td></tr>
+<tr class="separator:a247f30177d193339d293899fe702afe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23f8c60d4e5a5c2f28ae2878ae814ca9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#a23f8c60d4e5a5c2f28ae2878ae814ca9">cpivotL</a> (const int, const float, int *, int *, int *, int *, int *, <a class="el" href="struct_global_l_u__t.html">GlobalLU_t</a> *, <a class="el" href="struct_super_l_u_stat__t.html">SuperLUStat_t</a> *)</td></tr>
+<tr class="separator:a23f8c60d4e5a5c2f28ae2878ae814ca9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65d7df9e58c2415f455dbe6db9a99f2b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#a65d7df9e58c2415f455dbe6db9a99f2b">cpruneL</a> (const int, const int *, const int, const int, const int *, const int *, int *, <a class="el" href="struct_global_l_u__t.html">GlobalLU_t</a> *)</td></tr>
+<tr class="separator:a65d7df9e58c2415f455dbe6db9a99f2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88701835280a367a90b9ea2a73f946f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#a88701835280a367a90b9ea2a73f946f0">creadmt</a> (int *, int *, int *, <a class="el" href="structcomplex.html">complex</a> **, int **, int **)</td></tr>
+<tr class="separator:a88701835280a367a90b9ea2a73f946f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f454dd3045fdd51e8bf0d29c7561fe5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#a7f454dd3045fdd51e8bf0d29c7561fe5">cGenXtrue</a> (int, int, <a class="el" href="structcomplex.html">complex</a> *, int)</td></tr>
+<tr class="separator:a7f454dd3045fdd51e8bf0d29c7561fe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafc07318b1802f00402e7d8afbeaaeae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#aafc07318b1802f00402e7d8afbeaaeae">cFillRHS</a> (<a class="el" href="slu__util_8h.html#a0c4e17b2d5cea33f9991ccc6a6678d62">trans_t</a>, int, <a class="el" href="structcomplex.html">complex</a> *, int, <a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, <a class="el" href="struct_super_matrix.html">SuperMatrix</a> *)</td></tr>
+<tr class="separator:aafc07318b1802f00402e7d8afbeaaeae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa45033d577ad2afbe488a837d6aba8cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#aa45033d577ad2afbe488a837d6aba8cf">cgstrs</a> (<a class="el" href="slu__util_8h.html#a0c4e17b2d5cea33f9991ccc6a6678d62">trans_t</a>, <a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, <a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, int *, int *, <a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, <a class="el" href="struct_super_l_u_stat__t.html">SuperLUStat_t</a> *, int *)</td></tr>
+<tr class="separator:aa45033d577ad2afbe488a837d6aba8cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad34b27648bc5b43d1ad19dd017f8273f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#ad34b27648bc5b43d1ad19dd017f8273f">cgsequ</a> (<a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, float *, float *, float *, float *, float *, int *)</td></tr>
+<tr class="separator:ad34b27648bc5b43d1ad19dd017f8273f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbc57dc56d0c962aa148a573895883b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#adbc57dc56d0c962aa148a573895883b0">claqgs</a> (<a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, float *, float *, float, float, float, char *)</td></tr>
+<tr class="separator:adbc57dc56d0c962aa148a573895883b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ca330446884f122ee31f4f2b5243abe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#a2ca330446884f122ee31f4f2b5243abe">cgscon</a> (char *, <a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, <a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, float, float *, <a class="el" href="struct_super_l_u_stat__t.html">SuperLUStat_t</a> *, int *)</td></tr>
+<tr class="separator:a2ca330446884f122ee31f4f2b5243abe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a5b1cc4e96708825cc21108ebbeb061"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#a9a5b1cc4e96708825cc21108ebbeb061">cPivotGrowth</a> (int, <a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, int *, <a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, <a class="el" href="struct_super_matrix.html">SuperMatrix</a> *)</td></tr>
+<tr class="separator:a9a5b1cc4e96708825cc21108ebbeb061"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64715c1d0510eaf5f8e37f2465e9e8d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#a64715c1d0510eaf5f8e37f2465e9e8d6">cgsrfs</a> (<a class="el" href="slu__util_8h.html#a0c4e17b2d5cea33f9991ccc6a6678d62">trans_t</a>, <a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, <a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, <a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, int *, int *, char *, float *, float *, <a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, <a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, float *, float *, <a class="el" href="struct_super_l_u_stat__t.html">SuperLUStat_t</a> *, int *)</td></tr>
+<tr class="separator:a64715c1d0510eaf5f8e37f2465e9e8d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8299a994a223b7178314fe7faff74508"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#a8299a994a223b7178314fe7faff74508">sp_ctrsv</a> (char *, char *, char *, <a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, <a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, <a class="el" href="structcomplex.html">complex</a> *, <a class="el" href="struct_super_l_u_stat__t.html">SuperLUStat_t</a> *, int *)</td></tr>
+<tr class="separator:a8299a994a223b7178314fe7faff74508"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59e320a29e9ded59a46e8d64619ffac6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#a59e320a29e9ded59a46e8d64619ffac6">sp_cgemv</a> (char *, <a class="el" href="structcomplex.html">complex</a>, <a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, <a class="el" href="structcomplex.html">complex</a> *, int, <a class="el" href="structcomplex.html">complex</a>, <a class="el" href="structcomplex.html">complex</a> *, int)</td></tr>
+<tr class="separator:a59e320a29e9ded59a46e8d64619ffac6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0473a1696817ed02c501ca8af8ff0285"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#a0473a1696817ed02c501ca8af8ff0285">sp_cgemm</a> (char *, char *, int, int, int, <a class="el" href="structcomplex.html">complex</a>, <a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, <a class="el" href="structcomplex.html">complex</a> *, int, <a class="el" href="structcomplex.html">complex</a>, <a class="el" href="structcomplex.html">complex</a> *, int)</td></tr>
+<tr class="separator:a0473a1696817ed02c501ca8af8ff0285"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac64cecec54f0e308e6e83233eb6940a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#aac64cecec54f0e308e6e83233eb6940a">cLUMemInit</a> (<a class="el" href="slu__util_8h.html#ac785c8235480e5cfef9848d89c047c0a">fact_t</a>, void *, int, int, int, int, int, <a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, <a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, <a class="el" href="struct_global_l_u__t.html">GlobalLU_t</a> *, int **, <a class="el" href="structcomplex.html">complex</a> **)</td></tr>
+<tr class="separator:aac64cecec54f0e308e6e83233eb6940a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3bbcd362fb260a0dba5488a3e4ee926"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#af3bbcd362fb260a0dba5488a3e4ee926">cSetRWork</a> (int, int, <a class="el" href="structcomplex.html">complex</a> *, <a class="el" href="structcomplex.html">complex</a> **, <a class="el" href="structcomplex.html">complex</a> **)</td></tr>
+<tr class="separator:af3bbcd362fb260a0dba5488a3e4ee926"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa759583daf08db801cf6fe8018442d4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#aa759583daf08db801cf6fe8018442d4c">cLUWorkFree</a> (int *, <a class="el" href="structcomplex.html">complex</a> *, <a class="el" href="struct_global_l_u__t.html">GlobalLU_t</a> *)</td></tr>
+<tr class="separator:aa759583daf08db801cf6fe8018442d4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a255ed62863700298939edfda48ae534a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#a255ed62863700298939edfda48ae534a">cLUMemXpand</a> (int, int, <a class="el" href="slu__util_8h.html#abd31f838aefffa46191d0d7dc36a96b2">MemType</a>, int *, <a class="el" href="struct_global_l_u__t.html">GlobalLU_t</a> *)</td></tr>
+<tr class="separator:a255ed62863700298939edfda48ae534a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb98fa14a907e0e848a35e896d4040db"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcomplex.html">complex</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#adb98fa14a907e0e848a35e896d4040db">complexMalloc</a> (int)</td></tr>
+<tr class="separator:adb98fa14a907e0e848a35e896d4040db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af558e3813415369a8805c473a7eaa5e8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcomplex.html">complex</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#af558e3813415369a8805c473a7eaa5e8">complexCalloc</a> (int)</td></tr>
+<tr class="separator:af558e3813415369a8805c473a7eaa5e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42361c3ce2ba81d149ffba01fbd6f138"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#a42361c3ce2ba81d149ffba01fbd6f138">floatMalloc</a> (int)</td></tr>
+<tr class="separator:a42361c3ce2ba81d149ffba01fbd6f138"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e1230bff11a9e47c35555299bcdcf1b"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#a3e1230bff11a9e47c35555299bcdcf1b">floatCalloc</a> (int)</td></tr>
+<tr class="separator:a3e1230bff11a9e47c35555299bcdcf1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acea36c2598bb3f8a27b6985634d2b8e9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#acea36c2598bb3f8a27b6985634d2b8e9">cmemory_usage</a> (const int, const int, const int, const int)</td></tr>
+<tr class="separator:acea36c2598bb3f8a27b6985634d2b8e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ac9ff71eef6bf8c52c41eb9209a0caf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#a7ac9ff71eef6bf8c52c41eb9209a0caf">cQuerySpace</a> (<a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, <a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, <a class="el" href="structmem__usage__t.html">mem_usage_t</a> *)</td></tr>
+<tr class="separator:a7ac9ff71eef6bf8c52c41eb9209a0caf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34243c626347c973358d3d095802783b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#a34243c626347c973358d3d095802783b">creadhb</a> (int *, int *, int *, <a class="el" href="structcomplex.html">complex</a> **, int **, int **)</td></tr>
+<tr class="separator:a34243c626347c973358d3d095802783b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3891d961d41be3af94b755b27d371c1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#a3891d961d41be3af94b755b27d371c1d">cCompRow_to_CompCol</a> (int, int, int, <a class="el" href="structcomplex.html">complex</a> *, int *, int *, <a class="el" href="structcomplex.html">complex</a> **, int **, int **)</td></tr>
+<tr class="separator:a3891d961d41be3af94b755b27d371c1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a614eea417aeb37825463637f47c980ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#a614eea417aeb37825463637f47c980ba">cfill</a> (<a class="el" href="structcomplex.html">complex</a> *, int, <a class="el" href="structcomplex.html">complex</a>)</td></tr>
+<tr class="separator:a614eea417aeb37825463637f47c980ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a293818022b119a511598f4766c54a1ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#a293818022b119a511598f4766c54a1ee">cinf_norm_error</a> (int, <a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, <a class="el" href="structcomplex.html">complex</a> *)</td></tr>
+<tr class="separator:a293818022b119a511598f4766c54a1ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a41152a5800bc02bef17b56e070d0e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#a7a41152a5800bc02bef17b56e070d0e6">PrintPerf</a> (<a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, <a class="el" href="struct_super_matrix.html">SuperMatrix</a> *, <a class="el" href="structmem__usage__t.html">mem_usage_t</a> *, <a class="el" href="structcomplex.html">complex</a>, <a class="el" href="structcomplex.html">complex</a>, <a class="el" href="structcomplex.html">complex</a> *, <a class="el" href="structcomplex.html">complex</a> *, char *)</td></tr>
+<tr class="separator:a7a41152a5800bc02bef17b56e070d0e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af091472c1fb3c085c384bf52b3bebd8d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#af091472c1fb3c085c384bf52b3bebd8d">cPrint_CompCol_Matrix</a> (char *, <a class="el" href="struct_super_matrix.html">SuperMatrix</a> *)</td></tr>
+<tr class="separator:af091472c1fb3c085c384bf52b3bebd8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8482f76b710a91d26250bca719b9d00c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#a8482f76b710a91d26250bca719b9d00c">cPrint_SuperNode_Matrix</a> (char *, <a class="el" href="struct_super_matrix.html">SuperMatrix</a> *)</td></tr>
+<tr class="separator:a8482f76b710a91d26250bca719b9d00c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1cbad8400b16c776b112f20b8645757d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#a1cbad8400b16c776b112f20b8645757d">cPrint_Dense_Matrix</a> (char *, <a class="el" href="struct_super_matrix.html">SuperMatrix</a> *)</td></tr>
+<tr class="separator:a1cbad8400b16c776b112f20b8645757d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4eb909967bdba5d1c9e1adcfcba55be1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#a4eb909967bdba5d1c9e1adcfcba55be1">print_lu_col</a> (char *, int, int, int *, <a class="el" href="struct_global_l_u__t.html">GlobalLU_t</a> *)</td></tr>
+<tr class="separator:a4eb909967bdba5d1c9e1adcfcba55be1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cfc97393b65ddc5a40fdc523a50003a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="slu__cdefs_8h.html#a2cfc97393b65ddc5a40fdc523a50003a">check_tempv</a> (int, <a class="el" href="structcomplex.html">complex</a> *)</td></tr>
+<tr class="separator:a2cfc97393b65ddc5a40fdc523a50003a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="ab6fd6105e64ed14a0c9281326f05e623"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6fd6105e64ed14a0c9281326f05e623">&#9670;&nbsp;</a></span>int_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef int <a class="el" href="slu__cdefs_8h.html#ab6fd6105e64ed14a0c9281326f05e623">int_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="slu__cdefs_8h_source.html#l00024">24</a> of file <a class="el" href="slu__cdefs_8h_source.html">slu_cdefs.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a22ec97af17a44cd9aae6aeae3de50e87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22ec97af17a44cd9aae6aeae3de50e87">&#9670;&nbsp;</a></span>callocateA()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void callocateA </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a> **&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a19d15802e430420a5512a8e9bbe42d64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19d15802e430420a5512a8e9bbe42d64">&#9670;&nbsp;</a></span>ccolumn_bmod()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ccolumn_bmod </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_global_l_u__t.html">GlobalLU_t</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_l_u_stat__t.html">SuperLUStat_t</a> *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6aace79c0009c9a5a32219753f51b695"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6aace79c0009c9a5a32219753f51b695">&#9670;&nbsp;</a></span>ccolumn_dfs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ccolumn_dfs </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_global_l_u__t.html">GlobalLU_t</a> *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3891d961d41be3af94b755b27d371c1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3891d961d41be3af94b755b27d371c1d">&#9670;&nbsp;</a></span>cCompRow_to_CompCol()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cCompRow_to_CompCol </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a> **&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2b7edfb65023104b0f88f5aaab393248"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b7edfb65023104b0f88f5aaab393248">&#9670;&nbsp;</a></span>cCopy_CompCol_Matrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cCopy_CompCol_Matrix </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7378a64fc445fa7e0101059d7353f4ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7378a64fc445fa7e0101059d7353f4ac">&#9670;&nbsp;</a></span>cCopy_Dense_Matrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cCopy_Dense_Matrix </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a247f30177d193339d293899fe702afe6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a247f30177d193339d293899fe702afe6">&#9670;&nbsp;</a></span>ccopy_to_ucol()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ccopy_to_ucol </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_global_l_u__t.html">GlobalLU_t</a> *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4f54bdbff678075fdf06720bbb299346"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f54bdbff678075fdf06720bbb299346">&#9670;&nbsp;</a></span>cCreate_CompCol_Matrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cCreate_CompCol_Matrix </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="supermatrix_8h.html#a9d2ddedeb2a3d92e950811c61d0b8796">Stype_t</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="supermatrix_8h.html#a7987cb2a28ec879b39a90e9e48e29190">Dtype_t</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="supermatrix_8h.html#a5962adac634f3feebe487ad443802d60">Mtype_t</a>&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a866240e7f5a35e821bc898d2e5ba26fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a866240e7f5a35e821bc898d2e5ba26fc">&#9670;&nbsp;</a></span>cCreate_CompRow_Matrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cCreate_CompRow_Matrix </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="supermatrix_8h.html#a9d2ddedeb2a3d92e950811c61d0b8796">Stype_t</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="supermatrix_8h.html#a7987cb2a28ec879b39a90e9e48e29190">Dtype_t</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="supermatrix_8h.html#a5962adac634f3feebe487ad443802d60">Mtype_t</a>&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9af123cab0520e5800a1b60668a09de6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9af123cab0520e5800a1b60668a09de6">&#9670;&nbsp;</a></span>cCreate_Dense_Matrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cCreate_Dense_Matrix </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="supermatrix_8h.html#a9d2ddedeb2a3d92e950811c61d0b8796">Stype_t</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="supermatrix_8h.html#a7987cb2a28ec879b39a90e9e48e29190">Dtype_t</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="supermatrix_8h.html#a5962adac634f3feebe487ad443802d60">Mtype_t</a>&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a63d7d14c6a2312b9f95844e5055deae9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63d7d14c6a2312b9f95844e5055deae9">&#9670;&nbsp;</a></span>cCreate_SuperNode_Matrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cCreate_SuperNode_Matrix </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="supermatrix_8h.html#a9d2ddedeb2a3d92e950811c61d0b8796">Stype_t</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="supermatrix_8h.html#a7987cb2a28ec879b39a90e9e48e29190">Dtype_t</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="supermatrix_8h.html#a5962adac634f3feebe487ad443802d60">Mtype_t</a>&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a614eea417aeb37825463637f47c980ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a614eea417aeb37825463637f47c980ba">&#9670;&nbsp;</a></span>cfill()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cfill </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a>&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aafc07318b1802f00402e7d8afbeaaeae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafc07318b1802f00402e7d8afbeaaeae">&#9670;&nbsp;</a></span>cFillRHS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cFillRHS </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="slu__util_8h.html#a0c4e17b2d5cea33f9991ccc6a6678d62">trans_t</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7f454dd3045fdd51e8bf0d29c7561fe5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f454dd3045fdd51e8bf0d29c7561fe5">&#9670;&nbsp;</a></span>cGenXtrue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cGenXtrue </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2ca330446884f122ee31f4f2b5243abe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ca330446884f122ee31f4f2b5243abe">&#9670;&nbsp;</a></span>cgscon()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cgscon </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_l_u_stat__t.html">SuperLUStat_t</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad34b27648bc5b43d1ad19dd017f8273f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad34b27648bc5b43d1ad19dd017f8273f">&#9670;&nbsp;</a></span>cgsequ()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cgsequ </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a64715c1d0510eaf5f8e37f2465e9e8d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64715c1d0510eaf5f8e37f2465e9e8d6">&#9670;&nbsp;</a></span>cgsrfs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cgsrfs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="slu__util_8h.html#a0c4e17b2d5cea33f9991ccc6a6678d62">trans_t</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_l_u_stat__t.html">SuperLUStat_t</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a58aff6521bb64732e981ce5779820a89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58aff6521bb64732e981ce5779820a89">&#9670;&nbsp;</a></span>cgssv()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cgssv </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structsuperlu__options__t.html">superlu_options_t</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_l_u_stat__t.html">SuperLUStat_t</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a264b6681cc04244cdd116978acfe4e2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a264b6681cc04244cdd116978acfe4e2a">&#9670;&nbsp;</a></span>cgssvx()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cgssvx </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structsuperlu__options__t.html">superlu_options_t</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structmem__usage__t.html">mem_usage_t</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_l_u_stat__t.html">SuperLUStat_t</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a877cd41521f1bf5fca49411c62be1f32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a877cd41521f1bf5fca49411c62be1f32">&#9670;&nbsp;</a></span>cgstrf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cgstrf </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structsuperlu__options__t.html">superlu_options_t</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_l_u_stat__t.html">SuperLUStat_t</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa45033d577ad2afbe488a837d6aba8cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa45033d577ad2afbe488a837d6aba8cf">&#9670;&nbsp;</a></span>cgstrs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cgstrs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="slu__util_8h.html#a0c4e17b2d5cea33f9991ccc6a6678d62">trans_t</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_l_u_stat__t.html">SuperLUStat_t</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2cfc97393b65ddc5a40fdc523a50003a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cfc97393b65ddc5a40fdc523a50003a">&#9670;&nbsp;</a></span>check_tempv()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void check_tempv </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a> *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a293818022b119a511598f4766c54a1ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a293818022b119a511598f4766c54a1ee">&#9670;&nbsp;</a></span>cinf_norm_error()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cinf_norm_error </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a> *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adbc57dc56d0c962aa148a573895883b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbc57dc56d0c962aa148a573895883b0">&#9670;&nbsp;</a></span>claqgs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void claqgs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aac64cecec54f0e308e6e83233eb6940a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac64cecec54f0e308e6e83233eb6940a">&#9670;&nbsp;</a></span>cLUMemInit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cLUMemInit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="slu__util_8h.html#ac785c8235480e5cfef9848d89c047c0a">fact_t</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_global_l_u__t.html">GlobalLU_t</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a> **&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a255ed62863700298939edfda48ae534a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a255ed62863700298939edfda48ae534a">&#9670;&nbsp;</a></span>cLUMemXpand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cLUMemXpand </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="slu__util_8h.html#abd31f838aefffa46191d0d7dc36a96b2">MemType</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_global_l_u__t.html">GlobalLU_t</a> *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa759583daf08db801cf6fe8018442d4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa759583daf08db801cf6fe8018442d4c">&#9670;&nbsp;</a></span>cLUWorkFree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cLUWorkFree </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_global_l_u__t.html">GlobalLU_t</a> *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acea36c2598bb3f8a27b6985634d2b8e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acea36c2598bb3f8a27b6985634d2b8e9">&#9670;&nbsp;</a></span>cmemory_usage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cmemory_usage </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af558e3813415369a8805c473a7eaa5e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af558e3813415369a8805c473a7eaa5e8">&#9670;&nbsp;</a></span>complexCalloc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structcomplex.html">complex</a>* complexCalloc </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adb98fa14a907e0e848a35e896d4040db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb98fa14a907e0e848a35e896d4040db">&#9670;&nbsp;</a></span>complexMalloc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structcomplex.html">complex</a>* complexMalloc </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8086902aa8be3fc7d04c3c82ec3a79dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8086902aa8be3fc7d04c3c82ec3a79dc">&#9670;&nbsp;</a></span>countnz()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void countnz </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_global_l_u__t.html">GlobalLU_t</a> *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac37d9a28b8745daf72ae1d5ad29c140d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac37d9a28b8745daf72ae1d5ad29c140d">&#9670;&nbsp;</a></span>cpanel_bmod()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpanel_bmod </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_global_l_u__t.html">GlobalLU_t</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_l_u_stat__t.html">SuperLUStat_t</a> *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a780968651deed587e187bd7661edbb20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a780968651deed587e187bd7661edbb20">&#9670;&nbsp;</a></span>cpanel_dfs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpanel_dfs </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_global_l_u__t.html">GlobalLU_t</a> *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9a5b1cc4e96708825cc21108ebbeb061"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a5b1cc4e96708825cc21108ebbeb061">&#9670;&nbsp;</a></span>cPivotGrowth()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float cPivotGrowth </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a23f8c60d4e5a5c2f28ae2878ae814ca9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23f8c60d4e5a5c2f28ae2878ae814ca9">&#9670;&nbsp;</a></span>cpivotL()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cpivotL </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_global_l_u__t.html">GlobalLU_t</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_l_u_stat__t.html">SuperLUStat_t</a> *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af091472c1fb3c085c384bf52b3bebd8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af091472c1fb3c085c384bf52b3bebd8d">&#9670;&nbsp;</a></span>cPrint_CompCol_Matrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cPrint_CompCol_Matrix </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1cbad8400b16c776b112f20b8645757d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cbad8400b16c776b112f20b8645757d">&#9670;&nbsp;</a></span>cPrint_Dense_Matrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cPrint_Dense_Matrix </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8482f76b710a91d26250bca719b9d00c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8482f76b710a91d26250bca719b9d00c">&#9670;&nbsp;</a></span>cPrint_SuperNode_Matrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cPrint_SuperNode_Matrix </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a65d7df9e58c2415f455dbe6db9a99f2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65d7df9e58c2415f455dbe6db9a99f2b">&#9670;&nbsp;</a></span>cpruneL()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpruneL </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_global_l_u__t.html">GlobalLU_t</a> *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7ac9ff71eef6bf8c52c41eb9209a0caf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ac9ff71eef6bf8c52c41eb9209a0caf">&#9670;&nbsp;</a></span>cQuerySpace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cQuerySpace </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structmem__usage__t.html">mem_usage_t</a> *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a34243c626347c973358d3d095802783b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34243c626347c973358d3d095802783b">&#9670;&nbsp;</a></span>creadhb()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void creadhb </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a> **&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a88701835280a367a90b9ea2a73f946f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88701835280a367a90b9ea2a73f946f0">&#9670;&nbsp;</a></span>creadmt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void creadmt </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a> **&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af3bbcd362fb260a0dba5488a3e4ee926"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3bbcd362fb260a0dba5488a3e4ee926">&#9670;&nbsp;</a></span>cSetRWork()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cSetRWork </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a> **&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a> **&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aab1987caf36c8eedcf605b59e56a9d5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab1987caf36c8eedcf605b59e56a9d5d">&#9670;&nbsp;</a></span>csnode_bmod()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int csnode_bmod </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_global_l_u__t.html">GlobalLU_t</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_l_u_stat__t.html">SuperLUStat_t</a> *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac98da7d6b5809dadb1cae9bc019619ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac98da7d6b5809dadb1cae9bc019619ce">&#9670;&nbsp;</a></span>csnode_dfs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int csnode_dfs </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_global_l_u__t.html">GlobalLU_t</a> *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7061332d759d7e4d73c1b2e5cb0bf2bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7061332d759d7e4d73c1b2e5cb0bf2bf">&#9670;&nbsp;</a></span>fixupL()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void fixupL </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_global_l_u__t.html">GlobalLU_t</a> *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3e1230bff11a9e47c35555299bcdcf1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e1230bff11a9e47c35555299bcdcf1b">&#9670;&nbsp;</a></span>floatCalloc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float* floatCalloc </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a42361c3ce2ba81d149ffba01fbd6f138"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42361c3ce2ba81d149ffba01fbd6f138">&#9670;&nbsp;</a></span>floatMalloc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float* floatMalloc </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4eb909967bdba5d1c9e1adcfcba55be1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4eb909967bdba5d1c9e1adcfcba55be1">&#9670;&nbsp;</a></span>print_lu_col()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void print_lu_col </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_global_l_u__t.html">GlobalLU_t</a> *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7a41152a5800bc02bef17b56e070d0e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a41152a5800bc02bef17b56e070d0e6">&#9670;&nbsp;</a></span>PrintPerf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PrintPerf </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structmem__usage__t.html">mem_usage_t</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0473a1696817ed02c501ca8af8ff0285"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0473a1696817ed02c501ca8af8ff0285">&#9670;&nbsp;</a></span>sp_cgemm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sp_cgemm </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a59e320a29e9ded59a46e8d64619ffac6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59e320a29e9ded59a46e8d64619ffac6">&#9670;&nbsp;</a></span>sp_cgemv()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sp_cgemv </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8299a994a223b7178314fe7faff74508"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8299a994a223b7178314fe7faff74508">&#9670;&nbsp;</a></span>sp_ctrsv()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sp_ctrsv </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_matrix.html">SuperMatrix</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcomplex.html">complex</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_super_l_u_stat__t.html">SuperLUStat_t</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_1481b2ad69b2eab628871d4fb2bac45c.html">hypre-2.11.1</a></li><li class="navelem"><a class="el" href="slu__cdefs_8h.html">slu_cdefs.h</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

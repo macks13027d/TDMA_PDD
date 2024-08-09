@@ -1,0 +1,331 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="TDMA_PDD" />
+<meta property="og:image" content="../preview.png" />
+<meta property="og:description" content="Documentation for Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="../preview.png" />
+<meta property="og:title" content="TDMA_PDD" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD" />
+<!-- END twitter metadata -->
+<title>TDMA_PDD: File Members</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            messageStyle: "normal",
+            linebreaks: {
+                automatic: false
+            }
+        },
+        tex2jax: { 
+            inlineMath: [["\\(","\\)"]], 
+            displayMath: [["$$","$$"],["\\[","\\]"]], 
+            processEscapes: true
+        },
+        TeX: {
+            Macros: {
+                tr: "{\\scriptscriptstyle\\mathrm{T}}",
+            }
+        }
+    });
+</script>
+<!--MathJax(LaTeX) -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <script type="text/javascript" id="MathJax-script" async  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">  </script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="custom-alternative.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/hugh577/TDMA_PDD" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 65px;">
+  <td id="projectlogo">
+    <a href="./index.html">
+        <img alt="Logo" src="home.png"/></td>
+    </a>
+  <td id="projectalign" style="padding-left: 0.5em;padding-top: 0.5em;">
+   <div id="projectname">TDMA_PDD
+   </div>
+   <div id="projectbrief">Documentation</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('globals_func_d.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="contents">
+&#160;
+
+<h3><a id="index_d"></a>- d -</h3><ul>
+<li>d_cnjg()
+: <a class="el" href="slu__dcomplex_8h.html#a753978ee017e26dbdab16a40cf45b2cb">slu_dcomplex.h</a>
+</li>
+<li>d_imag()
+: <a class="el" href="slu__dcomplex_8h.html#a7a81445c4ec55ec40b6c5f3014887e61">slu_dcomplex.h</a>
+</li>
+<li>dallocateA()
+: <a class="el" href="slu__ddefs_8h.html#a3a86154bfb6453d6358ef52ab1ecfe2d">slu_ddefs.h</a>
+</li>
+<li>dcolumn_bmod()
+: <a class="el" href="slu__ddefs_8h.html#a351174e818ab7d5149ec9dc116b3a242">slu_ddefs.h</a>
+</li>
+<li>dcolumn_dfs()
+: <a class="el" href="slu__ddefs_8h.html#a1414b492a902b8da3c2e1b620b922644">slu_ddefs.h</a>
+</li>
+<li>dCompRow_to_CompCol()
+: <a class="el" href="slu__ddefs_8h.html#afab4013ae32ca6413508cefa1e8143d5">slu_ddefs.h</a>
+</li>
+<li>dCopy_CompCol_Matrix()
+: <a class="el" href="slu__ddefs_8h.html#a21c06d544ecb9028142abd70a583dd68">slu_ddefs.h</a>
+</li>
+<li>dCopy_Dense_Matrix()
+: <a class="el" href="slu__ddefs_8h.html#a9bf038cd2c143a48a14a562ca1f67e27">slu_ddefs.h</a>
+</li>
+<li>dcopy_to_ucol()
+: <a class="el" href="slu__ddefs_8h.html#a9dfcee23fab091d05a4301e25b3b4227">slu_ddefs.h</a>
+</li>
+<li>dCreate_CompCol_Matrix()
+: <a class="el" href="slu__ddefs_8h.html#a3a3d0af1360639f21edacae8f93eb828">slu_ddefs.h</a>
+</li>
+<li>dCreate_CompRow_Matrix()
+: <a class="el" href="slu__ddefs_8h.html#a0807ebe794e4353779d2947e9df0f485">slu_ddefs.h</a>
+</li>
+<li>dCreate_Dense_Matrix()
+: <a class="el" href="slu__ddefs_8h.html#a08d9d6bf3069c89c0c1207967599c4fc">slu_ddefs.h</a>
+</li>
+<li>dCreate_SuperNode_Matrix()
+: <a class="el" href="slu__ddefs_8h.html#a649094ccbc54eaed4ca787fd970049f6">slu_ddefs.h</a>
+</li>
+<li>Destroy_CompCol_Matrix()
+: <a class="el" href="slu__util_8h.html#a4257e4d9cca1db286b73154d81ec3880">slu_util.h</a>
+</li>
+<li>Destroy_CompCol_Permuted()
+: <a class="el" href="slu__util_8h.html#a4de38e1c0ef18dd0791cb206c7f5348f">slu_util.h</a>
+</li>
+<li>Destroy_CompRow_Matrix()
+: <a class="el" href="slu__util_8h.html#a98cbb427c29a6be1760288b63857bc12">slu_util.h</a>
+</li>
+<li>Destroy_Dense_Matrix()
+: <a class="el" href="slu__util_8h.html#a9f7e658f2e17e08b2d88fadc11f2b437">slu_util.h</a>
+</li>
+<li>Destroy_SuperMatrix_Store()
+: <a class="el" href="slu__util_8h.html#a2c43be55861c6e4ee5b806ac16cc382c">slu_util.h</a>
+</li>
+<li>Destroy_SuperNode_Matrix()
+: <a class="el" href="slu__util_8h.html#ade01201644d38ff78cd1824ff2e5022b">slu_util.h</a>
+</li>
+<li>dfill()
+: <a class="el" href="slu__ddefs_8h.html#ab20cdc6e4aed319a43b967496932b3e0">slu_ddefs.h</a>
+</li>
+<li>dFillRHS()
+: <a class="el" href="slu__ddefs_8h.html#aac4705e1c2b9892fd11115ef3cd40bb8">slu_ddefs.h</a>
+</li>
+<li>dfun()
+: <a class="el" href="__hypre__parcsr__ls_8h.html#a6fe8d5c464b63cfce35ef3609cbc4912">_hypre_parcsr_ls.h</a>
+</li>
+<li>dGenXtrue()
+: <a class="el" href="slu__ddefs_8h.html#aebd8d273c58591dc435e1afd4e837d9f">slu_ddefs.h</a>
+</li>
+<li>dgscon()
+: <a class="el" href="slu__ddefs_8h.html#a1a5e04478d6d6e4f714fee3080f5a065">slu_ddefs.h</a>
+</li>
+<li>dgsequ()
+: <a class="el" href="slu__ddefs_8h.html#afba0263dae6d5d3a700e9e7a120d6b87">slu_ddefs.h</a>
+</li>
+<li>dgsrfs()
+: <a class="el" href="slu__ddefs_8h.html#a424f8b36e210117c4dea0c590e977bb4">slu_ddefs.h</a>
+</li>
+<li>dgssv()
+: <a class="el" href="slu__ddefs_8h.html#a2c8a0856fb555c352ed0f43989d1d71e">slu_ddefs.h</a>
+</li>
+<li>dgssvx()
+: <a class="el" href="slu__ddefs_8h.html#a55ccb099a318043965a941a7fd8cb095">slu_ddefs.h</a>
+</li>
+<li>dgstrf()
+: <a class="el" href="slu__ddefs_8h.html#a0bd7d78413e339698b01a44765db04c3">slu_ddefs.h</a>
+</li>
+<li>dgstrs()
+: <a class="el" href="slu__ddefs_8h.html#a8d42744f59d84a50b19aa4c28cf7aded">slu_ddefs.h</a>
+</li>
+<li>dinf_norm_error()
+: <a class="el" href="slu__ddefs_8h.html#ad778c065ce9768d1f971d8a556752f11">slu_ddefs.h</a>
+</li>
+<li>dlaqgs()
+: <a class="el" href="slu__ddefs_8h.html#a7c3a821ed273808f662ddd41be6c6c97">slu_ddefs.h</a>
+</li>
+<li>dLUMemInit()
+: <a class="el" href="slu__ddefs_8h.html#a12a4221c734db9540566cb1386a2e6fc">slu_ddefs.h</a>
+</li>
+<li>dLUMemXpand()
+: <a class="el" href="slu__ddefs_8h.html#a4cc8cb916b6bf5f2238c374aa7339f4c">slu_ddefs.h</a>
+</li>
+<li>dLUWorkFree()
+: <a class="el" href="slu__ddefs_8h.html#ae7976837d1936a3150abf5dd62f0c211">slu_ddefs.h</a>
+</li>
+<li>dmemory_usage()
+: <a class="el" href="slu__ddefs_8h.html#aa7bf96909e8e3579499f46a84b28d9df">slu_ddefs.h</a>
+</li>
+<li>doubleCalloc()
+: <a class="el" href="slu__ddefs_8h.html#a2b7be732f4d725dd35799d772473625e">slu_ddefs.h</a>
+, <a class="el" href="slu__zdefs_8h.html#a2b7be732f4d725dd35799d772473625e">slu_zdefs.h</a>
+</li>
+<li>doublecomplexCalloc()
+: <a class="el" href="slu__zdefs_8h.html#ab7683ac1617339478753ab308a7b0fc5">slu_zdefs.h</a>
+</li>
+<li>doublecomplexMalloc()
+: <a class="el" href="slu__zdefs_8h.html#ae33b5268048e570c0cdf96498198e821">slu_zdefs.h</a>
+</li>
+<li>doubleMalloc()
+: <a class="el" href="slu__zdefs_8h.html#a47c4cf79f8c6305147a70de6da2696ac">slu_zdefs.h</a>
+, <a class="el" href="slu__ddefs_8h.html#a47c4cf79f8c6305147a70de6da2696ac">slu_ddefs.h</a>
+</li>
+<li>dpanel_bmod()
+: <a class="el" href="slu__ddefs_8h.html#a22cfb6f57857cc7cb3d853ee5467656f">slu_ddefs.h</a>
+</li>
+<li>dpanel_dfs()
+: <a class="el" href="slu__ddefs_8h.html#aca83bf1fa16a64ea2ee575574a8bb969">slu_ddefs.h</a>
+</li>
+<li>dPivotGrowth()
+: <a class="el" href="slu__ddefs_8h.html#a2c1536c187133a8a8ea5d856a222eec5">slu_ddefs.h</a>
+</li>
+<li>dpivotL()
+: <a class="el" href="slu__ddefs_8h.html#a09624f0c44de80ee2731e44a333ee01c">slu_ddefs.h</a>
+</li>
+<li>dPrint_CompCol_Matrix()
+: <a class="el" href="slu__ddefs_8h.html#a4908a093c1b9d8d96e3fbba6c29673c1">slu_ddefs.h</a>
+</li>
+<li>dPrint_Dense_Matrix()
+: <a class="el" href="slu__ddefs_8h.html#ad440b7616886349fe2cde5ac490b0f7d">slu_ddefs.h</a>
+</li>
+<li>dPrint_SuperNode_Matrix()
+: <a class="el" href="slu__ddefs_8h.html#ad6acd040a093d5858b9b77d347be954c">slu_ddefs.h</a>
+</li>
+<li>dpruneL()
+: <a class="el" href="slu__ddefs_8h.html#a98c8e37fbd3e285de80ae5ebc633c64a">slu_ddefs.h</a>
+</li>
+<li>dQuerySpace()
+: <a class="el" href="slu__ddefs_8h.html#aa28191998cfaddc30d4728535a39d996">slu_ddefs.h</a>
+</li>
+<li>dreadhb()
+: <a class="el" href="slu__ddefs_8h.html#abe5e29734eb193fdda83f02fbb72a60a">slu_ddefs.h</a>
+</li>
+<li>dreadmt()
+: <a class="el" href="slu__ddefs_8h.html#aefc4e420b7fa27a770b4b9db6ba5cfc4">slu_ddefs.h</a>
+</li>
+<li>dSetRWork()
+: <a class="el" href="slu__ddefs_8h.html#a6248d2471a710335359db300b35c5066">slu_ddefs.h</a>
+</li>
+<li>dsnode_bmod()
+: <a class="el" href="slu__ddefs_8h.html#a289847afa67421491f96367c7f2fe90f">slu_ddefs.h</a>
+</li>
+<li>dsnode_dfs()
+: <a class="el" href="slu__ddefs_8h.html#ab0fe8232652578797bee690fcd8adfd0">slu_ddefs.h</a>
+</li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

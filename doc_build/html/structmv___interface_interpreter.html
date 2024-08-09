@@ -1,0 +1,634 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="TDMA_PDD" />
+<meta property="og:image" content="../preview.png" />
+<meta property="og:description" content="Documentation for Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="../preview.png" />
+<meta property="og:title" content="TDMA_PDD" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD" />
+<!-- END twitter metadata -->
+<title>TDMA_PDD: mv_InterfaceInterpreter Struct Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            messageStyle: "normal",
+            linebreaks: {
+                automatic: false
+            }
+        },
+        tex2jax: { 
+            inlineMath: [["\\(","\\)"]], 
+            displayMath: [["$$","$$"],["\\[","\\]"]], 
+            processEscapes: true
+        },
+        TeX: {
+            Macros: {
+                tr: "{\\scriptscriptstyle\\mathrm{T}}",
+            }
+        }
+    });
+</script>
+<!--MathJax(LaTeX) -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <script type="text/javascript" id="MathJax-script" async  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">  </script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="custom-alternative.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/hugh577/TDMA_PDD" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 65px;">
+  <td id="projectlogo">
+    <a href="./index.html">
+        <img alt="Logo" src="home.png"/></td>
+    </a>
+  <td id="projectalign" style="padding-left: 0.5em;padding-top: 0.5em;">
+   <div id="projectname">TDMA_PDD
+   </div>
+   <div id="projectbrief">Documentation</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('structmv___interface_interpreter.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="structmv___interface_interpreter-members.html">List of all members</a>  </div>
+  <div class="headertitle">
+<div class="title">mv_InterfaceInterpreter Struct Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="interpreter_8h_source.html">interpreter.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a051695c0ace31f8e8a2bb37e617dd804"><td class="memItemLeft" align="right" valign="top">void *(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmv___interface_interpreter.html#a051695c0ace31f8e8a2bb37e617dd804">CreateVector</a> )(void *vector)</td></tr>
+<tr class="separator:a051695c0ace31f8e8a2bb37e617dd804"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a090079c56b18043a6ba4276ea8677fc4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmv___interface_interpreter.html#a090079c56b18043a6ba4276ea8677fc4">DestroyVector</a> )(void *vector)</td></tr>
+<tr class="separator:a090079c56b18043a6ba4276ea8677fc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ee4134cb8472c83075ba886e3a5c1d1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmv___interface_interpreter.html#a5ee4134cb8472c83075ba886e3a5c1d1">InnerProd</a> )(void *x, void *y)</td></tr>
+<tr class="separator:a5ee4134cb8472c83075ba886e3a5c1d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5654d16d86295dbdf77d4bfba8eaa1b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmv___interface_interpreter.html#a5654d16d86295dbdf77d4bfba8eaa1b0">CopyVector</a> )(void *x, void *y)</td></tr>
+<tr class="separator:a5654d16d86295dbdf77d4bfba8eaa1b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a819de5906cc82734df520f12d3010c50"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmv___interface_interpreter.html#a819de5906cc82734df520f12d3010c50">ClearVector</a> )(void *x)</td></tr>
+<tr class="separator:a819de5906cc82734df520f12d3010c50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a341239aa975de45bbac1e3f19a33853d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmv___interface_interpreter.html#a341239aa975de45bbac1e3f19a33853d">SetRandomValues</a> )(void *x, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> seed)</td></tr>
+<tr class="separator:a341239aa975de45bbac1e3f19a33853d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14e394504e6a2a9c597b77e513df6299"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmv___interface_interpreter.html#a14e394504e6a2a9c597b77e513df6299">ScaleVector</a> )(<a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> alpha, void *x)</td></tr>
+<tr class="separator:a14e394504e6a2a9c597b77e513df6299"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2552f73448f49f9c8e7304480f42949b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmv___interface_interpreter.html#a2552f73448f49f9c8e7304480f42949b">Axpy</a> )(<a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> alpha, void *x, void *y)</td></tr>
+<tr class="separator:a2552f73448f49f9c8e7304480f42949b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4edd80ae54fec325b7b24f9682337938"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmv___interface_interpreter.html#a4edd80ae54fec325b7b24f9682337938">VectorSize</a> )(void *vector)</td></tr>
+<tr class="separator:a4edd80ae54fec325b7b24f9682337938"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bd924bbd00dedb71376a3668c3ba48f"><td class="memItemLeft" align="right" valign="top">void *(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmv___interface_interpreter.html#a3bd924bbd00dedb71376a3668c3ba48f">CreateMultiVector</a> )(void *, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> n, void *vector)</td></tr>
+<tr class="separator:a3bd924bbd00dedb71376a3668c3ba48f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd89d9a049718514b2dfc050f6873024"><td class="memItemLeft" align="right" valign="top">void *(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmv___interface_interpreter.html#abd89d9a049718514b2dfc050f6873024">CopyCreateMultiVector</a> )(void *x, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>)</td></tr>
+<tr class="separator:abd89d9a049718514b2dfc050f6873024"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3389dfe77323d6c44b4a71b2d8b359ac"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmv___interface_interpreter.html#a3389dfe77323d6c44b4a71b2d8b359ac">DestroyMultiVector</a> )(void *x)</td></tr>
+<tr class="separator:a3389dfe77323d6c44b4a71b2d8b359ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a814c80beb23dd40464567cfdc4980813"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmv___interface_interpreter.html#a814c80beb23dd40464567cfdc4980813">Width</a> )(void *x)</td></tr>
+<tr class="separator:a814c80beb23dd40464567cfdc4980813"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af66c3e4d5369efdb090898a0fa830540"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmv___interface_interpreter.html#af66c3e4d5369efdb090898a0fa830540">Height</a> )(void *x)</td></tr>
+<tr class="separator:af66c3e4d5369efdb090898a0fa830540"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1aec417af9381aad327e21dcaa21186e"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmv___interface_interpreter.html#a1aec417af9381aad327e21dcaa21186e">SetMask</a> )(void *x, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *mask)</td></tr>
+<tr class="separator:a1aec417af9381aad327e21dcaa21186e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5ecc53852a44494661e711c0307a406"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmv___interface_interpreter.html#ad5ecc53852a44494661e711c0307a406">CopyMultiVector</a> )(void *x, void *y)</td></tr>
+<tr class="separator:ad5ecc53852a44494661e711c0307a406"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65890fa7d957704b627cc392a606ef25"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmv___interface_interpreter.html#a65890fa7d957704b627cc392a606ef25">ClearMultiVector</a> )(void *x)</td></tr>
+<tr class="separator:a65890fa7d957704b627cc392a606ef25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3917e46d4323ba6b36d5d5f6e95e4491"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmv___interface_interpreter.html#a3917e46d4323ba6b36d5d5f6e95e4491">SetRandomVectors</a> )(void *x, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> seed)</td></tr>
+<tr class="separator:a3917e46d4323ba6b36d5d5f6e95e4491"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaac658b5014d0d1c60acaa8169df3f8d"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmv___interface_interpreter.html#aaac658b5014d0d1c60acaa8169df3f8d">MultiInnerProd</a> )(void *x, void *y, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> *)</td></tr>
+<tr class="separator:aaac658b5014d0d1c60acaa8169df3f8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0322a01f1b3e4e939e76488d7e774c80"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmv___interface_interpreter.html#a0322a01f1b3e4e939e76488d7e774c80">MultiInnerProdDiag</a> )(void *x, void *y, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> *)</td></tr>
+<tr class="separator:a0322a01f1b3e4e939e76488d7e774c80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10e92977465030c8a3bbe0d08c6d4cb7"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmv___interface_interpreter.html#a10e92977465030c8a3bbe0d08c6d4cb7">MultiVecMat</a> )(void *x, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *, void *y)</td></tr>
+<tr class="separator:a10e92977465030c8a3bbe0d08c6d4cb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba30bb06d246e1e9816b10e626f75b8c"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmv___interface_interpreter.html#aba30bb06d246e1e9816b10e626f75b8c">MultiVecMatDiag</a> )(void *x, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *, void *y)</td></tr>
+<tr class="separator:aba30bb06d246e1e9816b10e626f75b8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27801db630f6b7d04d51e2213183adb9"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmv___interface_interpreter.html#a27801db630f6b7d04d51e2213183adb9">MultiAxpy</a> )(<a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> alpha, void *x, void *y)</td></tr>
+<tr class="separator:a27801db630f6b7d04d51e2213183adb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5dcf0c999b95773032d47a09c2230b3"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmv___interface_interpreter.html#ac5dcf0c999b95773032d47a09c2230b3">MultiXapy</a> )(void *x, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *, void *y)</td></tr>
+<tr class="separator:ac5dcf0c999b95773032d47a09c2230b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2e320c50fe467b286e08dcbf406891d"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmv___interface_interpreter.html#ac2e320c50fe467b286e08dcbf406891d">Eval</a> )(void(*f)(void *, void *, void *), void *, void *x, void *y)</td></tr>
+<tr class="separator:ac2e320c50fe467b286e08dcbf406891d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="interpreter_8h_source.html#l00018">18</a> of file <a class="el" href="interpreter_8h_source.html">interpreter.h</a>.</p>
+</div><h2 class="groupheader">Member Data Documentation</h2>
+<a id="a2552f73448f49f9c8e7304480f42949b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2552f73448f49f9c8e7304480f42949b">&#9670;&nbsp;</a></span>Axpy</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>(* mv_InterfaceInterpreter::Axpy) (<a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> alpha, void *x, void *y)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="interpreter_8h_source.html#l00029">29</a> of file <a class="el" href="interpreter_8h_source.html">interpreter.h</a>.</p>
+
+</div>
+</div>
+<a id="a65890fa7d957704b627cc392a606ef25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65890fa7d957704b627cc392a606ef25">&#9670;&nbsp;</a></span>ClearMultiVector</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* mv_InterfaceInterpreter::ClearMultiVector) (void *x)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="interpreter_8h_source.html#l00044">44</a> of file <a class="el" href="interpreter_8h_source.html">interpreter.h</a>.</p>
+
+</div>
+</div>
+<a id="a819de5906cc82734df520f12d3010c50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a819de5906cc82734df520f12d3010c50">&#9670;&nbsp;</a></span>ClearVector</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>(* mv_InterfaceInterpreter::ClearVector) (void *x)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="interpreter_8h_source.html#l00026">26</a> of file <a class="el" href="interpreter_8h_source.html">interpreter.h</a>.</p>
+
+</div>
+</div>
+<a id="abd89d9a049718514b2dfc050f6873024"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd89d9a049718514b2dfc050f6873024">&#9670;&nbsp;</a></span>CopyCreateMultiVector</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void*(* mv_InterfaceInterpreter::CopyCreateMultiVector) (void *x, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="interpreter_8h_source.html#l00035">35</a> of file <a class="el" href="interpreter_8h_source.html">interpreter.h</a>.</p>
+
+</div>
+</div>
+<a id="ad5ecc53852a44494661e711c0307a406"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5ecc53852a44494661e711c0307a406">&#9670;&nbsp;</a></span>CopyMultiVector</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* mv_InterfaceInterpreter::CopyMultiVector) (void *x, void *y)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="interpreter_8h_source.html#l00043">43</a> of file <a class="el" href="interpreter_8h_source.html">interpreter.h</a>.</p>
+
+</div>
+</div>
+<a id="a5654d16d86295dbdf77d4bfba8eaa1b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5654d16d86295dbdf77d4bfba8eaa1b0">&#9670;&nbsp;</a></span>CopyVector</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>(* mv_InterfaceInterpreter::CopyVector) (void *x, void *y)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="interpreter_8h_source.html#l00025">25</a> of file <a class="el" href="interpreter_8h_source.html">interpreter.h</a>.</p>
+
+</div>
+</div>
+<a id="a3bd924bbd00dedb71376a3668c3ba48f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bd924bbd00dedb71376a3668c3ba48f">&#9670;&nbsp;</a></span>CreateMultiVector</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void*(* mv_InterfaceInterpreter::CreateMultiVector) (void *, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> n, void *vector)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="interpreter_8h_source.html#l00034">34</a> of file <a class="el" href="interpreter_8h_source.html">interpreter.h</a>.</p>
+
+</div>
+</div>
+<a id="a051695c0ace31f8e8a2bb37e617dd804"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a051695c0ace31f8e8a2bb37e617dd804">&#9670;&nbsp;</a></span>CreateVector</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void*(* mv_InterfaceInterpreter::CreateVector) (void *vector)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="interpreter_8h_source.html#l00021">21</a> of file <a class="el" href="interpreter_8h_source.html">interpreter.h</a>.</p>
+
+</div>
+</div>
+<a id="a3389dfe77323d6c44b4a71b2d8b359ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3389dfe77323d6c44b4a71b2d8b359ac">&#9670;&nbsp;</a></span>DestroyMultiVector</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* mv_InterfaceInterpreter::DestroyMultiVector) (void *x)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="interpreter_8h_source.html#l00036">36</a> of file <a class="el" href="interpreter_8h_source.html">interpreter.h</a>.</p>
+
+</div>
+</div>
+<a id="a090079c56b18043a6ba4276ea8677fc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a090079c56b18043a6ba4276ea8677fc4">&#9670;&nbsp;</a></span>DestroyVector</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>(* mv_InterfaceInterpreter::DestroyVector) (void *vector)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="interpreter_8h_source.html#l00022">22</a> of file <a class="el" href="interpreter_8h_source.html">interpreter.h</a>.</p>
+
+</div>
+</div>
+<a id="ac2e320c50fe467b286e08dcbf406891d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2e320c50fe467b286e08dcbf406891d">&#9670;&nbsp;</a></span>Eval</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* mv_InterfaceInterpreter::Eval) (void(*f)(void *, void *, void *), void *, void *x, void *y)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="interpreter_8h_source.html#l00054">54</a> of file <a class="el" href="interpreter_8h_source.html">interpreter.h</a>.</p>
+
+</div>
+</div>
+<a id="af66c3e4d5369efdb090898a0fa830540"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af66c3e4d5369efdb090898a0fa830540">&#9670;&nbsp;</a></span>Height</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>(* mv_InterfaceInterpreter::Height) (void *x)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="interpreter_8h_source.html#l00039">39</a> of file <a class="el" href="interpreter_8h_source.html">interpreter.h</a>.</p>
+
+</div>
+</div>
+<a id="a5ee4134cb8472c83075ba886e3a5c1d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ee4134cb8472c83075ba886e3a5c1d1">&#9670;&nbsp;</a></span>InnerProd</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>(* mv_InterfaceInterpreter::InnerProd) (void *x, void *y)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="interpreter_8h_source.html#l00024">24</a> of file <a class="el" href="interpreter_8h_source.html">interpreter.h</a>.</p>
+
+</div>
+</div>
+<a id="a27801db630f6b7d04d51e2213183adb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27801db630f6b7d04d51e2213183adb9">&#9670;&nbsp;</a></span>MultiAxpy</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* mv_InterfaceInterpreter::MultiAxpy) (<a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> alpha, void *x, void *y)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="interpreter_8h_source.html#l00050">50</a> of file <a class="el" href="interpreter_8h_source.html">interpreter.h</a>.</p>
+
+</div>
+</div>
+<a id="aaac658b5014d0d1c60acaa8169df3f8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaac658b5014d0d1c60acaa8169df3f8d">&#9670;&nbsp;</a></span>MultiInnerProd</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* mv_InterfaceInterpreter::MultiInnerProd) (void *x, void *y, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> *)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="interpreter_8h_source.html#l00046">46</a> of file <a class="el" href="interpreter_8h_source.html">interpreter.h</a>.</p>
+
+</div>
+</div>
+<a id="a0322a01f1b3e4e939e76488d7e774c80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0322a01f1b3e4e939e76488d7e774c80">&#9670;&nbsp;</a></span>MultiInnerProdDiag</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* mv_InterfaceInterpreter::MultiInnerProdDiag) (void *x, void *y, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> *)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="interpreter_8h_source.html#l00047">47</a> of file <a class="el" href="interpreter_8h_source.html">interpreter.h</a>.</p>
+
+</div>
+</div>
+<a id="a10e92977465030c8a3bbe0d08c6d4cb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10e92977465030c8a3bbe0d08c6d4cb7">&#9670;&nbsp;</a></span>MultiVecMat</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* mv_InterfaceInterpreter::MultiVecMat) (void *x, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *, void *y)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="interpreter_8h_source.html#l00048">48</a> of file <a class="el" href="interpreter_8h_source.html">interpreter.h</a>.</p>
+
+</div>
+</div>
+<a id="aba30bb06d246e1e9816b10e626f75b8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba30bb06d246e1e9816b10e626f75b8c">&#9670;&nbsp;</a></span>MultiVecMatDiag</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* mv_InterfaceInterpreter::MultiVecMatDiag) (void *x, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *, void *y)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="interpreter_8h_source.html#l00049">49</a> of file <a class="el" href="interpreter_8h_source.html">interpreter.h</a>.</p>
+
+</div>
+</div>
+<a id="ac5dcf0c999b95773032d47a09c2230b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5dcf0c999b95773032d47a09c2230b3">&#9670;&nbsp;</a></span>MultiXapy</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* mv_InterfaceInterpreter::MultiXapy) (void *x, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *, void *y)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="interpreter_8h_source.html#l00053">53</a> of file <a class="el" href="interpreter_8h_source.html">interpreter.h</a>.</p>
+
+</div>
+</div>
+<a id="a14e394504e6a2a9c597b77e513df6299"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14e394504e6a2a9c597b77e513df6299">&#9670;&nbsp;</a></span>ScaleVector</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>(* mv_InterfaceInterpreter::ScaleVector) (<a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> alpha, void *x)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="interpreter_8h_source.html#l00028">28</a> of file <a class="el" href="interpreter_8h_source.html">interpreter.h</a>.</p>
+
+</div>
+</div>
+<a id="a1aec417af9381aad327e21dcaa21186e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1aec417af9381aad327e21dcaa21186e">&#9670;&nbsp;</a></span>SetMask</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* mv_InterfaceInterpreter::SetMask) (void *x, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *mask)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="interpreter_8h_source.html#l00041">41</a> of file <a class="el" href="interpreter_8h_source.html">interpreter.h</a>.</p>
+
+</div>
+</div>
+<a id="a341239aa975de45bbac1e3f19a33853d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a341239aa975de45bbac1e3f19a33853d">&#9670;&nbsp;</a></span>SetRandomValues</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>(* mv_InterfaceInterpreter::SetRandomValues) (void *x, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> seed)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="interpreter_8h_source.html#l00027">27</a> of file <a class="el" href="interpreter_8h_source.html">interpreter.h</a>.</p>
+
+</div>
+</div>
+<a id="a3917e46d4323ba6b36d5d5f6e95e4491"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3917e46d4323ba6b36d5d5f6e95e4491">&#9670;&nbsp;</a></span>SetRandomVectors</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* mv_InterfaceInterpreter::SetRandomVectors) (void *x, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> seed)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="interpreter_8h_source.html#l00045">45</a> of file <a class="el" href="interpreter_8h_source.html">interpreter.h</a>.</p>
+
+</div>
+</div>
+<a id="a4edd80ae54fec325b7b24f9682337938"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4edd80ae54fec325b7b24f9682337938">&#9670;&nbsp;</a></span>VectorSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>(* mv_InterfaceInterpreter::VectorSize) (void *vector)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="interpreter_8h_source.html#l00030">30</a> of file <a class="el" href="interpreter_8h_source.html">interpreter.h</a>.</p>
+
+</div>
+</div>
+<a id="a814c80beb23dd40464567cfdc4980813"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a814c80beb23dd40464567cfdc4980813">&#9670;&nbsp;</a></span>Width</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>(* mv_InterfaceInterpreter::Width) (void *x)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="interpreter_8h_source.html#l00038">38</a> of file <a class="el" href="interpreter_8h_source.html">interpreter.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li>include/hypre-2.11.1/<a class="el" href="interpreter_8h_source.html">interpreter.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="structmv___interface_interpreter.html">mv_InterfaceInterpreter</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

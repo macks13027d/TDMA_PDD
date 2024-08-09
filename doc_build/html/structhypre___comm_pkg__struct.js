@@ -1,0 +1,27 @@
+var structhypre___comm_pkg__struct =
+[
+    [ "comm", "structhypre___comm_pkg__struct.html#ad8140de8bbed096f6c6a958a3d7b4e7f", null ],
+    [ "copy_from_type", "structhypre___comm_pkg__struct.html#a3463c7901defe32a7bb1e194e3eeeb31", null ],
+    [ "copy_to_type", "structhypre___comm_pkg__struct.html#af0148fef477c6ef15452567a445a54bf", null ],
+    [ "entries", "structhypre___comm_pkg__struct.html#ad915947d65731a8ea3c65590ac4c48c0", null ],
+    [ "first_comm", "structhypre___comm_pkg__struct.html#aa215065c203131c16e38da105f527d0c", null ],
+    [ "identity_coord", "structhypre___comm_pkg__struct.html#ae4913b7561dd7a54cfbd81b2aff7177d", null ],
+    [ "identity_dir", "structhypre___comm_pkg__struct.html#a08e4dfe1279c7deab57cea1ff4deb6b7", null ],
+    [ "identity_order", "structhypre___comm_pkg__struct.html#a67db0d2e1f185f9161b18ce282c54fd9", null ],
+    [ "ndim", "structhypre___comm_pkg__struct.html#a2f270d7f456b16f811bcf42e2c399f25", null ],
+    [ "num_orders", "structhypre___comm_pkg__struct.html#aa5e649127ead7dfa2e3d94b41e20d1d1", null ],
+    [ "num_recvs", "structhypre___comm_pkg__struct.html#ac0e31b528d092c0119d6d18038c71fd6", null ],
+    [ "num_sends", "structhypre___comm_pkg__struct.html#adac03daf93ce6dedb5eaa8a5cdc81e09", null ],
+    [ "num_values", "structhypre___comm_pkg__struct.html#a4af5e81fdd1390eb2731ce54ecb96407", null ],
+    [ "orders", "structhypre___comm_pkg__struct.html#a713788f031e7dcf7f4b2ec4bb1cdb117", null ],
+    [ "recv_bufsize", "structhypre___comm_pkg__struct.html#a32865a1770bce622c21fe8d96fe19637", null ],
+    [ "recv_data_offsets", "structhypre___comm_pkg__struct.html#a43305b6ff4d077d8eb5e5df187e0e172", null ],
+    [ "recv_data_space", "structhypre___comm_pkg__struct.html#a31830eb99b8d0147ca317f4617af9467", null ],
+    [ "recv_stride", "structhypre___comm_pkg__struct.html#afc422d17af7a289060429cd03162ffe5", null ],
+    [ "recv_types", "structhypre___comm_pkg__struct.html#abfc013dc4c116115ed1d844bc2caa0b5", null ],
+    [ "rem_boxes", "structhypre___comm_pkg__struct.html#af869d42da96d89c39d5f3ae185169f32", null ],
+    [ "rem_boxnums", "structhypre___comm_pkg__struct.html#ad41a1c097d894aa63151d1546b4210b2", null ],
+    [ "send_bufsize", "structhypre___comm_pkg__struct.html#a23c1bf83ee666aedaed416cd5d39753e", null ],
+    [ "send_stride", "structhypre___comm_pkg__struct.html#a5aea5c6e8655a23fef607b8290e6bcf8", null ],
+    [ "send_types", "structhypre___comm_pkg__struct.html#aba76e9f79e99d4f9d596985fe37595b9", null ]
+];

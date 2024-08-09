@@ -1,0 +1,31 @@
+digraph "include/hypre-2.11.1/HYPRE.h"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="include/hypre-2.11.1\l/HYPRE.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="include/hypre-2.11.1\l/HYPRE_sstruct_ls.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_h_y_p_r_e__sstruct__ls_8h.html",tooltip=" "];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="include/hypre-2.11.1\l/_hypre_sstruct_ls.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$__hypre__sstruct__ls_8h.html",tooltip=" "];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="include/hypre-2.11.1\l/HYPRE_sstruct_mv.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_h_y_p_r_e__sstruct__mv_8h.html",tooltip=" "];
+  Node4 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="include/hypre-2.11.1\l/_hypre_sstruct_mv.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$__hypre__sstruct__mv_8h.html",tooltip=" "];
+  Node5 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="include/hypre-2.11.1\l/HYPRE_FEI.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_h_y_p_r_e___f_e_i_8h.html",tooltip=" "];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="include/hypre-2.11.1\l/LLNL_FEI_Matrix.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_l_l_n_l___f_e_i___matrix_8h.html",tooltip=" "];
+  Node7 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="include/hypre-2.11.1\l/LLNL_FEI_Fei.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_l_l_n_l___f_e_i___fei_8h.html",tooltip=" "];
+  Node8 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="include/hypre-2.11.1\l/LLNL_FEI_Impl.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_l_l_n_l___f_e_i___impl_8h.html",tooltip=" "];
+  Node7 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="include/hypre-2.11.1\l/LLNL_FEI_Solver.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_l_l_n_l___f_e_i___solver_8h.html",tooltip=" "];
+  Node10 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

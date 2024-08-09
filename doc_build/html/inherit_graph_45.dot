@@ -1,0 +1,8 @@
+digraph "Graphical Class Hierarchy"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="HYPRE_LSI_DDIlut_Struct",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$struct_h_y_p_r_e___l_s_i___d_d_ilut___struct.html",tooltip=" "];
+}

@@ -1,0 +1,6 @@
+nproc_x, nproc_y, nproc_z
+4        4        4      
+ndim(3=3D)  dir
+3           3 
+nx   ny   nz     
+256  256  256 

@@ -1,0 +1,514 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="TDMA_PDD" />
+<meta property="og:image" content="../preview.png" />
+<meta property="og:description" content="Documentation for Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="../preview.png" />
+<meta property="og:title" content="TDMA_PDD" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD" />
+<!-- END twitter metadata -->
+<title>TDMA_PDD: Data Fields - Variables</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            messageStyle: "normal",
+            linebreaks: {
+                automatic: false
+            }
+        },
+        tex2jax: { 
+            inlineMath: [["\\(","\\)"]], 
+            displayMath: [["$$","$$"],["\\[","\\]"]], 
+            processEscapes: true
+        },
+        TeX: {
+            Macros: {
+                tr: "{\\scriptscriptstyle\\mathrm{T}}",
+            }
+        }
+    });
+</script>
+<!--MathJax(LaTeX) -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <script type="text/javascript" id="MathJax-script" async  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">  </script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="custom-alternative.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/hugh577/TDMA_PDD" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 65px;">
+  <td id="projectlogo">
+    <a href="./index.html">
+        <img alt="Logo" src="home.png"/></td>
+    </a>
+  <td id="projectalign" style="padding-left: 0.5em;padding-top: 0.5em;">
+   <div id="projectname">TDMA_PDD
+   </div>
+   <div id="projectbrief">Documentation</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('functions_vars_n.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="contents">
+&#160;
+
+<h3><a id="index_n"></a>- n -</h3><ul>
+<li>n
+: <a class="el" href="struct_global_l_u__t.html#a48fcf5a7ff751514d92feeb40370fe5e">GlobalLU_t</a>
+</li>
+<li>N
+: <a class="el" href="structhypre___distributed_matrix.html#a8018812c6f10f0fb5be90d365e7de78f">hypre_DistributedMatrix</a>
+</li>
+<li>n_graph_entries
+: <a class="el" href="structhypre___s_struct_graph__struct.html#a08920336ef7cc825c9700ff93d21be58">hypre_SStructGraph_struct</a>
+</li>
+<li>nbor_boxmans
+: <a class="el" href="structhypre___s_struct_grid__struct.html#a91747e1e58b90979325e0a05b313ea06">hypre_SStructGrid_struct</a>
+</li>
+<li>nbor_ncomms
+: <a class="el" href="structhypre___s_struct_vector__struct.html#a128a8f6ed410f5535600a74151c1d0eb">hypre_SStructVector_struct</a>
+</li>
+<li>nbor_offsets
+: <a class="el" href="structhypre___s_struct_grid__struct.html#a5877d76cbc7fe7a9b61a51b0c29fc892">hypre_SStructGrid_struct</a>
+</li>
+<li>nCF_marker_l
+: <a class="el" href="structhypre___maxwell_data.html#a5e94c303a597430efd3bdb48af648da5">hypre_MaxwellData</a>
+</li>
+<li>ncol
+: <a class="el" href="struct_super_matrix.html#ab8b85bf206c36ebc2223cc2ec6acbe8c">SuperMatrix</a>
+</li>
+<li>ncols
+: <a class="el" href="structhypre___maxwell_off_proc_row.html#a3d9efddfe2ed81bd7328b915e6b93249">hypre_MaxwellOffProcRow</a>
+</li>
+<li>ndim
+: <a class="el" href="structhypre___box__struct.html#af68454e9c3198723a2ae208502c092f4">hypre_Box_struct</a>
+, <a class="el" href="structhypre___box_array__struct.html#ae9d6ca4181f4b5c235c64c1958101247">hypre_BoxArray_struct</a>
+, <a class="el" href="structhypre___box_array_array__struct.html#a4fa035ae60c14a973b8b786e3997b0ca">hypre_BoxArrayArray_struct</a>
+, <a class="el" href="structhypre___box_manager.html#a8ca6394780cb28bc71208641c1420a7a">hypre_BoxManager</a>
+, <a class="el" href="structhypre___box_man_entry__struct.html#af5bdf7a192b04c2deee3526be8e23773">hypre_BoxManEntry_struct</a>
+, <a class="el" href="structhypre___comm_info__struct.html#a44000b8c639e08f2e2fd5e51e4a1a804">hypre_CommInfo_struct</a>
+, <a class="el" href="structhypre___comm_pkg__struct.html#a2f270d7f456b16f811bcf42e2c399f25">hypre_CommPkg_struct</a>
+, <a class="el" href="structhypre___maxwell_data.html#aafa0b4e8ec47ddc393499454b582efe5">hypre_MaxwellData</a>
+, <a class="el" href="structhypre___s_struct_graph__struct.html#aff90ff34fb97f2fda642a3ec3b4ab8b9">hypre_SStructGraph_struct</a>
+, <a class="el" href="structhypre___s_struct_grid__struct.html#a2944167b8fb7311ec848d619cb04c69d">hypre_SStructGrid_struct</a>
+, <a class="el" href="structhypre___s_struct_matrix__struct.html#a7c46bed3ed7043b8a8363bfb172c64a7">hypre_SStructMatrix_struct</a>
+, <a class="el" href="structhypre___s_struct_p_grid.html#ae7af7572d8eb3909d6c6be9a50932a5a">hypre_SStructPGrid</a>
+, <a class="el" href="structhypre___s_struct_vector__struct.html#a10fecc12b107cbce9ccba9a6f66f577c">hypre_SStructVector_struct</a>
+, <a class="el" href="structhypre___struct_assumed_part.html#a7efece410b0fa53183f9cccfe3ede624">hypre_StructAssumedPart</a>
+, <a class="el" href="structhypre___struct_grid__struct.html#a5370c47ee1682128a7e7158fbce52dda">hypre_StructGrid_struct</a>
+, <a class="el" href="structhypre___struct_stencil__struct.html#a69febe83fc9773edcbae5dfd1abace18">hypre_StructStencil_struct</a>
+</li>
+<li>need_aux
+: <a class="el" href="structhypre___aux_par_c_s_r_matrix.html#a727868936ca1e30cb8a1a638d12653b4">hypre_AuxParCSRMatrix</a>
+</li>
+<li>neighbors
+: <a class="el" href="structhypre___s_struct_grid__struct.html#a5c3d8a1b5393e219b1eec5c7b3c8e2be">hypre_SStructGrid_struct</a>
+</li>
+<li>nentries
+: <a class="el" href="structhypre___box_manager.html#a12fea1383cbbbac1e69cd822bae13fb4">hypre_BoxManager</a>
+</li>
+<li>new_comm
+: <a class="el" href="structhypre___par_a_m_g_data.html#a8fa6031f522937aeafda62cbe79872d9">hypre_ParAMGData</a>
+</li>
+<li>next
+: <a class="el" href="structhypre___box_man_entry__struct.html#af212f6df54154732fe7ebc0497eb1029">hypre_BoxManEntry_struct</a>
+, <a class="el" href="struct_link.html#a1e47262db74e5683dc3ac019bf5981ac">Link</a>
+</li>
+<li>next_elt
+: <a class="el" href="structdouble__linked__list.html#ae3d292f7ca658731399f0d8a3f2efd19">double_linked_list</a>
+</li>
+<li>next_id
+: <a class="el" href="structhypre___box_manager.html#ac00684b3054028339a7e8d90ae6963f8">hypre_BoxManager</a>
+</li>
+<li>nneighbors
+: <a class="el" href="structhypre___s_struct_grid__struct.html#a3cd03706b5412aba5ed2e779348332e5">hypre_SStructGrid_struct</a>
+</li>
+<li>nnz
+: <a class="el" href="struct_n_cformat.html#affa2566dd89ea8ce6422f788887b5b27">NCformat</a>
+, <a class="el" href="struct_n_c_pformat.html#ac8c12ffc9edd0906608612727ad406ed">NCPformat</a>
+, <a class="el" href="struct_n_rformat.html#ae3652d6a08cf47208db6abbd162bdee2">NRformat</a>
+, <a class="el" href="struct_s_cformat.html#a3808f35bd097fbc0a39e3e65ee2a8d4a">SCformat</a>
+</li>
+<li>nodal
+: <a class="el" href="structhypre___par_a_m_g_data.html#a564b1c299b03a30df1eb833e3343c3e6">hypre_ParAMGData</a>
+</li>
+<li>nodal_diag
+: <a class="el" href="structhypre___par_a_m_g_data.html#aea7c7f927453a0d9230d242723798165">hypre_ParAMGData</a>
+</li>
+<li>nodal_levels
+: <a class="el" href="structhypre___par_a_m_g_data.html#a5c0730e32873093cfd9988a6c5d5ba5a">hypre_ParAMGData</a>
+</li>
+<li>NodalCoord_
+: <a class="el" href="struct_h_y_p_r_e___f_e_i___a_m_s_data.html#a6e2d7f7b248d8e8c210e0e52ec12d8a6">HYPRE_FEI_AMSData</a>
+</li>
+<li>node_numlevels
+: <a class="el" href="structhypre___maxwell_data.html#a62b373ef2151e8eac8cbdecfca737d13">hypre_MaxwellData</a>
+</li>
+<li>NodeNumbers_
+: <a class="el" href="struct_h_y_p_r_e___f_e_i___a_m_s_data.html#a41af158f78f6bc1262799e2cba1c564b">HYPRE_FEI_AMSData</a>
+</li>
+<li>nomega
+: <a class="el" href="structhypre___maxwell_data.html#a871d6af66aaff7fde08c39b7db078095">hypre_MaxwellData</a>
+</li>
+<li>nongal_tol_array
+: <a class="el" href="structhypre___par_a_m_g_data.html#a0acee93d3607822e1320d38492bc83dc">hypre_ParAMGData</a>
+</li>
+<li>nongalerk_num_tol
+: <a class="el" href="structhypre___par_a_m_g_data.html#aac38a4edf6fd0639c8101253b6fb997e">hypre_ParAMGData</a>
+</li>
+<li>nongalerk_tol
+: <a class="el" href="structhypre___par_a_m_g_data.html#a26ed035f67f47871d4531e9db002bd94">hypre_ParAMGData</a>
+</li>
+<li>nongalerkin_tol
+: <a class="el" href="structhypre___par_a_m_g_data.html#a1f42334d2fbf4ffd0c60ab5866812906">hypre_ParAMGData</a>
+</li>
+<li>norms
+: <a class="el" href="structhypre___bi_c_g_s_t_a_b_data.html#ada19e6479ed84f0e98f520d5625af629">hypre_BiCGSTABData</a>
+, <a class="el" href="structhypre___c_g_n_r_data.html#aacb4ead7236f5131bb945c55979e8c28">hypre_CGNRData</a>
+, <a class="el" href="structhypre___flex_g_m_r_e_s_data.html#aaad3c74f1e77b89d2bc76cfeecc37419">hypre_FlexGMRESData</a>
+, <a class="el" href="structhypre___g_m_r_e_s_data.html#a146d5008d522fa4c60377fd506d7e889">hypre_GMRESData</a>
+, <a class="el" href="structhypre___l_g_m_r_e_s_data.html#a38e18a11dc498287badc1f14159557fb">hypre_LGMRESData</a>
+, <a class="el" href="structhypre___maxwell_data.html#a972a620c20fd228450224f4de241de91">hypre_MaxwellData</a>
+, <a class="el" href="structhypre___p_c_g_data.html#a454463801802ebe4d15859412c685eb7">hypre_PCGData</a>
+</li>
+<li>nparts
+: <a class="el" href="structhypre___s_struct_graph__struct.html#a54e4e6c8a919667e3d5a5e7d82a9635a">hypre_SStructGraph_struct</a>
+, <a class="el" href="structhypre___s_struct_grid__struct.html#a3a341d02516ab0aaa4ff6c7e346ea57a">hypre_SStructGrid_struct</a>
+, <a class="el" href="structhypre___s_struct_matrix__struct.html#a89be3f38474101952199d0635d0e502a">hypre_SStructMatrix_struct</a>
+, <a class="el" href="structhypre___s_struct_vector__struct.html#adb55abf67ba9ffb29dde4db42ec335ec">hypre_SStructVector_struct</a>
+</li>
+<li>nrelax_type
+: <a class="el" href="structhypre___maxwell_data.html#a7ab38278bd25a144fa330301639dfb38">hypre_MaxwellData</a>
+</li>
+<li>nrelax_weight
+: <a class="el" href="structhypre___maxwell_data.html#a35a79e7cc2751a9848defebdba0c8a1f">hypre_MaxwellData</a>
+</li>
+<li>nrow
+: <a class="el" href="struct_super_matrix.html#ab1d854b814f0757e7ff7e0da01c6ef43">SuperMatrix</a>
+</li>
+<li>Nrows
+: <a class="el" href="struct_h_y_p_r_e___l_s_i___d_d_ilut___struct.html#adf77a9f3e59ddce7aedcd5c9fb882b8f">HYPRE_LSI_DDIlut_Struct</a>
+</li>
+<li>ns_symmetric
+: <a class="el" href="structhypre___s_struct_matrix__struct.html#a1a636234d70caa66c1662bcdee8c90aa">hypre_SStructMatrix_struct</a>
+</li>
+<li>nsuper
+: <a class="el" href="struct_s_cformat.html#aafffc008b0b8e57b9cdf5689a527bd8c">SCformat</a>
+</li>
+<li>nucvars
+: <a class="el" href="structhypre___s_struct_grid__struct.html#ab36cf8a37be79d86f3dc9875351b3e22">hypre_SStructGrid_struct</a>
+</li>
+<li>nUentries
+: <a class="el" href="structhypre___s_struct_u_v_entry.html#ae86a7e20cad31b437c712bb0ceec2b9c">hypre_SStructUVEntry</a>
+</li>
+<li>num_active_vectors
+: <a class="el" href="structhypre___multivector.html#a4c3d13301fadc78464d944070f8dd8b9">hypre_Multivector</a>
+</li>
+<li>num_child
+: <a class="el" href="structhypre___binary_tree.html#a2b027fb9994161461a2a7de5141cc1f1">hypre_BinaryTree</a>
+</li>
+<li>num_cols
+: <a class="el" href="structhypre___c_s_r_block_matrix.html#a6191459d0389c941c51658f71676cae3">hypre_CSRBlockMatrix</a>
+, <a class="el" href="structhypre___c_s_r_boolean_matrix.html#a6a7d58c7c8ab3aa54292e13d659f59ba">hypre_CSRBooleanMatrix</a>
+, <a class="el" href="structhypre___c_s_r_matrix.html#a5d15599da682678a2766ef96d8692a1a">hypre_CSRMatrix</a>
+</li>
+<li>num_CR_relax_steps
+: <a class="el" href="structhypre___par_a_m_g_data.html#a963e33d58a51e750c28a2e767ac896d0">hypre_ParAMGData</a>
+</li>
+<li>num_entries
+: <a class="el" href="structhypre___comm_type__struct.html#ac11ea93905a1898e2e0b47926dc26e2d">hypre_CommType_struct</a>
+</li>
+<li>num_functions
+: <a class="el" href="structhypre___par_a_m_g_data.html#a43ceb2488154decb0efb590c664f0edc">hypre_ParAMGData</a>
+</li>
+<li>num_ghost
+: <a class="el" href="structhypre___box_manager.html#a972975400cd4ffccf399085c676357bc">hypre_BoxManager</a>
+, <a class="el" href="structhypre___box_man_entry__struct.html#af89ccf56bc283be7d7edfd31ed1ae4c0">hypre_BoxManEntry_struct</a>
+, <a class="el" href="structhypre___struct_grid__struct.html#a98fba42966fa42bf10684406a5e73865">hypre_StructGrid_struct</a>
+, <a class="el" href="structhypre___struct_matrix__struct.html#ae9c65f899b5ee283c2c9c5684aea8dec">hypre_StructMatrix_struct</a>
+, <a class="el" href="structhypre___struct_vector__struct.html#a7f0146ebaa75980c56e75ea6716410b9">hypre_StructVector_struct</a>
+</li>
+<li>num_grid_sweeps
+: <a class="el" href="structhypre___par_a_m_g_data.html#a234c07d564b8b2af54fd8740749fa8c7">hypre_ParAMGData</a>
+</li>
+<li>num_idofs
+: <a class="el" href="structhypre___par_chord_matrix.html#aa598e7fac7455121e9b7b3079565ab1c">hypre_ParChordMatrix</a>
+</li>
+<li>num_idofs_inprocessor
+: <a class="el" href="structhypre___par_chord_matrix.html#a147c4c50a7cf8e2f976bf6b66490daa5">hypre_ParChordMatrix</a>
+</li>
+<li>num_inchords
+: <a class="el" href="structhypre___par_chord_matrix.html#a500893c741072e61630c1bf403cd4844">hypre_ParChordMatrix</a>
+</li>
+<li>num_inprocessors
+: <a class="el" href="structhypre___par_chord_matrix.html#a3ba44c61e6fd9b64a839cc3dc9c29ccc">hypre_ParChordMatrix</a>
+</li>
+<li>num_interp_vectors
+: <a class="el" href="structhypre___par_a_m_g_data.html#a00dae2b68847d0faedf654088311cc56">hypre_ParAMGData</a>
+</li>
+<li>num_iterations
+: <a class="el" href="structhypre___bi_c_g_s_t_a_b_data.html#a319b138ecadbb53fcd78b690b758c15f">hypre_BiCGSTABData</a>
+, <a class="el" href="structhypre___c_g_n_r_data.html#abcf758791f1f207138b0aaf6100623c8">hypre_CGNRData</a>
+, <a class="el" href="structhypre___flex_g_m_r_e_s_data.html#a8ec71fe6fef76e6372f602152f121912">hypre_FlexGMRESData</a>
+, <a class="el" href="structhypre___g_m_r_e_s_data.html#a5c2d9025b70befc399ff20e411566e3d">hypre_GMRESData</a>
+, <a class="el" href="structhypre___l_g_m_r_e_s_data.html#ac6975e69a635b33a98ea671cd66ce81a">hypre_LGMRESData</a>
+, <a class="el" href="structhypre___maxwell_data.html#acacd1b5c18368620c1986cf41d22b0d3">hypre_MaxwellData</a>
+, <a class="el" href="structhypre___par_a_m_g_data.html#ac9338d921d904a5f5f5f5025c4f9d108">hypre_ParAMGData</a>
+, <a class="el" href="structhypre___p_c_g_data.html#afbb23f16dc6e894a52e70109354dd62e">hypre_PCGData</a>
+</li>
+<li>num_levels
+: <a class="el" href="structhypre___par_a_m_g_data.html#a2bed1902dc7b5b4ddca8496760e80166">hypre_ParAMGData</a>
+</li>
+<li>num_levels_interp_vectors
+: <a class="el" href="structhypre___par_a_m_g_data.html#aea77394f8233234e0c266f5878a6fa3b">hypre_ParAMGData</a>
+</li>
+<li>num_my_entries
+: <a class="el" href="structhypre___box_manager.html#a6099a55f29d3fbbd31c4a16523a29558">hypre_BoxManager</a>
+</li>
+<li>num_nonzeros
+: <a class="el" href="structhypre___c_s_r_block_matrix.html#ac96aa2b6cfc265997f72c2f777882930">hypre_CSRBlockMatrix</a>
+, <a class="el" href="structhypre___c_s_r_boolean_matrix.html#ad1fe3bc174eb5c94a5414d730bdc9ba1">hypre_CSRBooleanMatrix</a>
+, <a class="el" href="structhypre___c_s_r_matrix.html#aeb74bf4afb7d91393964c807025923d3">hypre_CSRMatrix</a>
+, <a class="el" href="structhypre___par_c_s_r_block_matrix.html#aef5b34f4c4ffa1b30c74a50b82185bf4">hypre_ParCSRBlockMatrix</a>
+, <a class="el" href="structhypre___par_c_s_r_boolean_matrix.html#a8a29e7079c552e095132e207be8f7a8b">hypre_ParCSRBooleanMatrix</a>
+, <a class="el" href="structhypre___par_c_s_r_matrix__struct.html#a426731625a6a6ff94a2b5d88eef16254">hypre_ParCSRMatrix_struct</a>
+</li>
+<li>num_orders
+: <a class="el" href="structhypre___comm_pkg__struct.html#aa5e649127ead7dfa2e3d94b41e20d1d1">hypre_CommPkg_struct</a>
+</li>
+<li>num_paths
+: <a class="el" href="structhypre___par_a_m_g_data.html#a8161be44b1649dfdcdef51bbbc6ccad1">hypre_ParAMGData</a>
+</li>
+<li>num_periods
+: <a class="el" href="structhypre___struct_grid__struct.html#a370d856af0af77c3fb0ead885a1233ab">hypre_StructGrid_struct</a>
+</li>
+<li>num_points
+: <a class="el" href="structhypre___par_a_m_g_data.html#a4fc9cf12927fd323f6c8d68694feec66">hypre_ParAMGData</a>
+</li>
+<li>num_post_relax
+: <a class="el" href="structhypre___maxwell_data.html#aeffe4146796fa95cb7e811d8747963ec">hypre_MaxwellData</a>
+</li>
+<li>num_pre_relax
+: <a class="el" href="structhypre___maxwell_data.html#acab9c41c57fa3f92d0f89cfccb12c17f">hypre_MaxwellData</a>
+</li>
+<li>num_procs_sort
+: <a class="el" href="structhypre___box_manager.html#abec279ffa1ca01279e869567bffd1b53">hypre_BoxManager</a>
+</li>
+<li>num_rdofs
+: <a class="el" href="structhypre___par_chord_matrix.html#acf609c71359bb7a2f158351fa6aaeff6">hypre_ParChordMatrix</a>
+</li>
+<li>num_rdofs_toprocessor
+: <a class="el" href="structhypre___par_chord_matrix.html#a6be1f8573e9135f65c874a866d738cb9">hypre_ParChordMatrix</a>
+</li>
+<li>num_recvs
+: <a class="el" href="structhypre___comm_pkg__struct.html#ac0e31b528d092c0119d6d18038c71fd6">hypre_CommPkg_struct</a>
+, <a class="el" href="structhypre___par_c_s_r_comm_pkg.html#a1a1d5a4e9ca149a5d6ea7a54a875cded">hypre_ParCSRCommPkg</a>
+</li>
+<li>num_regions
+: <a class="el" href="structhypre___struct_assumed_part.html#ab39012790e78ea3b156c7659bd310fb6">hypre_StructAssumedPart</a>
+</li>
+<li>num_requests
+: <a class="el" href="structhypre___comm_handle__struct.html#aff01767737f0f1a4cc4666a28f33f4fa">hypre_CommHandle_struct</a>
+, <a class="el" href="structhypre___par_c_s_r_comm_handle.html#a17127871e0497f1cf59b6d20c83aabaf">hypre_ParCSRCommHandle</a>
+, <a class="el" href="structhypre___par_c_s_r_comm_multi_handle.html#a5db62e99fe0a83771fb9f822cd95081c">hypre_ParCSRCommMultiHandle</a>
+</li>
+<li>num_rownnz
+: <a class="el" href="structhypre___c_s_r_matrix.html#a6a9095433dd252a45537344780076f21">hypre_CSRMatrix</a>
+</li>
+<li>num_rows
+: <a class="el" href="structhypre___c_s_r_block_matrix.html#a8c09d9a828ee6ad7de114ffa1eaf242a">hypre_CSRBlockMatrix</a>
+, <a class="el" href="structhypre___c_s_r_boolean_matrix.html#a1cc6d85acd6486f3e877ac13a995decb">hypre_CSRBooleanMatrix</a>
+, <a class="el" href="structhypre___c_s_r_matrix.html#a39a6dc9a9b518079dc63a525bf884442">hypre_CSRMatrix</a>
+</li>
+<li>num_samples
+: <a class="el" href="structhypre___par_a_m_g_data.html#ad5066b839ef48c428cd31d60e9d3e451">hypre_ParAMGData</a>
+</li>
+<li>num_sends
+: <a class="el" href="structhypre___comm_pkg__struct.html#adac03daf93ce6dedb5eaa8a5cdc81e09">hypre_CommPkg_struct</a>
+, <a class="el" href="structhypre___par_c_s_r_comm_pkg.html#a629df92f67c3ac3988f13a96e7be45dd">hypre_ParCSRCommPkg</a>
+</li>
+<li>num_submatrices
+: <a class="el" href="structhypre___multiblock_matrix.html#a47a61b07153d0b4f734cf9e191188792">hypre_MultiblockMatrix</a>
+</li>
+<li>num_toprocessors
+: <a class="el" href="structhypre___par_chord_matrix.html#a882aba23de14260c1af1499f6df92ea8">hypre_ParChordMatrix</a>
+</li>
+<li>num_transforms
+: <a class="el" href="structhypre___comm_info__struct.html#a1f80b75f830cb0742576e17af5cc0a13">hypre_CommInfo_struct</a>
+</li>
+<li>num_values
+: <a class="el" href="structhypre___comm_pkg__struct.html#a4af5e81fdd1390eb2731ce54ecb96407">hypre_CommPkg_struct</a>
+, <a class="el" href="structhypre___compute_pkg__struct.html#a6270a7d08f7cbe7bcfe3a3b0516e2ec8">hypre_ComputePkg_struct</a>
+, <a class="el" href="structhypre___struct_matrix__struct.html#aae178c1d89928a7126ce87e72e10db38">hypre_StructMatrix_struct</a>
+</li>
+<li>num_variables
+: <a class="el" href="structhypre___par_a_m_g_data.html#a8a274353431aa653ad4df0e6daa32433">hypre_ParAMGData</a>
+</li>
+<li>num_vectors
+: <a class="el" href="structhypre___multivector.html#adf078743cdd27d9c40c5d7d2e6eb2a46">hypre_Multivector</a>
+, <a class="el" href="structhypre___par_multivector.html#a6bb2a1df4f3dd9e55bd26ddaa3cc508a">hypre_ParMultivector</a>
+, <a class="el" href="structhypre___vector.html#ad6cb1eafc03384584c232d86625c3c62">hypre_Vector</a>
+</li>
+<li>numEdges_
+: <a class="el" href="struct_h_y_p_r_e___f_e_i___a_m_s_data.html#a4843f1973857826bf882669cda88f565">HYPRE_FEI_AMSData</a>
+</li>
+<li>numLocalNodes_
+: <a class="el" href="struct_h_y_p_r_e___f_e_i___a_m_s_data.html#ae5703cf8c470dab50320bb30efa25370">HYPRE_FEI_AMSData</a>
+</li>
+<li>numNodes_
+: <a class="el" href="struct_h_y_p_r_e___f_e_i___a_m_s_data.html#a557e5f81fcf4e566564b541648795b47">HYPRE_FEI_AMSData</a>
+</li>
+<li>numVectors
+: <a class="el" href="structmv___temp_multi_vector.html#a3e8486caebfcac0c7b86dcf3028a6c3d">mv_TempMultiVector</a>
+</li>
+<li>nuvars
+: <a class="el" href="structhypre___s_struct_u_c_var.html#a19e496dd6067ed413d63cc8f7fda0178">hypre_SStructUCVar</a>
+</li>
+<li>nUventries
+: <a class="el" href="structhypre___s_struct_graph__struct.html#a61f2a1072858887595a3633c2b5be282">hypre_SStructGraph_struct</a>
+</li>
+<li>nvars
+: <a class="el" href="structhypre___s_struct_p_grid.html#a46c010bb8c87e07aea039bf34359d8ab">hypre_SStructPGrid</a>
+, <a class="el" href="structhypre___s_struct_p_matrix.html#a3a68c4e26139cb6a63dea5a95f3fce30">hypre_SStructPMatrix</a>
+, <a class="el" href="structhypre___s_struct_p_vector.html#abe01f6e2e078dc1a7270d46c0116c306">hypre_SStructPVector</a>
+</li>
+<li>nvneighbors
+: <a class="el" href="structhypre___s_struct_grid__struct.html#a13b4febc472fb1441300e58f70cf56fc">hypre_SStructGrid_struct</a>
+</li>
+<li>nVtemp2_l
+: <a class="el" href="structhypre___maxwell_data.html#a995da7ae09c0ae741e6b563207c382af">hypre_MaxwellData</a>
+</li>
+<li>nVtemp_l
+: <a class="el" href="structhypre___maxwell_data.html#abbdcb05faaaf7f51ada9ac8a2ca80e29">hypre_MaxwellData</a>
+</li>
+<li>nzlmax
+: <a class="el" href="struct_global_l_u__t.html#a1f77873222d31cd15eb781fdbf18df18">GlobalLU_t</a>
+</li>
+<li>nzlumax
+: <a class="el" href="struct_global_l_u__t.html#ae67b1da1b096e92b7ddadf6e4a159481">GlobalLU_t</a>
+</li>
+<li>nzumax
+: <a class="el" href="struct_global_l_u__t.html#a5238cd65bea5ca45046238d908073982">GlobalLU_t</a>
+</li>
+<li>nzval
+: <a class="el" href="struct_d_nformat.html#a54a061275c52aa9e38f4cb65da46d48c">DNformat</a>
+, <a class="el" href="struct_n_cformat.html#aa3e85810bb190b7359d8aaa956a64e64">NCformat</a>
+, <a class="el" href="struct_n_c_pformat.html#a519ed66fdf9da30c76c079474503c764">NCPformat</a>
+, <a class="el" href="struct_n_rformat.html#a3933d6611dc87efede947b08ea8d83f2">NRformat</a>
+, <a class="el" href="struct_s_cformat.html#a25011a4746e4cf0a6fbc38ba45a70e91">SCformat</a>
+</li>
+<li>nzval_colptr
+: <a class="el" href="struct_s_cformat.html#a41e93b73c8bce9326f035e3647ee94ca">SCformat</a>
+</li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

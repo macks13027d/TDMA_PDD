@@ -1,0 +1,2889 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="TDMA_PDD" />
+<meta property="og:image" content="../preview.png" />
+<meta property="og:description" content="Documentation for Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="../preview.png" />
+<meta property="og:title" content="TDMA_PDD" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD" />
+<!-- END twitter metadata -->
+<title>TDMA_PDD: hypre_ParAMGData Struct Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            messageStyle: "normal",
+            linebreaks: {
+                automatic: false
+            }
+        },
+        tex2jax: { 
+            inlineMath: [["\\(","\\)"]], 
+            displayMath: [["$$","$$"],["\\[","\\]"]], 
+            processEscapes: true
+        },
+        TeX: {
+            Macros: {
+                tr: "{\\scriptscriptstyle\\mathrm{T}}",
+            }
+        }
+    });
+</script>
+<!--MathJax(LaTeX) -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <script type="text/javascript" id="MathJax-script" async  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">  </script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="custom-alternative.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/hugh577/TDMA_PDD" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 65px;">
+  <td id="projectlogo">
+    <a href="./index.html">
+        <img alt="Logo" src="home.png"/></td>
+    </a>
+  <td id="projectalign" style="padding-left: 0.5em;padding-top: 0.5em;">
+   <div id="projectname">TDMA_PDD
+   </div>
+   <div id="projectbrief">Documentation</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('structhypre___par_a_m_g_data.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="structhypre___par_a_m_g_data-members.html">List of all members</a>  </div>
+  <div class="headertitle">
+<div class="title">hypre_ParAMGData Struct Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for hypre_ParAMGData:</div>
+<div class="dyncontent">
+<div class="center"><img src="structhypre___par_a_m_g_data__coll__graph.png" border="0" usemap="#hypre___par_a_m_g_data_coll__map" alt="Collaboration graph"/></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a598900460d6891e4fc126c0fe2d52802"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a598900460d6891e4fc126c0fe2d52802">max_levels</a></td></tr>
+<tr class="separator:a598900460d6891e4fc126c0fe2d52802"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99a71b72f4635322bc47dc9664b42efa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a99a71b72f4635322bc47dc9664b42efa">strong_threshold</a></td></tr>
+<tr class="separator:a99a71b72f4635322bc47dc9664b42efa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45a1643091ef436ca179193917bfc69e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a45a1643091ef436ca179193917bfc69e">max_row_sum</a></td></tr>
+<tr class="separator:a45a1643091ef436ca179193917bfc69e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7456d67e1827fd57311ca9d5d2441ed6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a7456d67e1827fd57311ca9d5d2441ed6">trunc_factor</a></td></tr>
+<tr class="separator:a7456d67e1827fd57311ca9d5d2441ed6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbe9f22d35e7f60cacb092497d8b756e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#adbe9f22d35e7f60cacb092497d8b756e">agg_trunc_factor</a></td></tr>
+<tr class="separator:adbe9f22d35e7f60cacb092497d8b756e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc7c8a9d8cc89436741132b65753c991"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#abc7c8a9d8cc89436741132b65753c991">agg_P12_trunc_factor</a></td></tr>
+<tr class="separator:abc7c8a9d8cc89436741132b65753c991"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55798ddf5cbede88f8a35e12fa735f2a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a55798ddf5cbede88f8a35e12fa735f2a">jacobi_trunc_threshold</a></td></tr>
+<tr class="separator:a55798ddf5cbede88f8a35e12fa735f2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d7c117c7249178592debfa9fa917b29"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a2d7c117c7249178592debfa9fa917b29">S_commpkg_switch</a></td></tr>
+<tr class="separator:a2d7c117c7249178592debfa9fa917b29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6708f2cedb7b22903e0a932a8bdd6911"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a6708f2cedb7b22903e0a932a8bdd6911">CR_rate</a></td></tr>
+<tr class="separator:a6708f2cedb7b22903e0a932a8bdd6911"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37b0c3e811b8f3b1162190ad98036209"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a37b0c3e811b8f3b1162190ad98036209">CR_strong_th</a></td></tr>
+<tr class="separator:a37b0c3e811b8f3b1162190ad98036209"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc897cf2f52cde6fea9a2cc2d8c0adf4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#abc897cf2f52cde6fea9a2cc2d8c0adf4">measure_type</a></td></tr>
+<tr class="separator:abc897cf2f52cde6fea9a2cc2d8c0adf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afac86c6473572bc591bef6bea8ba4a43"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#afac86c6473572bc591bef6bea8ba4a43">setup_type</a></td></tr>
+<tr class="separator:afac86c6473572bc591bef6bea8ba4a43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70cb42e66309b076db37a0fa57cbb6a3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a70cb42e66309b076db37a0fa57cbb6a3">coarsen_type</a></td></tr>
+<tr class="separator:a70cb42e66309b076db37a0fa57cbb6a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae71119cd27bd1ebeb75287b0d20f6532"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#ae71119cd27bd1ebeb75287b0d20f6532">P_max_elmts</a></td></tr>
+<tr class="separator:ae71119cd27bd1ebeb75287b0d20f6532"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab51de0cc6b4de8dfd1b3e23414cfef9b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#ab51de0cc6b4de8dfd1b3e23414cfef9b">interp_type</a></td></tr>
+<tr class="separator:ab51de0cc6b4de8dfd1b3e23414cfef9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aceaafb7c58f530b916729a5b706b597e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#aceaafb7c58f530b916729a5b706b597e">sep_weight</a></td></tr>
+<tr class="separator:aceaafb7c58f530b916729a5b706b597e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae309d660bafec01109b9274b72028bac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#ae309d660bafec01109b9274b72028bac">agg_interp_type</a></td></tr>
+<tr class="separator:ae309d660bafec01109b9274b72028bac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06a618791b7c8ffa21e14923d255e84c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a06a618791b7c8ffa21e14923d255e84c">agg_P_max_elmts</a></td></tr>
+<tr class="separator:a06a618791b7c8ffa21e14923d255e84c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a596995f033f1013a3b6bab7346a047cb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a596995f033f1013a3b6bab7346a047cb">agg_P12_max_elmts</a></td></tr>
+<tr class="separator:a596995f033f1013a3b6bab7346a047cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d0fe2b1bb984f4f28fee23d3eeab3c8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a2d0fe2b1bb984f4f28fee23d3eeab3c8">restr_par</a></td></tr>
+<tr class="separator:a2d0fe2b1bb984f4f28fee23d3eeab3c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa378a1e08e0940048164b0208faed0eb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#aa378a1e08e0940048164b0208faed0eb">agg_num_levels</a></td></tr>
+<tr class="separator:aa378a1e08e0940048164b0208faed0eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8161be44b1649dfdcdef51bbbc6ccad1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a8161be44b1649dfdcdef51bbbc6ccad1">num_paths</a></td></tr>
+<tr class="separator:a8161be44b1649dfdcdef51bbbc6ccad1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4908916f9b17745e28136a899b04548b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a4908916f9b17745e28136a899b04548b">post_interp_type</a></td></tr>
+<tr class="separator:a4908916f9b17745e28136a899b04548b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a963e33d58a51e750c28a2e767ac896d0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a963e33d58a51e750c28a2e767ac896d0">num_CR_relax_steps</a></td></tr>
+<tr class="separator:a963e33d58a51e750c28a2e767ac896d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0635a8ecbebbf6bf5f6a69d29b3342a8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a0635a8ecbebbf6bf5f6a69d29b3342a8">IS_type</a></td></tr>
+<tr class="separator:a0635a8ecbebbf6bf5f6a69d29b3342a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a584775fd1a9eb54929b3466fc87ff03f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a584775fd1a9eb54929b3466fc87ff03f">CR_use_CG</a></td></tr>
+<tr class="separator:a584775fd1a9eb54929b3466fc87ff03f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a400be9fad1369704c7a2b9d69c5cf8b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a400be9fad1369704c7a2b9d69c5cf8b0">cgc_its</a></td></tr>
+<tr class="separator:a400be9fad1369704c7a2b9d69c5cf8b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a737d964830ccc65b64395a1a0c2b9c2b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a737d964830ccc65b64395a1a0c2b9c2b">max_coarse_size</a></td></tr>
+<tr class="separator:a737d964830ccc65b64395a1a0c2b9c2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7022d3d4cb3a7456d9109b02093d9016"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a7022d3d4cb3a7456d9109b02093d9016">min_coarse_size</a></td></tr>
+<tr class="separator:a7022d3d4cb3a7456d9109b02093d9016"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e5c29a065b93ab2de90829f4dc96097"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a4e5c29a065b93ab2de90829f4dc96097">seq_threshold</a></td></tr>
+<tr class="separator:a4e5c29a065b93ab2de90829f4dc96097"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fe0d7ca966c611932110b100efaf947"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a7fe0d7ca966c611932110b100efaf947">redundant</a></td></tr>
+<tr class="separator:a7fe0d7ca966c611932110b100efaf947"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e27796cffda336b44ef818a0408e878"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a7e27796cffda336b44ef818a0408e878">participate</a></td></tr>
+<tr class="separator:a7e27796cffda336b44ef818a0408e878"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e705abb3d018d001f865a9e142a1b30"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a7e705abb3d018d001f865a9e142a1b30">max_iter</a></td></tr>
+<tr class="separator:a7e705abb3d018d001f865a9e142a1b30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fa58df1aeb278bb0ba04598d2b1243b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a0fa58df1aeb278bb0ba04598d2b1243b">min_iter</a></td></tr>
+<tr class="separator:a0fa58df1aeb278bb0ba04598d2b1243b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbd91de9015668446ad9cca078496fcd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#abbd91de9015668446ad9cca078496fcd">cycle_type</a></td></tr>
+<tr class="separator:abbd91de9015668446ad9cca078496fcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a234c07d564b8b2af54fd8740749fa8c7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a234c07d564b8b2af54fd8740749fa8c7">num_grid_sweeps</a></td></tr>
+<tr class="separator:a234c07d564b8b2af54fd8740749fa8c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27015a215ed5adac0fa5eb92f4e5d870"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a27015a215ed5adac0fa5eb92f4e5d870">grid_relax_type</a></td></tr>
+<tr class="separator:a27015a215ed5adac0fa5eb92f4e5d870"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29262d6b33d1bc58cde6b86ccc790200"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a29262d6b33d1bc58cde6b86ccc790200">grid_relax_points</a></td></tr>
+<tr class="separator:a29262d6b33d1bc58cde6b86ccc790200"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58d26c969c421ccb654712ac9d693f8d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a58d26c969c421ccb654712ac9d693f8d">relax_order</a></td></tr>
+<tr class="separator:a58d26c969c421ccb654712ac9d693f8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af65aea11c5912ff3a152c297c7db91a1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#af65aea11c5912ff3a152c297c7db91a1">user_coarse_relax_type</a></td></tr>
+<tr class="separator:af65aea11c5912ff3a152c297c7db91a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af06fab2b6604fa3c6b3a6d90867cff2b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#af06fab2b6604fa3c6b3a6d90867cff2b">user_relax_type</a></td></tr>
+<tr class="separator:af06fab2b6604fa3c6b3a6d90867cff2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea33ca3b0edc0685721a8c861e2e3c4c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#aea33ca3b0edc0685721a8c861e2e3c4c">user_num_sweeps</a></td></tr>
+<tr class="separator:aea33ca3b0edc0685721a8c861e2e3c4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace9f2c4bf90070477445052af4b25ef4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#ace9f2c4bf90070477445052af4b25ef4">user_relax_weight</a></td></tr>
+<tr class="separator:ace9f2c4bf90070477445052af4b25ef4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1213dbb7625851669cd9da2cf10eda13"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a1213dbb7625851669cd9da2cf10eda13">outer_wt</a></td></tr>
+<tr class="separator:a1213dbb7625851669cd9da2cf10eda13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d82cc0f72cabc2b6978610420fb467b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a5d82cc0f72cabc2b6978610420fb467b">relax_weight</a></td></tr>
+<tr class="separator:a5d82cc0f72cabc2b6978610420fb467b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e66701b7076c86f4f7dfa7555c23b74"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a9e66701b7076c86f4f7dfa7555c23b74">omega</a></td></tr>
+<tr class="separator:a9e66701b7076c86f4f7dfa7555c23b74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b3cddeb52459ccc53218f46df80b638"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a3b3cddeb52459ccc53218f46df80b638">tol</a></td></tr>
+<tr class="separator:a3b3cddeb52459ccc53218f46df80b638"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68a540004a6388f6a382b2b3ce6f79a9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="__hypre__parcsr__mv_8h.html#a0612d56042e635111dc5c83b076308d8">hypre_ParCSRMatrix</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a68a540004a6388f6a382b2b3ce6f79a9">A</a></td></tr>
+<tr class="separator:a68a540004a6388f6a382b2b3ce6f79a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a274353431aa653ad4df0e6daa32433"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a8a274353431aa653ad4df0e6daa32433">num_variables</a></td></tr>
+<tr class="separator:a8a274353431aa653ad4df0e6daa32433"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43ceb2488154decb0efb590c664f0edc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a43ceb2488154decb0efb590c664f0edc">num_functions</a></td></tr>
+<tr class="separator:a43ceb2488154decb0efb590c664f0edc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a564b1c299b03a30df1eb833e3343c3e6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a564b1c299b03a30df1eb833e3343c3e6">nodal</a></td></tr>
+<tr class="separator:a564b1c299b03a30df1eb833e3343c3e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c0730e32873093cfd9988a6c5d5ba5a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a5c0730e32873093cfd9988a6c5d5ba5a">nodal_levels</a></td></tr>
+<tr class="separator:a5c0730e32873093cfd9988a6c5d5ba5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea7c7f927453a0d9230d242723798165"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#aea7c7f927453a0d9230d242723798165">nodal_diag</a></td></tr>
+<tr class="separator:aea7c7f927453a0d9230d242723798165"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fc9cf12927fd323f6c8d68694feec66"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a4fc9cf12927fd323f6c8d68694feec66">num_points</a></td></tr>
+<tr class="separator:a4fc9cf12927fd323f6c8d68694feec66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6baddc8d06f2c11d5c8f3dadcae187a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#af6baddc8d06f2c11d5c8f3dadcae187a">dof_func</a></td></tr>
+<tr class="separator:af6baddc8d06f2c11d5c8f3dadcae187a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e24166d4c2909c55f8b84409cb8885a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a6e24166d4c2909c55f8b84409cb8885a">dof_point</a></td></tr>
+<tr class="separator:a6e24166d4c2909c55f8b84409cb8885a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a190aed36d3d878ca8f8841746cfb45e4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a190aed36d3d878ca8f8841746cfb45e4">point_dof_map</a></td></tr>
+<tr class="separator:a190aed36d3d878ca8f8841746cfb45e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7804e15bfeafbf84c84558641b9e357c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="__hypre__parcsr__mv_8h.html#a0612d56042e635111dc5c83b076308d8">hypre_ParCSRMatrix</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a7804e15bfeafbf84c84558641b9e357c">A_array</a></td></tr>
+<tr class="separator:a7804e15bfeafbf84c84558641b9e357c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12bd1ab4c34a348ebe785edcd79580e3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a12bd1ab4c34a348ebe785edcd79580e3">F_array</a></td></tr>
+<tr class="separator:a12bd1ab4c34a348ebe785edcd79580e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f17a2d538ea720598ed85c0d6bd5c2a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a8f17a2d538ea720598ed85c0d6bd5c2a">U_array</a></td></tr>
+<tr class="separator:a8f17a2d538ea720598ed85c0d6bd5c2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae74cf3e6fcbaa845ac497dfe959ca747"><td class="memItemLeft" align="right" valign="top"><a class="el" href="__hypre__parcsr__mv_8h.html#a0612d56042e635111dc5c83b076308d8">hypre_ParCSRMatrix</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#ae74cf3e6fcbaa845ac497dfe959ca747">P_array</a></td></tr>
+<tr class="separator:ae74cf3e6fcbaa845ac497dfe959ca747"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa138272492d4ce452829ad933f5d5546"><td class="memItemLeft" align="right" valign="top"><a class="el" href="__hypre__parcsr__mv_8h.html#a0612d56042e635111dc5c83b076308d8">hypre_ParCSRMatrix</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#aa138272492d4ce452829ad933f5d5546">R_array</a></td></tr>
+<tr class="separator:aa138272492d4ce452829ad933f5d5546"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a1aa16819d107cfd66b9152f84b7ae8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a4a1aa16819d107cfd66b9152f84b7ae8">CF_marker_array</a></td></tr>
+<tr class="separator:a4a1aa16819d107cfd66b9152f84b7ae8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af31f5e4f8c6f8c1b10988ab3c95f2bd2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#af31f5e4f8c6f8c1b10988ab3c95f2bd2">dof_func_array</a></td></tr>
+<tr class="separator:af31f5e4f8c6f8c1b10988ab3c95f2bd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f687c402ea3bb91a07d01cc86749849"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a0f687c402ea3bb91a07d01cc86749849">dof_point_array</a></td></tr>
+<tr class="separator:a0f687c402ea3bb91a07d01cc86749849"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac70e11d2e8d0f9db23936ec03fa65fe2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#ac70e11d2e8d0f9db23936ec03fa65fe2">point_dof_map_array</a></td></tr>
+<tr class="separator:ac70e11d2e8d0f9db23936ec03fa65fe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bed1902dc7b5b4ddca8496760e80166"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a2bed1902dc7b5b4ddca8496760e80166">num_levels</a></td></tr>
+<tr class="separator:a2bed1902dc7b5b4ddca8496760e80166"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0033cf74e3bd1d3e3551d8c1373983a9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a0033cf74e3bd1d3e3551d8c1373983a9">l1_norms</a></td></tr>
+<tr class="separator:a0033cf74e3bd1d3e3551d8c1373983a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a7e56b65a2d696fa2aa86a2b5144631"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a1a7e56b65a2d696fa2aa86a2b5144631">A_block_array</a></td></tr>
+<tr class="separator:a1a7e56b65a2d696fa2aa86a2b5144631"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf4b3060ab61d21857928f2c1e572d9e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#abf4b3060ab61d21857928f2c1e572d9e">P_block_array</a></td></tr>
+<tr class="separator:abf4b3060ab61d21857928f2c1e572d9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5929e82c1d45e0a47bba3f940888f18"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#ae5929e82c1d45e0a47bba3f940888f18">R_block_array</a></td></tr>
+<tr class="separator:ae5929e82c1d45e0a47bba3f940888f18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8596776d9dfdfb76cac15a4939f6be6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#ab8596776d9dfdfb76cac15a4939f6be6">block_mode</a></td></tr>
+<tr class="separator:ab8596776d9dfdfb76cac15a4939f6be6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a76126b45ecfef4116d0d63ff81c832"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a8a76126b45ecfef4116d0d63ff81c832">smooth_num_levels</a></td></tr>
+<tr class="separator:a8a76126b45ecfef4116d0d63ff81c832"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd97fe019aab3d11f1b48d00347a12a2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#acd97fe019aab3d11f1b48d00347a12a2">smooth_type</a></td></tr>
+<tr class="separator:acd97fe019aab3d11f1b48d00347a12a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c5c8d3732e2f224053b73d5ddc2235d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a5c5c8d3732e2f224053b73d5ddc2235d">smoother</a></td></tr>
+<tr class="separator:a5c5c8d3732e2f224053b73d5ddc2235d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ff8b29ad9e696f5740b7d6aa938e20e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a9ff8b29ad9e696f5740b7d6aa938e20e">smooth_num_sweeps</a></td></tr>
+<tr class="separator:a9ff8b29ad9e696f5740b7d6aa938e20e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1bee914c304c4d22e891b6b4a8cbd29"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#ac1bee914c304c4d22e891b6b4a8cbd29">schw_variant</a></td></tr>
+<tr class="separator:ac1bee914c304c4d22e891b6b4a8cbd29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35ebfe6e23ed699416d134319611b703"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a35ebfe6e23ed699416d134319611b703">schw_overlap</a></td></tr>
+<tr class="separator:a35ebfe6e23ed699416d134319611b703"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3048ae052ed18b8af748b7cab620f0bd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a3048ae052ed18b8af748b7cab620f0bd">schw_domain_type</a></td></tr>
+<tr class="separator:a3048ae052ed18b8af748b7cab620f0bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addd781463a8504a8cbf9164cd0219145"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#addd781463a8504a8cbf9164cd0219145">schwarz_rlx_weight</a></td></tr>
+<tr class="separator:addd781463a8504a8cbf9164cd0219145"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81f373728dddd877240080d35d51dc41"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a81f373728dddd877240080d35d51dc41">schwarz_use_nonsymm</a></td></tr>
+<tr class="separator:a81f373728dddd877240080d35d51dc41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0e758d8eb9e9f86ee6355d514b07059"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#ab0e758d8eb9e9f86ee6355d514b07059">ps_sym</a></td></tr>
+<tr class="separator:ab0e758d8eb9e9f86ee6355d514b07059"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96d9c117b13c82fc28c9e71fde945b86"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a96d9c117b13c82fc28c9e71fde945b86">ps_level</a></td></tr>
+<tr class="separator:a96d9c117b13c82fc28c9e71fde945b86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cf17fa36ac3ed853bfe4173723c1496"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a3cf17fa36ac3ed853bfe4173723c1496">pi_max_nz_per_row</a></td></tr>
+<tr class="separator:a3cf17fa36ac3ed853bfe4173723c1496"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a573d1f442692603ec0a36bbd01b56309"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a573d1f442692603ec0a36bbd01b56309">eu_level</a></td></tr>
+<tr class="separator:a573d1f442692603ec0a36bbd01b56309"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5986a8ebd390cf55eda8109c501bfacb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a5986a8ebd390cf55eda8109c501bfacb">eu_bj</a></td></tr>
+<tr class="separator:a5986a8ebd390cf55eda8109c501bfacb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4da326fbcb14646e12edcc631cd28805"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a4da326fbcb14646e12edcc631cd28805">ps_threshold</a></td></tr>
+<tr class="separator:a4da326fbcb14646e12edcc631cd28805"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c83734dcbdd97f6e9159d752f55ef02"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a1c83734dcbdd97f6e9159d752f55ef02">ps_filter</a></td></tr>
+<tr class="separator:a1c83734dcbdd97f6e9159d752f55ef02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1ec085487e0c3e92bc5484d2b260797"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#ad1ec085487e0c3e92bc5484d2b260797">pi_drop_tol</a></td></tr>
+<tr class="separator:ad1ec085487e0c3e92bc5484d2b260797"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd4ea7865139b71879898088b23ae356"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#afd4ea7865139b71879898088b23ae356">eu_sparse_A</a></td></tr>
+<tr class="separator:afd4ea7865139b71879898088b23ae356"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad52f5f8dde713b60ad09004db9485cc8"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#ad52f5f8dde713b60ad09004db9485cc8">euclidfile</a></td></tr>
+<tr class="separator:ad52f5f8dde713b60ad09004db9485cc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace01b31a4548cee38622d8514e197cf8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#ace01b31a4548cee38622d8514e197cf8">max_eig_est</a></td></tr>
+<tr class="separator:ace01b31a4548cee38622d8514e197cf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb310846eac368e099c6cc3c6b8a2c30"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#adb310846eac368e099c6cc3c6b8a2c30">min_eig_est</a></td></tr>
+<tr class="separator:adb310846eac368e099c6cc3c6b8a2c30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d895c54c5abedd7ee96f765110f41d5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a7d895c54c5abedd7ee96f765110f41d5">cheby_order</a></td></tr>
+<tr class="separator:a7d895c54c5abedd7ee96f765110f41d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60976ac26961e0a24a72f5812840768b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a60976ac26961e0a24a72f5812840768b">cheby_fraction</a></td></tr>
+<tr class="separator:a60976ac26961e0a24a72f5812840768b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac38a4edf6fd0639c8101253b6fb997e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#aac38a4edf6fd0639c8101253b6fb997e">nongalerk_num_tol</a></td></tr>
+<tr class="separator:aac38a4edf6fd0639c8101253b6fb997e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26ed035f67f47871d4531e9db002bd94"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a26ed035f67f47871d4531e9db002bd94">nongalerk_tol</a></td></tr>
+<tr class="separator:a26ed035f67f47871d4531e9db002bd94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f42334d2fbf4ffd0c60ab5866812906"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a1f42334d2fbf4ffd0c60ab5866812906">nongalerkin_tol</a></td></tr>
+<tr class="separator:a1f42334d2fbf4ffd0c60ab5866812906"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0acee93d3607822e1320d38492bc83dc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a0acee93d3607822e1320d38492bc83dc">nongal_tol_array</a></td></tr>
+<tr class="separator:a0acee93d3607822e1320d38492bc83dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f19678066e568ef8a1b7ce264fdc1c3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a1f19678066e568ef8a1b7ce264fdc1c3">Vtemp</a></td></tr>
+<tr class="separator:a1f19678066e568ef8a1b7ce264fdc1c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02581389420cf7a947f1f0c2ad31553a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structhypre___vector.html">hypre_Vector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a02581389420cf7a947f1f0c2ad31553a">Vtemp_local</a></td></tr>
+<tr class="separator:a02581389420cf7a947f1f0c2ad31553a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41f51e5c74c4b1dcd3b69cfb32d74fdb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a41f51e5c74c4b1dcd3b69cfb32d74fdb">Vtemp_local_data</a></td></tr>
+<tr class="separator:a41f51e5c74c4b1dcd3b69cfb32d74fdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67164f686b571a4e1d4258e4cd4860b5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a67164f686b571a4e1d4258e4cd4860b5">cycle_op_count</a></td></tr>
+<tr class="separator:a67164f686b571a4e1d4258e4cd4860b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85e76037a3ab81ec48f405dfe9029132"><td class="memItemLeft" align="right" valign="top"><a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a85e76037a3ab81ec48f405dfe9029132">Rtemp</a></td></tr>
+<tr class="separator:a85e76037a3ab81ec48f405dfe9029132"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb1e3209a2151cd980e2319c6976bc8f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#adb1e3209a2151cd980e2319c6976bc8f">Ptemp</a></td></tr>
+<tr class="separator:adb1e3209a2151cd980e2319c6976bc8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55f212e1b3b8df3f857edee3d02b70dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a55f212e1b3b8df3f857edee3d02b70dd">Ztemp</a></td></tr>
+<tr class="separator:a55f212e1b3b8df3f857edee3d02b70dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a185e411b581705543d90598b63d0644c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a185e411b581705543d90598b63d0644c">gsmg</a></td></tr>
+<tr class="separator:a185e411b581705543d90598b63d0644c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5066b839ef48c428cd31d60e9d3e451"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#ad5066b839ef48c428cd31d60e9d3e451">num_samples</a></td></tr>
+<tr class="separator:ad5066b839ef48c428cd31d60e9d3e451"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d0ecc273aaa7955a20c3dc54ca9d714"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a4d0ecc273aaa7955a20c3dc54ca9d714">logging</a></td></tr>
+<tr class="separator:a4d0ecc273aaa7955a20c3dc54ca9d714"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9338d921d904a5f5f5f5025c4f9d108"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#ac9338d921d904a5f5f5f5025c4f9d108">num_iterations</a></td></tr>
+<tr class="separator:ac9338d921d904a5f5f5f5025c4f9d108"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0a558968000a5c28f170873adb1706b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#ab0a558968000a5c28f170873adb1706b">cum_num_iterations</a></td></tr>
+<tr class="separator:ab0a558968000a5c28f170873adb1706b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae485a6578b3932159e5b7aea2cd01114"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#ae485a6578b3932159e5b7aea2cd01114">rel_resid_norm</a></td></tr>
+<tr class="separator:ae485a6578b3932159e5b7aea2cd01114"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a104e7cc2ba0d92cd8232fca8cae0409d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a104e7cc2ba0d92cd8232fca8cae0409d">residual</a></td></tr>
+<tr class="separator:a104e7cc2ba0d92cd8232fca8cae0409d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b61ea381f6c1d3f22829504c9cb2784"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a1b61ea381f6c1d3f22829504c9cb2784">print_level</a></td></tr>
+<tr class="separator:a1b61ea381f6c1d3f22829504c9cb2784"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5de43842c0a83266caf62b5a3bf915d"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#af5de43842c0a83266caf62b5a3bf915d">log_file_name</a> [256]</td></tr>
+<tr class="separator:af5de43842c0a83266caf62b5a3bf915d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e3d126df22eb56aa634258eedd6afff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a6e3d126df22eb56aa634258eedd6afff">debug_flag</a></td></tr>
+<tr class="separator:a6e3d126df22eb56aa634258eedd6afff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13b3ff9a0b1d953491b18d9885fb2cb1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a13b3ff9a0b1d953491b18d9885fb2cb1">plot_grids</a></td></tr>
+<tr class="separator:a13b3ff9a0b1d953491b18d9885fb2cb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacd0dc952cfc185ca8b55f96c89d12fd"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#aacd0dc952cfc185ca8b55f96c89d12fd">plot_filename</a> [251]</td></tr>
+<tr class="separator:aacd0dc952cfc185ca8b55f96c89d12fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c50a6e25b480c209da293922d34109c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a6c50a6e25b480c209da293922d34109c">coorddim</a></td></tr>
+<tr class="separator:a6c50a6e25b480c209da293922d34109c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8a9ca0439b07ca05bd79a6b5fd4875f"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#ad8a9ca0439b07ca05bd79a6b5fd4875f">coordinates</a></td></tr>
+<tr class="separator:ad8a9ca0439b07ca05bd79a6b5fd4875f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00dae2b68847d0faedf654088311cc56"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a00dae2b68847d0faedf654088311cc56">num_interp_vectors</a></td></tr>
+<tr class="separator:a00dae2b68847d0faedf654088311cc56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea77394f8233234e0c266f5878a6fa3b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#aea77394f8233234e0c266f5878a6fa3b">num_levels_interp_vectors</a></td></tr>
+<tr class="separator:aea77394f8233234e0c266f5878a6fa3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefa35cd21ccdf894de2fda53282d5ef9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#aefa35cd21ccdf894de2fda53282d5ef9">interp_vectors</a></td></tr>
+<tr class="separator:aefa35cd21ccdf894de2fda53282d5ef9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a941cef3af560815a49198218eac37b9f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a> ***&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a941cef3af560815a49198218eac37b9f">interp_vectors_array</a></td></tr>
+<tr class="separator:a941cef3af560815a49198218eac37b9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1f2baea5b06163c46ad87ee778e8103"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#aa1f2baea5b06163c46ad87ee778e8103">interp_vec_variant</a></td></tr>
+<tr class="separator:aa1f2baea5b06163c46ad87ee778e8103"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a556233d2f2e20a73f7508f21a70703e5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a556233d2f2e20a73f7508f21a70703e5">interp_vec_first_level</a></td></tr>
+<tr class="separator:a556233d2f2e20a73f7508f21a70703e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2924ab161056cc2e51602b2120557049"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a2924ab161056cc2e51602b2120557049">interp_vectors_abs_q_trunc</a></td></tr>
+<tr class="separator:a2924ab161056cc2e51602b2120557049"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16ba5fb0cbe8c75bd089a77f677a1a75"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a16ba5fb0cbe8c75bd089a77f677a1a75">interp_vectors_q_max</a></td></tr>
+<tr class="separator:a16ba5fb0cbe8c75bd089a77f677a1a75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10cf14e4f5e7a0dd5230e4c3c7f82f43"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a10cf14e4f5e7a0dd5230e4c3c7f82f43">interp_refine</a></td></tr>
+<tr class="separator:a10cf14e4f5e7a0dd5230e4c3c7f82f43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77e45f254b557bd64b05f09db714fca0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a77e45f254b557bd64b05f09db714fca0">smooth_interp_vectors</a></td></tr>
+<tr class="separator:a77e45f254b557bd64b05f09db714fca0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6301e35ffbd25f1a921274d5f882384d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a6301e35ffbd25f1a921274d5f882384d">expandp_weights</a></td></tr>
+<tr class="separator:a6301e35ffbd25f1a921274d5f882384d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7c7f451152aac7834ceff2d8f88be5e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#af7c7f451152aac7834ceff2d8f88be5e">coarse_solver</a></td></tr>
+<tr class="separator:af7c7f451152aac7834ceff2d8f88be5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18bcfdd556098ee69087bf2221e0d7a6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="__hypre__parcsr__mv_8h.html#a0612d56042e635111dc5c83b076308d8">hypre_ParCSRMatrix</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a18bcfdd556098ee69087bf2221e0d7a6">A_coarse</a></td></tr>
+<tr class="separator:a18bcfdd556098ee69087bf2221e0d7a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa5b603812834d05e1496d723990142e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#afa5b603812834d05e1496d723990142e">f_coarse</a></td></tr>
+<tr class="separator:afa5b603812834d05e1496d723990142e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a729fdf421fc6b738fed19c72df354dd5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a729fdf421fc6b738fed19c72df354dd5">u_coarse</a></td></tr>
+<tr class="separator:a729fdf421fc6b738fed19c72df354dd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fa6031f522937aeafda62cbe79872d9"><td class="memItemLeft" align="right" valign="top">MPI_Comm&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a8fa6031f522937aeafda62cbe79872d9">new_comm</a></td></tr>
+<tr class="separator:a8fa6031f522937aeafda62cbe79872d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88768052e45e07b4b957251231753ef3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a88768052e45e07b4b957251231753ef3">A_mat</a></td></tr>
+<tr class="separator:a88768052e45e07b4b957251231753ef3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a275638f60c0c90c740a6d094981e2665"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a275638f60c0c90c740a6d094981e2665">b_vec</a></td></tr>
+<tr class="separator:a275638f60c0c90c740a6d094981e2665"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8025bf01d285734dcdc754585c1b2311"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a8025bf01d285734dcdc754585c1b2311">comm_info</a></td></tr>
+<tr class="separator:a8025bf01d285734dcdc754585c1b2311"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade53bafffea3f41424a72a0e5364eb02"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#ade53bafffea3f41424a72a0e5364eb02">additive</a></td></tr>
+<tr class="separator:ade53bafffea3f41424a72a0e5364eb02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae49d2154d0eac38425acf0872033a961"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#ae49d2154d0eac38425acf0872033a961">mult_additive</a></td></tr>
+<tr class="separator:ae49d2154d0eac38425acf0872033a961"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d736b60922f6e4934575c6122859149"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a8d736b60922f6e4934575c6122859149">simple</a></td></tr>
+<tr class="separator:a8d736b60922f6e4934575c6122859149"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12e1c35bc9b83ec503ffa84b8186270d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a12e1c35bc9b83ec503ffa84b8186270d">add_P_max_elmts</a></td></tr>
+<tr class="separator:a12e1c35bc9b83ec503ffa84b8186270d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3590d906eed799043e8b1885387e7cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#ac3590d906eed799043e8b1885387e7cd">add_trunc_factor</a></td></tr>
+<tr class="separator:ac3590d906eed799043e8b1885387e7cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec88b5f90afc9d670cd104654ff143ee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="__hypre__parcsr__mv_8h.html#a0612d56042e635111dc5c83b076308d8">hypre_ParCSRMatrix</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#aec88b5f90afc9d670cd104654ff143ee">Lambda</a></td></tr>
+<tr class="separator:aec88b5f90afc9d670cd104654ff143ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a971cd4f819b275003e58e2421162e07b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a971cd4f819b275003e58e2421162e07b">Rtilde</a></td></tr>
+<tr class="separator:a971cd4f819b275003e58e2421162e07b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a887b405642bd73626c898639a76e8b91"><td class="memItemLeft" align="right" valign="top"><a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a887b405642bd73626c898639a76e8b91">Xtilde</a></td></tr>
+<tr class="separator:a887b405642bd73626c898639a76e8b91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefa966038989b45f0800212b0f53f9be"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#aefa966038989b45f0800212b0f53f9be">D_inv</a></td></tr>
+<tr class="separator:aefa966038989b45f0800212b0f53f9be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af065fab84877975c9e858d9760f30119"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#af065fab84877975c9e858d9760f30119">rap2</a></td></tr>
+<tr class="separator:af065fab84877975c9e858d9760f30119"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e5f12d4064877674903ae18617ffcf6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_a_m_g_data.html#a1e5f12d4064877674903ae18617ffcf6">keepTranspose</a></td></tr>
+<tr class="separator:a1e5f12d4064877674903ae18617ffcf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00060">60</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+</div><h2 class="groupheader">Member Data Documentation</h2>
+<a id="a68a540004a6388f6a382b2b3ce6f79a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68a540004a6388f6a382b2b3ce6f79a9">&#9670;&nbsp;</a></span>A</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="__hypre__parcsr__mv_8h.html#a0612d56042e635111dc5c83b076308d8">hypre_ParCSRMatrix</a>* hypre_ParAMGData::A</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00115">115</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a7804e15bfeafbf84c84558641b9e357c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7804e15bfeafbf84c84558641b9e357c">&#9670;&nbsp;</a></span>A_array</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="__hypre__parcsr__mv_8h.html#a0612d56042e635111dc5c83b076308d8">hypre_ParCSRMatrix</a>** hypre_ParAMGData::A_array</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00127">127</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a1a7e56b65a2d696fa2aa86a2b5144631"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a7e56b65a2d696fa2aa86a2b5144631">&#9670;&nbsp;</a></span>A_block_array</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a>** hypre_ParAMGData::A_block_array</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00141">141</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a18bcfdd556098ee69087bf2221e0d7a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18bcfdd556098ee69087bf2221e0d7a6">&#9670;&nbsp;</a></span>A_coarse</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="__hypre__parcsr__mv_8h.html#a0612d56042e635111dc5c83b076308d8">hypre_ParCSRMatrix</a>* hypre_ParAMGData::A_coarse</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00229">229</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a88768052e45e07b4b957251231753ef3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88768052e45e07b4b957251231753ef3">&#9670;&nbsp;</a></span>A_mat</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>* hypre_ParAMGData::A_mat</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00235">235</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a12e1c35bc9b83ec503ffa84b8186270d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12e1c35bc9b83ec503ffa84b8186270d">&#9670;&nbsp;</a></span>add_P_max_elmts</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::add_P_max_elmts</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00243">243</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="ac3590d906eed799043e8b1885387e7cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3590d906eed799043e8b1885387e7cd">&#9670;&nbsp;</a></span>add_trunc_factor</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::add_trunc_factor</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00244">244</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="ade53bafffea3f41424a72a0e5364eb02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade53bafffea3f41424a72a0e5364eb02">&#9670;&nbsp;</a></span>additive</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::additive</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00240">240</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="ae309d660bafec01109b9274b72028bac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae309d660bafec01109b9274b72028bac">&#9670;&nbsp;</a></span>agg_interp_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::agg_interp_type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00080">80</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="aa378a1e08e0940048164b0208faed0eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa378a1e08e0940048164b0208faed0eb">&#9670;&nbsp;</a></span>agg_num_levels</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::agg_num_levels</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00084">84</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a596995f033f1013a3b6bab7346a047cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a596995f033f1013a3b6bab7346a047cb">&#9670;&nbsp;</a></span>agg_P12_max_elmts</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::agg_P12_max_elmts</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00082">82</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="abc7c8a9d8cc89436741132b65753c991"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc7c8a9d8cc89436741132b65753c991">&#9670;&nbsp;</a></span>agg_P12_trunc_factor</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> hypre_ParAMGData::agg_P12_trunc_factor</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00069">69</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a06a618791b7c8ffa21e14923d255e84c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06a618791b7c8ffa21e14923d255e84c">&#9670;&nbsp;</a></span>agg_P_max_elmts</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::agg_P_max_elmts</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00081">81</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="adbe9f22d35e7f60cacb092497d8b756e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbe9f22d35e7f60cacb092497d8b756e">&#9670;&nbsp;</a></span>agg_trunc_factor</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> hypre_ParAMGData::agg_trunc_factor</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00068">68</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a275638f60c0c90c740a6d094981e2665"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a275638f60c0c90c740a6d094981e2665">&#9670;&nbsp;</a></span>b_vec</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>* hypre_ParAMGData::b_vec</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00236">236</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="ab8596776d9dfdfb76cac15a4939f6be6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8596776d9dfdfb76cac15a4939f6be6">&#9670;&nbsp;</a></span>block_mode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::block_mode</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00145">145</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a4a1aa16819d107cfd66b9152f84b7ae8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a1aa16819d107cfd66b9152f84b7ae8">&#9670;&nbsp;</a></span>CF_marker_array</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>** hypre_ParAMGData::CF_marker_array</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00132">132</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a400be9fad1369704c7a2b9d69c5cf8b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a400be9fad1369704c7a2b9d69c5cf8b0">&#9670;&nbsp;</a></span>cgc_its</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::cgc_its</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00090">90</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a60976ac26961e0a24a72f5812840768b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60976ac26961e0a24a72f5812840768b">&#9670;&nbsp;</a></span>cheby_fraction</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> hypre_ParAMGData::cheby_fraction</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00171">171</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a7d895c54c5abedd7ee96f765110f41d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d895c54c5abedd7ee96f765110f41d5">&#9670;&nbsp;</a></span>cheby_order</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::cheby_order</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00170">170</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="af7c7f451152aac7834ceff2d8f88be5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7c7f451152aac7834ceff2d8f88be5e">&#9670;&nbsp;</a></span>coarse_solver</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a> hypre_ParAMGData::coarse_solver</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00228">228</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a70cb42e66309b076db37a0fa57cbb6a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70cb42e66309b076db37a0fa57cbb6a3">&#9670;&nbsp;</a></span>coarsen_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::coarsen_type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00076">76</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a8025bf01d285734dcdc754585c1b2311"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8025bf01d285734dcdc754585c1b2311">&#9670;&nbsp;</a></span>comm_info</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>* hypre_ParAMGData::comm_info</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00237">237</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a6c50a6e25b480c209da293922d34109c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c50a6e25b480c209da293922d34109c">&#9670;&nbsp;</a></span>coorddim</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::coorddim</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00211">211</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="ad8a9ca0439b07ca05bd79a6b5fd4875f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8a9ca0439b07ca05bd79a6b5fd4875f">&#9670;&nbsp;</a></span>coordinates</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float* hypre_ParAMGData::coordinates</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00212">212</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a6708f2cedb7b22903e0a932a8bdd6911"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6708f2cedb7b22903e0a932a8bdd6911">&#9670;&nbsp;</a></span>CR_rate</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> hypre_ParAMGData::CR_rate</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00072">72</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a37b0c3e811b8f3b1162190ad98036209"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37b0c3e811b8f3b1162190ad98036209">&#9670;&nbsp;</a></span>CR_strong_th</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> hypre_ParAMGData::CR_strong_th</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00073">73</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a584775fd1a9eb54929b3466fc87ff03f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a584775fd1a9eb54929b3466fc87ff03f">&#9670;&nbsp;</a></span>CR_use_CG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::CR_use_CG</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00089">89</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="ab0a558968000a5c28f170873adb1706b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0a558968000a5c28f170873adb1706b">&#9670;&nbsp;</a></span>cum_num_iterations</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::cum_num_iterations</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00196">196</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a67164f686b571a4e1d4258e4cd4860b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67164f686b571a4e1d4258e4cd4860b5">&#9670;&nbsp;</a></span>cycle_op_count</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> hypre_ParAMGData::cycle_op_count</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00183">183</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="abbd91de9015668446ad9cca078496fcd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbd91de9015668446ad9cca078496fcd">&#9670;&nbsp;</a></span>cycle_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::cycle_type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00100">100</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="aefa966038989b45f0800212b0f53f9be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefa966038989b45f0800212b0f53f9be">&#9670;&nbsp;</a></span>D_inv</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>* hypre_ParAMGData::D_inv</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00248">248</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a6e3d126df22eb56aa634258eedd6afff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e3d126df22eb56aa634258eedd6afff">&#9670;&nbsp;</a></span>debug_flag</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::debug_flag</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00204">204</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="af6baddc8d06f2c11d5c8f3dadcae187a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6baddc8d06f2c11d5c8f3dadcae187a">&#9670;&nbsp;</a></span>dof_func</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>* hypre_ParAMGData::dof_func</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00122">122</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="af31f5e4f8c6f8c1b10988ab3c95f2bd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af31f5e4f8c6f8c1b10988ab3c95f2bd2">&#9670;&nbsp;</a></span>dof_func_array</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>** hypre_ParAMGData::dof_func_array</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00133">133</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a6e24166d4c2909c55f8b84409cb8885a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e24166d4c2909c55f8b84409cb8885a">&#9670;&nbsp;</a></span>dof_point</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>* hypre_ParAMGData::dof_point</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00123">123</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a0f687c402ea3bb91a07d01cc86749849"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f687c402ea3bb91a07d01cc86749849">&#9670;&nbsp;</a></span>dof_point_array</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>** hypre_ParAMGData::dof_point_array</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00134">134</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a5986a8ebd390cf55eda8109c501bfacb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5986a8ebd390cf55eda8109c501bfacb">&#9670;&nbsp;</a></span>eu_bj</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::eu_bj</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00161">161</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a573d1f442692603ec0a36bbd01b56309"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a573d1f442692603ec0a36bbd01b56309">&#9670;&nbsp;</a></span>eu_level</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::eu_level</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00160">160</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="afd4ea7865139b71879898088b23ae356"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd4ea7865139b71879898088b23ae356">&#9670;&nbsp;</a></span>eu_sparse_A</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> hypre_ParAMGData::eu_sparse_A</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00165">165</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="ad52f5f8dde713b60ad09004db9485cc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad52f5f8dde713b60ad09004db9485cc8">&#9670;&nbsp;</a></span>euclidfile</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* hypre_ParAMGData::euclidfile</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00166">166</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a6301e35ffbd25f1a921274d5f882384d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6301e35ffbd25f1a921274d5f882384d">&#9670;&nbsp;</a></span>expandp_weights</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>* hypre_ParAMGData::expandp_weights</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00225">225</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a12bd1ab4c34a348ebe785edcd79580e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12bd1ab4c34a348ebe785edcd79580e3">&#9670;&nbsp;</a></span>F_array</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a>** hypre_ParAMGData::F_array</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00128">128</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="afa5b603812834d05e1496d723990142e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa5b603812834d05e1496d723990142e">&#9670;&nbsp;</a></span>f_coarse</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a>* hypre_ParAMGData::f_coarse</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00230">230</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a29262d6b33d1bc58cde6b86ccc790200"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29262d6b33d1bc58cde6b86ccc790200">&#9670;&nbsp;</a></span>grid_relax_points</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>** hypre_ParAMGData::grid_relax_points</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00103">103</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a27015a215ed5adac0fa5eb92f4e5d870"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27015a215ed5adac0fa5eb92f4e5d870">&#9670;&nbsp;</a></span>grid_relax_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>* hypre_ParAMGData::grid_relax_type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00102">102</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a185e411b581705543d90598b63d0644c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a185e411b581705543d90598b63d0644c">&#9670;&nbsp;</a></span>gsmg</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::gsmg</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00189">189</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a10cf14e4f5e7a0dd5230e4c3c7f82f43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10cf14e4f5e7a0dd5230e4c3c7f82f43">&#9670;&nbsp;</a></span>interp_refine</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::interp_refine</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00223">223</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="ab51de0cc6b4de8dfd1b3e23414cfef9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab51de0cc6b4de8dfd1b3e23414cfef9b">&#9670;&nbsp;</a></span>interp_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::interp_type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00078">78</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a556233d2f2e20a73f7508f21a70703e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a556233d2f2e20a73f7508f21a70703e5">&#9670;&nbsp;</a></span>interp_vec_first_level</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::interp_vec_first_level</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00220">220</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="aa1f2baea5b06163c46ad87ee778e8103"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1f2baea5b06163c46ad87ee778e8103">&#9670;&nbsp;</a></span>interp_vec_variant</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::interp_vec_variant</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00219">219</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="aefa35cd21ccdf894de2fda53282d5ef9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefa35cd21ccdf894de2fda53282d5ef9">&#9670;&nbsp;</a></span>interp_vectors</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a>** hypre_ParAMGData::interp_vectors</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00217">217</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a2924ab161056cc2e51602b2120557049"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2924ab161056cc2e51602b2120557049">&#9670;&nbsp;</a></span>interp_vectors_abs_q_trunc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> hypre_ParAMGData::interp_vectors_abs_q_trunc</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00221">221</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a941cef3af560815a49198218eac37b9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a941cef3af560815a49198218eac37b9f">&#9670;&nbsp;</a></span>interp_vectors_array</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a>*** hypre_ParAMGData::interp_vectors_array</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00218">218</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a16ba5fb0cbe8c75bd089a77f677a1a75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16ba5fb0cbe8c75bd089a77f677a1a75">&#9670;&nbsp;</a></span>interp_vectors_q_max</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::interp_vectors_q_max</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00222">222</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a0635a8ecbebbf6bf5f6a69d29b3342a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0635a8ecbebbf6bf5f6a69d29b3342a8">&#9670;&nbsp;</a></span>IS_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::IS_type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00088">88</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a55798ddf5cbede88f8a35e12fa735f2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55798ddf5cbede88f8a35e12fa735f2a">&#9670;&nbsp;</a></span>jacobi_trunc_threshold</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> hypre_ParAMGData::jacobi_trunc_threshold</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00070">70</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a1e5f12d4064877674903ae18617ffcf6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e5f12d4064877674903ae18617ffcf6">&#9670;&nbsp;</a></span>keepTranspose</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::keepTranspose</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00251">251</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a0033cf74e3bd1d3e3551d8c1373983a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0033cf74e3bd1d3e3551d8c1373983a9">&#9670;&nbsp;</a></span>l1_norms</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>** hypre_ParAMGData::l1_norms</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00137">137</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="aec88b5f90afc9d670cd104654ff143ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec88b5f90afc9d670cd104654ff143ee">&#9670;&nbsp;</a></span>Lambda</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="__hypre__parcsr__mv_8h.html#a0612d56042e635111dc5c83b076308d8">hypre_ParCSRMatrix</a>* hypre_ParAMGData::Lambda</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00245">245</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="af5de43842c0a83266caf62b5a3bf915d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5de43842c0a83266caf62b5a3bf915d">&#9670;&nbsp;</a></span>log_file_name</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char hypre_ParAMGData::log_file_name[256]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00203">203</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a4d0ecc273aaa7955a20c3dc54ca9d714"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d0ecc273aaa7955a20c3dc54ca9d714">&#9670;&nbsp;</a></span>logging</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::logging</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00193">193</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a737d964830ccc65b64395a1a0c2b9c2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a737d964830ccc65b64395a1a0c2b9c2b">&#9670;&nbsp;</a></span>max_coarse_size</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::max_coarse_size</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00091">91</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="ace01b31a4548cee38622d8514e197cf8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace01b31a4548cee38622d8514e197cf8">&#9670;&nbsp;</a></span>max_eig_est</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>* hypre_ParAMGData::max_eig_est</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00168">168</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a7e705abb3d018d001f865a9e142a1b30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e705abb3d018d001f865a9e142a1b30">&#9670;&nbsp;</a></span>max_iter</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::max_iter</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00098">98</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a598900460d6891e4fc126c0fe2d52802"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a598900460d6891e4fc126c0fe2d52802">&#9670;&nbsp;</a></span>max_levels</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::max_levels</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00064">64</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a45a1643091ef436ca179193917bfc69e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45a1643091ef436ca179193917bfc69e">&#9670;&nbsp;</a></span>max_row_sum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> hypre_ParAMGData::max_row_sum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00066">66</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="abc897cf2f52cde6fea9a2cc2d8c0adf4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc897cf2f52cde6fea9a2cc2d8c0adf4">&#9670;&nbsp;</a></span>measure_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::measure_type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00074">74</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a7022d3d4cb3a7456d9109b02093d9016"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7022d3d4cb3a7456d9109b02093d9016">&#9670;&nbsp;</a></span>min_coarse_size</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::min_coarse_size</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00092">92</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="adb310846eac368e099c6cc3c6b8a2c30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb310846eac368e099c6cc3c6b8a2c30">&#9670;&nbsp;</a></span>min_eig_est</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>* hypre_ParAMGData::min_eig_est</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00169">169</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a0fa58df1aeb278bb0ba04598d2b1243b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fa58df1aeb278bb0ba04598d2b1243b">&#9670;&nbsp;</a></span>min_iter</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::min_iter</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00099">99</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="ae49d2154d0eac38425acf0872033a961"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae49d2154d0eac38425acf0872033a961">&#9670;&nbsp;</a></span>mult_additive</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::mult_additive</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00241">241</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a8fa6031f522937aeafda62cbe79872d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fa6031f522937aeafda62cbe79872d9">&#9670;&nbsp;</a></span>new_comm</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MPI_Comm hypre_ParAMGData::new_comm</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00232">232</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a564b1c299b03a30df1eb833e3343c3e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a564b1c299b03a30df1eb833e3343c3e6">&#9670;&nbsp;</a></span>nodal</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::nodal</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00118">118</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="aea7c7f927453a0d9230d242723798165"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea7c7f927453a0d9230d242723798165">&#9670;&nbsp;</a></span>nodal_diag</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::nodal_diag</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00120">120</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a5c0730e32873093cfd9988a6c5d5ba5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c0730e32873093cfd9988a6c5d5ba5a">&#9670;&nbsp;</a></span>nodal_levels</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::nodal_levels</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00119">119</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a0acee93d3607822e1320d38492bc83dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0acee93d3607822e1320d38492bc83dc">&#9670;&nbsp;</a></span>nongal_tol_array</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>* hypre_ParAMGData::nongal_tol_array</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00177">177</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="aac38a4edf6fd0639c8101253b6fb997e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac38a4edf6fd0639c8101253b6fb997e">&#9670;&nbsp;</a></span>nongalerk_num_tol</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::nongalerk_num_tol</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00174">174</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a26ed035f67f47871d4531e9db002bd94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26ed035f67f47871d4531e9db002bd94">&#9670;&nbsp;</a></span>nongalerk_tol</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>* hypre_ParAMGData::nongalerk_tol</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00175">175</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a1f42334d2fbf4ffd0c60ab5866812906"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f42334d2fbf4ffd0c60ab5866812906">&#9670;&nbsp;</a></span>nongalerkin_tol</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> hypre_ParAMGData::nongalerkin_tol</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00176">176</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a963e33d58a51e750c28a2e767ac896d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a963e33d58a51e750c28a2e767ac896d0">&#9670;&nbsp;</a></span>num_CR_relax_steps</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::num_CR_relax_steps</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00087">87</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a43ceb2488154decb0efb590c664f0edc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43ceb2488154decb0efb590c664f0edc">&#9670;&nbsp;</a></span>num_functions</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::num_functions</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00117">117</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a234c07d564b8b2af54fd8740749fa8c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a234c07d564b8b2af54fd8740749fa8c7">&#9670;&nbsp;</a></span>num_grid_sweeps</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>* hypre_ParAMGData::num_grid_sweeps</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00101">101</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a00dae2b68847d0faedf654088311cc56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00dae2b68847d0faedf654088311cc56">&#9670;&nbsp;</a></span>num_interp_vectors</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::num_interp_vectors</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00215">215</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="ac9338d921d904a5f5f5f5025c4f9d108"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9338d921d904a5f5f5f5025c4f9d108">&#9670;&nbsp;</a></span>num_iterations</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::num_iterations</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00194">194</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a2bed1902dc7b5b4ddca8496760e80166"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bed1902dc7b5b4ddca8496760e80166">&#9670;&nbsp;</a></span>num_levels</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::num_levels</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00136">136</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="aea77394f8233234e0c266f5878a6fa3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea77394f8233234e0c266f5878a6fa3b">&#9670;&nbsp;</a></span>num_levels_interp_vectors</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::num_levels_interp_vectors</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00216">216</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a8161be44b1649dfdcdef51bbbc6ccad1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8161be44b1649dfdcdef51bbbc6ccad1">&#9670;&nbsp;</a></span>num_paths</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::num_paths</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00085">85</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a4fc9cf12927fd323f6c8d68694feec66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fc9cf12927fd323f6c8d68694feec66">&#9670;&nbsp;</a></span>num_points</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::num_points</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00121">121</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="ad5066b839ef48c428cd31d60e9d3e451"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5066b839ef48c428cd31d60e9d3e451">&#9670;&nbsp;</a></span>num_samples</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::num_samples</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00190">190</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a8a274353431aa653ad4df0e6daa32433"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a274353431aa653ad4df0e6daa32433">&#9670;&nbsp;</a></span>num_variables</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::num_variables</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00116">116</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a9e66701b7076c86f4f7dfa7555c23b74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e66701b7076c86f4f7dfa7555c23b74">&#9670;&nbsp;</a></span>omega</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>* hypre_ParAMGData::omega</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00111">111</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a1213dbb7625851669cd9da2cf10eda13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1213dbb7625851669cd9da2cf10eda13">&#9670;&nbsp;</a></span>outer_wt</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> hypre_ParAMGData::outer_wt</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00109">109</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="ae74cf3e6fcbaa845ac497dfe959ca747"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae74cf3e6fcbaa845ac497dfe959ca747">&#9670;&nbsp;</a></span>P_array</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="__hypre__parcsr__mv_8h.html#a0612d56042e635111dc5c83b076308d8">hypre_ParCSRMatrix</a>** hypre_ParAMGData::P_array</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00130">130</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="abf4b3060ab61d21857928f2c1e572d9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf4b3060ab61d21857928f2c1e572d9e">&#9670;&nbsp;</a></span>P_block_array</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a>** hypre_ParAMGData::P_block_array</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00142">142</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="ae71119cd27bd1ebeb75287b0d20f6532"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae71119cd27bd1ebeb75287b0d20f6532">&#9670;&nbsp;</a></span>P_max_elmts</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::P_max_elmts</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00077">77</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a7e27796cffda336b44ef818a0408e878"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e27796cffda336b44ef818a0408e878">&#9670;&nbsp;</a></span>participate</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::participate</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00095">95</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="ad1ec085487e0c3e92bc5484d2b260797"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1ec085487e0c3e92bc5484d2b260797">&#9670;&nbsp;</a></span>pi_drop_tol</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> hypre_ParAMGData::pi_drop_tol</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00164">164</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a3cf17fa36ac3ed853bfe4173723c1496"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cf17fa36ac3ed853bfe4173723c1496">&#9670;&nbsp;</a></span>pi_max_nz_per_row</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::pi_max_nz_per_row</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00159">159</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="aacd0dc952cfc185ca8b55f96c89d12fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacd0dc952cfc185ca8b55f96c89d12fd">&#9670;&nbsp;</a></span>plot_filename</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char hypre_ParAMGData::plot_filename[251]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00208">208</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a13b3ff9a0b1d953491b18d9885fb2cb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13b3ff9a0b1d953491b18d9885fb2cb1">&#9670;&nbsp;</a></span>plot_grids</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::plot_grids</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00207">207</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a190aed36d3d878ca8f8841746cfb45e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a190aed36d3d878ca8f8841746cfb45e4">&#9670;&nbsp;</a></span>point_dof_map</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>* hypre_ParAMGData::point_dof_map</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00124">124</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="ac70e11d2e8d0f9db23936ec03fa65fe2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac70e11d2e8d0f9db23936ec03fa65fe2">&#9670;&nbsp;</a></span>point_dof_map_array</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>** hypre_ParAMGData::point_dof_map_array</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00135">135</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a4908916f9b17745e28136a899b04548b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4908916f9b17745e28136a899b04548b">&#9670;&nbsp;</a></span>post_interp_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::post_interp_type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00086">86</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a1b61ea381f6c1d3f22829504c9cb2784"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b61ea381f6c1d3f22829504c9cb2784">&#9670;&nbsp;</a></span>print_level</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::print_level</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00202">202</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a1c83734dcbdd97f6e9159d752f55ef02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c83734dcbdd97f6e9159d752f55ef02">&#9670;&nbsp;</a></span>ps_filter</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> hypre_ParAMGData::ps_filter</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00163">163</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a96d9c117b13c82fc28c9e71fde945b86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96d9c117b13c82fc28c9e71fde945b86">&#9670;&nbsp;</a></span>ps_level</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::ps_level</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00158">158</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="ab0e758d8eb9e9f86ee6355d514b07059"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0e758d8eb9e9f86ee6355d514b07059">&#9670;&nbsp;</a></span>ps_sym</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::ps_sym</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00157">157</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a4da326fbcb14646e12edcc631cd28805"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4da326fbcb14646e12edcc631cd28805">&#9670;&nbsp;</a></span>ps_threshold</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> hypre_ParAMGData::ps_threshold</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00162">162</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="adb1e3209a2151cd980e2319c6976bc8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb1e3209a2151cd980e2319c6976bc8f">&#9670;&nbsp;</a></span>Ptemp</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a>* hypre_ParAMGData::Ptemp</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00185">185</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="aa138272492d4ce452829ad933f5d5546"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa138272492d4ce452829ad933f5d5546">&#9670;&nbsp;</a></span>R_array</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="__hypre__parcsr__mv_8h.html#a0612d56042e635111dc5c83b076308d8">hypre_ParCSRMatrix</a>** hypre_ParAMGData::R_array</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00131">131</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="ae5929e82c1d45e0a47bba3f940888f18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5929e82c1d45e0a47bba3f940888f18">&#9670;&nbsp;</a></span>R_block_array</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a>** hypre_ParAMGData::R_block_array</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00143">143</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="af065fab84877975c9e858d9760f30119"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af065fab84877975c9e858d9760f30119">&#9670;&nbsp;</a></span>rap2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::rap2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00250">250</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a7fe0d7ca966c611932110b100efaf947"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fe0d7ca966c611932110b100efaf947">&#9670;&nbsp;</a></span>redundant</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::redundant</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00094">94</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="ae485a6578b3932159e5b7aea2cd01114"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae485a6578b3932159e5b7aea2cd01114">&#9670;&nbsp;</a></span>rel_resid_norm</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> hypre_ParAMGData::rel_resid_norm</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00198">198</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a58d26c969c421ccb654712ac9d693f8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58d26c969c421ccb654712ac9d693f8d">&#9670;&nbsp;</a></span>relax_order</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::relax_order</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00104">104</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a5d82cc0f72cabc2b6978610420fb467b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d82cc0f72cabc2b6978610420fb467b">&#9670;&nbsp;</a></span>relax_weight</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>* hypre_ParAMGData::relax_weight</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00110">110</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a104e7cc2ba0d92cd8232fca8cae0409d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a104e7cc2ba0d92cd8232fca8cae0409d">&#9670;&nbsp;</a></span>residual</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a>* hypre_ParAMGData::residual</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00199">199</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a2d0fe2b1bb984f4f28fee23d3eeab3c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d0fe2b1bb984f4f28fee23d3eeab3c8">&#9670;&nbsp;</a></span>restr_par</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::restr_par</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00083">83</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a85e76037a3ab81ec48f405dfe9029132"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85e76037a3ab81ec48f405dfe9029132">&#9670;&nbsp;</a></span>Rtemp</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a>* hypre_ParAMGData::Rtemp</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00184">184</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a971cd4f819b275003e58e2421162e07b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a971cd4f819b275003e58e2421162e07b">&#9670;&nbsp;</a></span>Rtilde</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a>* hypre_ParAMGData::Rtilde</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00246">246</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a2d7c117c7249178592debfa9fa917b29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d7c117c7249178592debfa9fa917b29">&#9670;&nbsp;</a></span>S_commpkg_switch</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> hypre_ParAMGData::S_commpkg_switch</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00071">71</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a3048ae052ed18b8af748b7cab620f0bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3048ae052ed18b8af748b7cab620f0bd">&#9670;&nbsp;</a></span>schw_domain_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::schw_domain_type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00154">154</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a35ebfe6e23ed699416d134319611b703"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35ebfe6e23ed699416d134319611b703">&#9670;&nbsp;</a></span>schw_overlap</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::schw_overlap</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00153">153</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="ac1bee914c304c4d22e891b6b4a8cbd29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1bee914c304c4d22e891b6b4a8cbd29">&#9670;&nbsp;</a></span>schw_variant</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::schw_variant</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00152">152</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="addd781463a8504a8cbf9164cd0219145"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#addd781463a8504a8cbf9164cd0219145">&#9670;&nbsp;</a></span>schwarz_rlx_weight</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> hypre_ParAMGData::schwarz_rlx_weight</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00155">155</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a81f373728dddd877240080d35d51dc41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81f373728dddd877240080d35d51dc41">&#9670;&nbsp;</a></span>schwarz_use_nonsymm</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::schwarz_use_nonsymm</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00156">156</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="aceaafb7c58f530b916729a5b706b597e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aceaafb7c58f530b916729a5b706b597e">&#9670;&nbsp;</a></span>sep_weight</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::sep_weight</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00079">79</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a4e5c29a065b93ab2de90829f4dc96097"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e5c29a065b93ab2de90829f4dc96097">&#9670;&nbsp;</a></span>seq_threshold</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::seq_threshold</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00093">93</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="afac86c6473572bc591bef6bea8ba4a43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afac86c6473572bc591bef6bea8ba4a43">&#9670;&nbsp;</a></span>setup_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::setup_type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00075">75</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a8d736b60922f6e4934575c6122859149"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d736b60922f6e4934575c6122859149">&#9670;&nbsp;</a></span>simple</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::simple</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00242">242</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a77e45f254b557bd64b05f09db714fca0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77e45f254b557bd64b05f09db714fca0">&#9670;&nbsp;</a></span>smooth_interp_vectors</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::smooth_interp_vectors</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00224">224</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a8a76126b45ecfef4116d0d63ff81c832"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a76126b45ecfef4116d0d63ff81c832">&#9670;&nbsp;</a></span>smooth_num_levels</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::smooth_num_levels</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00148">148</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a9ff8b29ad9e696f5740b7d6aa938e20e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ff8b29ad9e696f5740b7d6aa938e20e">&#9670;&nbsp;</a></span>smooth_num_sweeps</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::smooth_num_sweeps</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00151">151</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="acd97fe019aab3d11f1b48d00347a12a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd97fe019aab3d11f1b48d00347a12a2">&#9670;&nbsp;</a></span>smooth_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::smooth_type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00149">149</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a5c5c8d3732e2f224053b73d5ddc2235d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c5c8d3732e2f224053b73d5ddc2235d">&#9670;&nbsp;</a></span>smoother</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__krylov_8h.html#a75a4de46a9e5cb0e0081f247a2505cb7">HYPRE_Solver</a>* hypre_ParAMGData::smoother</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00150">150</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a99a71b72f4635322bc47dc9664b42efa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99a71b72f4635322bc47dc9664b42efa">&#9670;&nbsp;</a></span>strong_threshold</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> hypre_ParAMGData::strong_threshold</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00065">65</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a3b3cddeb52459ccc53218f46df80b638"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b3cddeb52459ccc53218f46df80b638">&#9670;&nbsp;</a></span>tol</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> hypre_ParAMGData::tol</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00112">112</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a7456d67e1827fd57311ca9d5d2441ed6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7456d67e1827fd57311ca9d5d2441ed6">&#9670;&nbsp;</a></span>trunc_factor</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> hypre_ParAMGData::trunc_factor</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00067">67</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a8f17a2d538ea720598ed85c0d6bd5c2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f17a2d538ea720598ed85c0d6bd5c2a">&#9670;&nbsp;</a></span>U_array</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a>** hypre_ParAMGData::U_array</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00129">129</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a729fdf421fc6b738fed19c72df354dd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a729fdf421fc6b738fed19c72df354dd5">&#9670;&nbsp;</a></span>u_coarse</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a>* hypre_ParAMGData::u_coarse</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00231">231</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="af65aea11c5912ff3a152c297c7db91a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af65aea11c5912ff3a152c297c7db91a1">&#9670;&nbsp;</a></span>user_coarse_relax_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::user_coarse_relax_type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00105">105</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="aea33ca3b0edc0685721a8c861e2e3c4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea33ca3b0edc0685721a8c861e2e3c4c">&#9670;&nbsp;</a></span>user_num_sweeps</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::user_num_sweeps</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00107">107</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="af06fab2b6604fa3c6b3a6d90867cff2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af06fab2b6604fa3c6b3a6d90867cff2b">&#9670;&nbsp;</a></span>user_relax_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParAMGData::user_relax_type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00106">106</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="ace9f2c4bf90070477445052af4b25ef4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace9f2c4bf90070477445052af4b25ef4">&#9670;&nbsp;</a></span>user_relax_weight</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> hypre_ParAMGData::user_relax_weight</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00108">108</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a1f19678066e568ef8a1b7ce264fdc1c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f19678066e568ef8a1b7ce264fdc1c3">&#9670;&nbsp;</a></span>Vtemp</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a>* hypre_ParAMGData::Vtemp</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00180">180</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a02581389420cf7a947f1f0c2ad31553a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02581389420cf7a947f1f0c2ad31553a">&#9670;&nbsp;</a></span>Vtemp_local</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structhypre___vector.html">hypre_Vector</a>* hypre_ParAMGData::Vtemp_local</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00181">181</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a41f51e5c74c4b1dcd3b69cfb32d74fdb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41f51e5c74c4b1dcd3b69cfb32d74fdb">&#9670;&nbsp;</a></span>Vtemp_local_data</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>* hypre_ParAMGData::Vtemp_local_data</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00182">182</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a887b405642bd73626c898639a76e8b91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a887b405642bd73626c898639a76e8b91">&#9670;&nbsp;</a></span>Xtilde</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a>* hypre_ParAMGData::Xtilde</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00247">247</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<a id="a55f212e1b3b8df3f857edee3d02b70dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55f212e1b3b8df3f857edee3d02b70dd">&#9670;&nbsp;</a></span>Ztemp</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a>* hypre_ParAMGData::Ztemp</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__hypre__parcsr__ls_8h_source.html#l00186">186</a> of file <a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li>include/hypre-2.11.1/<a class="el" href="__hypre__parcsr__ls_8h_source.html">_hypre_parcsr_ls.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="structhypre___par_a_m_g_data.html">hypre_ParAMGData</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

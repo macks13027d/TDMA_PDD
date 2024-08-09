@@ -1,0 +1,26 @@
+var structhypre___par_c_s_r_block_matrix =
+[
+    [ "assumed_partition", "structhypre___par_c_s_r_block_matrix.html#af70d4653ced2f2860f856e7b6ae7c806", null ],
+    [ "col_map_offd", "structhypre___par_c_s_r_block_matrix.html#a56f3159a56fe8913dbc14ccd82ff36ff", null ],
+    [ "col_starts", "structhypre___par_c_s_r_block_matrix.html#a563a8904db43703a9ec28e3f944768d3", null ],
+    [ "comm", "structhypre___par_c_s_r_block_matrix.html#a6d3e38d318a2e61b70f17db0fbaf5224", null ],
+    [ "comm_pkg", "structhypre___par_c_s_r_block_matrix.html#ad69ceab85e0c57eb39e6429f99a994e8", null ],
+    [ "comm_pkgT", "structhypre___par_c_s_r_block_matrix.html#aa4d30829c2e3681abd42ad22e61232f1", null ],
+    [ "d_num_nonzeros", "structhypre___par_c_s_r_block_matrix.html#a6aaa47ff1c4a5f0089f916be05b595f3", null ],
+    [ "diag", "structhypre___par_c_s_r_block_matrix.html#a1ff7243caad4797bf476b561b6ccda2f", null ],
+    [ "first_col_diag", "structhypre___par_c_s_r_block_matrix.html#a187fe7bfa024846ddc191d0963e8bc01", null ],
+    [ "first_row_index", "structhypre___par_c_s_r_block_matrix.html#ae47d73307612fb9b39997d8cff4277d9", null ],
+    [ "getrowactive", "structhypre___par_c_s_r_block_matrix.html#aa30a9d3e978f460e9d131a15b4957715", null ],
+    [ "global_num_cols", "structhypre___par_c_s_r_block_matrix.html#a0e16a50774c36e7225b756625737d130", null ],
+    [ "global_num_rows", "structhypre___par_c_s_r_block_matrix.html#a9860414655985c5c83c631da835181e2", null ],
+    [ "last_col_diag", "structhypre___par_c_s_r_block_matrix.html#a771fb53a8a4daafe4f2d6ff83e05b7b5", null ],
+    [ "last_row_index", "structhypre___par_c_s_r_block_matrix.html#a6023268e56247402961a6866c379cdfa", null ],
+    [ "num_nonzeros", "structhypre___par_c_s_r_block_matrix.html#aef5b34f4c4ffa1b30c74a50b82185bf4", null ],
+    [ "offd", "structhypre___par_c_s_r_block_matrix.html#ac7141e8c772514c4fcc531bf10fab820", null ],
+    [ "owns_col_starts", "structhypre___par_c_s_r_block_matrix.html#aaebe5ccfc55dd7321ff667c58724a7a8", null ],
+    [ "owns_data", "structhypre___par_c_s_r_block_matrix.html#a7f1184df049011f80d76bac2da6af0be", null ],
+    [ "owns_row_starts", "structhypre___par_c_s_r_block_matrix.html#add0abbd4b96e553aee6078da1af6f12e", null ],
+    [ "row_starts", "structhypre___par_c_s_r_block_matrix.html#ae1f69aa6a4badc4c9e4e0100060cd548", null ],
+    [ "rowindices", "structhypre___par_c_s_r_block_matrix.html#abb27d836dd96c907308e688cb668f0c8", null ],
+    [ "rowvalues", "structhypre___par_c_s_r_block_matrix.html#a08705f95c8610a3c959ad9d79d8474e6", null ]
+];

@@ -1,0 +1,307 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="TDMA_PDD" />
+<meta property="og:image" content="../preview.png" />
+<meta property="og:description" content="Documentation for Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="../preview.png" />
+<meta property="og:title" content="TDMA_PDD" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD" />
+<!-- END twitter metadata -->
+<title>TDMA_PDD: include/hypre-2.11.1/multivector.h Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            messageStyle: "normal",
+            linebreaks: {
+                automatic: false
+            }
+        },
+        tex2jax: { 
+            inlineMath: [["\\(","\\)"]], 
+            displayMath: [["$$","$$"],["\\[","\\]"]], 
+            processEscapes: true
+        },
+        TeX: {
+            Macros: {
+                tr: "{\\scriptscriptstyle\\mathrm{T}}",
+            }
+        }
+    });
+</script>
+<!--MathJax(LaTeX) -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <script type="text/javascript" id="MathJax-script" async  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">  </script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="custom-alternative.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/hugh577/TDMA_PDD" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 65px;">
+  <td id="projectlogo">
+    <a href="./index.html">
+        <img alt="Logo" src="home.png"/></td>
+    </a>
+  <td id="projectalign" style="padding-left: 0.5em;padding-top: 0.5em;">
+   <div id="projectname">TDMA_PDD
+   </div>
+   <div id="projectbrief">Documentation</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('multivector_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">multivector.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="multivector_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*BHEADER**********************************************************************</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Copyright (c) 2008,  Lawrence Livermore National Security, LLC.</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> * Produced at the Lawrence Livermore National Laboratory.</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * This file is part of HYPRE.  See file COPYRIGHT for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * HYPRE is free software; you can redistribute it and/or modify it under the</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> * terms of the GNU Lesser General Public License (as published by the Free</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * Software Foundation) version 2.1 dated February 1999.</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> * $Revision$</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> ***********************************************************************EHEADER*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#ifndef MULTIVECTOR_FUNCTION_PROTOTYPES</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#define MULTIVECTOR_FUNCTION_PROTOTYPES</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="interpreter_8h.html">interpreter.h</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="__hypre__utilities_8h.html">_hypre_utilities.h</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">/* abstract multivector */</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="multivector_8h.html#a34bf02b10aa12be5e14db8b92f105b9a">   20</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>mv_MultiVector* <a class="code" href="multivector_8h.html#a34bf02b10aa12be5e14db8b92f105b9a">mv_MultiVectorPtr</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">/* The functions below simply call the respective functions pointed to</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">   in the HYPRE_InterfaceInterpreter structure */</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">/* returns pointer to &quot;real&quot; multivector data (x-&gt;data) */</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keywordtype">void</span> *</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<a class="code" href="multivector_8h.html#a3499743ed5cbb33a03744445570bbad5">mv_MultiVectorGetData</a> (<a class="code" href="multivector_8h.html#a34bf02b10aa12be5e14db8b92f105b9a">mv_MultiVectorPtr</a> <a class="code" href="namespacegrid__arrays.html#ac9d483b46bf68c490350fdef503cd24f">x</a>);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="comment">/* wraps our multivector structure around the data provided by user */</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<a class="code" href="multivector_8h.html#a34bf02b10aa12be5e14db8b92f105b9a">mv_MultiVectorPtr</a></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<a class="code" href="multivector_8h.html#a15db5111e668a194a5ba360e5a044600">mv_MultiVectorWrap</a>( <a class="code" href="structmv___interface_interpreter.html">mv_InterfaceInterpreter</a>* ii, <span class="keywordtype">void</span> * data, <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> ownsData );</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="comment">/* creates a multivector of width n using sample vector */</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<a class="code" href="multivector_8h.html#a34bf02b10aa12be5e14db8b92f105b9a">mv_MultiVectorPtr</a> </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<a class="code" href="multivector_8h.html#ae9116a966c730e6b3d5383acdce695ec">mv_MultiVectorCreateFromSampleVector</a>( <span class="keywordtype">void</span>*, <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> n, <span class="keywordtype">void</span>* sample );</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="comment">/* creates a multivector of the same shape as x; copies values</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">     if copyValues is non-zero */</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<a class="code" href="multivector_8h.html#a34bf02b10aa12be5e14db8b92f105b9a">mv_MultiVectorPtr</a> </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<a class="code" href="multivector_8h.html#a5206e3a3d5ef3a326387e63ea60d114f">mv_MultiVectorCreateCopy</a>( <a class="code" href="multivector_8h.html#a34bf02b10aa12be5e14db8b92f105b9a">mv_MultiVectorPtr</a> <a class="code" href="namespacegrid__arrays.html#ac9d483b46bf68c490350fdef503cd24f">x</a>, <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> copyValues );</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<a class="code" href="multivector_8h.html#a5635318353e9c99399675858b1f2edf4">mv_MultiVectorDestroy</a>( <a class="code" href="multivector_8h.html#a34bf02b10aa12be5e14db8b92f105b9a">mv_MultiVectorPtr</a> );</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<a class="code" href="multivector_8h.html#a8bc83e41b28ec47e83904f50e875279a">mv_MultiVectorWidth</a>( <a class="code" href="multivector_8h.html#a34bf02b10aa12be5e14db8b92f105b9a">mv_MultiVectorPtr</a> v );</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<a class="code" href="multivector_8h.html#adbc793def2de774c9387eb8417ace27d">mv_MultiVectorHeight</a>( <a class="code" href="multivector_8h.html#a34bf02b10aa12be5e14db8b92f105b9a">mv_MultiVectorPtr</a> v );</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="comment">/* sets mask for v; all the subsequent operations</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">     apply only to masked vectors */</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keywordtype">void</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<a class="code" href="multivector_8h.html#a552e7bf9d37b9510104bee4334b108c6">mv_MultiVectorSetMask</a>( <a class="code" href="multivector_8h.html#a34bf02b10aa12be5e14db8b92f105b9a">mv_MultiVectorPtr</a> v, <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>* mask );</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<a class="code" href="multivector_8h.html#a498f6e8d075c8972ff8d1b875cdc6431">mv_MultiVectorClear</a>( <a class="code" href="multivector_8h.html#a34bf02b10aa12be5e14db8b92f105b9a">mv_MultiVectorPtr</a> );</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<a class="code" href="multivector_8h.html#ae64fbe9548e88f9c825fda56c3b8a113">mv_MultiVectorSetRandom</a>( <a class="code" href="multivector_8h.html#a34bf02b10aa12be5e14db8b92f105b9a">mv_MultiVectorPtr</a> v, <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> seed );</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<a class="code" href="multivector_8h.html#a5f49405b4b86de3b6fc6dc098116139a">mv_MultiVectorCopy</a>( <a class="code" href="multivector_8h.html#a34bf02b10aa12be5e14db8b92f105b9a">mv_MultiVectorPtr</a> src, <a class="code" href="multivector_8h.html#a34bf02b10aa12be5e14db8b92f105b9a">mv_MultiVectorPtr</a> dest );</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="comment">/* computes y = a*x + y */</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<a class="code" href="multivector_8h.html#ac2a8d608d3bc60e57726300632ba5877">mv_MultiVectorAxpy</a>( <a class="code" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> a, <a class="code" href="multivector_8h.html#a34bf02b10aa12be5e14db8b92f105b9a">mv_MultiVectorPtr</a> <a class="code" href="namespacegrid__arrays.html#ac9d483b46bf68c490350fdef503cd24f">x</a>, <a class="code" href="multivector_8h.html#a34bf02b10aa12be5e14db8b92f105b9a">mv_MultiVectorPtr</a> <a class="code" href="namespacegrid__arrays.html#a3f682a0e32086c16202a731f4e312c98">y</a> ); </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="comment">/* computes the matrix v = x&#39;*y stored in fortran style: gh is the leading dimension,</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">     h the number of rows and w the number of columns (cf. blas or lapack) */</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<a class="code" href="multivector_8h.html#a81b5bfb6e981efa3634527929d3fc106">mv_MultiVectorByMultiVector</a>( <a class="code" href="multivector_8h.html#a34bf02b10aa12be5e14db8b92f105b9a">mv_MultiVectorPtr</a> <a class="code" href="namespacegrid__arrays.html#ac9d483b46bf68c490350fdef503cd24f">x</a>, <a class="code" href="multivector_8h.html#a34bf02b10aa12be5e14db8b92f105b9a">mv_MultiVectorPtr</a> <a class="code" href="namespacegrid__arrays.html#a3f682a0e32086c16202a731f4e312c98">y</a>,</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> gh, <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> h, <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> w, <a class="code" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>* v );</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <span class="comment">/*computes the diagonal of x&#39;*y stored in diag(mask) */</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<a class="code" href="multivector_8h.html#a21cfb93fb856ff608e3f8815d4586fd7">mv_MultiVectorByMultiVectorDiag</a>( <a class="code" href="multivector_8h.html#a34bf02b10aa12be5e14db8b92f105b9a">mv_MultiVectorPtr</a>, <a class="code" href="multivector_8h.html#a34bf02b10aa12be5e14db8b92f105b9a">mv_MultiVectorPtr</a>,</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                   <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>* mask, <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> n, <a class="code" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>* diag );</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <span class="comment">/* computes y = x*v, where v is stored in fortran style */</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<a class="code" href="multivector_8h.html#a3c1c0d89e52fc12e853fcbeceea404e0">mv_MultiVectorByMatrix</a>( <a class="code" href="multivector_8h.html#a34bf02b10aa12be5e14db8b92f105b9a">mv_MultiVectorPtr</a> <a class="code" href="namespacegrid__arrays.html#ac9d483b46bf68c490350fdef503cd24f">x</a>, </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;               <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> gh, <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> h, <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> w, <a class="code" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a>* v,</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;               <a class="code" href="multivector_8h.html#a34bf02b10aa12be5e14db8b92f105b9a">mv_MultiVectorPtr</a> <a class="code" href="namespacegrid__arrays.html#a3f682a0e32086c16202a731f4e312c98">y</a> );</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <span class="comment">/* computes y = x*v + y, where v is stored in fortran style */</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<a class="code" href="multivector_8h.html#a6720a8defee66e958f33960039311181">mv_MultiVectorXapy</a>( <a class="code" href="multivector_8h.html#a34bf02b10aa12be5e14db8b92f105b9a">mv_MultiVectorPtr</a> <a class="code" href="namespacegrid__arrays.html#ac9d483b46bf68c490350fdef503cd24f">x</a>, </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;               <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> gh, <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> h, <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> w, <a class="code" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a>* v,</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;               <a class="code" href="multivector_8h.html#a34bf02b10aa12be5e14db8b92f105b9a">mv_MultiVectorPtr</a> <a class="code" href="namespacegrid__arrays.html#a3f682a0e32086c16202a731f4e312c98">y</a> );</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  <span class="comment">/* computes y = x*diag(mask) */</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="keywordtype">void</span> <a class="code" href="multivector_8h.html#a7e8e746c44c5c70575c563e5a15298fb">mv_MultiVectorByDiagonal</a>( <a class="code" href="multivector_8h.html#a34bf02b10aa12be5e14db8b92f105b9a">mv_MultiVectorPtr</a> <a class="code" href="namespacegrid__arrays.html#ac9d483b46bf68c490350fdef503cd24f">x</a>, </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                  <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>* mask, <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> n, <a class="code" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a>* diag,</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                  <a class="code" href="multivector_8h.html#a34bf02b10aa12be5e14db8b92f105b9a">mv_MultiVectorPtr</a> <a class="code" href="namespacegrid__arrays.html#a3f682a0e32086c16202a731f4e312c98">y</a> );</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  <span class="comment">/* computes y = f(x) vector-by-vector */</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keywordtype">void</span> </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<a class="code" href="multivector_8h.html#a9a16500bb5e05bfd9161bcf6d3d0dc87">mv_MultiVectorEval</a>( <span class="keywordtype">void</span> (*f)( <span class="keywordtype">void</span>*, <span class="keywordtype">void</span>*, <span class="keywordtype">void</span>* ), </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;               <span class="keywordtype">void</span>* par,</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;               <a class="code" href="multivector_8h.html#a34bf02b10aa12be5e14db8b92f105b9a">mv_MultiVectorPtr</a> <a class="code" href="namespacegrid__arrays.html#ac9d483b46bf68c490350fdef503cd24f">x</a>, </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;               <a class="code" href="multivector_8h.html#a34bf02b10aa12be5e14db8b92f105b9a">mv_MultiVectorPtr</a> <a class="code" href="namespacegrid__arrays.html#a3f682a0e32086c16202a731f4e312c98">y</a> );</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;}</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* MULTIVECTOR_FUNCTION_PROTOTYPES */</span><span class="preprocessor"></span></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="a_h_y_p_r_e__utilities_8h_html_a80025df6a21e1f258e151ad46c0ad0ab"><div class="ttname"><a href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a></div><div class="ttdeci">double HYPRE_Real</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e__utilities_8h_source.html#l00058">HYPRE_utilities.h:58</a></div></div>
+<div class="ttc" id="amultivector_8h_html_a5f49405b4b86de3b6fc6dc098116139a"><div class="ttname"><a href="multivector_8h.html#a5f49405b4b86de3b6fc6dc098116139a">mv_MultiVectorCopy</a></div><div class="ttdeci">void mv_MultiVectorCopy(mv_MultiVectorPtr src, mv_MultiVectorPtr dest)</div></div>
+<div class="ttc" id="amultivector_8h_html_adbc793def2de774c9387eb8417ace27d"><div class="ttname"><a href="multivector_8h.html#adbc793def2de774c9387eb8417ace27d">mv_MultiVectorHeight</a></div><div class="ttdeci">HYPRE_Int mv_MultiVectorHeight(mv_MultiVectorPtr v)</div></div>
+<div class="ttc" id="amultivector_8h_html_a81b5bfb6e981efa3634527929d3fc106"><div class="ttname"><a href="multivector_8h.html#a81b5bfb6e981efa3634527929d3fc106">mv_MultiVectorByMultiVector</a></div><div class="ttdeci">void mv_MultiVectorByMultiVector(mv_MultiVectorPtr x, mv_MultiVectorPtr y, HYPRE_Int gh, HYPRE_Int h, HYPRE_Int w, HYPRE_Real *v)</div></div>
+<div class="ttc" id="anamespacegrid__arrays_html_a3f682a0e32086c16202a731f4e312c98"><div class="ttname"><a href="namespacegrid__arrays.html#a3f682a0e32086c16202a731f4e312c98">grid_arrays::y</a></div><div class="ttdeci">real(kind=cgreal), dimension(:), allocatable y</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00277">pdd_host.f90:277</a></div></div>
+<div class="ttc" id="a__hypre__utilities_8h_html"><div class="ttname"><a href="__hypre__utilities_8h.html">_hypre_utilities.h</a></div></div>
+<div class="ttc" id="anamespacegrid__arrays_html_ac9d483b46bf68c490350fdef503cd24f"><div class="ttname"><a href="namespacegrid__arrays.html#ac9d483b46bf68c490350fdef503cd24f">grid_arrays::x</a></div><div class="ttdeci">real(kind=cgreal), dimension(:), allocatable x</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00277">pdd_host.f90:277</a></div></div>
+<div class="ttc" id="ainterpreter_8h_html"><div class="ttname"><a href="interpreter_8h.html">interpreter.h</a></div></div>
+<div class="ttc" id="amultivector_8h_html_a15db5111e668a194a5ba360e5a044600"><div class="ttname"><a href="multivector_8h.html#a15db5111e668a194a5ba360e5a044600">mv_MultiVectorWrap</a></div><div class="ttdeci">mv_MultiVectorPtr mv_MultiVectorWrap(mv_InterfaceInterpreter *ii, void *data, HYPRE_Int ownsData)</div></div>
+<div class="ttc" id="a_h_y_p_r_e__utilities_8h_html_a1b5547e62770096da46d1932024e30b9"><div class="ttname"><a href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a></div><div class="ttdeci">int HYPRE_Int</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e__utilities_8h_source.html#l00050">HYPRE_utilities.h:50</a></div></div>
+<div class="ttc" id="amultivector_8h_html_a7e8e746c44c5c70575c563e5a15298fb"><div class="ttname"><a href="multivector_8h.html#a7e8e746c44c5c70575c563e5a15298fb">mv_MultiVectorByDiagonal</a></div><div class="ttdeci">void mv_MultiVectorByDiagonal(mv_MultiVectorPtr x, HYPRE_Int *mask, HYPRE_Int n, HYPRE_Complex *diag, mv_MultiVectorPtr y)</div></div>
+<div class="ttc" id="amultivector_8h_html_a498f6e8d075c8972ff8d1b875cdc6431"><div class="ttname"><a href="multivector_8h.html#a498f6e8d075c8972ff8d1b875cdc6431">mv_MultiVectorClear</a></div><div class="ttdeci">void mv_MultiVectorClear(mv_MultiVectorPtr)</div></div>
+<div class="ttc" id="amultivector_8h_html_a3c1c0d89e52fc12e853fcbeceea404e0"><div class="ttname"><a href="multivector_8h.html#a3c1c0d89e52fc12e853fcbeceea404e0">mv_MultiVectorByMatrix</a></div><div class="ttdeci">void mv_MultiVectorByMatrix(mv_MultiVectorPtr x, HYPRE_Int gh, HYPRE_Int h, HYPRE_Int w, HYPRE_Complex *v, mv_MultiVectorPtr y)</div></div>
+<div class="ttc" id="amultivector_8h_html_a9a16500bb5e05bfd9161bcf6d3d0dc87"><div class="ttname"><a href="multivector_8h.html#a9a16500bb5e05bfd9161bcf6d3d0dc87">mv_MultiVectorEval</a></div><div class="ttdeci">void mv_MultiVectorEval(void(*f)(void *, void *, void *), void *par, mv_MultiVectorPtr x, mv_MultiVectorPtr y)</div></div>
+<div class="ttc" id="amultivector_8h_html_a21cfb93fb856ff608e3f8815d4586fd7"><div class="ttname"><a href="multivector_8h.html#a21cfb93fb856ff608e3f8815d4586fd7">mv_MultiVectorByMultiVectorDiag</a></div><div class="ttdeci">void mv_MultiVectorByMultiVectorDiag(mv_MultiVectorPtr, mv_MultiVectorPtr, HYPRE_Int *mask, HYPRE_Int n, HYPRE_Real *diag)</div></div>
+<div class="ttc" id="amultivector_8h_html_a6720a8defee66e958f33960039311181"><div class="ttname"><a href="multivector_8h.html#a6720a8defee66e958f33960039311181">mv_MultiVectorXapy</a></div><div class="ttdeci">void mv_MultiVectorXapy(mv_MultiVectorPtr x, HYPRE_Int gh, HYPRE_Int h, HYPRE_Int w, HYPRE_Complex *v, mv_MultiVectorPtr y)</div></div>
+<div class="ttc" id="amultivector_8h_html_a5206e3a3d5ef3a326387e63ea60d114f"><div class="ttname"><a href="multivector_8h.html#a5206e3a3d5ef3a326387e63ea60d114f">mv_MultiVectorCreateCopy</a></div><div class="ttdeci">mv_MultiVectorPtr mv_MultiVectorCreateCopy(mv_MultiVectorPtr x, HYPRE_Int copyValues)</div></div>
+<div class="ttc" id="amultivector_8h_html_a3499743ed5cbb33a03744445570bbad5"><div class="ttname"><a href="multivector_8h.html#a3499743ed5cbb33a03744445570bbad5">mv_MultiVectorGetData</a></div><div class="ttdeci">void * mv_MultiVectorGetData(mv_MultiVectorPtr x)</div></div>
+<div class="ttc" id="amultivector_8h_html_a552e7bf9d37b9510104bee4334b108c6"><div class="ttname"><a href="multivector_8h.html#a552e7bf9d37b9510104bee4334b108c6">mv_MultiVectorSetMask</a></div><div class="ttdeci">void mv_MultiVectorSetMask(mv_MultiVectorPtr v, HYPRE_Int *mask)</div></div>
+<div class="ttc" id="astructmv___interface_interpreter_html"><div class="ttname"><a href="structmv___interface_interpreter.html">mv_InterfaceInterpreter</a></div><div class="ttdef"><b>Definition:</b> <a href="interpreter_8h_source.html#l00018">interpreter.h:18</a></div></div>
+<div class="ttc" id="amultivector_8h_html_ae9116a966c730e6b3d5383acdce695ec"><div class="ttname"><a href="multivector_8h.html#ae9116a966c730e6b3d5383acdce695ec">mv_MultiVectorCreateFromSampleVector</a></div><div class="ttdeci">mv_MultiVectorPtr mv_MultiVectorCreateFromSampleVector(void *, HYPRE_Int n, void *sample)</div></div>
+<div class="ttc" id="amultivector_8h_html_a8bc83e41b28ec47e83904f50e875279a"><div class="ttname"><a href="multivector_8h.html#a8bc83e41b28ec47e83904f50e875279a">mv_MultiVectorWidth</a></div><div class="ttdeci">HYPRE_Int mv_MultiVectorWidth(mv_MultiVectorPtr v)</div></div>
+<div class="ttc" id="amultivector_8h_html_a34bf02b10aa12be5e14db8b92f105b9a"><div class="ttname"><a href="multivector_8h.html#a34bf02b10aa12be5e14db8b92f105b9a">mv_MultiVectorPtr</a></div><div class="ttdeci">struct mv_MultiVector * mv_MultiVectorPtr</div><div class="ttdef"><b>Definition:</b> <a href="multivector_8h_source.html#l00020">multivector.h:20</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e__utilities_8h_html_a0ffb2128084bcd038afd6ea649bb7d1d"><div class="ttname"><a href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a></div><div class="ttdeci">HYPRE_Real HYPRE_Complex</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e__utilities_8h_source.html#l00065">HYPRE_utilities.h:65</a></div></div>
+<div class="ttc" id="amultivector_8h_html_ac2a8d608d3bc60e57726300632ba5877"><div class="ttname"><a href="multivector_8h.html#ac2a8d608d3bc60e57726300632ba5877">mv_MultiVectorAxpy</a></div><div class="ttdeci">void mv_MultiVectorAxpy(HYPRE_Complex a, mv_MultiVectorPtr x, mv_MultiVectorPtr y)</div></div>
+<div class="ttc" id="amultivector_8h_html_ae64fbe9548e88f9c825fda56c3b8a113"><div class="ttname"><a href="multivector_8h.html#ae64fbe9548e88f9c825fda56c3b8a113">mv_MultiVectorSetRandom</a></div><div class="ttdeci">void mv_MultiVectorSetRandom(mv_MultiVectorPtr v, HYPRE_Int seed)</div></div>
+<div class="ttc" id="amultivector_8h_html_a5635318353e9c99399675858b1f2edf4"><div class="ttname"><a href="multivector_8h.html#a5635318353e9c99399675858b1f2edf4">mv_MultiVectorDestroy</a></div><div class="ttdeci">void mv_MultiVectorDestroy(mv_MultiVectorPtr)</div></div>
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_1481b2ad69b2eab628871d4fb2bac45c.html">hypre-2.11.1</a></li><li class="navelem"><a class="el" href="multivector_8h.html">multivector.h</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

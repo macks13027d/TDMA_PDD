@@ -1,0 +1,14 @@
+digraph "m_communication::scatter_recv"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="m_communication::scatter_recv",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="================================================================================="];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="m_communication::scatter_main",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespacem__communication.html#a87f7953f63cdefb4bce8b31b16f711d8",tooltip="================================================================================="];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="m_global_initialize\l::init_3ddata",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespacem__global__initialize.html#aff97c5d9b452e968384ce7d4c2195f92",tooltip="====================================================================="];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="main",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_8f90.html#a8ec2266d83cd6c0b762cbcbc92c0af3d",tooltip="%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"];
+}

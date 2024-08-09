@@ -1,0 +1,365 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="TDMA_PDD" />
+<meta property="og:image" content="../preview.png" />
+<meta property="og:description" content="Documentation for Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="../preview.png" />
+<meta property="og:title" content="TDMA_PDD" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD" />
+<!-- END twitter metadata -->
+<title>TDMA_PDD: src/pdd_initialize.f90 Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            messageStyle: "normal",
+            linebreaks: {
+                automatic: false
+            }
+        },
+        tex2jax: { 
+            inlineMath: [["\\(","\\)"]], 
+            displayMath: [["$$","$$"],["\\[","\\]"]], 
+            processEscapes: true
+        },
+        TeX: {
+            Macros: {
+                tr: "{\\scriptscriptstyle\\mathrm{T}}",
+            }
+        }
+    });
+</script>
+<!--MathJax(LaTeX) -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <script type="text/javascript" id="MathJax-script" async  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">  </script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="custom-alternative.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/hugh577/TDMA_PDD" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 65px;">
+  <td id="projectlogo">
+    <a href="./index.html">
+        <img alt="Logo" src="home.png"/></td>
+    </a>
+  <td id="projectalign" style="padding-left: 0.5em;padding-top: 0.5em;">
+   <div id="projectname">TDMA_PDD
+   </div>
+   <div id="projectbrief">Documentation</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('pdd__initialize_8f90_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">pdd_initialize.f90</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="pdd__initialize_8f90.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">!  subroutine read_infile()</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">!  subroutine mpi_topology()</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="namespacem__pdd__initialize.html">    4</a></span>&#160;<span class="keyword">module</span> <a class="code" href="namespacem__pdd__initialize.html">m_pdd_initialize</a> </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;  </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">contains</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">subroutine </span><a class="code" href="namespacem__pdd__initialize.html#a6cb4ff77e963a061628a0b5fe23c9d32">mpi_topology</a></div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="namespacem__pdd__initialize.html#a6cb4ff77e963a061628a0b5fe23c9d32">    9</a></span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;   <span class="keywordtype">use </span><a class="code" href="namespacepdd__host.html">pdd_host</a></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;   <span class="keywordtype">implicit none</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;   include <span class="stringliteral">&#39;mpif.h&#39;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;   <span class="keywordtype">integer</span> :: i, oneslice, twoslice, sizeofreal, sizeofint</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;   <span class="keywordtype">integer</span> :: nxloc_dump, nyloc_dump, nzloc_dump</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;   <span class="keywordtype">integer</span> :: is_recv, ie_recv, js_recv, je_recv, ks_recv, ke_recv</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;   <span class="keywordtype">logical</span>,<span class="keywordtype">dimension(0:2)</span> :: belongs</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;   <span class="keywordtype">integer</span> :: newtype_dum1,newtype_dum2,newtype_dum3</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;   <span class="keywordflow">if</span> ( <a class="code" href="namespacepdd__host.html#a919fee0591fed6e29ed4c111f582740f">nproc_x</a>*<a class="code" href="namespacepdd__host.html#afacf9a211383ab0e1e56b979ebb50e8e">nproc_y</a>*<a class="code" href="namespacepdd__host.html#ab05335500c1818af9eb486d71a521fb5">nproc_z</a> /= <a class="code" href="namespacepdd__host.html#ae248eccc3f9c70ac450f8b7f03aeea12">nprocs</a> ) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;     <span class="keywordflow">if</span> ( <a class="code" href="namespacepdd__host.html#a691192c39b1cbeb70e9a7fd65c8312f2">rank</a> == 0 ) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;       print*,<span class="stringliteral">&quot;&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;       print*,<span class="stringliteral">&quot;error:  p1*p2 =/= # of cpu&#39;s!&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;       print*,<span class="stringliteral">&quot;please correct your input file and run again&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;       print*,<span class="stringliteral">&quot;&quot;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keywordflow">     endif</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;     <span class="keyword">call </span>mpi_finalize( <a class="code" href="namespacepdd__host.html#ad3872585da8b22a90d8a9fe3a08c87cc">ierr</a> )</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;     stop</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keywordflow">   endif</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">do</span> i = 0,<a class="code" href="namespacepdd__host.html#ae248eccc3f9c70ac450f8b7f03aeea12">nprocs</a>-1</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;       <span class="keywordflow">if</span> (i .eq. <a class="code" href="namespacepdd__host.html#a691192c39b1cbeb70e9a7fd65c8312f2">rank</a>) <span class="keywordflow">then</span>  </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="namespacepdd__host.html#afbead525d881fcb8bedb9c687fbbef88">is_neig</a>(i) = <a class="code" href="namespacepdd__host.html#a72c0b704a102c7c293632fcd69b0ee88">n1i</a></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="namespacepdd__host.html#a70b4d724e313a3cd2ada4b798660970f">js_neig</a>(i) = <a class="code" href="namespacepdd__host.html#ab1227373138858396004f9626a3e577e">n2i</a></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <a class="code" href="namespacepdd__host.html#ac197fdbd528feafb7f50248a1c726bc4">ks_neig</a>(i) = <a class="code" href="namespacepdd__host.html#ac7897dde7cabbf98dfb472db1ff895b4">n3i</a></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <a class="code" href="namespacepdd__host.html#a585e82dc812634df2e873ebb19268b46">ie_neig</a>(i) = <a class="code" href="namespacepdd__host.html#a1ec3598c97732fed504c8cdc6263489a">n1f</a></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <a class="code" href="namespacepdd__host.html#aff63bb1724deeeb8cb36b61554f5f70d">je_neig</a>(i) = <a class="code" href="namespacepdd__host.html#a6da9410cf2efca8eefef44ba49fd5fe4">n2f</a></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <a class="code" href="namespacepdd__host.html#af5978a1dda86826e87319a9a07f53730">ke_neig</a>(i) = <a class="code" href="namespacepdd__host.html#a2dd8f37c33c7d2d37946bdf00389ecd4">n3f</a>   </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        is_recv = <a class="code" href="namespacepdd__host.html#a72c0b704a102c7c293632fcd69b0ee88">n1i</a></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        js_recv = <a class="code" href="namespacepdd__host.html#ab1227373138858396004f9626a3e577e">n2i</a></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        ks_recv = <a class="code" href="namespacepdd__host.html#ac7897dde7cabbf98dfb472db1ff895b4">n3i</a></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        ie_recv = <a class="code" href="namespacepdd__host.html#a1ec3598c97732fed504c8cdc6263489a">n1f</a></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        je_recv = <a class="code" href="namespacepdd__host.html#a6da9410cf2efca8eefef44ba49fd5fe4">n2f</a></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        ke_recv = <a class="code" href="namespacepdd__host.html#a2dd8f37c33c7d2d37946bdf00389ecd4">n3f</a></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keyword">call </span>mpi_bcast(is_recv,1,mpi_integer,i,mpi_comm_world,<a class="code" href="namespacepdd__host.html#ad3872585da8b22a90d8a9fe3a08c87cc">ierr</a>)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keyword">call </span>mpi_bcast(js_recv,1,mpi_integer,i,mpi_comm_world,<a class="code" href="namespacepdd__host.html#ad3872585da8b22a90d8a9fe3a08c87cc">ierr</a>)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keyword">call </span>mpi_bcast(ks_recv,1,mpi_integer,i,mpi_comm_world,<a class="code" href="namespacepdd__host.html#ad3872585da8b22a90d8a9fe3a08c87cc">ierr</a>)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keyword">call </span>mpi_bcast(ie_recv,1,mpi_integer,i,mpi_comm_world,<a class="code" href="namespacepdd__host.html#ad3872585da8b22a90d8a9fe3a08c87cc">ierr</a>)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">call </span>mpi_bcast(je_recv,1,mpi_integer,i,mpi_comm_world,<a class="code" href="namespacepdd__host.html#ad3872585da8b22a90d8a9fe3a08c87cc">ierr</a>)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keyword">call </span>mpi_bcast(ke_recv,1,mpi_integer,i,mpi_comm_world,<a class="code" href="namespacepdd__host.html#ad3872585da8b22a90d8a9fe3a08c87cc">ierr</a>)</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;       <span class="keywordflow">else</span>  </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keyword">call </span>mpi_bcast(is_recv,1,mpi_integer,i,mpi_comm_world,<a class="code" href="namespacepdd__host.html#ad3872585da8b22a90d8a9fe3a08c87cc">ierr</a>)</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keyword">call </span>mpi_bcast(js_recv,1,mpi_integer,i,mpi_comm_world,<a class="code" href="namespacepdd__host.html#ad3872585da8b22a90d8a9fe3a08c87cc">ierr</a>)</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keyword">call </span>mpi_bcast(ks_recv,1,mpi_integer,i,mpi_comm_world,<a class="code" href="namespacepdd__host.html#ad3872585da8b22a90d8a9fe3a08c87cc">ierr</a>)</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keyword">call </span>mpi_bcast(ie_recv,1,mpi_integer,i,mpi_comm_world,<a class="code" href="namespacepdd__host.html#ad3872585da8b22a90d8a9fe3a08c87cc">ierr</a>)</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keyword">call </span>mpi_bcast(je_recv,1,mpi_integer,i,mpi_comm_world,<a class="code" href="namespacepdd__host.html#ad3872585da8b22a90d8a9fe3a08c87cc">ierr</a>)</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keyword">call </span>mpi_bcast(ke_recv,1,mpi_integer,i,mpi_comm_world,<a class="code" href="namespacepdd__host.html#ad3872585da8b22a90d8a9fe3a08c87cc">ierr</a>)</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <a class="code" href="namespacepdd__host.html#afbead525d881fcb8bedb9c687fbbef88">is_neig</a>(i) = is_recv</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <a class="code" href="namespacepdd__host.html#a70b4d724e313a3cd2ada4b798660970f">js_neig</a>(i) = js_recv</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <a class="code" href="namespacepdd__host.html#ac197fdbd528feafb7f50248a1c726bc4">ks_neig</a>(i) = ks_recv</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <a class="code" href="namespacepdd__host.html#a585e82dc812634df2e873ebb19268b46">ie_neig</a>(i) = ie_recv</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <a class="code" href="namespacepdd__host.html#aff63bb1724deeeb8cb36b61554f5f70d">je_neig</a>(i) = je_recv</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <a class="code" href="namespacepdd__host.html#af5978a1dda86826e87319a9a07f53730">ke_neig</a>(i) = ke_recv  </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;         </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keywordflow">       endif</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keywordflow">    enddo</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="namespacepdd__host.html#a691192c39b1cbeb70e9a7fd65c8312f2">rank</a>.eq.0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordflow">do</span> i = 1,<a class="code" href="namespacepdd__host.html#ae248eccc3f9c70ac450f8b7f03aeea12">nprocs</a>-1</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            nxloc_dump = <a class="code" href="namespacepdd__host.html#a585e82dc812634df2e873ebb19268b46">ie_neig</a>(i)-<a class="code" href="namespacepdd__host.html#afbead525d881fcb8bedb9c687fbbef88">is_neig</a>(i)+1</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            nyloc_dump = <a class="code" href="namespacepdd__host.html#aff63bb1724deeeb8cb36b61554f5f70d">je_neig</a>(i)-<a class="code" href="namespacepdd__host.html#a70b4d724e313a3cd2ada4b798660970f">js_neig</a>(i)+1</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            nzloc_dump = <a class="code" href="namespacepdd__host.html#af5978a1dda86826e87319a9a07f53730">ke_neig</a>(i)-<a class="code" href="namespacepdd__host.html#ac197fdbd528feafb7f50248a1c726bc4">ks_neig</a>(i)+1</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            <span class="keyword">call </span>mpi_type_extent(mpi_double_precision,sizeofreal,<a class="code" href="namespacepdd__host.html#ad3872585da8b22a90d8a9fe3a08c87cc">ierr</a>)</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            <span class="keyword">call </span>mpi_type_vector(nxloc_dump,1,1,mpi_double_precision,oneslice,<a class="code" href="namespacepdd__host.html#ad3872585da8b22a90d8a9fe3a08c87cc">ierr</a>)</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            <span class="keyword">call </span>mpi_type_hvector(nyloc_dump,1,(<a class="code" href="namespacepdd__host.html#aaa2ca3af1972a33edc2e069250dff76f">nx</a>)*sizeofreal,oneslice,twoslice,<a class="code" href="namespacepdd__host.html#ad3872585da8b22a90d8a9fe3a08c87cc">ierr</a>)</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            <span class="keyword">call </span>mpi_type_hvector(nzloc_dump,1,(<a class="code" href="namespacepdd__host.html#aaa2ca3af1972a33edc2e069250dff76f">nx</a>)*(<a class="code" href="namespacepdd__host.html#adf6d9dd585973753915cef6fe26c04b2">ny</a>)*sizeofreal,twoslice,<a class="code" href="namespacepdd__host.html#a6618cf5979af6e2291f82f1c972723f8">thrdr_neig</a>(i),<a class="code" href="namespacepdd__host.html#ad3872585da8b22a90d8a9fe3a08c87cc">ierr</a>)</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            <span class="keyword">call </span>mpi_type_commit(<a class="code" href="namespacepdd__host.html#a6618cf5979af6e2291f82f1c972723f8">thrdr_neig</a>(i),<a class="code" href="namespacepdd__host.html#ad3872585da8b22a90d8a9fe3a08c87cc">ierr</a>)</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keywordflow">        enddo</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keywordflow">    endif</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;   <span class="keywordflow">if</span> (<a class="code" href="namespacepdd__host.html#a919fee0591fed6e29ed4c111f582740f">nproc_x</a> &gt; 1) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    belongs(0) = .true.</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    belongs(1) = .false.</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    belongs(2) = .false.</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keyword">call </span>mpi_cart_sub(<a class="code" href="namespacepdd__host.html#a80cebe9629a9c2ecebab51ca599b0adc">comm_cart</a>,belongs,<a class="code" href="namespacepdd__host.html#ad95c5c892c4b4183d104edbeec504d9d">comm_new_x</a>,<a class="code" href="namespacepdd__host.html#ad3872585da8b22a90d8a9fe3a08c87cc">ierr</a>)</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keyword">call </span>mpi_comm_rank(<a class="code" href="namespacepdd__host.html#ad95c5c892c4b4183d104edbeec504d9d">comm_new_x</a>,<a class="code" href="namespacepdd__host.html#ae263250978782cc2f8ce9da87c398bfc">rank_new_x</a>,<a class="code" href="namespacepdd__host.html#ad3872585da8b22a90d8a9fe3a08c87cc">ierr</a>)</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keywordflow">   end if</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;   <span class="keywordflow">if</span> (<a class="code" href="namespacepdd__host.html#afacf9a211383ab0e1e56b979ebb50e8e">nproc_y</a> &gt; 1) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    belongs(1) = .true.</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    belongs(0) = .false.</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    belongs(2) = .false.</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keyword">call </span>mpi_cart_sub(<a class="code" href="namespacepdd__host.html#a80cebe9629a9c2ecebab51ca599b0adc">comm_cart</a>,belongs,<a class="code" href="namespacepdd__host.html#acff52f2e08e91a6f4556ee6986d20fe5">comm_new_y</a>,<a class="code" href="namespacepdd__host.html#ad3872585da8b22a90d8a9fe3a08c87cc">ierr</a>)</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keyword">call </span>mpi_comm_rank(<a class="code" href="namespacepdd__host.html#acff52f2e08e91a6f4556ee6986d20fe5">comm_new_y</a>,<a class="code" href="namespacepdd__host.html#a1ca10da1d41f13f22918066772e8cf1f">rank_new_y</a>,<a class="code" href="namespacepdd__host.html#ad3872585da8b22a90d8a9fe3a08c87cc">ierr</a>)</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="keywordflow">   end if</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;   <span class="keywordflow">if</span> (<a class="code" href="namespacepdd__host.html#ab05335500c1818af9eb486d71a521fb5">nproc_z</a> &gt; 1) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    belongs(2) = .true.</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    belongs(0) = .false.</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    belongs(1) = .false.</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keyword">call </span>mpi_cart_sub(<a class="code" href="namespacepdd__host.html#a80cebe9629a9c2ecebab51ca599b0adc">comm_cart</a>,belongs,<a class="code" href="namespacepdd__host.html#a429540ac1c31ddaf02124c4d11d8e248">comm_new_z</a>,<a class="code" href="namespacepdd__host.html#ad3872585da8b22a90d8a9fe3a08c87cc">ierr</a>)</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keyword">call </span>mpi_comm_rank(<a class="code" href="namespacepdd__host.html#a429540ac1c31ddaf02124c4d11d8e248">comm_new_z</a>,<a class="code" href="namespacepdd__host.html#abee71855328feee0520f96f8f13d9350">rank_new_z</a>,<a class="code" href="namespacepdd__host.html#ad3872585da8b22a90d8a9fe3a08c87cc">ierr</a>)</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="keywordflow">   end if</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;   <span class="keyword">call </span>mpi_type_contiguous((<a class="code" href="namespacepdd__host.html#a6da9410cf2efca8eefef44ba49fd5fe4">n2f</a>-<a class="code" href="namespacepdd__host.html#ab1227373138858396004f9626a3e577e">n2i</a>+1),mpi_double_precision,newtype_dum1,<a class="code" href="namespacepdd__host.html#ad3872585da8b22a90d8a9fe3a08c87cc">ierr</a>)</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;   <span class="keyword">call </span>mpi_type_contiguous((<a class="code" href="namespacepdd__host.html#a2dd8f37c33c7d2d37946bdf00389ecd4">n3f</a>-<a class="code" href="namespacepdd__host.html#ac7897dde7cabbf98dfb472db1ff895b4">n3i</a>+1),newtype_dum1,<a class="code" href="namespacepdd__host.html#af3ab6fef1d725b5a0530dcf6f8931c04">newtype1</a>,<a class="code" href="namespacepdd__host.html#ad3872585da8b22a90d8a9fe3a08c87cc">ierr</a>) <span class="comment">!x</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;   <span class="keyword">call </span>mpi_type_commit(<a class="code" href="namespacepdd__host.html#af3ab6fef1d725b5a0530dcf6f8931c04">newtype1</a>,<a class="code" href="namespacepdd__host.html#ad3872585da8b22a90d8a9fe3a08c87cc">ierr</a>)</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;   <span class="keyword">call </span>mpi_type_contiguous((<a class="code" href="namespacepdd__host.html#a2dd8f37c33c7d2d37946bdf00389ecd4">n3f</a>-<a class="code" href="namespacepdd__host.html#ac7897dde7cabbf98dfb472db1ff895b4">n3i</a>+1),mpi_double_precision,newtype_dum2,<a class="code" href="namespacepdd__host.html#ad3872585da8b22a90d8a9fe3a08c87cc">ierr</a>)</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;   <span class="keyword">call </span>mpi_type_contiguous((<a class="code" href="namespacepdd__host.html#a1ec3598c97732fed504c8cdc6263489a">n1f</a>-<a class="code" href="namespacepdd__host.html#a72c0b704a102c7c293632fcd69b0ee88">n1i</a>+1),newtype_dum2,<a class="code" href="namespacepdd__host.html#aa5189bcde19f844eea9a620880503700">newtype2</a>,<a class="code" href="namespacepdd__host.html#ad3872585da8b22a90d8a9fe3a08c87cc">ierr</a>) <span class="comment">!y</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;   <span class="keyword">call </span>mpi_type_commit(<a class="code" href="namespacepdd__host.html#aa5189bcde19f844eea9a620880503700">newtype2</a>,<a class="code" href="namespacepdd__host.html#ad3872585da8b22a90d8a9fe3a08c87cc">ierr</a>)</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;   <span class="keyword">call </span>mpi_type_contiguous((<a class="code" href="namespacepdd__host.html#a1ec3598c97732fed504c8cdc6263489a">n1f</a>-<a class="code" href="namespacepdd__host.html#a72c0b704a102c7c293632fcd69b0ee88">n1i</a>+1),mpi_double_precision,newtype_dum3,<a class="code" href="namespacepdd__host.html#ad3872585da8b22a90d8a9fe3a08c87cc">ierr</a>)</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;   <span class="keyword">call </span>mpi_type_contiguous((<a class="code" href="namespacepdd__host.html#a6da9410cf2efca8eefef44ba49fd5fe4">n2f</a>-<a class="code" href="namespacepdd__host.html#ab1227373138858396004f9626a3e577e">n2i</a>+1),newtype_dum3,<a class="code" href="namespacepdd__host.html#af5ff228c50b2d4d39c82f56942ebffd1">newtype3</a>,<a class="code" href="namespacepdd__host.html#ad3872585da8b22a90d8a9fe3a08c87cc">ierr</a>) <span class="comment">!z</span></div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;   <span class="keyword">call </span>mpi_type_commit(<a class="code" href="namespacepdd__host.html#af5ff228c50b2d4d39c82f56942ebffd1">newtype3</a>,<a class="code" href="namespacepdd__host.html#ad3872585da8b22a90d8a9fe3a08c87cc">ierr</a>)</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="keyword">end subroutine </span><a class="code" href="namespacem__pdd__initialize.html#a6cb4ff77e963a061628a0b5fe23c9d32">mpi_topology</a></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="keyword">subroutine </span><a class="code" href="namespacem__pdd__initialize.html#a9ea034e82abbd13f841bdfee64f905eb">matrix_extension</a></div>
+<div class="line"><a name="l00143"></a><span class="lineno"><a class="line" href="namespacem__pdd__initialize.html#a9ea034e82abbd13f841bdfee64f905eb">  143</a></span>&#160; </div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;   <span class="keywordtype">use </span><a class="code" href="namespacepdd__host.html">pdd_host</a></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;   <span class="keywordtype">implicit none</span></div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;   include <span class="stringliteral">&#39;mpif.h&#39;</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;   <span class="keywordflow">if</span> (<a class="code" href="namespacepdd__host.html#a919fee0591fed6e29ed4c111f582740f">nproc_x</a>-1.eq.<a class="code" href="namespacepdd__host.html#a9c0c76f19b22bd7672aca2745cbcebc2">coords</a>(1).and.mod((<a class="code" href="namespacepdd__host.html#aaa2ca3af1972a33edc2e069250dff76f">nx</a>),<a class="code" href="namespacepdd__host.html#a919fee0591fed6e29ed4c111f582740f">nproc_x</a>).gt.0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;      <a class="code" href="namespacepdd__host.html#a8eac5a0fd1e6bb0eb4b3108f6af586eb">mat_a</a>(<a class="code" href="namespacepdd__host.html#aaa2ca3af1972a33edc2e069250dff76f">nx</a>+1:<a class="code" href="namespacepdd__host.html#a1ec3598c97732fed504c8cdc6263489a">n1f</a>,<a class="code" href="namespacepdd__host.html#ab1227373138858396004f9626a3e577e">n2i</a>:<a class="code" href="namespacepdd__host.html#a6da9410cf2efca8eefef44ba49fd5fe4">n2f</a>,<a class="code" href="namespacepdd__host.html#ac7897dde7cabbf98dfb472db1ff895b4">n3i</a>:<a class="code" href="namespacepdd__host.html#a2dd8f37c33c7d2d37946bdf00389ecd4">n3f</a>)=0</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;     <a class="code" href="namespacepdd__host.html#ad2e0144778cbbc109422b60fd697cf5b">mat_b</a>(<a class="code" href="namespacepdd__host.html#aaa2ca3af1972a33edc2e069250dff76f">nx</a>+1:<a class="code" href="namespacepdd__host.html#a1ec3598c97732fed504c8cdc6263489a">n1f</a>,<a class="code" href="namespacepdd__host.html#ab1227373138858396004f9626a3e577e">n2i</a>:<a class="code" href="namespacepdd__host.html#a6da9410cf2efca8eefef44ba49fd5fe4">n2f</a>,<a class="code" href="namespacepdd__host.html#ac7897dde7cabbf98dfb472db1ff895b4">n3i</a>:<a class="code" href="namespacepdd__host.html#a2dd8f37c33c7d2d37946bdf00389ecd4">n3f</a>)=1</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;     <a class="code" href="namespacepdd__host.html#a2ff58aec99193c9d66226fb81b54b5d7">mat_c</a>(<a class="code" href="namespacepdd__host.html#aaa2ca3af1972a33edc2e069250dff76f">nx</a>+1:<a class="code" href="namespacepdd__host.html#a1ec3598c97732fed504c8cdc6263489a">n1f</a>,<a class="code" href="namespacepdd__host.html#ab1227373138858396004f9626a3e577e">n2i</a>:<a class="code" href="namespacepdd__host.html#a6da9410cf2efca8eefef44ba49fd5fe4">n2f</a>,<a class="code" href="namespacepdd__host.html#ac7897dde7cabbf98dfb472db1ff895b4">n3i</a>:<a class="code" href="namespacepdd__host.html#a2dd8f37c33c7d2d37946bdf00389ecd4">n3f</a>)=0</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;     <a class="code" href="namespacepdd__host.html#a37cf2e2de492b68d5f1230fa1aff6db8">dat0</a>(<a class="code" href="namespacepdd__host.html#aaa2ca3af1972a33edc2e069250dff76f">nx</a>+1:<a class="code" href="namespacepdd__host.html#a1ec3598c97732fed504c8cdc6263489a">n1f</a>,<a class="code" href="namespacepdd__host.html#ab1227373138858396004f9626a3e577e">n2i</a>:<a class="code" href="namespacepdd__host.html#a6da9410cf2efca8eefef44ba49fd5fe4">n2f</a>,<a class="code" href="namespacepdd__host.html#ac7897dde7cabbf98dfb472db1ff895b4">n3i</a>:<a class="code" href="namespacepdd__host.html#a2dd8f37c33c7d2d37946bdf00389ecd4">n3f</a>)=0   </div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="keywordflow">   endif</span></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;   <span class="keywordflow">if</span> (<a class="code" href="namespacepdd__host.html#afacf9a211383ab0e1e56b979ebb50e8e">nproc_y</a>-1.eq.<a class="code" href="namespacepdd__host.html#a9c0c76f19b22bd7672aca2745cbcebc2">coords</a>(2).and.mod((<a class="code" href="namespacepdd__host.html#adf6d9dd585973753915cef6fe26c04b2">ny</a>),<a class="code" href="namespacepdd__host.html#afacf9a211383ab0e1e56b979ebb50e8e">nproc_y</a>).gt.0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;     <a class="code" href="namespacepdd__host.html#a8eac5a0fd1e6bb0eb4b3108f6af586eb">mat_a</a>(<a class="code" href="namespacepdd__host.html#a72c0b704a102c7c293632fcd69b0ee88">n1i</a>:<a class="code" href="namespacepdd__host.html#a1ec3598c97732fed504c8cdc6263489a">n1f</a>,<a class="code" href="namespacepdd__host.html#adf6d9dd585973753915cef6fe26c04b2">ny</a>+1:<a class="code" href="namespacepdd__host.html#a6da9410cf2efca8eefef44ba49fd5fe4">n2f</a>,<a class="code" href="namespacepdd__host.html#ac7897dde7cabbf98dfb472db1ff895b4">n3i</a>:<a class="code" href="namespacepdd__host.html#a2dd8f37c33c7d2d37946bdf00389ecd4">n3f</a>)=0</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;     <a class="code" href="namespacepdd__host.html#ad2e0144778cbbc109422b60fd697cf5b">mat_b</a>(<a class="code" href="namespacepdd__host.html#a72c0b704a102c7c293632fcd69b0ee88">n1i</a>:<a class="code" href="namespacepdd__host.html#a1ec3598c97732fed504c8cdc6263489a">n1f</a>,<a class="code" href="namespacepdd__host.html#adf6d9dd585973753915cef6fe26c04b2">ny</a>+1:<a class="code" href="namespacepdd__host.html#a6da9410cf2efca8eefef44ba49fd5fe4">n2f</a>,<a class="code" href="namespacepdd__host.html#ac7897dde7cabbf98dfb472db1ff895b4">n3i</a>:<a class="code" href="namespacepdd__host.html#a2dd8f37c33c7d2d37946bdf00389ecd4">n3f</a>)=1</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;     <a class="code" href="namespacepdd__host.html#a2ff58aec99193c9d66226fb81b54b5d7">mat_c</a>(<a class="code" href="namespacepdd__host.html#a72c0b704a102c7c293632fcd69b0ee88">n1i</a>:<a class="code" href="namespacepdd__host.html#a1ec3598c97732fed504c8cdc6263489a">n1f</a>,<a class="code" href="namespacepdd__host.html#adf6d9dd585973753915cef6fe26c04b2">ny</a>+1:<a class="code" href="namespacepdd__host.html#a6da9410cf2efca8eefef44ba49fd5fe4">n2f</a>,<a class="code" href="namespacepdd__host.html#ac7897dde7cabbf98dfb472db1ff895b4">n3i</a>:<a class="code" href="namespacepdd__host.html#a2dd8f37c33c7d2d37946bdf00389ecd4">n3f</a>)=0</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;     <a class="code" href="namespacepdd__host.html#a37cf2e2de492b68d5f1230fa1aff6db8">dat0</a>(<a class="code" href="namespacepdd__host.html#a72c0b704a102c7c293632fcd69b0ee88">n1i</a>:<a class="code" href="namespacepdd__host.html#a1ec3598c97732fed504c8cdc6263489a">n1f</a>,<a class="code" href="namespacepdd__host.html#adf6d9dd585973753915cef6fe26c04b2">ny</a>+1:<a class="code" href="namespacepdd__host.html#a6da9410cf2efca8eefef44ba49fd5fe4">n2f</a>,<a class="code" href="namespacepdd__host.html#ac7897dde7cabbf98dfb472db1ff895b4">n3i</a>:<a class="code" href="namespacepdd__host.html#a2dd8f37c33c7d2d37946bdf00389ecd4">n3f</a>)=0</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="keywordflow">   endif</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;   <span class="keywordflow">if</span> (<a class="code" href="namespacepdd__host.html#ab05335500c1818af9eb486d71a521fb5">nproc_z</a>-1.eq.<a class="code" href="namespacepdd__host.html#a9c0c76f19b22bd7672aca2745cbcebc2">coords</a>(3).and.mod((<a class="code" href="namespacepdd__host.html#a2fe2bcec723994e5f8d2b1c55e32c63a">nz</a>),<a class="code" href="namespacepdd__host.html#ab05335500c1818af9eb486d71a521fb5">nproc_z</a>).gt.0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;     <a class="code" href="namespacepdd__host.html#a8eac5a0fd1e6bb0eb4b3108f6af586eb">mat_a</a>(<a class="code" href="namespacepdd__host.html#a72c0b704a102c7c293632fcd69b0ee88">n1i</a>:<a class="code" href="namespacepdd__host.html#a1ec3598c97732fed504c8cdc6263489a">n1f</a>,<a class="code" href="namespacepdd__host.html#ab1227373138858396004f9626a3e577e">n2i</a>:<a class="code" href="namespacepdd__host.html#a6da9410cf2efca8eefef44ba49fd5fe4">n2f</a>,<a class="code" href="namespacepdd__host.html#a2fe2bcec723994e5f8d2b1c55e32c63a">nz</a>+1:<a class="code" href="namespacepdd__host.html#a2dd8f37c33c7d2d37946bdf00389ecd4">n3f</a>)=0</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;     <a class="code" href="namespacepdd__host.html#ad2e0144778cbbc109422b60fd697cf5b">mat_b</a>(<a class="code" href="namespacepdd__host.html#a72c0b704a102c7c293632fcd69b0ee88">n1i</a>:<a class="code" href="namespacepdd__host.html#a1ec3598c97732fed504c8cdc6263489a">n1f</a>,<a class="code" href="namespacepdd__host.html#ab1227373138858396004f9626a3e577e">n2i</a>:<a class="code" href="namespacepdd__host.html#a6da9410cf2efca8eefef44ba49fd5fe4">n2f</a>,<a class="code" href="namespacepdd__host.html#a2fe2bcec723994e5f8d2b1c55e32c63a">nz</a>+1:<a class="code" href="namespacepdd__host.html#a2dd8f37c33c7d2d37946bdf00389ecd4">n3f</a>)=1</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;     <a class="code" href="namespacepdd__host.html#a2ff58aec99193c9d66226fb81b54b5d7">mat_c</a>(<a class="code" href="namespacepdd__host.html#a72c0b704a102c7c293632fcd69b0ee88">n1i</a>:<a class="code" href="namespacepdd__host.html#a1ec3598c97732fed504c8cdc6263489a">n1f</a>,<a class="code" href="namespacepdd__host.html#ab1227373138858396004f9626a3e577e">n2i</a>:<a class="code" href="namespacepdd__host.html#a6da9410cf2efca8eefef44ba49fd5fe4">n2f</a>,<a class="code" href="namespacepdd__host.html#a2fe2bcec723994e5f8d2b1c55e32c63a">nz</a>+1:<a class="code" href="namespacepdd__host.html#a2dd8f37c33c7d2d37946bdf00389ecd4">n3f</a>)=0</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;     <a class="code" href="namespacepdd__host.html#a37cf2e2de492b68d5f1230fa1aff6db8">dat0</a>(<a class="code" href="namespacepdd__host.html#a72c0b704a102c7c293632fcd69b0ee88">n1i</a>:<a class="code" href="namespacepdd__host.html#a1ec3598c97732fed504c8cdc6263489a">n1f</a>,<a class="code" href="namespacepdd__host.html#ab1227373138858396004f9626a3e577e">n2i</a>:<a class="code" href="namespacepdd__host.html#a6da9410cf2efca8eefef44ba49fd5fe4">n2f</a>,<a class="code" href="namespacepdd__host.html#a2fe2bcec723994e5f8d2b1c55e32c63a">nz</a>+1:<a class="code" href="namespacepdd__host.html#a2dd8f37c33c7d2d37946bdf00389ecd4">n3f</a>)=0</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="keywordflow">   endif</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="keyword">end subroutine </span><a class="code" href="namespacem__pdd__initialize.html#a9ea034e82abbd13f841bdfee64f905eb">matrix_extension</a></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="keyword">end module </span><a class="code" href="namespacem__pdd__initialize.html">m_pdd_initialize</a></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="anamespacepdd__host_html_a80cebe9629a9c2ecebab51ca599b0adc"><div class="ttname"><a href="namespacepdd__host.html#a80cebe9629a9c2ecebab51ca599b0adc">pdd_host::comm_cart</a></div><div class="ttdeci">integer comm_cart</div><div class="ttdoc">–MPI coordinate description</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00042">pdd_host.f90:42</a></div></div>
+<div class="ttc" id="anamespacepdd__host_html"><div class="ttname"><a href="namespacepdd__host.html">pdd_host</a></div><div class="ttdoc">======================================================================</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00025">pdd_host.f90:25</a></div></div>
+<div class="ttc" id="anamespacepdd__host_html_a1ca10da1d41f13f22918066772e8cf1f"><div class="ttname"><a href="namespacepdd__host.html#a1ca10da1d41f13f22918066772e8cf1f">pdd_host::rank_new_y</a></div><div class="ttdeci">integer rank_new_y</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00054">pdd_host.f90:54</a></div></div>
+<div class="ttc" id="anamespacepdd__host_html_ad2e0144778cbbc109422b60fd697cf5b"><div class="ttname"><a href="namespacepdd__host.html#ad2e0144778cbbc109422b60fd697cf5b">pdd_host::mat_b</a></div><div class="ttdeci">real(kind=cgreal), dimension(:,:,:), allocatable mat_b</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00059">pdd_host.f90:59</a></div></div>
+<div class="ttc" id="anamespacepdd__host_html_a919fee0591fed6e29ed4c111f582740f"><div class="ttname"><a href="namespacepdd__host.html#a919fee0591fed6e29ed4c111f582740f">pdd_host::nproc_x</a></div><div class="ttdeci">integer nproc_x</div><div class="ttdoc">–Input parameter</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00034">pdd_host.f90:34</a></div></div>
+<div class="ttc" id="anamespacepdd__host_html_af3ab6fef1d725b5a0530dcf6f8931c04"><div class="ttname"><a href="namespacepdd__host.html#af3ab6fef1d725b5a0530dcf6f8931c04">pdd_host::newtype1</a></div><div class="ttdeci">integer newtype1</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00055">pdd_host.f90:55</a></div></div>
+<div class="ttc" id="anamespacepdd__host_html_af5ff228c50b2d4d39c82f56942ebffd1"><div class="ttname"><a href="namespacepdd__host.html#af5ff228c50b2d4d39c82f56942ebffd1">pdd_host::newtype3</a></div><div class="ttdeci">integer newtype3</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00055">pdd_host.f90:55</a></div></div>
+<div class="ttc" id="anamespacepdd__host_html_a429540ac1c31ddaf02124c4d11d8e248"><div class="ttname"><a href="namespacepdd__host.html#a429540ac1c31ddaf02124c4d11d8e248">pdd_host::comm_new_z</a></div><div class="ttdeci">integer comm_new_z</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00053">pdd_host.f90:53</a></div></div>
+<div class="ttc" id="anamespacepdd__host_html_aff63bb1724deeeb8cb36b61554f5f70d"><div class="ttname"><a href="namespacepdd__host.html#aff63bb1724deeeb8cb36b61554f5f70d">pdd_host::je_neig</a></div><div class="ttdeci">integer, dimension(:), allocatable je_neig</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00048">pdd_host.f90:48</a></div></div>
+<div class="ttc" id="anamespacepdd__host_html_a691192c39b1cbeb70e9a7fd65c8312f2"><div class="ttname"><a href="namespacepdd__host.html#a691192c39b1cbeb70e9a7fd65c8312f2">pdd_host::rank</a></div><div class="ttdeci">integer rank</div><div class="ttdoc">–MPI variables</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00039">pdd_host.f90:39</a></div></div>
+<div class="ttc" id="anamespacem__pdd__initialize_html"><div class="ttname"><a href="namespacem__pdd__initialize.html">m_pdd_initialize</a></div><div class="ttdef"><b>Definition:</b> <a href="pdd__initialize_8f90_source.html#l00004">pdd_initialize.f90:4</a></div></div>
+<div class="ttc" id="anamespacem__pdd__initialize_html_a9ea034e82abbd13f841bdfee64f905eb"><div class="ttname"><a href="namespacem__pdd__initialize.html#a9ea034e82abbd13f841bdfee64f905eb">m_pdd_initialize::matrix_extension</a></div><div class="ttdeci">subroutine matrix_extension</div><div class="ttdoc">=============================================================================</div><div class="ttdef"><b>Definition:</b> <a href="pdd__initialize_8f90_source.html#l00143">pdd_initialize.f90:143</a></div></div>
+<div class="ttc" id="anamespacepdd__host_html_a2ff58aec99193c9d66226fb81b54b5d7"><div class="ttname"><a href="namespacepdd__host.html#a2ff58aec99193c9d66226fb81b54b5d7">pdd_host::mat_c</a></div><div class="ttdeci">real(kind=cgreal), dimension(:,:,:), allocatable mat_c</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00059">pdd_host.f90:59</a></div></div>
+<div class="ttc" id="anamespacepdd__host_html_acff52f2e08e91a6f4556ee6986d20fe5"><div class="ttname"><a href="namespacepdd__host.html#acff52f2e08e91a6f4556ee6986d20fe5">pdd_host::comm_new_y</a></div><div class="ttdeci">integer comm_new_y</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00053">pdd_host.f90:53</a></div></div>
+<div class="ttc" id="anamespacepdd__host_html_a37cf2e2de492b68d5f1230fa1aff6db8"><div class="ttname"><a href="namespacepdd__host.html#a37cf2e2de492b68d5f1230fa1aff6db8">pdd_host::dat0</a></div><div class="ttdeci">real(kind=cgreal), dimension(:,:,:), allocatable dat0</div><div class="ttdoc">–3D data</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00058">pdd_host.f90:58</a></div></div>
+<div class="ttc" id="anamespacepdd__host_html_a6da9410cf2efca8eefef44ba49fd5fe4"><div class="ttname"><a href="namespacepdd__host.html#a6da9410cf2efca8eefef44ba49fd5fe4">pdd_host::n2f</a></div><div class="ttdeci">integer n2f</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00045">pdd_host.f90:45</a></div></div>
+<div class="ttc" id="anamespacepdd__host_html_ae263250978782cc2f8ce9da87c398bfc"><div class="ttname"><a href="namespacepdd__host.html#ae263250978782cc2f8ce9da87c398bfc">pdd_host::rank_new_x</a></div><div class="ttdeci">integer rank_new_x</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00054">pdd_host.f90:54</a></div></div>
+<div class="ttc" id="anamespacepdd__host_html_ab1227373138858396004f9626a3e577e"><div class="ttname"><a href="namespacepdd__host.html#ab1227373138858396004f9626a3e577e">pdd_host::n2i</a></div><div class="ttdeci">integer n2i</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00045">pdd_host.f90:45</a></div></div>
+<div class="ttc" id="anamespacepdd__host_html_ac197fdbd528feafb7f50248a1c726bc4"><div class="ttname"><a href="namespacepdd__host.html#ac197fdbd528feafb7f50248a1c726bc4">pdd_host::ks_neig</a></div><div class="ttdeci">integer, dimension(:), allocatable ks_neig</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00048">pdd_host.f90:48</a></div></div>
+<div class="ttc" id="anamespacepdd__host_html_a2fe2bcec723994e5f8d2b1c55e32c63a"><div class="ttname"><a href="namespacepdd__host.html#a2fe2bcec723994e5f8d2b1c55e32c63a">pdd_host::nz</a></div><div class="ttdeci">integer nz</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00049">pdd_host.f90:49</a></div></div>
+<div class="ttc" id="anamespacepdd__host_html_a72c0b704a102c7c293632fcd69b0ee88"><div class="ttname"><a href="namespacepdd__host.html#a72c0b704a102c7c293632fcd69b0ee88">pdd_host::n1i</a></div><div class="ttdeci">integer n1i</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00045">pdd_host.f90:45</a></div></div>
+<div class="ttc" id="anamespacepdd__host_html_ac7897dde7cabbf98dfb472db1ff895b4"><div class="ttname"><a href="namespacepdd__host.html#ac7897dde7cabbf98dfb472db1ff895b4">pdd_host::n3i</a></div><div class="ttdeci">integer n3i</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00045">pdd_host.f90:45</a></div></div>
+<div class="ttc" id="anamespacepdd__host_html_aa5189bcde19f844eea9a620880503700"><div class="ttname"><a href="namespacepdd__host.html#aa5189bcde19f844eea9a620880503700">pdd_host::newtype2</a></div><div class="ttdeci">integer newtype2</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00055">pdd_host.f90:55</a></div></div>
+<div class="ttc" id="anamespacepdd__host_html_abee71855328feee0520f96f8f13d9350"><div class="ttname"><a href="namespacepdd__host.html#abee71855328feee0520f96f8f13d9350">pdd_host::rank_new_z</a></div><div class="ttdeci">integer rank_new_z</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00054">pdd_host.f90:54</a></div></div>
+<div class="ttc" id="anamespacepdd__host_html_a585e82dc812634df2e873ebb19268b46"><div class="ttname"><a href="namespacepdd__host.html#a585e82dc812634df2e873ebb19268b46">pdd_host::ie_neig</a></div><div class="ttdeci">integer, dimension(:), allocatable ie_neig</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00048">pdd_host.f90:48</a></div></div>
+<div class="ttc" id="anamespacepdd__host_html_ab05335500c1818af9eb486d71a521fb5"><div class="ttname"><a href="namespacepdd__host.html#ab05335500c1818af9eb486d71a521fb5">pdd_host::nproc_z</a></div><div class="ttdeci">integer nproc_z</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00034">pdd_host.f90:34</a></div></div>
+<div class="ttc" id="anamespacepdd__host_html_ae248eccc3f9c70ac450f8b7f03aeea12"><div class="ttname"><a href="namespacepdd__host.html#ae248eccc3f9c70ac450f8b7f03aeea12">pdd_host::nprocs</a></div><div class="ttdeci">integer nprocs</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00039">pdd_host.f90:39</a></div></div>
+<div class="ttc" id="anamespacepdd__host_html_ad3872585da8b22a90d8a9fe3a08c87cc"><div class="ttname"><a href="namespacepdd__host.html#ad3872585da8b22a90d8a9fe3a08c87cc">pdd_host::ierr</a></div><div class="ttdeci">integer ierr</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00042">pdd_host.f90:42</a></div></div>
+<div class="ttc" id="anamespacepdd__host_html_a70b4d724e313a3cd2ada4b798660970f"><div class="ttname"><a href="namespacepdd__host.html#a70b4d724e313a3cd2ada4b798660970f">pdd_host::js_neig</a></div><div class="ttdeci">integer, dimension(:), allocatable js_neig</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00048">pdd_host.f90:48</a></div></div>
+<div class="ttc" id="anamespacepdd__host_html_afacf9a211383ab0e1e56b979ebb50e8e"><div class="ttname"><a href="namespacepdd__host.html#afacf9a211383ab0e1e56b979ebb50e8e">pdd_host::nproc_y</a></div><div class="ttdeci">integer nproc_y</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00034">pdd_host.f90:34</a></div></div>
+<div class="ttc" id="anamespacepdd__host_html_ad95c5c892c4b4183d104edbeec504d9d"><div class="ttname"><a href="namespacepdd__host.html#ad95c5c892c4b4183d104edbeec504d9d">pdd_host::comm_new_x</a></div><div class="ttdeci">integer comm_new_x</div><div class="ttdoc">–MPI communication parameter 2 (Data collection)</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00053">pdd_host.f90:53</a></div></div>
+<div class="ttc" id="anamespacepdd__host_html_a2dd8f37c33c7d2d37946bdf00389ecd4"><div class="ttname"><a href="namespacepdd__host.html#a2dd8f37c33c7d2d37946bdf00389ecd4">pdd_host::n3f</a></div><div class="ttdeci">integer n3f</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00045">pdd_host.f90:45</a></div></div>
+<div class="ttc" id="anamespacepdd__host_html_afbead525d881fcb8bedb9c687fbbef88"><div class="ttname"><a href="namespacepdd__host.html#afbead525d881fcb8bedb9c687fbbef88">pdd_host::is_neig</a></div><div class="ttdeci">integer, dimension(:), allocatable is_neig</div><div class="ttdoc">–MPI communication parameter 1</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00048">pdd_host.f90:48</a></div></div>
+<div class="ttc" id="anamespacepdd__host_html_a8eac5a0fd1e6bb0eb4b3108f6af586eb"><div class="ttname"><a href="namespacepdd__host.html#a8eac5a0fd1e6bb0eb4b3108f6af586eb">pdd_host::mat_a</a></div><div class="ttdeci">real(kind=cgreal), dimension(:,:,:), allocatable mat_a</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00059">pdd_host.f90:59</a></div></div>
+<div class="ttc" id="anamespacepdd__host_html_a6618cf5979af6e2291f82f1c972723f8"><div class="ttname"><a href="namespacepdd__host.html#a6618cf5979af6e2291f82f1c972723f8">pdd_host::thrdr_neig</a></div><div class="ttdeci">integer, dimension(:), allocatable thrdr_neig</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00050">pdd_host.f90:50</a></div></div>
+<div class="ttc" id="anamespacepdd__host_html_adf6d9dd585973753915cef6fe26c04b2"><div class="ttname"><a href="namespacepdd__host.html#adf6d9dd585973753915cef6fe26c04b2">pdd_host::ny</a></div><div class="ttdeci">integer ny</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00049">pdd_host.f90:49</a></div></div>
+<div class="ttc" id="anamespacepdd__host_html_a9c0c76f19b22bd7672aca2745cbcebc2"><div class="ttname"><a href="namespacepdd__host.html#a9c0c76f19b22bd7672aca2745cbcebc2">pdd_host::coords</a></div><div class="ttdeci">integer, dimension(:), allocatable coords</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00043">pdd_host.f90:43</a></div></div>
+<div class="ttc" id="anamespacepdd__host_html_aaa2ca3af1972a33edc2e069250dff76f"><div class="ttname"><a href="namespacepdd__host.html#aaa2ca3af1972a33edc2e069250dff76f">pdd_host::nx</a></div><div class="ttdeci">integer nx</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00049">pdd_host.f90:49</a></div></div>
+<div class="ttc" id="anamespacepdd__host_html_af5978a1dda86826e87319a9a07f53730"><div class="ttname"><a href="namespacepdd__host.html#af5978a1dda86826e87319a9a07f53730">pdd_host::ke_neig</a></div><div class="ttdeci">integer, dimension(:), allocatable ke_neig</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00048">pdd_host.f90:48</a></div></div>
+<div class="ttc" id="anamespacepdd__host_html_a1ec3598c97732fed504c8cdc6263489a"><div class="ttname"><a href="namespacepdd__host.html#a1ec3598c97732fed504c8cdc6263489a">pdd_host::n1f</a></div><div class="ttdeci">integer n1f</div><div class="ttdef"><b>Definition:</b> <a href="pdd__host_8f90_source.html#l00045">pdd_host.f90:45</a></div></div>
+<div class="ttc" id="anamespacem__pdd__initialize_html_a6cb4ff77e963a061628a0b5fe23c9d32"><div class="ttname"><a href="namespacem__pdd__initialize.html#a6cb4ff77e963a061628a0b5fe23c9d32">m_pdd_initialize::mpi_topology</a></div><div class="ttdeci">subroutine mpi_topology</div><div class="ttdoc">=====================================================================</div><div class="ttdef"><b>Definition:</b> <a href="pdd__initialize_8f90_source.html#l00009">pdd_initialize.f90:9</a></div></div>
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="pdd__initialize_8f90.html">pdd_initialize.f90</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

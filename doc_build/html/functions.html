@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="TDMA_PDD" />
+<meta property="og:image" content="../preview.png" />
+<meta property="og:description" content="Documentation for Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="../preview.png" />
+<meta property="og:title" content="TDMA_PDD" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD" />
+<!-- END twitter metadata -->
+<title>TDMA_PDD: Data Fields</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            messageStyle: "normal",
+            linebreaks: {
+                automatic: false
+            }
+        },
+        tex2jax: { 
+            inlineMath: [["\\(","\\)"]], 
+            displayMath: [["$$","$$"],["\\[","\\]"]], 
+            processEscapes: true
+        },
+        TeX: {
+            Macros: {
+                tr: "{\\scriptscriptstyle\\mathrm{T}}",
+            }
+        }
+    });
+</script>
+<!--MathJax(LaTeX) -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <script type="text/javascript" id="MathJax-script" async  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">  </script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="custom-alternative.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/hugh577/TDMA_PDD" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 65px;">
+  <td id="projectlogo">
+    <a href="./index.html">
+        <img alt="Logo" src="home.png"/></td>
+    </a>
+  <td id="projectalign" style="padding-left: 0.5em;padding-top: 0.5em;">
+   <div id="projectname">TDMA_PDD
+   </div>
+   <div id="projectbrief">Documentation</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('functions.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="contents">
+<div class="textblock">Here is a list of all data types members with links to the data types they belong to:</div>
+
+<h3><a id="index_a"></a>- a -</h3><ul>
+<li>A
+: <a class="el" href="structhypre___bi_c_g_s_t_a_b_data.html#a28cd5a82e37406e58a270275b37f43aa">hypre_BiCGSTABData</a>
+, <a class="el" href="structhypre___c_g_n_r_data.html#a86c68ea077ca1691ffb7400a2bc595ba">hypre_CGNRData</a>
+, <a class="el" href="structhypre___flex_g_m_r_e_s_data.html#a36f02ab3ef6c0a0cf2373a8f887e8536">hypre_FlexGMRESData</a>
+, <a class="el" href="structhypre___g_m_r_e_s_data.html#aa4f9118e97b79660f469e1ae1dcf6dd5">hypre_GMRESData</a>
+, <a class="el" href="structhypre___l_g_m_r_e_s_data.html#a8988a017d546a88770793e3dbd425434">hypre_LGMRESData</a>
+, <a class="el" href="structhypre___par_a_m_g_data.html#a68a540004a6388f6a382b2b3ce6f79a9">hypre_ParAMGData</a>
+, <a class="el" href="struct_h_y_p_r_e___par_c_s_r___system___problem.html#ae6a4edcc19820a95bcb9d63596e2122a">HYPRE_ParCSR_System_Problem</a>
+, <a class="el" href="structhypre___p_c_g_data.html#a43d608bf68b3815ac777d4e7497a2c3e">hypre_PCGData</a>
+</li>
+<li>A_array
+: <a class="el" href="structhypre___par_a_m_g_data.html#a7804e15bfeafbf84c84558641b9e357c">hypre_ParAMGData</a>
+</li>
+<li>a_aug_vecs
+: <a class="el" href="structhypre___l_g_m_r_e_s_data.html#aae0949b3c6d7673cebc70eb066c07675">hypre_LGMRESData</a>
+</li>
+<li>A_block_array
+: <a class="el" href="structhypre___par_a_m_g_data.html#a1a7e56b65a2d696fa2aa86a2b5144631">hypre_ParAMGData</a>
+</li>
+<li>A_coarse
+: <a class="el" href="structhypre___par_a_m_g_data.html#a18bcfdd556098ee69087bf2221e0d7a6">hypre_ParAMGData</a>
+</li>
+<li>a_graph_entries
+: <a class="el" href="structhypre___s_struct_graph__struct.html#ae4547df71aae4043ee41f27d3cf9d4b1">hypre_SStructGraph_struct</a>
+</li>
+<li>A_mat
+: <a class="el" href="structhypre___par_a_m_g_data.html#a88768052e45e07b4b957251231753ef3">hypre_ParAMGData</a>
+</li>
+<li>a_tol
+: <a class="el" href="structhypre___bi_c_g_s_t_a_b_data.html#a620745235b2356aa92ff036c225222a8">hypre_BiCGSTABData</a>
+, <a class="el" href="structhypre___flex_g_m_r_e_s_data.html#adde43a62dd77d17c7e81da1d865d4543">hypre_FlexGMRESData</a>
+, <a class="el" href="structhypre___g_m_r_e_s_data.html#ae393d09f5d1fba6f788a1980d90d0f36">hypre_GMRESData</a>
+, <a class="el" href="structhypre___l_g_m_r_e_s_data.html#a4a1a075b0a65ecd30737509b2acd4384">hypre_LGMRESData</a>
+, <a class="el" href="structhypre___p_c_g_data.html#a86648b57e20355ed17026a0247c53b13">hypre_PCGData</a>
+</li>
+<li>absolute
+: <a class="el" href="structlobpcg___tolerance.html#a1494dafd6433052cb09746df1f73418c">lobpcg_Tolerance</a>
+</li>
+<li>accumulated
+: <a class="el" href="structhypre___s_struct_p_matrix.html#acd059ac9fa8d030adcc45c8635c9a2cc">hypre_SStructPMatrix</a>
+, <a class="el" href="structhypre___s_struct_p_vector.html#a23ecd15502c2ad232bd60bafa8a59a1c">hypre_SStructPVector</a>
+</li>
+<li>action
+: <a class="el" href="structhypre___comm_handle__struct.html#a8d5e6e0efbefb924187df3512c958b65">hypre_CommHandle_struct</a>
+</li>
+<li>active_indices
+: <a class="el" href="structhypre___multivector.html#a87e4bd8d9f8a7320147c30f59af3de44">hypre_Multivector</a>
+</li>
+<li>actual_local_size
+: <a class="el" href="structhypre___par_vector__struct.html#ae8403e2ed8429a0bd976cc3fdfe671f5">hypre_ParVector_struct</a>
+</li>
+<li>add_P_max_elmts
+: <a class="el" href="structhypre___par_a_m_g_data.html#a12e1c35bc9b83ec503ffa84b8186270d">hypre_ParAMGData</a>
+</li>
+<li>add_trunc_factor
+: <a class="el" href="structhypre___par_a_m_g_data.html#ac3590d906eed799043e8b1885387e7cd">hypre_ParAMGData</a>
+</li>
+<li>additive
+: <a class="el" href="structhypre___par_a_m_g_data.html#ade53bafffea3f41424a72a0e5364eb02">hypre_ParAMGData</a>
+</li>
+<li>Aee_l
+: <a class="el" href="structhypre___maxwell_data.html#aee889619664c8b80c79a663ea2a19b33">hypre_MaxwellData</a>
+</li>
+<li>Aen
+: <a class="el" href="structhypre___maxwell_data.html#a492f186b29e1a428e2db2f0439652225">hypre_MaxwellData</a>
+</li>
+<li>Aen_l
+: <a class="el" href="structhypre___maxwell_data.html#a8779630aeee488ccbbdb18b755ee0b2d">hypre_MaxwellData</a>
+</li>
+<li>agg_interp_type
+: <a class="el" href="structhypre___par_a_m_g_data.html#ae309d660bafec01109b9274b72028bac">hypre_ParAMGData</a>
+</li>
+<li>agg_num_levels
+: <a class="el" href="structhypre___par_a_m_g_data.html#aa378a1e08e0940048164b0208faed0eb">hypre_ParAMGData</a>
+</li>
+<li>agg_P12_max_elmts
+: <a class="el" href="structhypre___par_a_m_g_data.html#a596995f033f1013a3b6bab7346a047cb">hypre_ParAMGData</a>
+</li>
+<li>agg_P12_trunc_factor
+: <a class="el" href="structhypre___par_a_m_g_data.html#abc7c8a9d8cc89436741132b65753c991">hypre_ParAMGData</a>
+</li>
+<li>agg_P_max_elmts
+: <a class="el" href="structhypre___par_a_m_g_data.html#a06a618791b7c8ffa21e14923d255e84c">hypre_ParAMGData</a>
+</li>
+<li>agg_trunc_factor
+: <a class="el" href="structhypre___par_a_m_g_data.html#adbe9f22d35e7f60cacb092497d8b756e">hypre_ParAMGData</a>
+</li>
+<li>all_global_known
+: <a class="el" href="structhypre___box_manager.html#a124764e6bab0276e50969d0a0ad28ae7">hypre_BoxManager</a>
+</li>
+<li>alloc_size
+: <a class="el" href="structhypre___box_array__struct.html#acd23abf06967168c7b11de7e23c92e61">hypre_BoxArray_struct</a>
+</li>
+<li>allocateMatrix()
+: <a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a1f49d3af595c3e13c30873d04b64d54a">HYPRE_LinSysCore</a>
+</li>
+<li>amg_vdata
+: <a class="el" href="structhypre___maxwell_data.html#a7c9af7f6b493e15172878e62741bbf5a">hypre_MaxwellData</a>
+</li>
+<li>Ann
+: <a class="el" href="structhypre___maxwell_data.html#ab5f336b3e722c6019fa5a5406a1496ca">hypre_MaxwellData</a>
+</li>
+<li>Ann_l
+: <a class="el" href="structhypre___maxwell_data.html#a5f632e93e865897a72f2c167a42b6b1c">hypre_MaxwellData</a>
+</li>
+<li>Ann_stencils
+: <a class="el" href="structhypre___maxwell_data.html#a1f95027a9c767d395d680d4f30ac72d2">hypre_MaxwellData</a>
+</li>
+<li>approx_constant
+: <a class="el" href="structhypre___l_g_m_r_e_s_data.html#a7f652b3334a872abb4a09e8e94aa7e6c">hypre_LGMRESData</a>
+</li>
+<li>assemble_flag
+: <a class="el" href="structhypre___i_j_matrix__struct.html#aa254ad60d9786ceae87680c1368941f6">hypre_IJMatrix_struct</a>
+</li>
+<li>assumed_part
+: <a class="el" href="structhypre___i_j_matrix__struct.html#a946e157bc4110ed87e97b1a6bb4dcb92">hypre_IJMatrix_struct</a>
+, <a class="el" href="structhypre___i_j_vector__struct.html#a2054d0abb3367cde9051f90eb7ae3b52">hypre_IJVector_struct</a>
+</li>
+<li>assumed_partition
+: <a class="el" href="structhypre___box_manager.html#a8f620209726d689d3d8fc170cb6389f9">hypre_BoxManager</a>
+, <a class="el" href="structhypre___par_c_s_r_block_matrix.html#af70d4653ced2f2860f856e7b6ae7c806">hypre_ParCSRBlockMatrix</a>
+, <a class="el" href="structhypre___par_c_s_r_matrix__struct.html#ae70335784a87e896c406c5f7d5643f3f">hypre_ParCSRMatrix_struct</a>
+, <a class="el" href="structhypre___par_vector__struct.html#aba0404da4d9cb4825a8366ef6c05049c">hypre_ParVector_struct</a>
+</li>
+<li>atolf
+: <a class="el" href="structhypre___p_c_g_data.html#aaa74e1b3fdc188afcf9dfd4371446d2c">hypre_PCGData</a>
+</li>
+<li>aug_dim
+: <a class="el" href="structhypre___l_g_m_r_e_s_data.html#a9f030479b0991941deaa5ad529eef7cf">hypre_LGMRESData</a>
+</li>
+<li>aug_order
+: <a class="el" href="structhypre___l_g_m_r_e_s_data.html#a3fa3284d16cca39443111c09f6f825f6">hypre_LGMRESData</a>
+</li>
+<li>aug_vecs
+: <a class="el" href="structhypre___l_g_m_r_e_s_data.html#a12d95f02ae33d3bdfa7e1577a4f87b0c">hypre_LGMRESData</a>
+</li>
+<li>aux_data
+: <a class="el" href="structhypre___aux_par_c_s_r_matrix.html#a60189306f9e22caf6ad614440e4ed1bb">hypre_AuxParCSRMatrix</a>
+</li>
+<li>aux_j
+: <a class="el" href="structhypre___aux_par_c_s_r_matrix.html#aae1833c0dda1bb73c518a7d0eae75c81">hypre_AuxParCSRMatrix</a>
+</li>
+<li>auxiliary_data
+: <a class="el" href="structhypre___distributed_matrix.html#a93eca04e8b9fbca9640340c496d64505">hypre_DistributedMatrix</a>
+</li>
+<li>Axpy
+: <a class="el" href="structhypre___bi_c_g_s_t_a_b_functions.html#ab0d1867992d8415a603896530bd9759e">hypre_BiCGSTABFunctions</a>
+, <a class="el" href="structhypre___c_g_n_r_functions.html#a6231ad3b5616f80c4698017b25d996d1">hypre_CGNRFunctions</a>
+, <a class="el" href="structhypre___flex_g_m_r_e_s_functions.html#ac94380a64896ce60048380a7bf13c0ea">hypre_FlexGMRESFunctions</a>
+, <a class="el" href="structhypre___g_m_r_e_s_functions.html#ad2f1058d472113dc130d9862282becbd">hypre_GMRESFunctions</a>
+, <a class="el" href="structhypre___l_g_m_r_e_s_functions.html#a155fd80926149466b08fdc8b5eec5136">hypre_LGMRESFunctions</a>
+, <a class="el" href="structhypre___p_c_g_functions.html#a836f523e781e8c3428d4751af0081cf0">hypre_PCGFunctions</a>
+, <a class="el" href="structmv___interface_interpreter.html#a2552f73448f49f9c8e7304480f42949b">mv_InterfaceInterpreter</a>
+</li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

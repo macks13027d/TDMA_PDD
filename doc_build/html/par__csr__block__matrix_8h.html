@@ -1,0 +1,2091 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="TDMA_PDD" />
+<meta property="og:image" content="../preview.png" />
+<meta property="og:description" content="Documentation for Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="../preview.png" />
+<meta property="og:title" content="TDMA_PDD" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD" />
+<!-- END twitter metadata -->
+<title>TDMA_PDD: include/hypre-2.11.1/par_csr_block_matrix.h File Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            messageStyle: "normal",
+            linebreaks: {
+                automatic: false
+            }
+        },
+        tex2jax: { 
+            inlineMath: [["\\(","\\)"]], 
+            displayMath: [["$$","$$"],["\\[","\\]"]], 
+            processEscapes: true
+        },
+        TeX: {
+            Macros: {
+                tr: "{\\scriptscriptstyle\\mathrm{T}}",
+            }
+        }
+    });
+</script>
+<!--MathJax(LaTeX) -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <script type="text/javascript" id="MathJax-script" async  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">  </script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="custom-alternative.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/hugh577/TDMA_PDD" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 65px;">
+  <td id="projectlogo">
+    <a href="./index.html">
+        <img alt="Logo" src="home.png"/></td>
+    </a>
+  <td id="projectalign" style="padding-left: 0.5em;padding-top: 0.5em;">
+   <div id="projectname">TDMA_PDD
+   </div>
+   <div id="projectbrief">Documentation</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('par__csr__block__matrix_8h.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle">
+<div class="title">par_csr_block_matrix.h File Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="__hypre__utilities_8h_source.html">_hypre_utilities.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="csr__block__matrix_8h_source.html">csr_block_matrix.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="__hypre__parcsr__mv_8h_source.html">_hypre_parcsr_mv.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for par_csr_block_matrix.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="par__csr__block__matrix_8h__incl.png" border="0" usemap="#include_2hypre-2_811_81_2par__csr__block__matrix_8h" alt=""/></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="par__csr__block__matrix_8h__dep__incl.png" border="0" usemap="#include_2hypre-2_811_81_2par__csr__block__matrix_8hdep" alt=""/></div>
+</div>
+</div>
+<p><a href="par__csr__block__matrix_8h_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a12a40402884cadc49a108aaad81a7743"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#a12a40402884cadc49a108aaad81a7743">hypre_ParCSRBlockMatrixComm</a>(matrix)&#160;&#160;&#160;((matrix)-&gt;comm)</td></tr>
+<tr class="separator:a12a40402884cadc49a108aaad81a7743"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec2d92251a85c49bc32078c9769b74fd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#aec2d92251a85c49bc32078c9769b74fd">hypre_ParCSRBlockMatrixGlobalNumRows</a>(matrix)&#160;&#160;&#160;((matrix)-&gt;global_num_rows)</td></tr>
+<tr class="separator:aec2d92251a85c49bc32078c9769b74fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6326f8fc5b28c999f8ee59def542b86"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#ae6326f8fc5b28c999f8ee59def542b86">hypre_ParCSRBlockMatrixGlobalNumCols</a>(matrix)&#160;&#160;&#160;((matrix)-&gt;global_num_cols)</td></tr>
+<tr class="separator:ae6326f8fc5b28c999f8ee59def542b86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae034b73a068643701d1f01894e939b1b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#ae034b73a068643701d1f01894e939b1b">hypre_ParCSRBlockMatrixFirstRowIndex</a>(matrix)&#160;&#160;&#160;((matrix)-&gt;first_row_index)</td></tr>
+<tr class="separator:ae034b73a068643701d1f01894e939b1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a274d8c70a80d82522b0b9ef332b68446"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#a274d8c70a80d82522b0b9ef332b68446">hypre_ParCSRBlockMatrixFirstColDiag</a>(matrix)&#160;&#160;&#160;((matrix)-&gt;first_col_diag)</td></tr>
+<tr class="separator:a274d8c70a80d82522b0b9ef332b68446"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace280c6ea43ea8d3de47c62061f0197c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#ace280c6ea43ea8d3de47c62061f0197c">hypre_ParCSRBlockMatrixLastRowIndex</a>(matrix)&#160;&#160;&#160;((matrix) -&gt; last_row_index)</td></tr>
+<tr class="separator:ace280c6ea43ea8d3de47c62061f0197c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63639ef3fa9ebf2a535601b5a85be8bf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#a63639ef3fa9ebf2a535601b5a85be8bf">hypre_ParCSRBlockMatrixLastColDiag</a>(matrix)&#160;&#160;&#160;((matrix) -&gt; last_col_diag)</td></tr>
+<tr class="separator:a63639ef3fa9ebf2a535601b5a85be8bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a464e95b21aa5d801f10bd61071739a75"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#a464e95b21aa5d801f10bd61071739a75">hypre_ParCSRBlockMatrixBlockSize</a>(matrix)&#160;&#160;&#160;((matrix)-&gt;diag-&gt;block_size)</td></tr>
+<tr class="separator:a464e95b21aa5d801f10bd61071739a75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a258d26ac226cf42ae76f59b564f873f3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#a258d26ac226cf42ae76f59b564f873f3">hypre_ParCSRBlockMatrixDiag</a>(matrix)&#160;&#160;&#160;((matrix) -&gt; diag)</td></tr>
+<tr class="separator:a258d26ac226cf42ae76f59b564f873f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6081a31acb339dc3bd3dd688de33740d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#a6081a31acb339dc3bd3dd688de33740d">hypre_ParCSRBlockMatrixOffd</a>(matrix)&#160;&#160;&#160;((matrix) -&gt; offd)</td></tr>
+<tr class="separator:a6081a31acb339dc3bd3dd688de33740d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78eb4a3ed75ed0f2447021fc650e4a29"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#a78eb4a3ed75ed0f2447021fc650e4a29">hypre_ParCSRBlockMatrixColMapOffd</a>(matrix)&#160;&#160;&#160;((matrix) -&gt; col_map_offd)</td></tr>
+<tr class="separator:a78eb4a3ed75ed0f2447021fc650e4a29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7279ddd6e9ed2ea13f9b405095e7a202"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#a7279ddd6e9ed2ea13f9b405095e7a202">hypre_ParCSRBlockMatrixRowStarts</a>(matrix)&#160;&#160;&#160;((matrix) -&gt; row_starts)</td></tr>
+<tr class="separator:a7279ddd6e9ed2ea13f9b405095e7a202"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08086ee81cc2d45a7e4045bc97de7798"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#a08086ee81cc2d45a7e4045bc97de7798">hypre_ParCSRBlockMatrixColStarts</a>(matrix)&#160;&#160;&#160;((matrix) -&gt; col_starts)</td></tr>
+<tr class="separator:a08086ee81cc2d45a7e4045bc97de7798"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a563e590af32ad773f3290dcce1c895ef"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#a563e590af32ad773f3290dcce1c895ef">hypre_ParCSRBlockMatrixCommPkg</a>(matrix)&#160;&#160;&#160;((matrix) -&gt; comm_pkg)</td></tr>
+<tr class="separator:a563e590af32ad773f3290dcce1c895ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a592099687b8e00b789e9e6c2fd2bc634"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#a592099687b8e00b789e9e6c2fd2bc634">hypre_ParCSRBlockMatrixCommPkgT</a>(matrix)&#160;&#160;&#160;((matrix) -&gt; comm_pkgT)</td></tr>
+<tr class="separator:a592099687b8e00b789e9e6c2fd2bc634"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeeb2ac3ac4d939f5d8e050596c1229d6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#aeeb2ac3ac4d939f5d8e050596c1229d6">hypre_ParCSRBlockMatrixOwnsData</a>(matrix)&#160;&#160;&#160;((matrix) -&gt; owns_data)</td></tr>
+<tr class="separator:aeeb2ac3ac4d939f5d8e050596c1229d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4359373b3450918153273f6b40f2a9e8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#a4359373b3450918153273f6b40f2a9e8">hypre_ParCSRBlockMatrixOwnsRowStarts</a>(matrix)&#160;&#160;&#160;((matrix) -&gt; owns_row_starts)</td></tr>
+<tr class="separator:a4359373b3450918153273f6b40f2a9e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b16bf3dca420f99f484ba9ffc55b78d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#a5b16bf3dca420f99f484ba9ffc55b78d">hypre_ParCSRBlockMatrixOwnsColStarts</a>(matrix)&#160;&#160;&#160;((matrix) -&gt; owns_col_starts)</td></tr>
+<tr class="separator:a5b16bf3dca420f99f484ba9ffc55b78d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3a5c6fc183bfe35eedb7e2c4af741f7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#ae3a5c6fc183bfe35eedb7e2c4af741f7">hypre_ParCSRBlockMatrixNumRows</a>(matrix)&#160;&#160;&#160;<a class="el" href="csr__block__matrix_8h.html#a6b77974de9cc3dcbb87dba08ca76699e">hypre_CSRBlockMatrixNumRows</a>(<a class="el" href="par__csr__block__matrix_8h.html#a258d26ac226cf42ae76f59b564f873f3">hypre_ParCSRBlockMatrixDiag</a>(matrix))</td></tr>
+<tr class="separator:ae3a5c6fc183bfe35eedb7e2c4af741f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c93c188b68692d9e159e9144ae4bf9e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#a9c93c188b68692d9e159e9144ae4bf9e">hypre_ParCSRBlockMatrixNumCols</a>(matrix)&#160;&#160;&#160;<a class="el" href="csr__block__matrix_8h.html#ad2094aafe2135b01cd78fb311fa4c56b">hypre_CSRBlockMatrixNumCols</a>(<a class="el" href="par__csr__block__matrix_8h.html#a258d26ac226cf42ae76f59b564f873f3">hypre_ParCSRBlockMatrixDiag</a>(matrix))</td></tr>
+<tr class="separator:a9c93c188b68692d9e159e9144ae4bf9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3e92c3b6b9475555f8c636b16277327"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#aa3e92c3b6b9475555f8c636b16277327">hypre_ParCSRBlockMatrixNumNonzeros</a>(matrix)&#160;&#160;&#160;((matrix) -&gt; num_nonzeros)</td></tr>
+<tr class="separator:aa3e92c3b6b9475555f8c636b16277327"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adeea480bfce1eefa55fda7071faab674"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#adeea480bfce1eefa55fda7071faab674">hypre_ParCSRBlockMatrixDNumNonzeros</a>(matrix)&#160;&#160;&#160;((matrix) -&gt; d_num_nonzeros)</td></tr>
+<tr class="separator:adeea480bfce1eefa55fda7071faab674"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad559a9c62a9c2cb683ce170051b07169"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#ad559a9c62a9c2cb683ce170051b07169">hypre_ParCSRBlockMatrixRowindices</a>(matrix)&#160;&#160;&#160;((matrix) -&gt; rowindices)</td></tr>
+<tr class="separator:ad559a9c62a9c2cb683ce170051b07169"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7a415feecab611496211048757975ce"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#aa7a415feecab611496211048757975ce">hypre_ParCSRBlockMatrixRowvalues</a>(matrix)&#160;&#160;&#160;((matrix) -&gt; rowvalues)</td></tr>
+<tr class="separator:aa7a415feecab611496211048757975ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d00bc775b7a4dc84759892dfcda03e1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#a7d00bc775b7a4dc84759892dfcda03e1">hypre_ParCSRBlockMatrixGetrowactive</a>(matrix)&#160;&#160;&#160;((matrix) -&gt; getrowactive)</td></tr>
+<tr class="separator:a7d00bc775b7a4dc84759892dfcda03e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5bf557ff12646c44323a04b330f8ea9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#ad5bf557ff12646c44323a04b330f8ea9">hypre_ParCSRBlockMatrixAssumedPartition</a>(matrix)&#160;&#160;&#160;((matrix) -&gt; assumed_partition)</td></tr>
+<tr class="separator:ad5bf557ff12646c44323a04b330f8ea9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:aae767f9ea2b0718bcbeb812735d27310"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structhypre___c_s_r_block_matrix.html">hypre_CSRBlockMatrix</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#aae767f9ea2b0718bcbeb812735d27310">hypre_ParCSRBlockMatrixExtractBExt</a> (<a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *B, <a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *A, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> data)</td></tr>
+<tr class="separator:aae767f9ea2b0718bcbeb812735d27310"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95b0490aaaf437c0aa2790754e9f828d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#a95b0490aaaf437c0aa2790754e9f828d">hypre_ParCSRBlockMatrixCreate</a> (MPI_Comm comm, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> block_size, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> global_num_rows, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> global_num_cols, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *row_starts, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *col_starts, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> num_cols_offd, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> num_nonzeros_diag, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> num_nonzeros_offd)</td></tr>
+<tr class="separator:a95b0490aaaf437c0aa2790754e9f828d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37b961c2546d53cbc88820c7fb09b19d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#a37b961c2546d53cbc88820c7fb09b19d">hypre_ParCSRBlockMatrixDestroy</a> (<a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *matrix)</td></tr>
+<tr class="separator:a37b961c2546d53cbc88820c7fb09b19d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47f60f36ec6062ee9cc8880ee1e32c7e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#a47f60f36ec6062ee9cc8880ee1e32c7e">hypre_BoomerAMGBuildBlockInterp</a> (<a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *A, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *CF_marker, <a class="el" href="__hypre__parcsr__mv_8h.html#a0612d56042e635111dc5c83b076308d8">hypre_ParCSRMatrix</a> *S, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *num_cpts_global, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> num_functions, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *dof_func, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> debug_flag, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> trunc_factor, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> max_elmts, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> add_weak_to_diag, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *col_offd_S_to_A, <a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> **P_ptr)</td></tr>
+<tr class="separator:a47f60f36ec6062ee9cc8880ee1e32c7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a475458d26f8a0928408cfb9cc667d12c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#a475458d26f8a0928408cfb9cc667d12c">hypre_BoomerAMGBuildBlockInterpRV</a> (<a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *A, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *CF_marker, <a class="el" href="__hypre__parcsr__mv_8h.html#a0612d56042e635111dc5c83b076308d8">hypre_ParCSRMatrix</a> *S, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *num_cpts_global, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> num_functions, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *dof_func, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> debug_flag, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> trunc_factor, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> max_elmts, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *col_offd_S_to_A, <a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> **P_ptr)</td></tr>
+<tr class="separator:a475458d26f8a0928408cfb9cc667d12c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a6ecbc699f1dcc84a1f58976684ade6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#a8a6ecbc699f1dcc84a1f58976684ade6">hypre_BoomerAMGBuildBlockInterpRV2</a> (<a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *A, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *CF_marker, <a class="el" href="__hypre__parcsr__mv_8h.html#a0612d56042e635111dc5c83b076308d8">hypre_ParCSRMatrix</a> *S, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *num_cpts_global, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> num_functions, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *dof_func, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> debug_flag, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> trunc_factor, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> max_elmts, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *col_offd_S_to_A, <a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> **P_ptr)</td></tr>
+<tr class="separator:a8a6ecbc699f1dcc84a1f58976684ade6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fec3175575faf7abf77aa61e80c6e93"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#a3fec3175575faf7abf77aa61e80c6e93">hypre_BoomerAMGBuildBlockInterpDiag</a> (<a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *A, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *CF_marker, <a class="el" href="__hypre__parcsr__mv_8h.html#a0612d56042e635111dc5c83b076308d8">hypre_ParCSRMatrix</a> *S, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *num_cpts_global, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> num_functions, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *dof_func, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> debug_flag, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> trunc_factor, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> max_elmts, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> add_weak_to_diag, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *col_offd_S_to_A, <a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> **P_ptr)</td></tr>
+<tr class="separator:a3fec3175575faf7abf77aa61e80c6e93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b30ace5f5212e183f7882e6e8e9d13c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#a0b30ace5f5212e183f7882e6e8e9d13c">hypre_BoomerAMGBlockInterpTruncation</a> (<a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *P, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> trunc_factor, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> max_elements)</td></tr>
+<tr class="separator:a0b30ace5f5212e183f7882e6e8e9d13c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa12a915aebf48faa223b7b2e94d05cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#aaa12a915aebf48faa223b7b2e94d05cf">hypre_BoomerAMGBuildBlockDirInterp</a> (<a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *A, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *CF_marker, <a class="el" href="__hypre__parcsr__mv_8h.html#a0612d56042e635111dc5c83b076308d8">hypre_ParCSRMatrix</a> *S, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *num_cpts_global, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> num_functions, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *dof_func, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> debug_flag, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> trunc_factor, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> max_elmts, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *col_offd_S_to_A, <a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> **P_ptr)</td></tr>
+<tr class="separator:aaa12a915aebf48faa223b7b2e94d05cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28ded2320391dbcb77552a53ee040f36"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#a28ded2320391dbcb77552a53ee040f36">hypre_BoomerAMGBlockRelaxIF</a> (<a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *A, <a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a> *f, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *cf_marker, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> relax_type, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> relax_order, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> cycle_type, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> relax_weight, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> omega, <a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a> *u, <a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a> *Vtemp)</td></tr>
+<tr class="separator:a28ded2320391dbcb77552a53ee040f36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc0080e4e13823deeb257edee2da1f42"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#abc0080e4e13823deeb257edee2da1f42">hypre_BoomerAMGBlockRelax</a> (<a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *A, <a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a> *f, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *cf_marker, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> relax_type, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> relax_points, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> relax_weight, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> omega, <a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a> *u, <a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a> *Vtemp)</td></tr>
+<tr class="separator:abc0080e4e13823deeb257edee2da1f42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51d88b9b99457bef5dd9a98e8c6f1182"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#a51d88b9b99457bef5dd9a98e8c6f1182">hypre_GetCommPkgBlockRTFromCommPkgBlockA</a> (<a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *RT, <a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *A, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *fine_to_coarse_offd)</td></tr>
+<tr class="separator:a51d88b9b99457bef5dd9a98e8c6f1182"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5b4c42def1fbbebdb782d0df3645baa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structhypre___par_c_s_r_comm_handle.html">hypre_ParCSRCommHandle</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#ac5b4c42def1fbbebdb782d0df3645baa">hypre_ParCSRBlockCommHandleCreate</a> (<a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> job, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> bnnz, <a class="el" href="structhypre___par_c_s_r_comm_pkg.html">hypre_ParCSRCommPkg</a> *comm_pkg, void *send_data, void *recv_data)</td></tr>
+<tr class="separator:ac5b4c42def1fbbebdb782d0df3645baa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8968bd63f26ea050c2d95d971710a6d7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#a8968bd63f26ea050c2d95d971710a6d7">hypre_ParCSRBlockCommHandleDestroy</a> (<a class="el" href="structhypre___par_c_s_r_comm_handle.html">hypre_ParCSRCommHandle</a> *comm_handle)</td></tr>
+<tr class="separator:a8968bd63f26ea050c2d95d971710a6d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a876652d16e39574e69fd06995de6ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#a8a876652d16e39574e69fd06995de6ab">hypre_BlockMatvecCommPkgCreate</a> (<a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *A)</td></tr>
+<tr class="separator:a8a876652d16e39574e69fd06995de6ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77cae4c4b351112a3a32ed0ba8ced471"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#a77cae4c4b351112a3a32ed0ba8ced471">hypre_ParCSRBlockMatrixCreateAssumedPartition</a> (<a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *matrix)</td></tr>
+<tr class="separator:a77cae4c4b351112a3a32ed0ba8ced471"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5417d67baca1fc62521563144bc240a7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#a5417d67baca1fc62521563144bc240a7">hypre_ParCSRBlockMatrixDestroyAssumedPartition</a> (<a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *matrix)</td></tr>
+<tr class="separator:a5417d67baca1fc62521563144bc240a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab28e6ae812a418cfa56a459d29249107"><td class="memItemLeft" align="right" valign="top"><a class="el" href="__hypre__parcsr__mv_8h.html#a0612d56042e635111dc5c83b076308d8">hypre_ParCSRMatrix</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#ab28e6ae812a418cfa56a459d29249107">hypre_ParCSRBlockMatrixConvertToParCSRMatrix</a> (<a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *matrix)</td></tr>
+<tr class="separator:ab28e6ae812a418cfa56a459d29249107"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72c4d747788c5db62e8af38d8956e5e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#a72c4d747788c5db62e8af38d8956e5e7">hypre_ParCSRBlockMatrixConvertFromParCSRMatrix</a> (<a class="el" href="__hypre__parcsr__mv_8h.html#a0612d56042e635111dc5c83b076308d8">hypre_ParCSRMatrix</a> *matrix, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> matrix_C_block_size)</td></tr>
+<tr class="separator:a72c4d747788c5db62e8af38d8956e5e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d166fef68d6c2a99ba669eb8712a0ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#a2d166fef68d6c2a99ba669eb8712a0ef">hypre_ParCSRBlockMatrixRAP</a> (<a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *RT, <a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *A, <a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *P, <a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> **RAP_ptr)</td></tr>
+<tr class="separator:a2d166fef68d6c2a99ba669eb8712a0ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95018d33cf0bd8fc92ff29f1c2dada77"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#a95018d33cf0bd8fc92ff29f1c2dada77">hypre_ParCSRBlockMatrixSetNumNonzeros</a> (<a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *matrix)</td></tr>
+<tr class="separator:a95018d33cf0bd8fc92ff29f1c2dada77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9150401e5e68b1544c7ada5f5074ba1c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#a9150401e5e68b1544c7ada5f5074ba1c">hypre_ParCSRBlockMatrixSetDNumNonzeros</a> (<a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *matrix)</td></tr>
+<tr class="separator:a9150401e5e68b1544c7ada5f5074ba1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcc15ec2109ed0640e1cd96938e395a2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#adcc15ec2109ed0640e1cd96938e395a2">hypre_BoomerAMGBlockCreateNodalA</a> (<a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *A, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> option, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> diag_option, <a class="el" href="__hypre__parcsr__mv_8h.html#a0612d56042e635111dc5c83b076308d8">hypre_ParCSRMatrix</a> **AN_ptr)</td></tr>
+<tr class="separator:adcc15ec2109ed0640e1cd96938e395a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadc98e8c47e41c64d5ac2ef852bf805b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#aadc98e8c47e41c64d5ac2ef852bf805b">hypre_ParVectorCreateFromBlock</a> (MPI_Comm comm, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> p_global_size, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *p_partitioning, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> block_size)</td></tr>
+<tr class="separator:aadc98e8c47e41c64d5ac2ef852bf805b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae79e1f496507bfba1d92e98493568b7a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#ae79e1f496507bfba1d92e98493568b7a">hypre_ParCSRBlockMatrixMatvec</a> (<a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> alpha, <a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *A, <a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a> *x, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> beta, <a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a> *y)</td></tr>
+<tr class="separator:ae79e1f496507bfba1d92e98493568b7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bfe16e908e6a9d4f3332cd6f647f178"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#a1bfe16e908e6a9d4f3332cd6f647f178">hypre_ParCSRBlockMatrixMatvecT</a> (<a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> alpha, <a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *A, <a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a> *x, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> beta, <a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a> *y)</td></tr>
+<tr class="separator:a1bfe16e908e6a9d4f3332cd6f647f178"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92441566cb513d3b35a193c8121af6c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#a92441566cb513d3b35a193c8121af6c5">hypre_block_qsort</a> (<a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *v, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *w, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *blk_array, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> block_size, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> left, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> right)</td></tr>
+<tr class="separator:a92441566cb513d3b35a193c8121af6c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25be70e21c133ea68e97cd863b9af3f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="par__csr__block__matrix_8h.html#a25be70e21c133ea68e97cd863b9af3f3">hypre_swap_blk</a> (<a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *v, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> block_size, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> i, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> j)</td></tr>
+<tr class="separator:a25be70e21c133ea68e97cd863b9af3f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="ad5bf557ff12646c44323a04b330f8ea9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5bf557ff12646c44323a04b330f8ea9">&#9670;&nbsp;</a></span>hypre_ParCSRBlockMatrixAssumedPartition</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_ParCSRBlockMatrixAssumedPartition</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">matrix</td><td>)</td>
+          <td>&#160;&#160;&#160;((matrix) -&gt; assumed_partition)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="par__csr__block__matrix_8h_source.html#l00118">118</a> of file <a class="el" href="par__csr__block__matrix_8h_source.html">par_csr_block_matrix.h</a>.</p>
+
+</div>
+</div>
+<a id="a464e95b21aa5d801f10bd61071739a75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a464e95b21aa5d801f10bd61071739a75">&#9670;&nbsp;</a></span>hypre_ParCSRBlockMatrixBlockSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_ParCSRBlockMatrixBlockSize</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">matrix</td><td>)</td>
+          <td>&#160;&#160;&#160;((matrix)-&gt;diag-&gt;block_size)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="par__csr__block__matrix_8h_source.html#l00098">98</a> of file <a class="el" href="par__csr__block__matrix_8h_source.html">par_csr_block_matrix.h</a>.</p>
+
+</div>
+</div>
+<a id="a78eb4a3ed75ed0f2447021fc650e4a29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78eb4a3ed75ed0f2447021fc650e4a29">&#9670;&nbsp;</a></span>hypre_ParCSRBlockMatrixColMapOffd</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_ParCSRBlockMatrixColMapOffd</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">matrix</td><td>)</td>
+          <td>&#160;&#160;&#160;((matrix) -&gt; col_map_offd)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="par__csr__block__matrix_8h_source.html#l00101">101</a> of file <a class="el" href="par__csr__block__matrix_8h_source.html">par_csr_block_matrix.h</a>.</p>
+
+</div>
+</div>
+<a id="a08086ee81cc2d45a7e4045bc97de7798"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08086ee81cc2d45a7e4045bc97de7798">&#9670;&nbsp;</a></span>hypre_ParCSRBlockMatrixColStarts</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_ParCSRBlockMatrixColStarts</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">matrix</td><td>)</td>
+          <td>&#160;&#160;&#160;((matrix) -&gt; col_starts)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="par__csr__block__matrix_8h_source.html#l00103">103</a> of file <a class="el" href="par__csr__block__matrix_8h_source.html">par_csr_block_matrix.h</a>.</p>
+
+</div>
+</div>
+<a id="a12a40402884cadc49a108aaad81a7743"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12a40402884cadc49a108aaad81a7743">&#9670;&nbsp;</a></span>hypre_ParCSRBlockMatrixComm</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_ParCSRBlockMatrixComm</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">matrix</td><td>)</td>
+          <td>&#160;&#160;&#160;((matrix)-&gt;comm)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="par__csr__block__matrix_8h_source.html#l00091">91</a> of file <a class="el" href="par__csr__block__matrix_8h_source.html">par_csr_block_matrix.h</a>.</p>
+
+</div>
+</div>
+<a id="a563e590af32ad773f3290dcce1c895ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a563e590af32ad773f3290dcce1c895ef">&#9670;&nbsp;</a></span>hypre_ParCSRBlockMatrixCommPkg</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_ParCSRBlockMatrixCommPkg</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">matrix</td><td>)</td>
+          <td>&#160;&#160;&#160;((matrix) -&gt; comm_pkg)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="par__csr__block__matrix_8h_source.html#l00104">104</a> of file <a class="el" href="par__csr__block__matrix_8h_source.html">par_csr_block_matrix.h</a>.</p>
+
+</div>
+</div>
+<a id="a592099687b8e00b789e9e6c2fd2bc634"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a592099687b8e00b789e9e6c2fd2bc634">&#9670;&nbsp;</a></span>hypre_ParCSRBlockMatrixCommPkgT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_ParCSRBlockMatrixCommPkgT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">matrix</td><td>)</td>
+          <td>&#160;&#160;&#160;((matrix) -&gt; comm_pkgT)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="par__csr__block__matrix_8h_source.html#l00105">105</a> of file <a class="el" href="par__csr__block__matrix_8h_source.html">par_csr_block_matrix.h</a>.</p>
+
+</div>
+</div>
+<a id="a258d26ac226cf42ae76f59b564f873f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a258d26ac226cf42ae76f59b564f873f3">&#9670;&nbsp;</a></span>hypre_ParCSRBlockMatrixDiag</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_ParCSRBlockMatrixDiag</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">matrix</td><td>)</td>
+          <td>&#160;&#160;&#160;((matrix) -&gt; diag)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="par__csr__block__matrix_8h_source.html#l00099">99</a> of file <a class="el" href="par__csr__block__matrix_8h_source.html">par_csr_block_matrix.h</a>.</p>
+
+</div>
+</div>
+<a id="adeea480bfce1eefa55fda7071faab674"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adeea480bfce1eefa55fda7071faab674">&#9670;&nbsp;</a></span>hypre_ParCSRBlockMatrixDNumNonzeros</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_ParCSRBlockMatrixDNumNonzeros</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">matrix</td><td>)</td>
+          <td>&#160;&#160;&#160;((matrix) -&gt; d_num_nonzeros)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="par__csr__block__matrix_8h_source.html#l00114">114</a> of file <a class="el" href="par__csr__block__matrix_8h_source.html">par_csr_block_matrix.h</a>.</p>
+
+</div>
+</div>
+<a id="a274d8c70a80d82522b0b9ef332b68446"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a274d8c70a80d82522b0b9ef332b68446">&#9670;&nbsp;</a></span>hypre_ParCSRBlockMatrixFirstColDiag</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_ParCSRBlockMatrixFirstColDiag</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">matrix</td><td>)</td>
+          <td>&#160;&#160;&#160;((matrix)-&gt;first_col_diag)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="par__csr__block__matrix_8h_source.html#l00095">95</a> of file <a class="el" href="par__csr__block__matrix_8h_source.html">par_csr_block_matrix.h</a>.</p>
+
+</div>
+</div>
+<a id="ae034b73a068643701d1f01894e939b1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae034b73a068643701d1f01894e939b1b">&#9670;&nbsp;</a></span>hypre_ParCSRBlockMatrixFirstRowIndex</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_ParCSRBlockMatrixFirstRowIndex</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">matrix</td><td>)</td>
+          <td>&#160;&#160;&#160;((matrix)-&gt;first_row_index)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="par__csr__block__matrix_8h_source.html#l00094">94</a> of file <a class="el" href="par__csr__block__matrix_8h_source.html">par_csr_block_matrix.h</a>.</p>
+
+</div>
+</div>
+<a id="a7d00bc775b7a4dc84759892dfcda03e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d00bc775b7a4dc84759892dfcda03e1">&#9670;&nbsp;</a></span>hypre_ParCSRBlockMatrixGetrowactive</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_ParCSRBlockMatrixGetrowactive</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">matrix</td><td>)</td>
+          <td>&#160;&#160;&#160;((matrix) -&gt; getrowactive)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="par__csr__block__matrix_8h_source.html#l00117">117</a> of file <a class="el" href="par__csr__block__matrix_8h_source.html">par_csr_block_matrix.h</a>.</p>
+
+</div>
+</div>
+<a id="ae6326f8fc5b28c999f8ee59def542b86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6326f8fc5b28c999f8ee59def542b86">&#9670;&nbsp;</a></span>hypre_ParCSRBlockMatrixGlobalNumCols</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_ParCSRBlockMatrixGlobalNumCols</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">matrix</td><td>)</td>
+          <td>&#160;&#160;&#160;((matrix)-&gt;global_num_cols)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="par__csr__block__matrix_8h_source.html#l00093">93</a> of file <a class="el" href="par__csr__block__matrix_8h_source.html">par_csr_block_matrix.h</a>.</p>
+
+</div>
+</div>
+<a id="aec2d92251a85c49bc32078c9769b74fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec2d92251a85c49bc32078c9769b74fd">&#9670;&nbsp;</a></span>hypre_ParCSRBlockMatrixGlobalNumRows</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_ParCSRBlockMatrixGlobalNumRows</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">matrix</td><td>)</td>
+          <td>&#160;&#160;&#160;((matrix)-&gt;global_num_rows)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="par__csr__block__matrix_8h_source.html#l00092">92</a> of file <a class="el" href="par__csr__block__matrix_8h_source.html">par_csr_block_matrix.h</a>.</p>
+
+</div>
+</div>
+<a id="a63639ef3fa9ebf2a535601b5a85be8bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63639ef3fa9ebf2a535601b5a85be8bf">&#9670;&nbsp;</a></span>hypre_ParCSRBlockMatrixLastColDiag</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_ParCSRBlockMatrixLastColDiag</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">matrix</td><td>)</td>
+          <td>&#160;&#160;&#160;((matrix) -&gt; last_col_diag)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="par__csr__block__matrix_8h_source.html#l00097">97</a> of file <a class="el" href="par__csr__block__matrix_8h_source.html">par_csr_block_matrix.h</a>.</p>
+
+</div>
+</div>
+<a id="ace280c6ea43ea8d3de47c62061f0197c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace280c6ea43ea8d3de47c62061f0197c">&#9670;&nbsp;</a></span>hypre_ParCSRBlockMatrixLastRowIndex</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_ParCSRBlockMatrixLastRowIndex</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">matrix</td><td>)</td>
+          <td>&#160;&#160;&#160;((matrix) -&gt; last_row_index)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="par__csr__block__matrix_8h_source.html#l00096">96</a> of file <a class="el" href="par__csr__block__matrix_8h_source.html">par_csr_block_matrix.h</a>.</p>
+
+</div>
+</div>
+<a id="a9c93c188b68692d9e159e9144ae4bf9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c93c188b68692d9e159e9144ae4bf9e">&#9670;&nbsp;</a></span>hypre_ParCSRBlockMatrixNumCols</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_ParCSRBlockMatrixNumCols</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">matrix</td><td>)</td>
+          <td>&#160;&#160;&#160;<a class="el" href="csr__block__matrix_8h.html#ad2094aafe2135b01cd78fb311fa4c56b">hypre_CSRBlockMatrixNumCols</a>(<a class="el" href="par__csr__block__matrix_8h.html#a258d26ac226cf42ae76f59b564f873f3">hypre_ParCSRBlockMatrixDiag</a>(matrix))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="par__csr__block__matrix_8h_source.html#l00111">111</a> of file <a class="el" href="par__csr__block__matrix_8h_source.html">par_csr_block_matrix.h</a>.</p>
+
+</div>
+</div>
+<a id="aa3e92c3b6b9475555f8c636b16277327"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3e92c3b6b9475555f8c636b16277327">&#9670;&nbsp;</a></span>hypre_ParCSRBlockMatrixNumNonzeros</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_ParCSRBlockMatrixNumNonzeros</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">matrix</td><td>)</td>
+          <td>&#160;&#160;&#160;((matrix) -&gt; num_nonzeros)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="par__csr__block__matrix_8h_source.html#l00113">113</a> of file <a class="el" href="par__csr__block__matrix_8h_source.html">par_csr_block_matrix.h</a>.</p>
+
+</div>
+</div>
+<a id="ae3a5c6fc183bfe35eedb7e2c4af741f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3a5c6fc183bfe35eedb7e2c4af741f7">&#9670;&nbsp;</a></span>hypre_ParCSRBlockMatrixNumRows</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_ParCSRBlockMatrixNumRows</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">matrix</td><td>)</td>
+          <td>&#160;&#160;&#160;<a class="el" href="csr__block__matrix_8h.html#a6b77974de9cc3dcbb87dba08ca76699e">hypre_CSRBlockMatrixNumRows</a>(<a class="el" href="par__csr__block__matrix_8h.html#a258d26ac226cf42ae76f59b564f873f3">hypre_ParCSRBlockMatrixDiag</a>(matrix))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="par__csr__block__matrix_8h_source.html#l00109">109</a> of file <a class="el" href="par__csr__block__matrix_8h_source.html">par_csr_block_matrix.h</a>.</p>
+
+</div>
+</div>
+<a id="a6081a31acb339dc3bd3dd688de33740d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6081a31acb339dc3bd3dd688de33740d">&#9670;&nbsp;</a></span>hypre_ParCSRBlockMatrixOffd</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_ParCSRBlockMatrixOffd</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">matrix</td><td>)</td>
+          <td>&#160;&#160;&#160;((matrix) -&gt; offd)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="par__csr__block__matrix_8h_source.html#l00100">100</a> of file <a class="el" href="par__csr__block__matrix_8h_source.html">par_csr_block_matrix.h</a>.</p>
+
+</div>
+</div>
+<a id="a5b16bf3dca420f99f484ba9ffc55b78d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b16bf3dca420f99f484ba9ffc55b78d">&#9670;&nbsp;</a></span>hypre_ParCSRBlockMatrixOwnsColStarts</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_ParCSRBlockMatrixOwnsColStarts</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">matrix</td><td>)</td>
+          <td>&#160;&#160;&#160;((matrix) -&gt; owns_col_starts)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="par__csr__block__matrix_8h_source.html#l00108">108</a> of file <a class="el" href="par__csr__block__matrix_8h_source.html">par_csr_block_matrix.h</a>.</p>
+
+</div>
+</div>
+<a id="aeeb2ac3ac4d939f5d8e050596c1229d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeeb2ac3ac4d939f5d8e050596c1229d6">&#9670;&nbsp;</a></span>hypre_ParCSRBlockMatrixOwnsData</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_ParCSRBlockMatrixOwnsData</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">matrix</td><td>)</td>
+          <td>&#160;&#160;&#160;((matrix) -&gt; owns_data)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="par__csr__block__matrix_8h_source.html#l00106">106</a> of file <a class="el" href="par__csr__block__matrix_8h_source.html">par_csr_block_matrix.h</a>.</p>
+
+</div>
+</div>
+<a id="a4359373b3450918153273f6b40f2a9e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4359373b3450918153273f6b40f2a9e8">&#9670;&nbsp;</a></span>hypre_ParCSRBlockMatrixOwnsRowStarts</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_ParCSRBlockMatrixOwnsRowStarts</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">matrix</td><td>)</td>
+          <td>&#160;&#160;&#160;((matrix) -&gt; owns_row_starts)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="par__csr__block__matrix_8h_source.html#l00107">107</a> of file <a class="el" href="par__csr__block__matrix_8h_source.html">par_csr_block_matrix.h</a>.</p>
+
+</div>
+</div>
+<a id="ad559a9c62a9c2cb683ce170051b07169"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad559a9c62a9c2cb683ce170051b07169">&#9670;&nbsp;</a></span>hypre_ParCSRBlockMatrixRowindices</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_ParCSRBlockMatrixRowindices</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">matrix</td><td>)</td>
+          <td>&#160;&#160;&#160;((matrix) -&gt; rowindices)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="par__csr__block__matrix_8h_source.html#l00115">115</a> of file <a class="el" href="par__csr__block__matrix_8h_source.html">par_csr_block_matrix.h</a>.</p>
+
+</div>
+</div>
+<a id="a7279ddd6e9ed2ea13f9b405095e7a202"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7279ddd6e9ed2ea13f9b405095e7a202">&#9670;&nbsp;</a></span>hypre_ParCSRBlockMatrixRowStarts</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_ParCSRBlockMatrixRowStarts</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">matrix</td><td>)</td>
+          <td>&#160;&#160;&#160;((matrix) -&gt; row_starts)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="par__csr__block__matrix_8h_source.html#l00102">102</a> of file <a class="el" href="par__csr__block__matrix_8h_source.html">par_csr_block_matrix.h</a>.</p>
+
+</div>
+</div>
+<a id="aa7a415feecab611496211048757975ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7a415feecab611496211048757975ce">&#9670;&nbsp;</a></span>hypre_ParCSRBlockMatrixRowvalues</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hypre_ParCSRBlockMatrixRowvalues</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">matrix</td><td>)</td>
+          <td>&#160;&#160;&#160;((matrix) -&gt; rowvalues)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="par__csr__block__matrix_8h_source.html#l00116">116</a> of file <a class="el" href="par__csr__block__matrix_8h_source.html">par_csr_block_matrix.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a92441566cb513d3b35a193c8121af6c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92441566cb513d3b35a193c8121af6c5">&#9670;&nbsp;</a></span>hypre_block_qsort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void hypre_block_qsort </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *&#160;</td>
+          <td class="paramname"><em>w</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *&#160;</td>
+          <td class="paramname"><em>blk_array</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>block_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>left</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>right</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8a876652d16e39574e69fd06995de6ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a876652d16e39574e69fd06995de6ab">&#9670;&nbsp;</a></span>hypre_BlockMatvecCommPkgCreate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_BlockMatvecCommPkgCreate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *&#160;</td>
+          <td class="paramname"><em>A</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adcc15ec2109ed0640e1cd96938e395a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adcc15ec2109ed0640e1cd96938e395a2">&#9670;&nbsp;</a></span>hypre_BoomerAMGBlockCreateNodalA()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_BoomerAMGBlockCreateNodalA </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *&#160;</td>
+          <td class="paramname"><em>A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>option</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>diag_option</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="__hypre__parcsr__mv_8h.html#a0612d56042e635111dc5c83b076308d8">hypre_ParCSRMatrix</a> **&#160;</td>
+          <td class="paramname"><em>AN_ptr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0b30ace5f5212e183f7882e6e8e9d13c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b30ace5f5212e183f7882e6e8e9d13c">&#9670;&nbsp;</a></span>hypre_BoomerAMGBlockInterpTruncation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_BoomerAMGBlockInterpTruncation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *&#160;</td>
+          <td class="paramname"><em>P</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>&#160;</td>
+          <td class="paramname"><em>trunc_factor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>max_elements</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abc0080e4e13823deeb257edee2da1f42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc0080e4e13823deeb257edee2da1f42">&#9670;&nbsp;</a></span>hypre_BoomerAMGBlockRelax()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_BoomerAMGBlockRelax </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *&#160;</td>
+          <td class="paramname"><em>A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a> *&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>cf_marker</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>relax_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>relax_points</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>&#160;</td>
+          <td class="paramname"><em>relax_weight</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>&#160;</td>
+          <td class="paramname"><em>omega</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a> *&#160;</td>
+          <td class="paramname"><em>u</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a> *&#160;</td>
+          <td class="paramname"><em>Vtemp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a28ded2320391dbcb77552a53ee040f36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28ded2320391dbcb77552a53ee040f36">&#9670;&nbsp;</a></span>hypre_BoomerAMGBlockRelaxIF()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_BoomerAMGBlockRelaxIF </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *&#160;</td>
+          <td class="paramname"><em>A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a> *&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>cf_marker</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>relax_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>relax_order</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>cycle_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>&#160;</td>
+          <td class="paramname"><em>relax_weight</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>&#160;</td>
+          <td class="paramname"><em>omega</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a> *&#160;</td>
+          <td class="paramname"><em>u</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a> *&#160;</td>
+          <td class="paramname"><em>Vtemp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaa12a915aebf48faa223b7b2e94d05cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa12a915aebf48faa223b7b2e94d05cf">&#9670;&nbsp;</a></span>hypre_BoomerAMGBuildBlockDirInterp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_BoomerAMGBuildBlockDirInterp </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *&#160;</td>
+          <td class="paramname"><em>A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>CF_marker</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="__hypre__parcsr__mv_8h.html#a0612d56042e635111dc5c83b076308d8">hypre_ParCSRMatrix</a> *&#160;</td>
+          <td class="paramname"><em>S</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>num_cpts_global</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>num_functions</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>dof_func</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>debug_flag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>&#160;</td>
+          <td class="paramname"><em>trunc_factor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>max_elmts</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>col_offd_S_to_A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> **&#160;</td>
+          <td class="paramname"><em>P_ptr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a47f60f36ec6062ee9cc8880ee1e32c7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47f60f36ec6062ee9cc8880ee1e32c7e">&#9670;&nbsp;</a></span>hypre_BoomerAMGBuildBlockInterp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_BoomerAMGBuildBlockInterp </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *&#160;</td>
+          <td class="paramname"><em>A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>CF_marker</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="__hypre__parcsr__mv_8h.html#a0612d56042e635111dc5c83b076308d8">hypre_ParCSRMatrix</a> *&#160;</td>
+          <td class="paramname"><em>S</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>num_cpts_global</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>num_functions</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>dof_func</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>debug_flag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>&#160;</td>
+          <td class="paramname"><em>trunc_factor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>max_elmts</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>add_weak_to_diag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>col_offd_S_to_A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> **&#160;</td>
+          <td class="paramname"><em>P_ptr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3fec3175575faf7abf77aa61e80c6e93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fec3175575faf7abf77aa61e80c6e93">&#9670;&nbsp;</a></span>hypre_BoomerAMGBuildBlockInterpDiag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_BoomerAMGBuildBlockInterpDiag </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *&#160;</td>
+          <td class="paramname"><em>A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>CF_marker</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="__hypre__parcsr__mv_8h.html#a0612d56042e635111dc5c83b076308d8">hypre_ParCSRMatrix</a> *&#160;</td>
+          <td class="paramname"><em>S</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>num_cpts_global</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>num_functions</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>dof_func</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>debug_flag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>&#160;</td>
+          <td class="paramname"><em>trunc_factor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>max_elmts</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>add_weak_to_diag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>col_offd_S_to_A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> **&#160;</td>
+          <td class="paramname"><em>P_ptr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a475458d26f8a0928408cfb9cc667d12c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a475458d26f8a0928408cfb9cc667d12c">&#9670;&nbsp;</a></span>hypre_BoomerAMGBuildBlockInterpRV()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_BoomerAMGBuildBlockInterpRV </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *&#160;</td>
+          <td class="paramname"><em>A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>CF_marker</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="__hypre__parcsr__mv_8h.html#a0612d56042e635111dc5c83b076308d8">hypre_ParCSRMatrix</a> *&#160;</td>
+          <td class="paramname"><em>S</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>num_cpts_global</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>num_functions</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>dof_func</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>debug_flag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>&#160;</td>
+          <td class="paramname"><em>trunc_factor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>max_elmts</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>col_offd_S_to_A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> **&#160;</td>
+          <td class="paramname"><em>P_ptr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8a6ecbc699f1dcc84a1f58976684ade6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a6ecbc699f1dcc84a1f58976684ade6">&#9670;&nbsp;</a></span>hypre_BoomerAMGBuildBlockInterpRV2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_BoomerAMGBuildBlockInterpRV2 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *&#160;</td>
+          <td class="paramname"><em>A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>CF_marker</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="__hypre__parcsr__mv_8h.html#a0612d56042e635111dc5c83b076308d8">hypre_ParCSRMatrix</a> *&#160;</td>
+          <td class="paramname"><em>S</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>num_cpts_global</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>num_functions</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>dof_func</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>debug_flag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a>&#160;</td>
+          <td class="paramname"><em>trunc_factor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>max_elmts</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>col_offd_S_to_A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> **&#160;</td>
+          <td class="paramname"><em>P_ptr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a51d88b9b99457bef5dd9a98e8c6f1182"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51d88b9b99457bef5dd9a98e8c6f1182">&#9670;&nbsp;</a></span>hypre_GetCommPkgBlockRTFromCommPkgBlockA()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_GetCommPkgBlockRTFromCommPkgBlockA </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *&#160;</td>
+          <td class="paramname"><em>RT</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *&#160;</td>
+          <td class="paramname"><em>A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>fine_to_coarse_offd</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac5b4c42def1fbbebdb782d0df3645baa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5b4c42def1fbbebdb782d0df3645baa">&#9670;&nbsp;</a></span>hypre_ParCSRBlockCommHandleCreate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structhypre___par_c_s_r_comm_handle.html">hypre_ParCSRCommHandle</a>* hypre_ParCSRBlockCommHandleCreate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>job</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>bnnz</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structhypre___par_c_s_r_comm_pkg.html">hypre_ParCSRCommPkg</a> *&#160;</td>
+          <td class="paramname"><em>comm_pkg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>send_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>recv_data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8968bd63f26ea050c2d95d971710a6d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8968bd63f26ea050c2d95d971710a6d7">&#9670;&nbsp;</a></span>hypre_ParCSRBlockCommHandleDestroy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParCSRBlockCommHandleDestroy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structhypre___par_c_s_r_comm_handle.html">hypre_ParCSRCommHandle</a> *&#160;</td>
+          <td class="paramname"><em>comm_handle</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a72c4d747788c5db62e8af38d8956e5e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72c4d747788c5db62e8af38d8956e5e7">&#9670;&nbsp;</a></span>hypre_ParCSRBlockMatrixConvertFromParCSRMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a>* hypre_ParCSRBlockMatrixConvertFromParCSRMatrix </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="__hypre__parcsr__mv_8h.html#a0612d56042e635111dc5c83b076308d8">hypre_ParCSRMatrix</a> *&#160;</td>
+          <td class="paramname"><em>matrix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>matrix_C_block_size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab28e6ae812a418cfa56a459d29249107"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab28e6ae812a418cfa56a459d29249107">&#9670;&nbsp;</a></span>hypre_ParCSRBlockMatrixConvertToParCSRMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="__hypre__parcsr__mv_8h.html#a0612d56042e635111dc5c83b076308d8">hypre_ParCSRMatrix</a>* hypre_ParCSRBlockMatrixConvertToParCSRMatrix </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *&#160;</td>
+          <td class="paramname"><em>matrix</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a95b0490aaaf437c0aa2790754e9f828d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95b0490aaaf437c0aa2790754e9f828d">&#9670;&nbsp;</a></span>hypre_ParCSRBlockMatrixCreate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a>* hypre_ParCSRBlockMatrixCreate </td>
+          <td>(</td>
+          <td class="paramtype">MPI_Comm&#160;</td>
+          <td class="paramname"><em>comm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>block_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>global_num_rows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>global_num_cols</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>row_starts</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>col_starts</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>num_cols_offd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>num_nonzeros_diag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>num_nonzeros_offd</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a77cae4c4b351112a3a32ed0ba8ced471"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77cae4c4b351112a3a32ed0ba8ced471">&#9670;&nbsp;</a></span>hypre_ParCSRBlockMatrixCreateAssumedPartition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParCSRBlockMatrixCreateAssumedPartition </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *&#160;</td>
+          <td class="paramname"><em>matrix</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a37b961c2546d53cbc88820c7fb09b19d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37b961c2546d53cbc88820c7fb09b19d">&#9670;&nbsp;</a></span>hypre_ParCSRBlockMatrixDestroy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParCSRBlockMatrixDestroy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *&#160;</td>
+          <td class="paramname"><em>matrix</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5417d67baca1fc62521563144bc240a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5417d67baca1fc62521563144bc240a7">&#9670;&nbsp;</a></span>hypre_ParCSRBlockMatrixDestroyAssumedPartition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParCSRBlockMatrixDestroyAssumedPartition </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *&#160;</td>
+          <td class="paramname"><em>matrix</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aae767f9ea2b0718bcbeb812735d27310"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae767f9ea2b0718bcbeb812735d27310">&#9670;&nbsp;</a></span>hypre_ParCSRBlockMatrixExtractBExt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structhypre___c_s_r_block_matrix.html">hypre_CSRBlockMatrix</a>* hypre_ParCSRBlockMatrixExtractBExt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *&#160;</td>
+          <td class="paramname"><em>B</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *&#160;</td>
+          <td class="paramname"><em>A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae79e1f496507bfba1d92e98493568b7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae79e1f496507bfba1d92e98493568b7a">&#9670;&nbsp;</a></span>hypre_ParCSRBlockMatrixMatvec()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParCSRBlockMatrixMatvec </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a>&#160;</td>
+          <td class="paramname"><em>alpha</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *&#160;</td>
+          <td class="paramname"><em>A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a> *&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a>&#160;</td>
+          <td class="paramname"><em>beta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a> *&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1bfe16e908e6a9d4f3332cd6f647f178"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bfe16e908e6a9d4f3332cd6f647f178">&#9670;&nbsp;</a></span>hypre_ParCSRBlockMatrixMatvecT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParCSRBlockMatrixMatvecT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a>&#160;</td>
+          <td class="paramname"><em>alpha</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *&#160;</td>
+          <td class="paramname"><em>A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a> *&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a>&#160;</td>
+          <td class="paramname"><em>beta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a> *&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2d166fef68d6c2a99ba669eb8712a0ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d166fef68d6c2a99ba669eb8712a0ef">&#9670;&nbsp;</a></span>hypre_ParCSRBlockMatrixRAP()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParCSRBlockMatrixRAP </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *&#160;</td>
+          <td class="paramname"><em>RT</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *&#160;</td>
+          <td class="paramname"><em>A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *&#160;</td>
+          <td class="paramname"><em>P</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> **&#160;</td>
+          <td class="paramname"><em>RAP_ptr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9150401e5e68b1544c7ada5f5074ba1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9150401e5e68b1544c7ada5f5074ba1c">&#9670;&nbsp;</a></span>hypre_ParCSRBlockMatrixSetDNumNonzeros()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParCSRBlockMatrixSetDNumNonzeros </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *&#160;</td>
+          <td class="paramname"><em>matrix</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a95018d33cf0bd8fc92ff29f1c2dada77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95018d33cf0bd8fc92ff29f1c2dada77">&#9670;&nbsp;</a></span>hypre_ParCSRBlockMatrixSetNumNonzeros()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> hypre_ParCSRBlockMatrixSetNumNonzeros </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structhypre___par_c_s_r_block_matrix.html">hypre_ParCSRBlockMatrix</a> *&#160;</td>
+          <td class="paramname"><em>matrix</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aadc98e8c47e41c64d5ac2ef852bf805b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadc98e8c47e41c64d5ac2ef852bf805b">&#9670;&nbsp;</a></span>hypre_ParVectorCreateFromBlock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="__hypre__parcsr__mv_8h.html#a2e3247c186ba498a5e2c332dba55a051">hypre_ParVector</a>* hypre_ParVectorCreateFromBlock </td>
+          <td>(</td>
+          <td class="paramtype">MPI_Comm&#160;</td>
+          <td class="paramname"><em>comm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>p_global_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>p_partitioning</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>block_size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a25be70e21c133ea68e97cd863b9af3f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25be70e21c133ea68e97cd863b9af3f3">&#9670;&nbsp;</a></span>hypre_swap_blk()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void hypre_swap_blk </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>block_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>j</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_1481b2ad69b2eab628871d4fb2bac45c.html">hypre-2.11.1</a></li><li class="navelem"><a class="el" href="par__csr__block__matrix_8h.html">par_csr_block_matrix.h</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

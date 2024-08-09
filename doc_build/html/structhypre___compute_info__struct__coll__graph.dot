@@ -1,0 +1,16 @@
+digraph "hypre_ComputeInfo_struct"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="hypre_ComputeInfo_struct",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" dept_boxes\nindt_boxes" ,fontname="Helvetica"];
+  Node2 [label="hypre_BoxArrayArray\l_struct",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structhypre___box_array_array__struct.html",tooltip=" "];
+  Node3 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" box_arrays" ,fontname="Helvetica"];
+  Node3 [label="hypre_BoxArray_struct",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structhypre___box_array__struct.html",tooltip=" "];
+  Node4 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" boxes" ,fontname="Helvetica"];
+  Node4 [label="hypre_Box_struct",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structhypre___box__struct.html",tooltip=" "];
+  Node5 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" comm_info" ,fontname="Helvetica"];
+  Node5 [label="hypre_CommInfo_struct",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structhypre___comm_info__struct.html",tooltip=" "];
+  Node2 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" recv_rboxes\nsend_boxes\nsend_rboxes\nrecv_boxes" ,fontname="Helvetica"];
+}

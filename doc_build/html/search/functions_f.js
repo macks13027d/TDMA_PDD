@@ -1,0 +1,23 @@
+var searchData=
+[
+  ['tdma_9504',['tdma',['../namespacem__tdma__pdd.html#af1ec5b6943f3d1f2eba4427dc6246126',1,'m_tdma_pdd']]],
+  ['tdma_5f3d_5fmain_9505',['tdma_3d_main',['../namespacem__tdma__main.html#ab674c23d1f8e277653444cf6da73f268',1,'m_tdma_main']]],
+  ['tdma_5f3d_5fx_9506',['tdma_3d_x',['../namespacem__tdma__main.html#a70cd642daa4b5fb5675c701008eab60c',1,'m_tdma_main']]],
+  ['tdma_5f3d_5fy_9507',['tdma_3d_y',['../namespacem__tdma__main.html#a613a629fc8ccdc35407ac57e33067a13',1,'m_tdma_main']]],
+  ['tdma_5f3d_5fz_9508',['tdma_3d_z',['../namespacem__tdma__main.html#a5a0ff1dea9bba95e2669f75377e55028',1,'m_tdma_main']]],
+  ['tdma_5fpdd_5fx_9509',['tdma_pdd_x',['../namespacem__tdma__pdd.html#a5d356a918626da15d9bbcbea5c3cc1fb',1,'m_tdma_pdd']]],
+  ['tdma_5fpdd_5fy_9510',['tdma_pdd_y',['../namespacem__tdma__pdd.html#a3ba33ebb0e637d265baab0bf873591ac',1,'m_tdma_pdd']]],
+  ['tdma_5fpdd_5fz_9511',['tdma_pdd_z',['../namespacem__tdma__pdd.html#a958ce2ccbe964cd86e63b96bd021eceb',1,'m_tdma_pdd']]],
+  ['time_5fget_5fcpu_5fseconds_5f_9512',['time_get_cpu_seconds_',['../__hypre__utilities_8h.html#ae128de4066bd841ecffbed99dfc0b671',1,'_hypre_utilities.h']]],
+  ['time_5fget_5fwallclock_5fseconds_5f_9513',['time_get_wallclock_seconds_',['../__hypre__utilities_8h.html#a3bb742639b6af3ca95e81fae21cad471',1,'_hypre_utilities.h']]],
+  ['time_5fgetcpuseconds_9514',['time_getCPUSeconds',['../__hypre__utilities_8h.html#aefe850462aed4354f6dae835961fde76',1,'_hypre_utilities.h']]],
+  ['time_5fgetwallclockseconds_9515',['time_getWallclockSeconds',['../__hypre__utilities_8h.html#a905826cac7aff4d49584ee15aa826c85',1,'_hypre_utilities.h']]],
+  ['transpose_5fij_9516',['transpose_ij',['../namespacem__tdma__main.html#ae0ddd726f8cd251c01b8994a2e9715f4',1,'m_tdma_main']]],
+  ['transpose_5fik_9517',['transpose_ik',['../namespacem__tdma__main.html#ac0a1eaad55c84a15c3c1cfc9639c8d46',1,'m_tdma_main']]],
+  ['transpose_5fji_9518',['transpose_ji',['../namespacem__tdma__main.html#a04e67b7017baa7c75415af91c47fe584',1,'m_tdma_main']]],
+  ['transpose_5fjk_9519',['transpose_jk',['../namespacem__tdma__main.html#a474deffb984adce766b09521daddacf3',1,'m_tdma_main']]],
+  ['transpose_5fki_9520',['transpose_ki',['../namespacem__tdma__main.html#a2cb51f7f34b43b4d745ebdbca7b2b8ed',1,'m_tdma_main']]],
+  ['transpose_5fkj_9521',['transpose_kj',['../namespacem__tdma__main.html#aa24ea663c231adc30fedf04a1f5a86f2',1,'m_tdma_main']]],
+  ['transpose_5fmatrix_5fcreate_9522',['transpose_matrix_create',['../__hypre__parcsr__ls_8h.html#a2ccb15b9fbe3ee9674c1027165696ee7',1,'_hypre_parcsr_ls.h']]],
+  ['treepostorder_9523',['TreePostorder',['../slu__util_8h.html#a44084fde835d2ccaa25e9fd942a72b7a',1,'slu_util.h']]]
+];

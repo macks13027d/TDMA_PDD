@@ -1,0 +1,3229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="TDMA_PDD" />
+<meta property="og:image" content="../preview.png" />
+<meta property="og:description" content="Documentation for Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="../preview.png" />
+<meta property="og:title" content="TDMA_PDD" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD" />
+<!-- END twitter metadata -->
+<title>TDMA_PDD: HYPRE_LinSysCore Class Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            messageStyle: "normal",
+            linebreaks: {
+                automatic: false
+            }
+        },
+        tex2jax: { 
+            inlineMath: [["\\(","\\)"]], 
+            displayMath: [["$$","$$"],["\\[","\\]"]], 
+            processEscapes: true
+        },
+        TeX: {
+            Macros: {
+                tr: "{\\scriptscriptstyle\\mathrm{T}}",
+            }
+        }
+    });
+</script>
+<!--MathJax(LaTeX) -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <script type="text/javascript" id="MathJax-script" async  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">  </script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="custom-alternative.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/hugh577/TDMA_PDD" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 65px;">
+  <td id="projectlogo">
+    <a href="./index.html">
+        <img alt="Logo" src="home.png"/></td>
+    </a>
+  <td id="projectalign" style="padding-left: 0.5em;padding-top: 0.5em;">
+   <div id="projectname">TDMA_PDD
+   </div>
+   <div id="projectbrief">Documentation</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_h_y_p_r_e___lin_sys_core.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#friends">Friends</a> &#124;
+<a href="class_h_y_p_r_e___lin_sys_core-members.html">List of all members</a>  </div>
+  <div class="headertitle">
+<div class="title">HYPRE_LinSysCore Class Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_h_y_p_r_e___lin_sys_core_8h_source.html">HYPRE_LinSysCore.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for HYPRE_LinSysCore:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_h_y_p_r_e___lin_sys_core__inherit__graph.png" border="0" usemap="#_h_y_p_r_e___lin_sys_core_inherit__map" alt="Inheritance graph"/></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for HYPRE_LinSysCore:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_h_y_p_r_e___lin_sys_core__coll__graph.png" border="0" usemap="#_h_y_p_r_e___lin_sys_core_coll__map" alt="Collaboration graph"/></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a1759e606c64f7f2b9ad44f4b9f2d0f2e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a1759e606c64f7f2b9ad44f4b9f2d0f2e">HYPRE_LinSysCore</a> (MPI_Comm comm)</td></tr>
+<tr class="separator:a1759e606c64f7f2b9ad44f4b9f2d0f2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5723e35bdcab6469bb235e4037ea4506"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a5723e35bdcab6469bb235e4037ea4506">~HYPRE_LinSysCore</a> ()</td></tr>
+<tr class="separator:a5723e35bdcab6469bb235e4037ea4506"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a753606fc5d8cfaa9f8d1651ca88d4815"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a753606fc5d8cfaa9f8d1651ca88d4815">clone</a> ()</td></tr>
+<tr class="separator:a753606fc5d8cfaa9f8d1651ca88d4815"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fc244ebba0cccba2dc9eb639ead923f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a9fc244ebba0cccba2dc9eb639ead923f">parameters</a> (int numParams, char **params)</td></tr>
+<tr class="separator:a9fc244ebba0cccba2dc9eb639ead923f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed5ba6bb8201591e031e44d5d79e5dd9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#aed5ba6bb8201591e031e44d5d79e5dd9">setLookup</a> (<a class="el" href="class_lookup.html">Lookup</a> &amp;lookup)</td></tr>
+<tr class="separator:aed5ba6bb8201591e031e44d5d79e5dd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7027b06e997efcf5b680e4dee071bbaa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a7027b06e997efcf5b680e4dee071bbaa">setConnectivities</a> (<a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> elemBlock, int numElements, int numNodesPerElem, const <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *elemIDs, const int *const *connNodes)</td></tr>
+<tr class="separator:a7027b06e997efcf5b680e4dee071bbaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd0dc8d1de4376a1d1ec93d9a3e2971d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#afd0dc8d1de4376a1d1ec93d9a3e2971d">setStiffnessMatrices</a> (<a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> elemBlock, int numElems, const <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *elemIDs, const double *const *const *stiff, int numEqnsPerElem, const int *const *eqnIndices)</td></tr>
+<tr class="separator:afd0dc8d1de4376a1d1ec93d9a3e2971d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6eced772e962e3cfd262767e6809d63c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a6eced772e962e3cfd262767e6809d63c">setLoadVectors</a> (<a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> elemBlock, int numElems, const <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *elemIDs, const double *const *load, int numEqnsPerElem, const int *const *eqnIndices)</td></tr>
+<tr class="separator:a6eced772e962e3cfd262767e6809d63c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a807c9ae7ae4975c63b82f43d2d48f78a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a807c9ae7ae4975c63b82f43d2d48f78a">setMultCREqns</a> (int multCRSetID, int numCRs, int numNodesPerCR, int **nodeNumbers, int **eqnNumbers, int *fieldIDs, int *multiplierEqnNumbers)</td></tr>
+<tr class="separator:a807c9ae7ae4975c63b82f43d2d48f78a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8aba86614a0c263faa12b39e371e67b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#ad8aba86614a0c263faa12b39e371e67b">setPenCREqns</a> (int penCRSetID, int numCRs, int numNodesPerCR, int **nodeNumbers, int **eqnNumbers, int *fieldIDs)</td></tr>
+<tr class="separator:ad8aba86614a0c263faa12b39e371e67b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a549e9fb02d8b5d51fccf07756467110e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a549e9fb02d8b5d51fccf07756467110e">setGlobalOffsets</a> (int len, int *nodeOffsets, int *eqnOffsets, int *blkEqnOffsets)</td></tr>
+<tr class="separator:a549e9fb02d8b5d51fccf07756467110e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a558151a570bb352f7f2595ac81a24a77"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a558151a570bb352f7f2595ac81a24a77">setMatrixStructure</a> (int **ptColIndices, int *ptRowLengths, int **blkColIndices, int *blkRowLengths, int *ptRowsPerBlkRow)</td></tr>
+<tr class="separator:a558151a570bb352f7f2595ac81a24a77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae405743b6d81b84aa029c38a5b486cc8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#ae405743b6d81b84aa029c38a5b486cc8">resetMatrixAndVector</a> (double s)</td></tr>
+<tr class="separator:ae405743b6d81b84aa029c38a5b486cc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27453c0b50050457f214926797bf0159"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a27453c0b50050457f214926797bf0159">resetMatrix</a> (double s)</td></tr>
+<tr class="separator:a27453c0b50050457f214926797bf0159"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab582d0fcf06f291778b6e8a8fdb60543"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#ab582d0fcf06f291778b6e8a8fdb60543">resetRHSVector</a> (double s)</td></tr>
+<tr class="separator:ab582d0fcf06f291778b6e8a8fdb60543"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3111f1fc2f387bf54e6448e7aaff122"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#ae3111f1fc2f387bf54e6448e7aaff122">sumIntoSystemMatrix</a> (int numPtRows, const int *ptRows, int numPtCols, const int *ptCols, int numBlkRows, const int *blkRows, int numBlkCols, const int *blkCols, const double *const *values)</td></tr>
+<tr class="separator:ae3111f1fc2f387bf54e6448e7aaff122"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a345f16c81910e20914c52afd208f5975"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a345f16c81910e20914c52afd208f5975">sumIntoSystemMatrix</a> (int numPtRows, const int *ptRows, int numPtCols, const int *ptCols, const double *const *values)</td></tr>
+<tr class="separator:a345f16c81910e20914c52afd208f5975"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a504fa6ce75b0419ffc4c80099a59fe1f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a504fa6ce75b0419ffc4c80099a59fe1f">putIntoSystemMatrix</a> (int numPtRows, const int *ptRows, int numPtCols, const int *ptCols, const double *const *values)</td></tr>
+<tr class="separator:a504fa6ce75b0419ffc4c80099a59fe1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5bd88c16b0cbf95241c4c834d353f28"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#ac5bd88c16b0cbf95241c4c834d353f28">getMatrixRowLength</a> (int row, int &amp;length)</td></tr>
+<tr class="separator:ac5bd88c16b0cbf95241c4c834d353f28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1df31958abfe60c4b0cfd5e44b50d96"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#aa1df31958abfe60c4b0cfd5e44b50d96">getMatrixRow</a> (int row, double *coefs, int *indices, int len, int &amp;rowLength)</td></tr>
+<tr class="separator:aa1df31958abfe60c4b0cfd5e44b50d96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4c5efcdc97ce952368cf0a3aafd4f2d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#ae4c5efcdc97ce952368cf0a3aafd4f2d">sumIntoRHSVector</a> (int num, const double *values, const int *indices)</td></tr>
+<tr class="separator:ae4c5efcdc97ce952368cf0a3aafd4f2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d992f2b7c227203cb3ae46e9d71ea42"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a9d992f2b7c227203cb3ae46e9d71ea42">putIntoRHSVector</a> (int num, const double *values, const int *indices)</td></tr>
+<tr class="separator:a9d992f2b7c227203cb3ae46e9d71ea42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22b6308fa34b39e7438b46e9d8053642"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a22b6308fa34b39e7438b46e9d8053642">getFromRHSVector</a> (int num, double *values, const int *indices)</td></tr>
+<tr class="separator:a22b6308fa34b39e7438b46e9d8053642"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98ba176d2012e8b2aaa36bb65f26bf23"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a98ba176d2012e8b2aaa36bb65f26bf23">matrixLoadComplete</a> ()</td></tr>
+<tr class="separator:a98ba176d2012e8b2aaa36bb65f26bf23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9448436f7fcc4f7f1deaee38e7b7eda4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a9448436f7fcc4f7f1deaee38e7b7eda4">putNodalFieldData</a> (int fieldID, int fieldSize, int *nodeNumbers, int numNodes, const double *data)</td></tr>
+<tr class="separator:a9448436f7fcc4f7f1deaee38e7b7eda4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed9311d8a00db8900dafe490f802856c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#aed9311d8a00db8900dafe490f802856c">enforceEssentialBC</a> (int *globalEqn, double *alpha, double *gamma, int len)</td></tr>
+<tr class="separator:aed9311d8a00db8900dafe490f802856c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbd089384fd25f4cdb2fc30de7638269"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#afbd089384fd25f4cdb2fc30de7638269">enforceRemoteEssBCs</a> (int numEqns, int *globalEqns, int **colIndices, int *colIndLen, double **coefs)</td></tr>
+<tr class="separator:afbd089384fd25f4cdb2fc30de7638269"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84d5884a539818ae99ed54fc182b0bda"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a84d5884a539818ae99ed54fc182b0bda">enforceOtherBC</a> (int *globalEqn, double *alpha, double *beta, double *gamma, int len)</td></tr>
+<tr class="separator:a84d5884a539818ae99ed54fc182b0bda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7686c45f180b0a41925bb7213a7d7ca4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a7686c45f180b0a41925bb7213a7d7ca4">getMatrixPtr</a> (<a class="el" href="class_data.html">Data</a> &amp;data)</td></tr>
+<tr class="separator:a7686c45f180b0a41925bb7213a7d7ca4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a639a77a240ce3520bd50fe82978b93bc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a639a77a240ce3520bd50fe82978b93bc">copyInMatrix</a> (double scalar, const <a class="el" href="class_data.html">Data</a> &amp;data)</td></tr>
+<tr class="separator:a639a77a240ce3520bd50fe82978b93bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e1c709fed7c68e758f12c8e40314aee"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a9e1c709fed7c68e758f12c8e40314aee">copyOutMatrix</a> (double scalar, <a class="el" href="class_data.html">Data</a> &amp;data)</td></tr>
+<tr class="separator:a9e1c709fed7c68e758f12c8e40314aee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0396323e7da3322010b36ea1174bd1c9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a0396323e7da3322010b36ea1174bd1c9">sumInMatrix</a> (double scalar, const <a class="el" href="class_data.html">Data</a> &amp;data)</td></tr>
+<tr class="separator:a0396323e7da3322010b36ea1174bd1c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6db60fd797c185e49e3e325080a12c2e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a6db60fd797c185e49e3e325080a12c2e">getRHSVectorPtr</a> (<a class="el" href="class_data.html">Data</a> &amp;data)</td></tr>
+<tr class="separator:a6db60fd797c185e49e3e325080a12c2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa51c88634a61cfe7757da69390d8a9a5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#aa51c88634a61cfe7757da69390d8a9a5">copyInRHSVector</a> (double scalar, const <a class="el" href="class_data.html">Data</a> &amp;data)</td></tr>
+<tr class="separator:aa51c88634a61cfe7757da69390d8a9a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba474f838b803d48b100ac6712f45558"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#aba474f838b803d48b100ac6712f45558">copyOutRHSVector</a> (double scalar, <a class="el" href="class_data.html">Data</a> &amp;data)</td></tr>
+<tr class="separator:aba474f838b803d48b100ac6712f45558"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad19dec9c61ee3910a623e6239c10dd28"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#ad19dec9c61ee3910a623e6239c10dd28">sumInRHSVector</a> (double scalar, const <a class="el" href="class_data.html">Data</a> &amp;data)</td></tr>
+<tr class="separator:ad19dec9c61ee3910a623e6239c10dd28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b37b6601eb09b54c687770e7403e242"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a0b37b6601eb09b54c687770e7403e242">destroyMatrixData</a> (<a class="el" href="class_data.html">Data</a> &amp;data)</td></tr>
+<tr class="separator:a0b37b6601eb09b54c687770e7403e242"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4985a0248416f4f6da5f258b85b9751c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a4985a0248416f4f6da5f258b85b9751c">destroyVectorData</a> (<a class="el" href="class_data.html">Data</a> &amp;data)</td></tr>
+<tr class="separator:a4985a0248416f4f6da5f258b85b9751c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e0c0dcbab285e5fe7f31a4749b6916e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a9e0c0dcbab285e5fe7f31a4749b6916e">setNumRHSVectors</a> (int numRHSs, const int *rhsIDs)</td></tr>
+<tr class="separator:a9e0c0dcbab285e5fe7f31a4749b6916e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fd4229c1e3cb572d10639231e2d6bff"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a2fd4229c1e3cb572d10639231e2d6bff">setRHSID</a> (int rhsID)</td></tr>
+<tr class="separator:a2fd4229c1e3cb572d10639231e2d6bff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa11c760eb3fb46f75cd80696ee7f2075"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#aa11c760eb3fb46f75cd80696ee7f2075">putInitialGuess</a> (const int *eqnNumbers, const double *values, int len)</td></tr>
+<tr class="separator:aa11c760eb3fb46f75cd80696ee7f2075"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d41dede769395804c39a313fc14d6c9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a9d41dede769395804c39a313fc14d6c9">getSolution</a> (double *answers, int len)</td></tr>
+<tr class="separator:a9d41dede769395804c39a313fc14d6c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4219f710d94308c7d73b0ebe88f2135d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a4219f710d94308c7d73b0ebe88f2135d">getSolnEntry</a> (int eqnNumber, double &amp;answer)</td></tr>
+<tr class="separator:a4219f710d94308c7d73b0ebe88f2135d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd1c85cb9610ff8f0bedbe4f8719f6a4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#abd1c85cb9610ff8f0bedbe4f8719f6a4">formResidual</a> (double *values, int len)</td></tr>
+<tr class="separator:abd1c85cb9610ff8f0bedbe4f8719f6a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7215f61efa59aa11b247760efebf005"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#ab7215f61efa59aa11b247760efebf005">HYPRE_LSC_GetRNorm</a> ()</td></tr>
+<tr class="separator:ab7215f61efa59aa11b247760efebf005"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f87e5f369771c86639ced0c5616aabe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a0f87e5f369771c86639ced0c5616aabe">launchSolver</a> (int &amp;solveStatus, int &amp;iterations)</td></tr>
+<tr class="separator:a0f87e5f369771c86639ced0c5616aabe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdc549daeee03328d639798315705d6e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#abdc549daeee03328d639798315705d6e">writeSystem</a> (const char *)</td></tr>
+<tr class="separator:abdc549daeee03328d639798315705d6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10c1c2ea77e06e3e890c78f403a9ee15"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a10c1c2ea77e06e3e890c78f403a9ee15">createMatricesAndVectors</a> (int numGlobalEqns, int firstLocalEqn, int numLocalEqns)</td></tr>
+<tr class="separator:a10c1c2ea77e06e3e890c78f403a9ee15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f49d3af595c3e13c30873d04b64d54a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a1f49d3af595c3e13c30873d04b64d54a">allocateMatrix</a> (int **colIndices, int *rowLengths)</td></tr>
+<tr class="separator:a1f49d3af595c3e13c30873d04b64d54a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac46ddef343eeae2efc1c0c64c3d83d78"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#ac46ddef343eeae2efc1c0c64c3d83d78">sumIntoSystemMatrix</a> (int row, int numValues, const double *values, const int *scatterIndices)</td></tr>
+<tr class="separator:ac46ddef343eeae2efc1c0c64c3d83d78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a367ceea43c00c9276250c0eb73965ead"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a367ceea43c00c9276250c0eb73965ead">loadConstraintNumbers</a> (int length, int *list)</td></tr>
+<tr class="separator:a367ceea43c00c9276250c0eb73965ead"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23fd0cd8191647f005deeb37e4f116e9"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a23fd0cd8191647f005deeb37e4f116e9">getVersion</a> ()</td></tr>
+<tr class="separator:a23fd0cd8191647f005deeb37e4f116e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25785b738dc6d59b3567696dd3e20a58"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a25785b738dc6d59b3567696dd3e20a58">beginCreateMapFromSoln</a> ()</td></tr>
+<tr class="separator:a25785b738dc6d59b3567696dd3e20a58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a4b4999f48da5d6875dc9766aae0c9a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a0a4b4999f48da5d6875dc9766aae0c9a">endCreateMapFromSoln</a> ()</td></tr>
+<tr class="separator:a0a4b4999f48da5d6875dc9766aae0c9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad30bc9c1bb09ff5c1ee7eae439496910"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#ad30bc9c1bb09ff5c1ee7eae439496910">putIntoMappedMatrix</a> (int row, int numValues, const double *values, const int *scatterIndices)</td></tr>
+<tr class="separator:ad30bc9c1bb09ff5c1ee7eae439496910"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac57cea14fc369771fb4abb1b336d5760"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#ac57cea14fc369771fb4abb1b336d5760">getFEDataObject</a> (void **object)</td></tr>
+<tr class="separator:ac57cea14fc369771fb4abb1b336d5760"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a664941cd9dfa7c5d56773fe68a9bb94e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a664941cd9dfa7c5d56773fe68a9bb94e">HYPRE_LSC_Matvec</a> (void *x, void *y)</td></tr>
+<tr class="separator:a664941cd9dfa7c5d56773fe68a9bb94e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac63bd48c82cd9e664ab4367614232f59"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#ac63bd48c82cd9e664ab4367614232f59">HYPRE_LSC_Axpby</a> (double, void *, double, void *)</td></tr>
+<tr class="separator:ac63bd48c82cd9e664ab4367614232f59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf6e600e2c17f25503dc29870eacf3ed"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#adf6e600e2c17f25503dc29870eacf3ed">HYPRE_LSC_GetRHSVector</a> ()</td></tr>
+<tr class="separator:adf6e600e2c17f25503dc29870eacf3ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaec9beccd223802a37cf6a444839b22a"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#aaec9beccd223802a37cf6a444839b22a">HYPRE_LSC_GetSolVector</a> ()</td></tr>
+<tr class="separator:aaec9beccd223802a37cf6a444839b22a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10f17242f56d27d8e2bc6404fb2ec52a"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a10f17242f56d27d8e2bc6404fb2ec52a">HYPRE_LSC_GetMatrix</a> ()</td></tr>
+<tr class="separator:a10f17242f56d27d8e2bc6404fb2ec52a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab646b8e0f0cb3663fbba1dfe787437f2"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#ab646b8e0f0cb3663fbba1dfe787437f2">HYPRE_LSC_SetColMap</a> (int, int)</td></tr>
+<tr class="separator:ab646b8e0f0cb3663fbba1dfe787437f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79525067077f5e015321a07cae3bc04a"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a79525067077f5e015321a07cae3bc04a">HYPRE_LSC_MatMatMult</a> (void *)</td></tr>
+<tr class="separator:a79525067077f5e015321a07cae3bc04a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31b44b15ccaf39942d66a77d59992913"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a31b44b15ccaf39942d66a77d59992913">FE_initFields</a> (int nFields, int *fieldSizes, int *fieldIDs)</td></tr>
+<tr class="separator:a31b44b15ccaf39942d66a77d59992913"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17c0853274637d924da2163fd4bd2828"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a17c0853274637d924da2163fd4bd2828">FE_initElemBlock</a> (int nElems, int nNodesPerElem, int numNodeFields, int *nodeFieldIDs)</td></tr>
+<tr class="separator:a17c0853274637d924da2163fd4bd2828"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcbbce7e926061c602b8cc2179316674"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#abcbbce7e926061c602b8cc2179316674">FE_initElemNodeList</a> (int elemID, int nNodesPerElem, int *nodeIDs)</td></tr>
+<tr class="separator:abcbbce7e926061c602b8cc2179316674"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad41224cc527b4dd8b9a1e9a2e4b8d55d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#ad41224cc527b4dd8b9a1e9a2e4b8d55d">FE_initSharedNodes</a> (int nShared, int *sharedIDs, int *sharedPLengs, int **sharedProcs)</td></tr>
+<tr class="separator:ad41224cc527b4dd8b9a1e9a2e4b8d55d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4833b31ef92ad6f01d144509f00d1fb1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a4833b31ef92ad6f01d144509f00d1fb1">FE_initComplete</a> ()</td></tr>
+<tr class="separator:a4833b31ef92ad6f01d144509f00d1fb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4fdffc22526f31c76191fc7a5c11816"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#ab4fdffc22526f31c76191fc7a5c11816">FE_loadElemMatrix</a> (int elemID, int nNodes, int *elemNodeList, int matDim, double **elemMat)</td></tr>
+<tr class="separator:ab4fdffc22526f31c76191fc7a5c11816"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_linear_system_core"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_linear_system_core')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_linear_system_core.html">LinearSystemCore</a></td></tr>
+<tr class="memitem:a9ef0b9ff1f0e5966df08bd14fdfb5ede inherit pub_methods_class_linear_system_core"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#a9ef0b9ff1f0e5966df08bd14fdfb5ede">LinearSystemCore</a> ()</td></tr>
+<tr class="separator:a9ef0b9ff1f0e5966df08bd14fdfb5ede inherit pub_methods_class_linear_system_core"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accab3892d7350d9c7e05c9e2d3a727ef inherit pub_methods_class_linear_system_core"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#accab3892d7350d9c7e05c9e2d3a727ef">~LinearSystemCore</a> ()</td></tr>
+<tr class="separator:accab3892d7350d9c7e05c9e2d3a727ef inherit pub_methods_class_linear_system_core"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19ece4307b1fad22f915cbb9ce920c00 inherit pub_methods_class_linear_system_core"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_system_core.html#a19ece4307b1fad22f915cbb9ce920c00">getProperty</a> (const char *, double &amp;)</td></tr>
+<tr class="separator:a19ece4307b1fad22f915cbb9ce920c00 inherit pub_methods_class_linear_system_core"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a5c446d4e300f8401cfda304e1c9ee671"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#a5c446d4e300f8401cfda304e1c9ee671">fei_hypre_test</a> (int argc, char *argv[])</td></tr>
+<tr class="separator:a5c446d4e300f8401cfda304e1c9ee671"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8f7e86b193b4d109faf0275faca0d1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html#ab8f7e86b193b4d109faf0275faca0d1d">fei_hypre_domaindecomposition</a> (int argc, char *argv[])</td></tr>
+<tr class="separator:ab8f7e86b193b4d109faf0275faca0d1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00093">93</a> of file <a class="el" href="_h_y_p_r_e___lin_sys_core_8h_source.html">HYPRE_LinSysCore.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a1759e606c64f7f2b9ad44f4b9f2d0f2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1759e606c64f7f2b9ad44f4b9f2d0f2e">&#9670;&nbsp;</a></span>HYPRE_LinSysCore()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HYPRE_LinSysCore::HYPRE_LinSysCore </td>
+          <td>(</td>
+          <td class="paramtype">MPI_Comm&#160;</td>
+          <td class="paramname"><em>comm</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5723e35bdcab6469bb235e4037ea4506"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5723e35bdcab6469bb235e4037ea4506">&#9670;&nbsp;</a></span>~HYPRE_LinSysCore()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual HYPRE_LinSysCore::~HYPRE_LinSysCore </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a1f49d3af595c3e13c30873d04b64d54a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f49d3af595c3e13c30873d04b64d54a">&#9670;&nbsp;</a></span>allocateMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::allocateMatrix </td>
+          <td>(</td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>colIndices</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>rowLengths</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a25785b738dc6d59b3567696dd3e20a58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25785b738dc6d59b3567696dd3e20a58">&#9670;&nbsp;</a></span>beginCreateMapFromSoln()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HYPRE_LinSysCore::beginCreateMapFromSoln </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a753606fc5d8cfaa9f8d1651ca88d4815"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a753606fc5d8cfaa9f8d1651ca88d4815">&#9670;&nbsp;</a></span>clone()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_linear_system_core.html">LinearSystemCore</a>* HYPRE_LinSysCore::clone </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>For cloning a <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> instance. Caller recieves a pointer to a new instantiation of the implementing object. </p>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#a55fe55e790445e329ee131ada2d157ba">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="a639a77a240ce3520bd50fe82978b93bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a639a77a240ce3520bd50fe82978b93bc">&#9670;&nbsp;</a></span>copyInMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::copyInMatrix </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>scalar</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_data.html">Data</a> &amp;&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p><a class="el" href="class_linear_system_core.html">LinearSystemCore</a>'s internal 'A-matrix' should be replaced with a scaled copy of the incoming data. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scalar</td><td>coefficient by which to scale the incoming data. </td></tr>
+    <tr><td class="paramname">data</td><td>See documentation for <a class="el" href="class_data.html">Data</a> class. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#a51d2491d874e8fba9e6f55b2832f4fba">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="aa51c88634a61cfe7757da69390d8a9a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa51c88634a61cfe7757da69390d8a9a5">&#9670;&nbsp;</a></span>copyInRHSVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::copyInRHSVector </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>scalar</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_data.html">Data</a> &amp;&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Same semantics as copyInMatrix, but applied to rhs vector. </p>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#a124a84a9b66d91f2c68ef3ae7c9f6d54">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="a9e1c709fed7c68e758f12c8e40314aee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e1c709fed7c68e758f12c8e40314aee">&#9670;&nbsp;</a></span>copyOutMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::copyOutMatrix </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>scalar</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_data.html">Data</a> &amp;&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The FEI implementation calls this function to request a scaled copy of the internal 'A-matrix' data. The FEI implementation will then be responsible for deciding when this matrix data should be destroyed. The <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> implementation should not keep a reference to the pointer that was handed out. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scalar</td><td></td></tr>
+    <tr><td class="paramname">data</td><td>See documentation for <a class="el" href="class_data.html">Data</a> class. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#a8c21aaa3377f1b449f7b5e89d6e5a77f">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="aba474f838b803d48b100ac6712f45558"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba474f838b803d48b100ac6712f45558">&#9670;&nbsp;</a></span>copyOutRHSVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::copyOutRHSVector </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>scalar</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_data.html">Data</a> &amp;&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Same semantics as copyOutMatrix, but applied to rhs vector. </p>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#a612af8541297e0a692ee7c0c8e0e797f">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="a10c1c2ea77e06e3e890c78f403a9ee15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10c1c2ea77e06e3e890c78f403a9ee15">&#9670;&nbsp;</a></span>createMatricesAndVectors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::createMatricesAndVectors </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numGlobalEqns</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>firstLocalEqn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numLocalEqns</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0b37b6601eb09b54c687770e7403e242"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b37b6601eb09b54c687770e7403e242">&#9670;&nbsp;</a></span>destroyMatrixData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::destroyMatrixData </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_data.html">Data</a> &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Utility function for destroying the matrix in a <a class="el" href="class_data.html">Data</a> container. The caller (owner of 'data') can't destroy the matrix because they don't know what concrete type it is and can't get to its destructor. The contents of 'data' is a matrix previously passed out via 'copyOutMatrix'. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>See documentation for <a class="el" href="class_data.html">Data</a> class. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#a7ddaabe1b1913a3af9c5576b0135a022">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="a4985a0248416f4f6da5f258b85b9751c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4985a0248416f4f6da5f258b85b9751c">&#9670;&nbsp;</a></span>destroyVectorData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::destroyVectorData </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_data.html">Data</a> &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Utility function for destroying the vector in a <a class="el" href="class_data.html">Data</a> container. The caller (owner of 'data') can't destroy the vector because they don't know what concrete type it is and can't get to its destructor. The contents of 'data' is a vector previously passed out via 'copyOutRHSVector'. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>See documentation for <a class="el" href="class_data.html">Data</a> class. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#a2ea60fe33c63c7371b310335855a7d4c">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="a0a4b4999f48da5d6875dc9766aae0c9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a4b4999f48da5d6875dc9766aae0c9a">&#9670;&nbsp;</a></span>endCreateMapFromSoln()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HYPRE_LinSysCore::endCreateMapFromSoln </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aed9311d8a00db8900dafe490f802856c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed9311d8a00db8900dafe490f802856c">&#9670;&nbsp;</a></span>enforceEssentialBC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::enforceEssentialBC </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>globalEqn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>alpha</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>gamma</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The FEI implementation calls this function to inform <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> of equations that need to have essential (Dirichlet) boundary conditions enforced on them. The intent is that the <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> implementation will perform the column-modification b[i] = gamma[i]/alpha[i] if i == globalEqn[i], otherwise b[i] -= gamma[i]/alpha[i] * A(i,globalEqn[i]) if i != globalEqn[i]. After this operation is performed, all of row globalEqn[i] and column globalEqn[i] should be set to 0.0, except for the diagonal position. (Naturally the implementer is free to enforce the boundary condition another way if they wish.) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">globalEqn</td><td>List, of length 'len', of global 0-based equation numbers. </td></tr>
+    <tr><td class="paramname">alpha</td><td>List, of length 'len', of coefficients. When the solution to the linear system is later requested, the solution value for globalEqn[i] should be gamma[i]/alpha[i]. </td></tr>
+    <tr><td class="paramname">gamma</td><td></td></tr>
+    <tr><td class="paramname">len</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#a3996d48023c18bca8d116e38639408c1">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="a84d5884a539818ae99ed54fc182b0bda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84d5884a539818ae99ed54fc182b0bda">&#9670;&nbsp;</a></span>enforceOtherBC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::enforceOtherBC </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>globalEqn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>alpha</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>beta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>gamma</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function is called to inform <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> that natural (or Neumann) or mixed boundary conditions are to be enforce on some equations. Basically, these can be enforced by performing this operation: A(globalEqn[i], globalEqn[i]) += alpha[i]/beta[i], and b(globalEqn[i]) += gamma[i]/beta[i], for all i in [0 .. len-1]. (Note that alpha[i]==0.0 implies a Natural or Neumann boundary condition, while gamma[i]==0.0 implies a mixed boundary condition. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">globalEqn</td><td>List, length 'len', of equation on which to impose boundary conditions. </td></tr>
+    <tr><td class="paramname">alpha</td><td>List, length 'len', of coefficients described above. </td></tr>
+    <tr><td class="paramname">beta</td><td></td></tr>
+    <tr><td class="paramname">gamma</td><td></td></tr>
+    <tr><td class="paramname">len</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#a07d8cf8a1d7b72bb3e519e3f6d66280a">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="afbd089384fd25f4cdb2fc30de7638269"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbd089384fd25f4cdb2fc30de7638269">&#9670;&nbsp;</a></span>enforceRemoteEssBCs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::enforceRemoteEssBCs </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numEqns</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>globalEqns</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>colIndices</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>colIndLen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double **&#160;</td>
+          <td class="paramname"><em>coefs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The FEI implementation calls this function to inform <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> that certain local equations need column-modifications made due to essential boundary-conditions being enforced on other processors. The column modification is roughly this: b(globalEqns[i]) -= A(globalEqns[i], colIndices[i][j]) * coefs[i][j], for i in [0..numEqns-1] and j in [0.. colIndLen[i]-1]. (Note that A(globalEqns[i], colIndices[i][j]) should be set = 0.0 after the appropriate value has been accumulated into b also.) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">numEqns</td><td>Length of 'globalEqns' </td></tr>
+    <tr><td class="paramname">globalEqns</td><td>Equations that are local to this processor. </td></tr>
+    <tr><td class="paramname">colIndices</td><td>Table, with 'numEqns' rows, and the i-th row is of length colIndLen[i]. The i-th row contains column indices in equation globalEqns[i]. These column indices correspond to equations (rows) that are owned by other processors, and those other processors are imposing essential boundary conditions on those equations. </td></tr>
+    <tr><td class="paramname">colIndLen</td><td>List of length 'numEqns'. </td></tr>
+    <tr><td class="paramname">coefs</td><td>This table holds the gamma/alpha coeficients that are the value of the boundary conditions being enforced on each of the remote equations in the 'colIndices' table. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#aff96d089f89fc241a2634c154912a734">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="a4833b31ef92ad6f01d144509f00d1fb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4833b31ef92ad6f01d144509f00d1fb1">&#9670;&nbsp;</a></span>FE_initComplete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HYPRE_LinSysCore::FE_initComplete </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a17c0853274637d924da2163fd4bd2828"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17c0853274637d924da2163fd4bd2828">&#9670;&nbsp;</a></span>FE_initElemBlock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HYPRE_LinSysCore::FE_initElemBlock </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nElems</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nNodesPerElem</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numNodeFields</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>nodeFieldIDs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abcbbce7e926061c602b8cc2179316674"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcbbce7e926061c602b8cc2179316674">&#9670;&nbsp;</a></span>FE_initElemNodeList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HYPRE_LinSysCore::FE_initElemNodeList </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>elemID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nNodesPerElem</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>nodeIDs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a31b44b15ccaf39942d66a77d59992913"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31b44b15ccaf39942d66a77d59992913">&#9670;&nbsp;</a></span>FE_initFields()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HYPRE_LinSysCore::FE_initFields </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nFields</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>fieldSizes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>fieldIDs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad41224cc527b4dd8b9a1e9a2e4b8d55d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad41224cc527b4dd8b9a1e9a2e4b8d55d">&#9670;&nbsp;</a></span>FE_initSharedNodes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HYPRE_LinSysCore::FE_initSharedNodes </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nShared</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>sharedIDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>sharedPLengs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>sharedProcs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab4fdffc22526f31c76191fc7a5c11816"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4fdffc22526f31c76191fc7a5c11816">&#9670;&nbsp;</a></span>FE_loadElemMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HYPRE_LinSysCore::FE_loadElemMatrix </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>elemID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nNodes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>elemNodeList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>matDim</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double **&#160;</td>
+          <td class="paramname"><em>elemMat</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abd1c85cb9610ff8f0bedbe4f8719f6a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd1c85cb9610ff8f0bedbe4f8719f6a4">&#9670;&nbsp;</a></span>formResidual()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::formResidual </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>values</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This will be called to request that <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> form the residual vector r = b - A*x, and pass the coefficients for r back out in the 'values' list. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">values</td><td></td></tr>
+    <tr><td class="paramname">len</td><td>This should equal num-local-eqns. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#a2a93a2ecabb4780e58318e4a7b0b45d3">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="ac57cea14fc369771fb4abb1b336d5760"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac57cea14fc369771fb4abb1b336d5760">&#9670;&nbsp;</a></span>getFEDataObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HYPRE_LinSysCore::getFEDataObject </td>
+          <td>(</td>
+          <td class="paramtype">void **&#160;</td>
+          <td class="paramname"><em>object</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_h_y_p_r_e___lin_sys_core_8h_source.html#l00415">415</a> of file <a class="el" href="_h_y_p_r_e___lin_sys_core_8h_source.html">HYPRE_LinSysCore.h</a>.</p>
+
+</div>
+</div>
+<a id="a22b6308fa34b39e7438b46e9d8053642"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22b6308fa34b39e7438b46e9d8053642">&#9670;&nbsp;</a></span>getFromRHSVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::getFromRHSVector </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>values</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>indices</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>For getting coefficients out of the rhs vector </p>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#a1d6687366d37e46f8744b66594a35a52">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="a7686c45f180b0a41925bb7213a7d7ca4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7686c45f180b0a41925bb7213a7d7ca4">&#9670;&nbsp;</a></span>getMatrixPtr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::getMatrixPtr </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_data.html">Data</a> &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The FEI implementation calls this function to request a pointer to the internal 'A-matrix' data. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>See <a class="el" href="class_data.html">Data</a> class documentation. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#ab6a123f512f5d63f5ca85178a8649366">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="aa1df31958abfe60c4b0cfd5e44b50d96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1df31958abfe60c4b0cfd5e44b50d96">&#9670;&nbsp;</a></span>getMatrixRow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::getMatrixRow </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>coefs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>indices</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>len</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>rowLength</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Obtain the coefficients and indices for a row of the matrix. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">row</td><td>Global 0-based equation number </td></tr>
+    <tr><td class="paramname">coefs</td><td>Caller-allocated array, length 'len', to be filled with coefficients </td></tr>
+    <tr><td class="paramname">indices</td><td>Caller-allocated array, length 'len', to be filled with indices. (These indices will be global 0-based equation numbers.) </td></tr>
+    <tr><td class="paramname">len</td><td>Length of the caller-allocated coefs and indices arrays </td></tr>
+    <tr><td class="paramname">rowLength</td><td>Output. Actual length of this row. Not referenced if row is not in the local portion of the matrix. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>error-code non-zero if any error occurs, e.g., row is not local. </dd></dl>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#a13a1b3fdd8ee94ad059d2a288bc99eaf">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="ac5bd88c16b0cbf95241c4c834d353f28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5bd88c16b0cbf95241c4c834d353f28">&#9670;&nbsp;</a></span>getMatrixRowLength()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::getMatrixRowLength </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Get the length of a row of the matrix. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">row</td><td>Global 0-based equation number </td></tr>
+    <tr><td class="paramname">length</td><td>Output. Length of the row. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>error-code non-zero if any error occurs, e.g., row is not local. </dd></dl>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#a508ae024c24ad7ddac14098edc863942">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="a6db60fd797c185e49e3e325080a12c2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6db60fd797c185e49e3e325080a12c2e">&#9670;&nbsp;</a></span>getRHSVectorPtr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::getRHSVectorPtr </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_data.html">Data</a> &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Same semantics as getMatrixPtr, but applied to rhs vector. </p>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#a7b9fba0b1fb9d1e9e0235477ed42a447">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="a4219f710d94308c7d73b0ebe88f2135d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4219f710d94308c7d73b0ebe88f2135d">&#9670;&nbsp;</a></span>getSolnEntry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::getSolnEntry </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>eqnNumber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;&#160;</td>
+          <td class="paramname"><em>answer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The FEI implementation will call this function to request a single solution value. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">eqnNumber</td><td>Global 0-based equation number. </td></tr>
+    <tr><td class="paramname">answer</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#ae5ed92e086e130c77636db717fe52205">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="a9d41dede769395804c39a313fc14d6c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d41dede769395804c39a313fc14d6c9">&#9670;&nbsp;</a></span>getSolution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::getSolution </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>answers</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The FEI implementation will call this function to request all local solution values. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">answers</td><td>Solution coefficients. </td></tr>
+    <tr><td class="paramname">len</td><td>This should equal the number of local equations. If it is less, the <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> implementation should simply pass out the first 'len' local solution values. If it is more, then just pass out numLocalEqns solution values. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#a8b80a874cacdbfedb297b729139e6554">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="a23fd0cd8191647f005deeb37e4f116e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23fd0cd8191647f005deeb37e4f116e9">&#9670;&nbsp;</a></span>getVersion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* HYPRE_LinSysCore::getVersion </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac63bd48c82cd9e664ab4367614232f59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac63bd48c82cd9e664ab4367614232f59">&#9670;&nbsp;</a></span>HYPRE_LSC_Axpby()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::HYPRE_LSC_Axpby </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a10f17242f56d27d8e2bc6404fb2ec52a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10f17242f56d27d8e2bc6404fb2ec52a">&#9670;&nbsp;</a></span>HYPRE_LSC_GetMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* HYPRE_LinSysCore::HYPRE_LSC_GetMatrix </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adf6e600e2c17f25503dc29870eacf3ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf6e600e2c17f25503dc29870eacf3ed">&#9670;&nbsp;</a></span>HYPRE_LSC_GetRHSVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* HYPRE_LinSysCore::HYPRE_LSC_GetRHSVector </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab7215f61efa59aa11b247760efebf005"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7215f61efa59aa11b247760efebf005">&#9670;&nbsp;</a></span>HYPRE_LSC_GetRNorm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double HYPRE_LinSysCore::HYPRE_LSC_GetRNorm </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaec9beccd223802a37cf6a444839b22a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaec9beccd223802a37cf6a444839b22a">&#9670;&nbsp;</a></span>HYPRE_LSC_GetSolVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* HYPRE_LinSysCore::HYPRE_LSC_GetSolVector </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a79525067077f5e015321a07cae3bc04a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79525067077f5e015321a07cae3bc04a">&#9670;&nbsp;</a></span>HYPRE_LSC_MatMatMult()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* HYPRE_LinSysCore::HYPRE_LSC_MatMatMult </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a664941cd9dfa7c5d56773fe68a9bb94e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a664941cd9dfa7c5d56773fe68a9bb94e">&#9670;&nbsp;</a></span>HYPRE_LSC_Matvec()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::HYPRE_LSC_Matvec </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab646b8e0f0cb3663fbba1dfe787437f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab646b8e0f0cb3663fbba1dfe787437f2">&#9670;&nbsp;</a></span>HYPRE_LSC_SetColMap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* HYPRE_LinSysCore::HYPRE_LSC_SetColMap </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0f87e5f369771c86639ced0c5616aabe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f87e5f369771c86639ced0c5616aabe">&#9670;&nbsp;</a></span>launchSolver()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::launchSolver </td>
+          <td>(</td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>solveStatus</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>iterations</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Function called to request the launching of the linear solver. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">solveStatus</td><td>Output, should indicate the status of the solve. A successful solve is usually indicated by a value of 0. </td></tr>
+    <tr><td class="paramname">iterations</td><td>Output, how many iterations were performed. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>error-code, 0 if convergence tolerance was achieved within the specified maximum number of iterations. If error return is non-zero, the calling application will be expected to check solveStatus, and consult the solver-library's documentation to figure out exactly what happened. </dd></dl>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#aacab77eafa84515071b4f429f3b03ea0">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="a367ceea43c00c9276250c0eb73965ead"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a367ceea43c00c9276250c0eb73965ead">&#9670;&nbsp;</a></span>loadConstraintNumbers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HYPRE_LinSysCore::loadConstraintNumbers </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>list</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a98ba176d2012e8b2aaa36bb65f26bf23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98ba176d2012e8b2aaa36bb65f26bf23">&#9670;&nbsp;</a></span>matrixLoadComplete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::matrixLoadComplete </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The FEI implementation calls this function to signal the linsyscore object that data-loading is finished. </p>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#a8d0884d1d216af462a6bf1e494ba17be">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="a9fc244ebba0cccba2dc9eb639ead923f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fc244ebba0cccba2dc9eb639ead923f">&#9670;&nbsp;</a></span>parameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::parameters </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numParams</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>params</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>For setting argc/argv style parameters. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">numParams</td><td>Number of strings in the params argument </td></tr>
+    <tr><td class="paramname">params</td><td>A list of strings which will usually contain space-separated key-value pairs. Example: "debugOutput /usr/users/me/work_dir" </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#a926f3c2f179e4bc92acba1d4b845db26">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="aa11c760eb3fb46f75cd80696ee7f2075"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa11c760eb3fb46f75cd80696ee7f2075">&#9670;&nbsp;</a></span>putInitialGuess()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::putInitialGuess </td>
+          <td>(</td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>eqnNumbers</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *&#160;</td>
+          <td class="paramname"><em>values</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The FEI implementation will call this function to supply initial-guess data that should be used as the starting 'x-vector' if an iterative solution is to be performed. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">eqnNumbers</td><td>Global 0-based equation numbers for which the initial guess should be set. </td></tr>
+    <tr><td class="paramname">values</td><td>The initial guess data. </td></tr>
+    <tr><td class="paramname">len</td><td>Number of equations for which an initial guess is being supplied. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#af1a4288cbff62c6929cbf3c955a77a9f">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="ad30bc9c1bb09ff5c1ee7eae439496910"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad30bc9c1bb09ff5c1ee7eae439496910">&#9670;&nbsp;</a></span>putIntoMappedMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HYPRE_LinSysCore::putIntoMappedMatrix </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numValues</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *&#160;</td>
+          <td class="paramname"><em>values</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>scatterIndices</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9d992f2b7c227203cb3ae46e9d71ea42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d992f2b7c227203cb3ae46e9d71ea42">&#9670;&nbsp;</a></span>putIntoRHSVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::putIntoRHSVector </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *&#160;</td>
+          <td class="paramname"><em>values</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>indices</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>For putting coefficients into the rhs vector </p>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#a8d785bd49fdec79fa859cbd126f98cb4">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="a504fa6ce75b0419ffc4c80099a59fe1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a504fa6ce75b0419ffc4c80099a59fe1f">&#9670;&nbsp;</a></span>putIntoSystemMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::putIntoSystemMatrix </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numPtRows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>ptRows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numPtCols</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>ptCols</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *const *&#160;</td>
+          <td class="paramname"><em>values</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Point-entry matrix data as for 'sumIntoSystemMatrix', but in this case the data should be "put" into the matrix (i.e., overwrite any coefficients already present) rather than being "summed" into the matrix. </p>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#a1b892eb26a69fd4dc238239561f7d63b">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="a9448436f7fcc4f7f1deaee38e7b7eda4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9448436f7fcc4f7f1deaee38e7b7eda4">&#9670;&nbsp;</a></span>putNodalFieldData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::putNodalFieldData </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fieldID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fieldSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>nodeNumbers</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numNodes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Pass nodal data that probably doesn't mean anything to the FEI implementation, but may mean something to the linear solver. Examples: geometric coordinates, nullspace data, etc. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fieldID</td><td>Identifier for the field that describes this data. Lists of field identifiers and field sizes defined for the finite-element problem may be obtained from the <a class="el" href="class_lookup.html">Lookup</a> interface that is supplied to the <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> by the FEI implementation. </td></tr>
+    <tr><td class="paramname">nodeNumbers</td><td>List of nodes for which data is being supplied. </td></tr>
+    <tr><td class="paramname">numNodes</td><td></td></tr>
+    <tr><td class="paramname">data</td><td>List of length numNodes * (size of field 'fieldID') </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#afe02febc84c656cb81ee3c73404f0ba3">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="a27453c0b50050457f214926797bf0159"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27453c0b50050457f214926797bf0159">&#9670;&nbsp;</a></span>resetMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::resetMatrix </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>For setting the scalar 's' (usually 0.0) throughout the matrix. </p>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#a7bc028c014735393e3e6d0360d1f26b1">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="ae405743b6d81b84aa029c38a5b486cc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae405743b6d81b84aa029c38a5b486cc8">&#9670;&nbsp;</a></span>resetMatrixAndVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::resetMatrixAndVector </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>For setting the scalar 's' (usually 0.0) throughout the matrix rhs vector. </p>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#a4d4e3707f49019b4ad5c983caae79843">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="ab582d0fcf06f291778b6e8a8fdb60543"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab582d0fcf06f291778b6e8a8fdb60543">&#9670;&nbsp;</a></span>resetRHSVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::resetRHSVector </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>For setting the scalar 's' (usually 0.0) throughout the rhs vector. </p>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#a9fc04454615772616c0d737818276aff">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="a7027b06e997efcf5b680e4dee071bbaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7027b06e997efcf5b680e4dee071bbaa">&#9670;&nbsp;</a></span>setConnectivities()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::setConnectivities </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a>&#160;</td>
+          <td class="paramname"><em>elemBlock</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numElements</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numNodesPerElem</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>elemIDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *const *&#160;</td>
+          <td class="paramname"><em>connNodes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>For passing element-connectivity arrays. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">elemBlock</td><td>Identifier for the element-block that these elements belong to. </td></tr>
+    <tr><td class="paramname">numElements</td><td>Length of the elemIDs list. </td></tr>
+    <tr><td class="paramname">numNodesPerElem</td><td>Length of each row in the connNodes table. </td></tr>
+    <tr><td class="paramname">elemIDs</td><td>Identifiers for each element for which connectivities are being supplied. </td></tr>
+    <tr><td class="paramname">connNodes</td><td>Table, with one row for each element. Each row is a list of the nodes that are connected to that element. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#a57d90556afa201ee0b841e4c0f26918c">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="a549e9fb02d8b5d51fccf07756467110e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a549e9fb02d8b5d51fccf07756467110e">&#9670;&nbsp;</a></span>setGlobalOffsets()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::setGlobalOffsets </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>len</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>nodeOffsets</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>eqnOffsets</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>blkEqnOffsets</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Supply <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> with global offset information for the problem being assembled. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">len</td><td>Length of the following list arguments. This will be numProcs+1 </td></tr>
+    <tr><td class="paramname">nodeOffsets</td><td>The FEI implementation assigns a global 0-based numbering to the finite-element nodes in the problem. Each processor is given ownership of a contiguous subset of these node-numbers. nodeOffsets[i] gives the first local node-number for processor i. nodeOffsets[len-1] gives the total number of nodes. </td></tr>
+    <tr><td class="paramname">eqnOffsets</td><td>eqnOffsets[i] gives the first local equation number for processor i, eqnOffsets[len-1] gives the global number of equations. </td></tr>
+    <tr><td class="paramname">blkEqnOffsets</td><td>Contains the same kind of information as eqnOffsets, but for 'block-equations'. A block-equation contains all of the point-equations present at a finite-element node. Special case: if this problem contains Lagrange Multiplier constraints, they will be equations that don't correspond to any node, and there will only be one of these equations mapped to a block-equation. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#adf48a26acea8af60d8510c4e79e58558">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="a6eced772e962e3cfd262767e6809d63c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6eced772e962e3cfd262767e6809d63c">&#9670;&nbsp;</a></span>setLoadVectors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::setLoadVectors </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a>&#160;</td>
+          <td class="paramname"><em>elemBlock</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numElems</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>elemIDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *const *&#160;</td>
+          <td class="paramname"><em>load</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numEqnsPerElem</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *const *&#160;</td>
+          <td class="paramname"><em>eqnIndices</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>For passing element-load vectors. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">elemBlock</td><td>Identifier for the element-block that these elements belong to. </td></tr>
+    <tr><td class="paramname">numElems</td><td>Length of the elemIDs list. </td></tr>
+    <tr><td class="paramname">elemIDs</td><td>Identifiers for each element for which a load vector is being supplied. </td></tr>
+    <tr><td class="paramname">load</td><td>Table with 'numElems' rows, each row is of length 'numEqnsPerElem'. </td></tr>
+    <tr><td class="paramname">numEqnsPerElem</td><td></td></tr>
+    <tr><td class="paramname">eqnIndices</td><td>Table, with 'numElems' rows, each row being a list of 'numEqnsPerElem' scatter indices (0-based global equation numbers). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#a49032423fb8d37f1f81bc804b5b8ec13">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="aed5ba6bb8201591e031e44d5d79e5dd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed5ba6bb8201591e031e44d5d79e5dd9">&#9670;&nbsp;</a></span>setLookup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::setLookup </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_lookup.html">Lookup</a> &amp;&#160;</td>
+          <td class="paramname"><em>lookup</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Supply the <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> implementation with an object (created and owned by the caller) that can be used to obtain various information about problem layout, shared finite-element nodes, etc. For details, see the documentation for the <a class="el" href="class_lookup.html">Lookup</a> interface. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lookup</td><td>Input. Reference to an implementation of the <a class="el" href="class_lookup.html">Lookup</a> interface </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#a1f8471c595c7302de4fef9e209768a9b">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="a558151a570bb352f7f2595ac81a24a77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a558151a570bb352f7f2595ac81a24a77">&#9670;&nbsp;</a></span>setMatrixStructure()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::setMatrixStructure </td>
+          <td>(</td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>ptColIndices</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>ptRrowLengths</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>blkColIndices</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>blkRowLengths</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>ptRowsPerBlkRow</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Supply <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> with information defining the structure of the sparse matrix to be assembled. Implementers of <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> may safely assume that this function will not be called until after the function 'setGlobalOffsets' has been called. Using the information provided via setGlobalOffsets, the number-of-local-equations can be trivially calculated. After setMatrixStructure has been called, there should be enough information to instantiate internal linear-algebra entities, such as vectors, matrix, etc. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptColIndices</td><td>Table, with num-local-eqns rows, and the i-th row is of length ptRowLengths[i]. </td></tr>
+    <tr><td class="paramname">ptRowLengths</td><td></td></tr>
+    <tr><td class="paramname">blkColIndices</td><td>Table, with num-local-blkEqns rows, and the i-th row is of length blkRowLengths[i]. </td></tr>
+    <tr><td class="paramname">blkRowLengths</td><td></td></tr>
+    <tr><td class="paramname">ptRowsPerBlkRow</td><td>The i-th local block-equation corresponds to ptRowsPerBlkRow[i] point-equations. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#af2bea8785cefd57e6b52b4b6c4fdca9f">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="a807c9ae7ae4975c63b82f43d2d48f78a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a807c9ae7ae4975c63b82f43d2d48f78a">&#9670;&nbsp;</a></span>setMultCREqns()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::setMultCREqns </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>multCRSetID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numCRs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numNodesPerCR</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>nodeNumbers</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>eqnNumbers</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>fieldIDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>multiplierEqnNumbers</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Specify which global equation numbers correspond to Lagrange Multiplier equations. This function won't be called if there are no Lagrange Multiplier constraints in the problem. If this function is called, it is guaranteed to be called after 'setGlobalOffsets' and before 'setMatrixStructure'. The primary purpose of this function is to give <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> implementers the opportunity to deal with constraints in a special way, rather than assembling everything into one matrix. If the problem being assembled does have Lagrange constraints, then the FEI implementation will request an ESI_MatrixRowWriteAccess interface for "C_Matrix" from <a class="el" href="class_linear_system_core.html">LinearSystemCore</a>. If that is not available, then the FEI implementation will request "A_Matrix" and assemble everything into that. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">numCRs</td><td>number of constraint relations </td></tr>
+    <tr><td class="paramname">numNodesPerCR</td><td>number of constrained node in each constraint relation </td></tr>
+    <tr><td class="paramname">nodeNumbers</td><td>Table of constrained nodes. 'numCRs' rows, with the i-th row being of length numNodesPerCR[i]. </td></tr>
+    <tr><td class="paramname">eqnNumbers</td><td>Table, same dimensions as 'nodeNumbers'. These are the global 0-based matrix column indices of the constraint coefficients. </td></tr>
+    <tr><td class="paramname">multiplierEqnNumbers</td><td>Equation numbers that the Lagrange Multipliers correspond to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#ab596df5bdc212a240a68715a7451f2d7">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="a9e0c0dcbab285e5fe7f31a4749b6916e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e0c0dcbab285e5fe7f31a4749b6916e">&#9670;&nbsp;</a></span>setNumRHSVectors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::setNumRHSVectors </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numRHSs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>rhsIDs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Indicate the number of rhs-vectors being assembled/solved for. This function will be called by the FEI implementation at or near the beginning of the problem assembly. If numRHSs is greater than 1, then calls to 'getMemberInterface' requesting an interface to an rhs vector will use the 'objName' argument "b_Vector_n", where n is in [0 .. numRHSs-1]. If there is only one rhs-vector, then 'objName' will be simply "b_Vector". </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">numRHSs</td><td>Length of the rhsIDs list. </td></tr>
+    <tr><td class="paramname">rhsIDs</td><td>Caller-supplied integer identifiers for the rhs vectors. This argument will probably be removed, as it is obsolete (a carry-over from <a class="el" href="class_linear_system_core.html">LinearSystemCore</a>). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#a16b0f112937850195ed14b8b68d8d328">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="ad8aba86614a0c263faa12b39e371e67b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8aba86614a0c263faa12b39e371e67b">&#9670;&nbsp;</a></span>setPenCREqns()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::setPenCREqns </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>penCRSetID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numCRs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numNodesPerCR</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>nodeNumbers</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>eqnNumbers</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>fieldIDs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Specify which nodes and equation numbers correspond to penalty constraints. This function is included for completeness, but hasn't yet been proven to be useful or necessary, and will probably not be included in the successor to <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> (ESI_LSManager). </p>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#a867ca428d7259bc7b93b6aa638059b33">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="a2fd4229c1e3cb572d10639231e2d6bff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fd4229c1e3cb572d10639231e2d6bff">&#9670;&nbsp;</a></span>setRHSID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::setRHSID </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>rhsID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Set the 'current context' to the rhs-vector corresponding to rhsID. Subsequent data received via 'sumIntoRHSVector' should be directed into this rhs-vector. Any other function-calls having to do with the rhs-vector should also effect this rhs-vector. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhsID</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#abf643e5d255cd2c38315ec66b8f4e32a">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="afd0dc8d1de4376a1d1ec93d9a3e2971d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd0dc8d1de4376a1d1ec93d9a3e2971d">&#9670;&nbsp;</a></span>setStiffnessMatrices()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::setStiffnessMatrices </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a>&#160;</td>
+          <td class="paramname"><em>elemBlock</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numElems</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="fei__defs_8h.html#a2a3f81aba499311b764d5d4c9bc22841">GlobalID</a> *&#160;</td>
+          <td class="paramname"><em>elemIDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *const *const *&#160;</td>
+          <td class="paramname"><em>stiff</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numEqnsPerElem</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *const *&#160;</td>
+          <td class="paramname"><em>eqnIndices</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>For passing element-stiffness arrays. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">elemBlock</td><td>Identifier for the element-block that these elements belong to. </td></tr>
+    <tr><td class="paramname">numElems</td><td>Length of the elemIDs list. </td></tr>
+    <tr><td class="paramname">elemIDs</td><td>Identifiers for each element for which a stiffness array is being supplied. </td></tr>
+    <tr><td class="paramname">stiff</td><td>List of 'numElems' tables, each table is of size 'numEqnsPerElem' X 'numEqnsPerElem'. </td></tr>
+    <tr><td class="paramname">numEqnsPerElem</td><td></td></tr>
+    <tr><td class="paramname">eqnIndices</td><td>Table, with 'numElems' rows, each row being a list of 'numEqnsPerElem' scatter indices (0-based global matrix row/column indices). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#aa3add667614d7c9b24fd2996a9181b1e">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="a0396323e7da3322010b36ea1174bd1c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0396323e7da3322010b36ea1174bd1c9">&#9670;&nbsp;</a></span>sumInMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::sumInMatrix </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>scalar</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_data.html">Data</a> &amp;&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>A scaled copy of the incoming data should be added to the internal 'A-matrix'. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scalar</td><td></td></tr>
+    <tr><td class="paramname">data</td><td>See documentation for <a class="el" href="class_data.html">Data</a> class. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#a224cc2a202b667e1f2795bfa93b157c9">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="ad19dec9c61ee3910a623e6239c10dd28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad19dec9c61ee3910a623e6239c10dd28">&#9670;&nbsp;</a></span>sumInRHSVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::sumInRHSVector </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>scalar</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_data.html">Data</a> &amp;&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Same semantics as sumInMatrix, but applied to rhs vector. </p>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#adf1dec4fa2dcc233df18d58c75f84cc4">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="ae4c5efcdc97ce952368cf0a3aafd4f2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4c5efcdc97ce952368cf0a3aafd4f2d">&#9670;&nbsp;</a></span>sumIntoRHSVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::sumIntoRHSVector </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *&#160;</td>
+          <td class="paramname"><em>values</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>indices</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>For accumulating coefficients into the rhs vector </p>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#a2bc570a8ac743d8403284fc4ad36243b">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="a345f16c81910e20914c52afd208f5975"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a345f16c81910e20914c52afd208f5975">&#9670;&nbsp;</a></span>sumIntoSystemMatrix() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::sumIntoSystemMatrix </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numPtRows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>ptRows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numPtCols</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>ptCols</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *const *&#160;</td>
+          <td class="paramname"><em>values</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Purely point-entry version for accumulating coefficient data into the matrix. This will be called when a matrix contribution fills only part of a block-equation. e.g., when a penalty constraint is being applied to a single solution field on a node that has several solution fields. (A block-equation contains all solution field equations at a node.) </p>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#a76aac7c0e7af43c8f29ed749c69f0dfc">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="ae3111f1fc2f387bf54e6448e7aaff122"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3111f1fc2f387bf54e6448e7aaff122">&#9670;&nbsp;</a></span>sumIntoSystemMatrix() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::sumIntoSystemMatrix </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numPtRows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>ptRows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numPtCols</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>ptCols</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numBlkRows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>blkRows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numBlkCols</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>blkCols</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *const *&#160;</td>
+          <td class="paramname"><em>values</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Provides point-entry data, as well as block-entry data. This is the primary assembly function, through which the FEI implementation provides the local equation contributions of all element contributions. </p>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#a17a1050b6c7249911efd11c953cc21d0">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<a id="ac46ddef343eeae2efc1c0c64c3d83d78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac46ddef343eeae2efc1c0c64c3d83d78">&#9670;&nbsp;</a></span>sumIntoSystemMatrix() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::sumIntoSystemMatrix </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numValues</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double *&#160;</td>
+          <td class="paramname"><em>values</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>scatterIndices</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abdc549daeee03328d639798315705d6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abdc549daeee03328d639798315705d6e">&#9670;&nbsp;</a></span>writeSystem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HYPRE_LinSysCore::writeSystem </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function's intent is to provide a file-name to be used by <a class="el" href="class_linear_system_core.html">LinearSystemCore</a> in writing the linear system into disk files. Format is not specified. Implementers may choose to augment this name in the style of writing 3 files: A_name, x_name, b_name, or some other convention. This function is ill-defined, obsolete, and will probably never be called by the FEI implementation. </p>
+
+<p>Implements <a class="el" href="class_linear_system_core.html#a551bbc75e810ffdd3778b580ea0c1216">LinearSystemCore</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="ab8f7e86b193b4d109faf0275faca0d1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8f7e86b193b4d109faf0275faca0d1d">&#9670;&nbsp;</a></span>fei_hypre_domaindecomposition</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void fei_hypre_domaindecomposition </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>argv</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5c446d4e300f8401cfda304e1c9ee671"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c446d4e300f8401cfda304e1c9ee671">&#9670;&nbsp;</a></span>fei_hypre_test</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void fei_hypre_test </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>argv</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>include/hypre-2.11.1/<a class="el" href="_h_y_p_r_e___lin_sys_core_8h_source.html">HYPRE_LinSysCore.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_h_y_p_r_e___lin_sys_core.html">HYPRE_LinSysCore</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

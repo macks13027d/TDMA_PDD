@@ -1,0 +1,375 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="TDMA_PDD" />
+<meta property="og:image" content="../preview.png" />
+<meta property="og:description" content="Documentation for Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="../preview.png" />
+<meta property="og:title" content="TDMA_PDD" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD" />
+<!-- END twitter metadata -->
+<title>TDMA_PDD: include/hypre-2.11.1/HYPRE_seq_mv.h Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            messageStyle: "normal",
+            linebreaks: {
+                automatic: false
+            }
+        },
+        tex2jax: { 
+            inlineMath: [["\\(","\\)"]], 
+            displayMath: [["$$","$$"],["\\[","\\]"]], 
+            processEscapes: true
+        },
+        TeX: {
+            Macros: {
+                tr: "{\\scriptscriptstyle\\mathrm{T}}",
+            }
+        }
+    });
+</script>
+<!--MathJax(LaTeX) -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <script type="text/javascript" id="MathJax-script" async  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">  </script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="custom-alternative.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/hugh577/TDMA_PDD" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 65px;">
+  <td id="projectlogo">
+    <a href="./index.html">
+        <img alt="Logo" src="home.png"/></td>
+    </a>
+  <td id="projectalign" style="padding-left: 0.5em;padding-top: 0.5em;">
+   <div id="projectname">TDMA_PDD
+   </div>
+   <div id="projectbrief">Documentation</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('_h_y_p_r_e__seq__mv_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">HYPRE_seq_mv.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_h_y_p_r_e__seq__mv_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*BHEADER**********************************************************************</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Copyright (c) 2008,  Lawrence Livermore National Security, LLC.</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> * Produced at the Lawrence Livermore National Laboratory.</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * This file is part of HYPRE.  See file COPYRIGHT for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * HYPRE is free software; you can redistribute it and/or modify it under the</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> * terms of the GNU Lesser General Public License (as published by the Free</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * Software Foundation) version 2.1 dated February 1999.</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> * $Revision$</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> ***********************************************************************EHEADER*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> * Header file for HYPRE_mv library</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> *****************************************************************************/</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#ifndef HYPRE_SEQ_MV_HEADER</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#define HYPRE_SEQ_MV_HEADER</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_h_y_p_r_e__utilities_8h.html">HYPRE_utilities.h</a>&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">/*--------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment"> * Structures</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment"> *--------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">struct </span>hypre_CSRMatrix_struct;</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="_h_y_p_r_e__seq__mv_8h.html#ab038bb319dfc8a264d014605c6ec965a">   36</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>hypre_CSRMatrix_struct *<a class="code" href="_h_y_p_r_e__seq__mv_8h.html#ab038bb319dfc8a264d014605c6ec965a">HYPRE_CSRMatrix</a>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">struct </span>hypre_MappedMatrix_struct;</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="_h_y_p_r_e__seq__mv_8h.html#a9bef0983b9b877481c256b55b2d9e119">   38</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>hypre_MappedMatrix_struct *<a class="code" href="_h_y_p_r_e__seq__mv_8h.html#a9bef0983b9b877481c256b55b2d9e119">HYPRE_MappedMatrix</a>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">struct </span>hypre_MultiblockMatrix_struct;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="_h_y_p_r_e__seq__mv_8h.html#af2ccb076002f8574e5761865e50a7d54">   40</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>hypre_MultiblockMatrix_struct *<a class="code" href="_h_y_p_r_e__seq__mv_8h.html#af2ccb076002f8574e5761865e50a7d54">HYPRE_MultiblockMatrix</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#ifndef HYPRE_VECTOR_STRUCT</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="_h_y_p_r_e__seq__mv_8h.html#a7fd6ba8b9790b1278f7cc39d56f7a36a">   42</a></span>&#160;<span class="preprocessor">#define HYPRE_VECTOR_STRUCT</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">struct </span>hypre_Vector_struct;</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="_h_y_p_r_e__seq__mv_8h.html#acade2ef834640dfa686ca0a92dfe2d8f">   44</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>hypre_Vector_struct *<a class="code" href="_h_y_p_r_e__seq__mv_8h.html#acade2ef834640dfa686ca0a92dfe2d8f">HYPRE_Vector</a>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">/*--------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment"> * Prototypes</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment"> *--------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">/* HYPRE_csr_matrix.c */</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<a class="code" href="_h_y_p_r_e__seq__mv_8h.html#ab038bb319dfc8a264d014605c6ec965a">HYPRE_CSRMatrix</a> <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#a08bf256d5ffab9850336496ba9142087">HYPRE_CSRMatrixCreate</a>( <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> num_rows , <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> num_cols , <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *row_sizes );</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#a415a28f7e56888c0722d5ad9eb181a37">HYPRE_CSRMatrixDestroy</a>( <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#ab038bb319dfc8a264d014605c6ec965a">HYPRE_CSRMatrix</a> matrix );</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#a2aaddbfa5d635790cd05d38608e4233e">HYPRE_CSRMatrixInitialize</a>( <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#ab038bb319dfc8a264d014605c6ec965a">HYPRE_CSRMatrix</a> matrix );</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<a class="code" href="_h_y_p_r_e__seq__mv_8h.html#ab038bb319dfc8a264d014605c6ec965a">HYPRE_CSRMatrix</a> <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#a28871dabd2917d3e0713cc54ce0a9368">HYPRE_CSRMatrixRead</a>( <span class="keywordtype">char</span> *file_name );</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#a3c23dc0cd7dc5408ce8edb486ca279b9">HYPRE_CSRMatrixPrint</a>( <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#ab038bb319dfc8a264d014605c6ec965a">HYPRE_CSRMatrix</a> matrix , <span class="keywordtype">char</span> *file_name );</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#aff6862db611df47d4866ea61f248a096">HYPRE_CSRMatrixGetNumRows</a>( <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#ab038bb319dfc8a264d014605c6ec965a">HYPRE_CSRMatrix</a> matrix , <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *num_rows );</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">/* HYPRE_mapped_matrix.c */</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<a class="code" href="_h_y_p_r_e__seq__mv_8h.html#a9bef0983b9b877481c256b55b2d9e119">HYPRE_MappedMatrix</a> <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#a7ce15732878fc0d3a741821fb2654430">HYPRE_MappedMatrixCreate</a>( <span class="keywordtype">void</span> );</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#a30bb54c1b04b87a1fe4f4b2eceab48cb">HYPRE_MappedMatrixDestroy</a>( <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#a9bef0983b9b877481c256b55b2d9e119">HYPRE_MappedMatrix</a> matrix );</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#a025d8ee628d64ca7183b501cfbece4b0">HYPRE_MappedMatrixLimitedDestroy</a>( <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#a9bef0983b9b877481c256b55b2d9e119">HYPRE_MappedMatrix</a> matrix );</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#adcbfff3d68dceb580f290ca149aa73ad">HYPRE_MappedMatrixInitialize</a>( <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#a9bef0983b9b877481c256b55b2d9e119">HYPRE_MappedMatrix</a> matrix );</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#abd78f36da9c3c87a6af19eb3f67b454c">HYPRE_MappedMatrixAssemble</a>( <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#a9bef0983b9b877481c256b55b2d9e119">HYPRE_MappedMatrix</a> matrix );</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#af8f5045185351f769fcd434d2e7d5cab">HYPRE_MappedMatrixPrint</a>( <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#a9bef0983b9b877481c256b55b2d9e119">HYPRE_MappedMatrix</a> matrix );</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#a1269b0622365a3cd078df940ac966216">HYPRE_MappedMatrixGetColIndex</a>( <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#a9bef0983b9b877481c256b55b2d9e119">HYPRE_MappedMatrix</a> matrix , <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> j );</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keywordtype">void</span> *<a class="code" href="_h_y_p_r_e__seq__mv_8h.html#a5b093a8d28bbdbed3869cff317013134">HYPRE_MappedMatrixGetMatrix</a>( <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#a9bef0983b9b877481c256b55b2d9e119">HYPRE_MappedMatrix</a> matrix );</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#ab9989eb76818a103991d599ac75d30d3">HYPRE_MappedMatrixSetMatrix</a>( <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#a9bef0983b9b877481c256b55b2d9e119">HYPRE_MappedMatrix</a> matrix , <span class="keywordtype">void</span> *matrix_data );</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#a6f22a14b5b99ee108ef001e9c32191bd">HYPRE_MappedMatrixSetColMap</a>( <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#a9bef0983b9b877481c256b55b2d9e119">HYPRE_MappedMatrix</a> matrix , <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> (*ColMap )(<a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> ,<span class="keywordtype">void</span> *));</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#a7f1d65ef717914d095428813ed65e1b5">HYPRE_MappedMatrixSetMapData</a>( <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#a9bef0983b9b877481c256b55b2d9e119">HYPRE_MappedMatrix</a> matrix , <span class="keywordtype">void</span> *MapData );</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">/* HYPRE_multiblock_matrix.c */</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<a class="code" href="_h_y_p_r_e__seq__mv_8h.html#af2ccb076002f8574e5761865e50a7d54">HYPRE_MultiblockMatrix</a> <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#a50cc7c2962dfb15c84d93574e52b61f9">HYPRE_MultiblockMatrixCreate</a>( <span class="keywordtype">void</span> );</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#aac0fad0d03a6354d0f86b9c9abd74e99">HYPRE_MultiblockMatrixDestroy</a>( <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#af2ccb076002f8574e5761865e50a7d54">HYPRE_MultiblockMatrix</a> matrix );</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#a3f6cb3e587e8a96742c6be69c03cd0d8">HYPRE_MultiblockMatrixLimitedDestroy</a>( <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#af2ccb076002f8574e5761865e50a7d54">HYPRE_MultiblockMatrix</a> matrix );</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#ac83cac9c90933399758fe183ce8928d4">HYPRE_MultiblockMatrixInitialize</a>( <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#af2ccb076002f8574e5761865e50a7d54">HYPRE_MultiblockMatrix</a> matrix );</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#a054182b1f54ca4a70f29064b7cf01a62">HYPRE_MultiblockMatrixAssemble</a>( <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#af2ccb076002f8574e5761865e50a7d54">HYPRE_MultiblockMatrix</a> matrix );</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#ae665962700b3b82cc97ba694c1c13163">HYPRE_MultiblockMatrixPrint</a>( <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#af2ccb076002f8574e5761865e50a7d54">HYPRE_MultiblockMatrix</a> matrix );</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#a57be8613a88e746fa441d410b90a9b4f">HYPRE_MultiblockMatrixSetNumSubmatrices</a>( <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#af2ccb076002f8574e5761865e50a7d54">HYPRE_MultiblockMatrix</a> matrix , <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> n );</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#a128e4058553aa16844535f78f619a398">HYPRE_MultiblockMatrixSetSubmatrixType</a>( <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#af2ccb076002f8574e5761865e50a7d54">HYPRE_MultiblockMatrix</a> matrix , <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> j , <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> type );</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">/* HYPRE_vector.c */</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<a class="code" href="_h_y_p_r_e__krylov_8h.html#acade2ef834640dfa686ca0a92dfe2d8f">HYPRE_Vector</a> <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#a0913d2a16481482b66a130d6c1b03606">HYPRE_VectorCreate</a>( <a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> size );</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#aa07b02c03b293b3d3b5549a4be203eae">HYPRE_VectorDestroy</a>( <a class="code" href="_h_y_p_r_e__krylov_8h.html#acade2ef834640dfa686ca0a92dfe2d8f">HYPRE_Vector</a> vector );</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#adffb93726f15e6a6ab14382fae13a3db">HYPRE_VectorInitialize</a>( <a class="code" href="_h_y_p_r_e__krylov_8h.html#acade2ef834640dfa686ca0a92dfe2d8f">HYPRE_Vector</a> vector );</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<a class="code" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#a48c31dfdd7bc82d177b0b3cc18e67c60">HYPRE_VectorPrint</a>( <a class="code" href="_h_y_p_r_e__krylov_8h.html#acade2ef834640dfa686ca0a92dfe2d8f">HYPRE_Vector</a> vector , <span class="keywordtype">char</span> *file_name );</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<a class="code" href="_h_y_p_r_e__krylov_8h.html#acade2ef834640dfa686ca0a92dfe2d8f">HYPRE_Vector</a> <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#a2e7863adb4d32351f5702a4df3d29a4d">HYPRE_VectorRead</a>( <span class="keywordtype">char</span> *file_name );</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9">   89</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9">HYPRE_TimerID</a></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;{</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;   <span class="comment">// timers for solver phase</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9ae76a951ce6227dce4c2dba375b7d2b23">   92</a></span>&#160;   <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9ae76a951ce6227dce4c2dba375b7d2b23">HYPRE_TIMER_ID_MATVEC</a> = 0,</div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a4b4cb9bc3317cf407e7e04d66d047555">   93</a></span>&#160;   <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a4b4cb9bc3317cf407e7e04d66d047555">HYPRE_TIMER_ID_BLAS1</a>,</div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a68c20729ad480b5b9748e624b686a1da">   94</a></span>&#160;   <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a68c20729ad480b5b9748e624b686a1da">HYPRE_TIMER_ID_RELAX</a>,</div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9aca669480864bb33843170713fb9f8b73">   95</a></span>&#160;   <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9aca669480864bb33843170713fb9f8b73">HYPRE_TIMER_ID_GS_ELIM_SOLVE</a>,</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;   <span class="comment">// timers for solve MPI</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a7e6b91a6b341eaedb36babddec6900b8">   98</a></span>&#160;   <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a7e6b91a6b341eaedb36babddec6900b8">HYPRE_TIMER_ID_PACK_UNPACK</a>, <span class="comment">// copying data to/from send/recv buf</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a86ebae4dfe1a847f4497b291aa4a6889">   99</a></span>&#160;   <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a86ebae4dfe1a847f4497b291aa4a6889">HYPRE_TIMER_ID_HALO_EXCHANGE</a>, <span class="comment">// halo exchange in matvec and relax</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a55220c5f5ef6c3eb6c3c1ec7755dc384">  100</a></span>&#160;   <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a55220c5f5ef6c3eb6c3c1ec7755dc384">HYPRE_TIMER_ID_ALL_REDUCE</a>,</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;   <span class="comment">// timers for setup phase</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;   <span class="comment">// coarsening</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9ae64020d18517364d419051a77624dc43">  104</a></span>&#160;   <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9ae64020d18517364d419051a77624dc43">HYPRE_TIMER_ID_CREATES</a>,</div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a27042f5675b8fe514f2796ecaebbdf53">  105</a></span>&#160;   <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a27042f5675b8fe514f2796ecaebbdf53">HYPRE_TIMER_ID_CREATE_2NDS</a>,</div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a2b4a1d3b84032720639bcad6f4c80a9d">  106</a></span>&#160;   <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a2b4a1d3b84032720639bcad6f4c80a9d">HYPRE_TIMER_ID_PMIS</a>,</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;   <span class="comment">// interpolation</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a9e36729845dc8b618dcf585dc8775792">  109</a></span>&#160;   <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a9e36729845dc8b618dcf585dc8775792">HYPRE_TIMER_ID_EXTENDED_I_INTERP</a>,</div>
+<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a6685d21741f9f61087ee6566a9099853">  110</a></span>&#160;   <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a6685d21741f9f61087ee6566a9099853">HYPRE_TIMER_ID_PARTIAL_INTERP</a>,</div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9afde0b4b9df6342a23ddc1bfb156ccc37">  111</a></span>&#160;   <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9afde0b4b9df6342a23ddc1bfb156ccc37">HYPRE_TIMER_ID_MULTIPASS_INTERP</a>,</div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a59c95d226e0a8dd2e68982f2e16d53e6">  112</a></span>&#160;   <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a59c95d226e0a8dd2e68982f2e16d53e6">HYPRE_TIMER_ID_INTERP_TRUNC</a>,</div>
+<div class="line"><a name="l00113"></a><span class="lineno"><a class="line" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9adde0952d97fd414afba96ead2c68b764">  113</a></span>&#160;   <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9adde0952d97fd414afba96ead2c68b764">HYPRE_TIMER_ID_MATMUL</a>, <span class="comment">// matrix-matrix multiplication</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a15346c07b39c23595e7d9115cd881dfd">  114</a></span>&#160;   <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a15346c07b39c23595e7d9115cd881dfd">HYPRE_TIMER_ID_COARSE_PARAMS</a>,</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;   <span class="comment">// rap</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9af51a0aba523217f43c7a05724c391b3a">  117</a></span>&#160;   <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9af51a0aba523217f43c7a05724c391b3a">HYPRE_TIMER_ID_RAP</a>,</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;   <span class="comment">// timers for setup MPI</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9ab4d02369465ae71192eae1dd351925db">  120</a></span>&#160;   <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9ab4d02369465ae71192eae1dd351925db">HYPRE_TIMER_ID_RENUMBER_COLIDX</a>,</div>
+<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9aea9e522331b14ed87f88d07af13904de">  121</a></span>&#160;   <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9aea9e522331b14ed87f88d07af13904de">HYPRE_TIMER_ID_EXCHANGE_INTERP_DATA</a>,</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;   <span class="comment">// setup etc</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a5a983719ff04c9328a35b8077f1e68c3">  124</a></span>&#160;   <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a5a983719ff04c9328a35b8077f1e68c3">HYPRE_TIMER_ID_GS_ELIM_SETUP</a>,</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;   <span class="comment">// temporaries</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno"><a class="line" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a3abb9a7de46b7715acda621b4b0176a9">  127</a></span>&#160;   <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a3abb9a7de46b7715acda621b4b0176a9">HYPRE_TIMER_ID_BEXT_A</a>,</div>
+<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9ae903355bda97ec340dbc8344f25cecb2">  128</a></span>&#160;   <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9ae903355bda97ec340dbc8344f25cecb2">HYPRE_TIMER_ID_BEXT_S</a>,</div>
+<div class="line"><a name="l00129"></a><span class="lineno"><a class="line" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a0c3f6934392fa5b27899a61a9ac7f466">  129</a></span>&#160;   <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a0c3f6934392fa5b27899a61a9ac7f466">HYPRE_TIMER_ID_RENUMBER_COLIDX_RAP</a>,</div>
+<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a3a3ea4e55188800465d5edfa4bada63f">  130</a></span>&#160;   <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a3a3ea4e55188800465d5edfa4bada63f">HYPRE_TIMER_ID_MERGE</a>,</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a42ef7674e56186f1a62f05eeb96a6ace">  132</a></span>&#160;   <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a42ef7674e56186f1a62f05eeb96a6ace">HYPRE_TIMER_ID_COUNT</a></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;} <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9">HYPRE_TimerID</a>;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="keyword">extern</span> <a class="code" href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a> <a class="code" href="_h_y_p_r_e__seq__mv_8h.html#a5e3e8feef89f497bfb6bad23971e0c26">hypre_profile_times</a>[<a class="code" href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a42ef7674e56186f1a62f05eeb96a6ace">HYPRE_TIMER_ID_COUNT</a>];</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;}</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="a_h_y_p_r_e__utilities_8h_html_a80025df6a21e1f258e151ad46c0ad0ab"><div class="ttname"><a href="_h_y_p_r_e__utilities_8h.html#a80025df6a21e1f258e151ad46c0ad0ab">HYPRE_Real</a></div><div class="ttdeci">double HYPRE_Real</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e__utilities_8h_source.html#l00058">HYPRE_utilities.h:58</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_abaa3d33ce0889e88c498c4d5fec1f4d9a5a983719ff04c9328a35b8077f1e68c3"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a5a983719ff04c9328a35b8077f1e68c3">HYPRE_TIMER_ID_GS_ELIM_SETUP</a></div><div class="ttdeci">@ HYPRE_TIMER_ID_GS_ELIM_SETUP</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e__seq__mv_8h_source.html#l00124">HYPRE_seq_mv.h:124</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_abaa3d33ce0889e88c498c4d5fec1f4d9ae903355bda97ec340dbc8344f25cecb2"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9ae903355bda97ec340dbc8344f25cecb2">HYPRE_TIMER_ID_BEXT_S</a></div><div class="ttdeci">@ HYPRE_TIMER_ID_BEXT_S</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e__seq__mv_8h_source.html#l00128">HYPRE_seq_mv.h:128</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_abaa3d33ce0889e88c498c4d5fec1f4d9afde0b4b9df6342a23ddc1bfb156ccc37"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9afde0b4b9df6342a23ddc1bfb156ccc37">HYPRE_TIMER_ID_MULTIPASS_INTERP</a></div><div class="ttdeci">@ HYPRE_TIMER_ID_MULTIPASS_INTERP</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e__seq__mv_8h_source.html#l00111">HYPRE_seq_mv.h:111</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_a57be8613a88e746fa441d410b90a9b4f"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#a57be8613a88e746fa441d410b90a9b4f">HYPRE_MultiblockMatrixSetNumSubmatrices</a></div><div class="ttdeci">HYPRE_Int HYPRE_MultiblockMatrixSetNumSubmatrices(HYPRE_MultiblockMatrix matrix, HYPRE_Int n)</div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_a28871dabd2917d3e0713cc54ce0a9368"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#a28871dabd2917d3e0713cc54ce0a9368">HYPRE_CSRMatrixRead</a></div><div class="ttdeci">HYPRE_CSRMatrix HYPRE_CSRMatrixRead(char *file_name)</div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_adcbfff3d68dceb580f290ca149aa73ad"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#adcbfff3d68dceb580f290ca149aa73ad">HYPRE_MappedMatrixInitialize</a></div><div class="ttdeci">HYPRE_Int HYPRE_MappedMatrixInitialize(HYPRE_MappedMatrix matrix)</div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_abaa3d33ce0889e88c498c4d5fec1f4d9aea9e522331b14ed87f88d07af13904de"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9aea9e522331b14ed87f88d07af13904de">HYPRE_TIMER_ID_EXCHANGE_INTERP_DATA</a></div><div class="ttdeci">@ HYPRE_TIMER_ID_EXCHANGE_INTERP_DATA</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e__seq__mv_8h_source.html#l00121">HYPRE_seq_mv.h:121</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_abaa3d33ce0889e88c498c4d5fec1f4d9a55220c5f5ef6c3eb6c3c1ec7755dc384"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a55220c5f5ef6c3eb6c3c1ec7755dc384">HYPRE_TIMER_ID_ALL_REDUCE</a></div><div class="ttdeci">@ HYPRE_TIMER_ID_ALL_REDUCE</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e__seq__mv_8h_source.html#l00100">HYPRE_seq_mv.h:100</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_abaa3d33ce0889e88c498c4d5fec1f4d9adde0952d97fd414afba96ead2c68b764"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9adde0952d97fd414afba96ead2c68b764">HYPRE_TIMER_ID_MATMUL</a></div><div class="ttdeci">@ HYPRE_TIMER_ID_MATMUL</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e__seq__mv_8h_source.html#l00113">HYPRE_seq_mv.h:113</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_adffb93726f15e6a6ab14382fae13a3db"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#adffb93726f15e6a6ab14382fae13a3db">HYPRE_VectorInitialize</a></div><div class="ttdeci">HYPRE_Int HYPRE_VectorInitialize(HYPRE_Vector vector)</div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_ae665962700b3b82cc97ba694c1c13163"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#ae665962700b3b82cc97ba694c1c13163">HYPRE_MultiblockMatrixPrint</a></div><div class="ttdeci">void HYPRE_MultiblockMatrixPrint(HYPRE_MultiblockMatrix matrix)</div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_abaa3d33ce0889e88c498c4d5fec1f4d9a7e6b91a6b341eaedb36babddec6900b8"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a7e6b91a6b341eaedb36babddec6900b8">HYPRE_TIMER_ID_PACK_UNPACK</a></div><div class="ttdeci">@ HYPRE_TIMER_ID_PACK_UNPACK</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e__seq__mv_8h_source.html#l00098">HYPRE_seq_mv.h:98</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_a2aaddbfa5d635790cd05d38608e4233e"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#a2aaddbfa5d635790cd05d38608e4233e">HYPRE_CSRMatrixInitialize</a></div><div class="ttdeci">HYPRE_Int HYPRE_CSRMatrixInitialize(HYPRE_CSRMatrix matrix)</div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_a3f6cb3e587e8a96742c6be69c03cd0d8"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#a3f6cb3e587e8a96742c6be69c03cd0d8">HYPRE_MultiblockMatrixLimitedDestroy</a></div><div class="ttdeci">HYPRE_Int HYPRE_MultiblockMatrixLimitedDestroy(HYPRE_MultiblockMatrix matrix)</div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_a3c23dc0cd7dc5408ce8edb486ca279b9"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#a3c23dc0cd7dc5408ce8edb486ca279b9">HYPRE_CSRMatrixPrint</a></div><div class="ttdeci">void HYPRE_CSRMatrixPrint(HYPRE_CSRMatrix matrix, char *file_name)</div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_abaa3d33ce0889e88c498c4d5fec1f4d9af51a0aba523217f43c7a05724c391b3a"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9af51a0aba523217f43c7a05724c391b3a">HYPRE_TIMER_ID_RAP</a></div><div class="ttdeci">@ HYPRE_TIMER_ID_RAP</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e__seq__mv_8h_source.html#l00117">HYPRE_seq_mv.h:117</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_ab9989eb76818a103991d599ac75d30d3"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#ab9989eb76818a103991d599ac75d30d3">HYPRE_MappedMatrixSetMatrix</a></div><div class="ttdeci">HYPRE_Int HYPRE_MappedMatrixSetMatrix(HYPRE_MappedMatrix matrix, void *matrix_data)</div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_abaa3d33ce0889e88c498c4d5fec1f4d9ae64020d18517364d419051a77624dc43"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9ae64020d18517364d419051a77624dc43">HYPRE_TIMER_ID_CREATES</a></div><div class="ttdeci">@ HYPRE_TIMER_ID_CREATES</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e__seq__mv_8h_source.html#l00104">HYPRE_seq_mv.h:104</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_a415a28f7e56888c0722d5ad9eb181a37"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#a415a28f7e56888c0722d5ad9eb181a37">HYPRE_CSRMatrixDestroy</a></div><div class="ttdeci">HYPRE_Int HYPRE_CSRMatrixDestroy(HYPRE_CSRMatrix matrix)</div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_abaa3d33ce0889e88c498c4d5fec1f4d9aca669480864bb33843170713fb9f8b73"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9aca669480864bb33843170713fb9f8b73">HYPRE_TIMER_ID_GS_ELIM_SOLVE</a></div><div class="ttdeci">@ HYPRE_TIMER_ID_GS_ELIM_SOLVE</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e__seq__mv_8h_source.html#l00095">HYPRE_seq_mv.h:95</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_a128e4058553aa16844535f78f619a398"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#a128e4058553aa16844535f78f619a398">HYPRE_MultiblockMatrixSetSubmatrixType</a></div><div class="ttdeci">HYPRE_Int HYPRE_MultiblockMatrixSetSubmatrixType(HYPRE_MultiblockMatrix matrix, HYPRE_Int j, HYPRE_Int type)</div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_abaa3d33ce0889e88c498c4d5fec1f4d9a4b4cb9bc3317cf407e7e04d66d047555"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a4b4cb9bc3317cf407e7e04d66d047555">HYPRE_TIMER_ID_BLAS1</a></div><div class="ttdeci">@ HYPRE_TIMER_ID_BLAS1</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e__seq__mv_8h_source.html#l00093">HYPRE_seq_mv.h:93</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_abaa3d33ce0889e88c498c4d5fec1f4d9a0c3f6934392fa5b27899a61a9ac7f466"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a0c3f6934392fa5b27899a61a9ac7f466">HYPRE_TIMER_ID_RENUMBER_COLIDX_RAP</a></div><div class="ttdeci">@ HYPRE_TIMER_ID_RENUMBER_COLIDX_RAP</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e__seq__mv_8h_source.html#l00129">HYPRE_seq_mv.h:129</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e__utilities_8h_html_a1b5547e62770096da46d1932024e30b9"><div class="ttname"><a href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a></div><div class="ttdeci">int HYPRE_Int</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e__utilities_8h_source.html#l00050">HYPRE_utilities.h:50</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_abaa3d33ce0889e88c498c4d5fec1f4d9a9e36729845dc8b618dcf585dc8775792"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a9e36729845dc8b618dcf585dc8775792">HYPRE_TIMER_ID_EXTENDED_I_INTERP</a></div><div class="ttdeci">@ HYPRE_TIMER_ID_EXTENDED_I_INTERP</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e__seq__mv_8h_source.html#l00109">HYPRE_seq_mv.h:109</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_ac83cac9c90933399758fe183ce8928d4"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#ac83cac9c90933399758fe183ce8928d4">HYPRE_MultiblockMatrixInitialize</a></div><div class="ttdeci">HYPRE_Int HYPRE_MultiblockMatrixInitialize(HYPRE_MultiblockMatrix matrix)</div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_ab038bb319dfc8a264d014605c6ec965a"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#ab038bb319dfc8a264d014605c6ec965a">HYPRE_CSRMatrix</a></div><div class="ttdeci">struct hypre_CSRMatrix_struct * HYPRE_CSRMatrix</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e__seq__mv_8h_source.html#l00036">HYPRE_seq_mv.h:36</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_a50cc7c2962dfb15c84d93574e52b61f9"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#a50cc7c2962dfb15c84d93574e52b61f9">HYPRE_MultiblockMatrixCreate</a></div><div class="ttdeci">HYPRE_MultiblockMatrix HYPRE_MultiblockMatrixCreate(void)</div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_a5e3e8feef89f497bfb6bad23971e0c26"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#a5e3e8feef89f497bfb6bad23971e0c26">hypre_profile_times</a></div><div class="ttdeci">HYPRE_Real hypre_profile_times[HYPRE_TIMER_ID_COUNT]</div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_af8f5045185351f769fcd434d2e7d5cab"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#af8f5045185351f769fcd434d2e7d5cab">HYPRE_MappedMatrixPrint</a></div><div class="ttdeci">void HYPRE_MappedMatrixPrint(HYPRE_MappedMatrix matrix)</div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_abd78f36da9c3c87a6af19eb3f67b454c"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#abd78f36da9c3c87a6af19eb3f67b454c">HYPRE_MappedMatrixAssemble</a></div><div class="ttdeci">HYPRE_Int HYPRE_MappedMatrixAssemble(HYPRE_MappedMatrix matrix)</div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_abaa3d33ce0889e88c498c4d5fec1f4d9a59c95d226e0a8dd2e68982f2e16d53e6"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a59c95d226e0a8dd2e68982f2e16d53e6">HYPRE_TIMER_ID_INTERP_TRUNC</a></div><div class="ttdeci">@ HYPRE_TIMER_ID_INTERP_TRUNC</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e__seq__mv_8h_source.html#l00112">HYPRE_seq_mv.h:112</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_abaa3d33ce0889e88c498c4d5fec1f4d9a2b4a1d3b84032720639bcad6f4c80a9d"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a2b4a1d3b84032720639bcad6f4c80a9d">HYPRE_TIMER_ID_PMIS</a></div><div class="ttdeci">@ HYPRE_TIMER_ID_PMIS</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e__seq__mv_8h_source.html#l00106">HYPRE_seq_mv.h:106</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_a2e7863adb4d32351f5702a4df3d29a4d"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#a2e7863adb4d32351f5702a4df3d29a4d">HYPRE_VectorRead</a></div><div class="ttdeci">HYPRE_Vector HYPRE_VectorRead(char *file_name)</div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_abaa3d33ce0889e88c498c4d5fec1f4d9a3abb9a7de46b7715acda621b4b0176a9"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a3abb9a7de46b7715acda621b4b0176a9">HYPRE_TIMER_ID_BEXT_A</a></div><div class="ttdeci">@ HYPRE_TIMER_ID_BEXT_A</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e__seq__mv_8h_source.html#l00127">HYPRE_seq_mv.h:127</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_abaa3d33ce0889e88c498c4d5fec1f4d9ae76a951ce6227dce4c2dba375b7d2b23"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9ae76a951ce6227dce4c2dba375b7d2b23">HYPRE_TIMER_ID_MATVEC</a></div><div class="ttdeci">@ HYPRE_TIMER_ID_MATVEC</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e__seq__mv_8h_source.html#l00092">HYPRE_seq_mv.h:92</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_a025d8ee628d64ca7183b501cfbece4b0"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#a025d8ee628d64ca7183b501cfbece4b0">HYPRE_MappedMatrixLimitedDestroy</a></div><div class="ttdeci">HYPRE_Int HYPRE_MappedMatrixLimitedDestroy(HYPRE_MappedMatrix matrix)</div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_a7ce15732878fc0d3a741821fb2654430"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#a7ce15732878fc0d3a741821fb2654430">HYPRE_MappedMatrixCreate</a></div><div class="ttdeci">HYPRE_MappedMatrix HYPRE_MappedMatrixCreate(void)</div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_aac0fad0d03a6354d0f86b9c9abd74e99"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#aac0fad0d03a6354d0f86b9c9abd74e99">HYPRE_MultiblockMatrixDestroy</a></div><div class="ttdeci">HYPRE_Int HYPRE_MultiblockMatrixDestroy(HYPRE_MultiblockMatrix matrix)</div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_aff6862db611df47d4866ea61f248a096"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#aff6862db611df47d4866ea61f248a096">HYPRE_CSRMatrixGetNumRows</a></div><div class="ttdeci">HYPRE_Int HYPRE_CSRMatrixGetNumRows(HYPRE_CSRMatrix matrix, HYPRE_Int *num_rows)</div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_a08bf256d5ffab9850336496ba9142087"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#a08bf256d5ffab9850336496ba9142087">HYPRE_CSRMatrixCreate</a></div><div class="ttdeci">HYPRE_CSRMatrix HYPRE_CSRMatrixCreate(HYPRE_Int num_rows, HYPRE_Int num_cols, HYPRE_Int *row_sizes)</div></div>
+<div class="ttc" id="a_h_y_p_r_e__utilities_8h_html"><div class="ttname"><a href="_h_y_p_r_e__utilities_8h.html">HYPRE_utilities.h</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_abaa3d33ce0889e88c498c4d5fec1f4d9a42ef7674e56186f1a62f05eeb96a6ace"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a42ef7674e56186f1a62f05eeb96a6ace">HYPRE_TIMER_ID_COUNT</a></div><div class="ttdeci">@ HYPRE_TIMER_ID_COUNT</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e__seq__mv_8h_source.html#l00132">HYPRE_seq_mv.h:132</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_a054182b1f54ca4a70f29064b7cf01a62"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#a054182b1f54ca4a70f29064b7cf01a62">HYPRE_MultiblockMatrixAssemble</a></div><div class="ttdeci">HYPRE_Int HYPRE_MultiblockMatrixAssemble(HYPRE_MultiblockMatrix matrix)</div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_a7f1d65ef717914d095428813ed65e1b5"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#a7f1d65ef717914d095428813ed65e1b5">HYPRE_MappedMatrixSetMapData</a></div><div class="ttdeci">HYPRE_Int HYPRE_MappedMatrixSetMapData(HYPRE_MappedMatrix matrix, void *MapData)</div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_abaa3d33ce0889e88c498c4d5fec1f4d9a6685d21741f9f61087ee6566a9099853"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a6685d21741f9f61087ee6566a9099853">HYPRE_TIMER_ID_PARTIAL_INTERP</a></div><div class="ttdeci">@ HYPRE_TIMER_ID_PARTIAL_INTERP</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e__seq__mv_8h_source.html#l00110">HYPRE_seq_mv.h:110</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_a48c31dfdd7bc82d177b0b3cc18e67c60"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#a48c31dfdd7bc82d177b0b3cc18e67c60">HYPRE_VectorPrint</a></div><div class="ttdeci">HYPRE_Int HYPRE_VectorPrint(HYPRE_Vector vector, char *file_name)</div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_abaa3d33ce0889e88c498c4d5fec1f4d9a27042f5675b8fe514f2796ecaebbdf53"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a27042f5675b8fe514f2796ecaebbdf53">HYPRE_TIMER_ID_CREATE_2NDS</a></div><div class="ttdeci">@ HYPRE_TIMER_ID_CREATE_2NDS</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e__seq__mv_8h_source.html#l00105">HYPRE_seq_mv.h:105</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_abaa3d33ce0889e88c498c4d5fec1f4d9a15346c07b39c23595e7d9115cd881dfd"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a15346c07b39c23595e7d9115cd881dfd">HYPRE_TIMER_ID_COARSE_PARAMS</a></div><div class="ttdeci">@ HYPRE_TIMER_ID_COARSE_PARAMS</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e__seq__mv_8h_source.html#l00114">HYPRE_seq_mv.h:114</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_abaa3d33ce0889e88c498c4d5fec1f4d9ab4d02369465ae71192eae1dd351925db"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9ab4d02369465ae71192eae1dd351925db">HYPRE_TIMER_ID_RENUMBER_COLIDX</a></div><div class="ttdeci">@ HYPRE_TIMER_ID_RENUMBER_COLIDX</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e__seq__mv_8h_source.html#l00120">HYPRE_seq_mv.h:120</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_abaa3d33ce0889e88c498c4d5fec1f4d9"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9">HYPRE_TimerID</a></div><div class="ttdeci">HYPRE_TimerID</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e__seq__mv_8h_source.html#l00089">HYPRE_seq_mv.h:89</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_a6f22a14b5b99ee108ef001e9c32191bd"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#a6f22a14b5b99ee108ef001e9c32191bd">HYPRE_MappedMatrixSetColMap</a></div><div class="ttdeci">HYPRE_Int HYPRE_MappedMatrixSetColMap(HYPRE_MappedMatrix matrix, HYPRE_Int(*ColMap)(HYPRE_Int, void *))</div></div>
+<div class="ttc" id="a_h_y_p_r_e__krylov_8h_html_acade2ef834640dfa686ca0a92dfe2d8f"><div class="ttname"><a href="_h_y_p_r_e__krylov_8h.html#acade2ef834640dfa686ca0a92dfe2d8f">HYPRE_Vector</a></div><div class="ttdeci">struct hypre_Vector_struct * HYPRE_Vector</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e__krylov_8h_source.html#l00068">HYPRE_krylov.h:68</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_a5b093a8d28bbdbed3869cff317013134"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#a5b093a8d28bbdbed3869cff317013134">HYPRE_MappedMatrixGetMatrix</a></div><div class="ttdeci">void * HYPRE_MappedMatrixGetMatrix(HYPRE_MappedMatrix matrix)</div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_a30bb54c1b04b87a1fe4f4b2eceab48cb"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#a30bb54c1b04b87a1fe4f4b2eceab48cb">HYPRE_MappedMatrixDestroy</a></div><div class="ttdeci">HYPRE_Int HYPRE_MappedMatrixDestroy(HYPRE_MappedMatrix matrix)</div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_abaa3d33ce0889e88c498c4d5fec1f4d9a3a3ea4e55188800465d5edfa4bada63f"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a3a3ea4e55188800465d5edfa4bada63f">HYPRE_TIMER_ID_MERGE</a></div><div class="ttdeci">@ HYPRE_TIMER_ID_MERGE</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e__seq__mv_8h_source.html#l00130">HYPRE_seq_mv.h:130</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_abaa3d33ce0889e88c498c4d5fec1f4d9a68c20729ad480b5b9748e624b686a1da"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a68c20729ad480b5b9748e624b686a1da">HYPRE_TIMER_ID_RELAX</a></div><div class="ttdeci">@ HYPRE_TIMER_ID_RELAX</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e__seq__mv_8h_source.html#l00094">HYPRE_seq_mv.h:94</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_abaa3d33ce0889e88c498c4d5fec1f4d9a86ebae4dfe1a847f4497b291aa4a6889"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#abaa3d33ce0889e88c498c4d5fec1f4d9a86ebae4dfe1a847f4497b291aa4a6889">HYPRE_TIMER_ID_HALO_EXCHANGE</a></div><div class="ttdeci">@ HYPRE_TIMER_ID_HALO_EXCHANGE</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e__seq__mv_8h_source.html#l00099">HYPRE_seq_mv.h:99</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_acade2ef834640dfa686ca0a92dfe2d8f"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#acade2ef834640dfa686ca0a92dfe2d8f">HYPRE_Vector</a></div><div class="ttdeci">struct hypre_Vector_struct * HYPRE_Vector</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e__seq__mv_8h_source.html#l00044">HYPRE_seq_mv.h:44</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_a9bef0983b9b877481c256b55b2d9e119"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#a9bef0983b9b877481c256b55b2d9e119">HYPRE_MappedMatrix</a></div><div class="ttdeci">struct hypre_MappedMatrix_struct * HYPRE_MappedMatrix</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e__seq__mv_8h_source.html#l00038">HYPRE_seq_mv.h:38</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_a1269b0622365a3cd078df940ac966216"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#a1269b0622365a3cd078df940ac966216">HYPRE_MappedMatrixGetColIndex</a></div><div class="ttdeci">HYPRE_Int HYPRE_MappedMatrixGetColIndex(HYPRE_MappedMatrix matrix, HYPRE_Int j)</div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_aa07b02c03b293b3d3b5549a4be203eae"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#aa07b02c03b293b3d3b5549a4be203eae">HYPRE_VectorDestroy</a></div><div class="ttdeci">HYPRE_Int HYPRE_VectorDestroy(HYPRE_Vector vector)</div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_af2ccb076002f8574e5761865e50a7d54"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#af2ccb076002f8574e5761865e50a7d54">HYPRE_MultiblockMatrix</a></div><div class="ttdeci">struct hypre_MultiblockMatrix_struct * HYPRE_MultiblockMatrix</div><div class="ttdef"><b>Definition:</b> <a href="_h_y_p_r_e__seq__mv_8h_source.html#l00040">HYPRE_seq_mv.h:40</a></div></div>
+<div class="ttc" id="a_h_y_p_r_e__seq__mv_8h_html_a0913d2a16481482b66a130d6c1b03606"><div class="ttname"><a href="_h_y_p_r_e__seq__mv_8h.html#a0913d2a16481482b66a130d6c1b03606">HYPRE_VectorCreate</a></div><div class="ttdeci">HYPRE_Vector HYPRE_VectorCreate(HYPRE_Int size)</div></div>
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_1481b2ad69b2eab628871d4fb2bac45c.html">hypre-2.11.1</a></li><li class="navelem"><a class="el" href="_h_y_p_r_e__seq__mv_8h.html">HYPRE_seq_mv.h</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

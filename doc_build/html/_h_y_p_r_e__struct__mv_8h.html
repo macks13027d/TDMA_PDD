@@ -1,0 +1,1850 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="TDMA_PDD" />
+<meta property="og:image" content="../preview.png" />
+<meta property="og:description" content="Documentation for Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="../preview.png" />
+<meta property="og:title" content="TDMA_PDD" />
+<meta property="og:url" content="https://hugh577.github.io/TDMA_PDD" />
+<!-- END twitter metadata -->
+<title>TDMA_PDD: include/hypre-2.11.1/HYPRE_struct_mv.h File Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            messageStyle: "normal",
+            linebreaks: {
+                automatic: false
+            }
+        },
+        tex2jax: { 
+            inlineMath: [["\\(","\\)"]], 
+            displayMath: [["$$","$$"],["\\[","\\]"]], 
+            processEscapes: true
+        },
+        TeX: {
+            Macros: {
+                tr: "{\\scriptscriptstyle\\mathrm{T}}",
+            }
+        }
+    });
+</script>
+<!--MathJax(LaTeX) -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <script type="text/javascript" id="MathJax-script" async  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">  </script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="custom-alternative.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/hugh577/TDMA_PDD" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 65px;">
+  <td id="projectlogo">
+    <a href="./index.html">
+        <img alt="Logo" src="home.png"/></td>
+    </a>
+  <td id="projectalign" style="padding-left: 0.5em;padding-top: 0.5em;">
+   <div id="projectname">TDMA_PDD
+   </div>
+   <div id="projectbrief">Documentation</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('_h_y_p_r_e__struct__mv_8h.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a>  </div>
+  <div class="headertitle">
+<div class="title">HYPRE_struct_mv.h File Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="_h_y_p_r_e__utilities_8h_source.html">HYPRE_utilities.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for HYPRE_struct_mv.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="_h_y_p_r_e__struct__mv_8h__incl.png" border="0" usemap="#include_2hypre-2_811_81_2_h_y_p_r_e__struct__mv_8h" alt=""/></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="_h_y_p_r_e__struct__mv_8h__dep__incl.png" border="0" usemap="#include_2hypre-2_811_81_2_h_y_p_r_e__struct__mv_8hdep" alt=""/></div>
+</div>
+</div>
+<p><a href="_h_y_p_r_e__struct__mv_8h_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a287c6801f3cf9cf753e1c4b088ca5141"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a287c6801f3cf9cf753e1c4b088ca5141">HYPRE_StructVector_defined</a></td></tr>
+<tr class="separator:a287c6801f3cf9cf753e1c4b088ca5141"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:aed25d604276927bafc446babb6785213"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structhypre___struct_vector__struct.html">hypre_StructVector_struct</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aed25d604276927bafc446babb6785213">HYPRE_StructVector</a></td></tr>
+<tr class="separator:aed25d604276927bafc446babb6785213"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+Struct Grids</h2></td></tr>
+<tr class="memitem:aa1d1f45ebd1bccbaf2cece55e0c91019"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structhypre___struct_grid__struct.html">hypre_StructGrid_struct</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aa1d1f45ebd1bccbaf2cece55e0c91019">HYPRE_StructGrid</a></td></tr>
+<tr class="separator:aa1d1f45ebd1bccbaf2cece55e0c91019"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ea7c7f3c35136cc18c299cccde97440"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a9ea7c7f3c35136cc18c299cccde97440">HYPRE_StructGridCreate</a> (MPI_Comm comm, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> ndim, <a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aa1d1f45ebd1bccbaf2cece55e0c91019">HYPRE_StructGrid</a> *grid)</td></tr>
+<tr class="separator:a9ea7c7f3c35136cc18c299cccde97440"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa049ec6344999ba617823cc4e3a3545c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aa049ec6344999ba617823cc4e3a3545c">HYPRE_StructGridDestroy</a> (<a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aa1d1f45ebd1bccbaf2cece55e0c91019">HYPRE_StructGrid</a> grid)</td></tr>
+<tr class="separator:aa049ec6344999ba617823cc4e3a3545c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4c434bb6481fa489b20f4afc3ec941d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#ad4c434bb6481fa489b20f4afc3ec941d">HYPRE_StructGridSetExtents</a> (<a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aa1d1f45ebd1bccbaf2cece55e0c91019">HYPRE_StructGrid</a> grid, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *ilower, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *iupper)</td></tr>
+<tr class="separator:ad4c434bb6481fa489b20f4afc3ec941d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a963feb239d9fbf65b46462501c7c3f0e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a963feb239d9fbf65b46462501c7c3f0e">HYPRE_StructGridAssemble</a> (<a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aa1d1f45ebd1bccbaf2cece55e0c91019">HYPRE_StructGrid</a> grid)</td></tr>
+<tr class="separator:a963feb239d9fbf65b46462501c7c3f0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0e3e5221e04fc94f70f8a9d812f0214"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#ae0e3e5221e04fc94f70f8a9d812f0214">HYPRE_StructGridSetPeriodic</a> (<a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aa1d1f45ebd1bccbaf2cece55e0c91019">HYPRE_StructGrid</a> grid, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *periodic)</td></tr>
+<tr class="separator:ae0e3e5221e04fc94f70f8a9d812f0214"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d185f4ee42502419580c9bfa5276875"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a3d185f4ee42502419580c9bfa5276875">HYPRE_StructGridSetNumGhost</a> (<a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aa1d1f45ebd1bccbaf2cece55e0c91019">HYPRE_StructGrid</a> grid, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *num_ghost)</td></tr>
+<tr class="separator:a3d185f4ee42502419580c9bfa5276875"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+Struct Stencils</h2></td></tr>
+<tr class="memitem:a33006dee1d219adb12ed98d8c95c7edd"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structhypre___struct_stencil__struct.html">hypre_StructStencil_struct</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a33006dee1d219adb12ed98d8c95c7edd">HYPRE_StructStencil</a></td></tr>
+<tr class="separator:a33006dee1d219adb12ed98d8c95c7edd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61b5420b2f8bc2fde7b67c1100b23d20"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a61b5420b2f8bc2fde7b67c1100b23d20">HYPRE_StructStencilCreate</a> (<a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> ndim, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> size, <a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a33006dee1d219adb12ed98d8c95c7edd">HYPRE_StructStencil</a> *stencil)</td></tr>
+<tr class="separator:a61b5420b2f8bc2fde7b67c1100b23d20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8838e7b35f902655a1dbcb2d2e2a4ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#af8838e7b35f902655a1dbcb2d2e2a4ef">HYPRE_StructStencilDestroy</a> (<a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a33006dee1d219adb12ed98d8c95c7edd">HYPRE_StructStencil</a> stencil)</td></tr>
+<tr class="separator:af8838e7b35f902655a1dbcb2d2e2a4ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada7ab3f25ee9420862630cc7826e5d65"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#ada7ab3f25ee9420862630cc7826e5d65">HYPRE_StructStencilSetElement</a> (<a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a33006dee1d219adb12ed98d8c95c7edd">HYPRE_StructStencil</a> stencil, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> entry, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *offset)</td></tr>
+<tr class="separator:ada7ab3f25ee9420862630cc7826e5d65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+Struct Matrices</h2></td></tr>
+<tr class="memitem:a5e7343a56e458772e2c05318a279b41d"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structhypre___struct_matrix__struct.html">hypre_StructMatrix_struct</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a5e7343a56e458772e2c05318a279b41d">HYPRE_StructMatrix</a></td></tr>
+<tr class="separator:a5e7343a56e458772e2c05318a279b41d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6df7c0bab679bf96c33911f0b0c1d24d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a6df7c0bab679bf96c33911f0b0c1d24d">HYPRE_StructMatrixCreate</a> (MPI_Comm comm, <a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aa1d1f45ebd1bccbaf2cece55e0c91019">HYPRE_StructGrid</a> grid, <a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a33006dee1d219adb12ed98d8c95c7edd">HYPRE_StructStencil</a> stencil, <a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a5e7343a56e458772e2c05318a279b41d">HYPRE_StructMatrix</a> *matrix)</td></tr>
+<tr class="separator:a6df7c0bab679bf96c33911f0b0c1d24d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a528ee923840d67b3f14d67e1c4bf2d97"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a528ee923840d67b3f14d67e1c4bf2d97">HYPRE_StructMatrixDestroy</a> (<a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a5e7343a56e458772e2c05318a279b41d">HYPRE_StructMatrix</a> matrix)</td></tr>
+<tr class="separator:a528ee923840d67b3f14d67e1c4bf2d97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf26dc0645b2e2d817a4d163499f7d37"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#abf26dc0645b2e2d817a4d163499f7d37">HYPRE_StructMatrixInitialize</a> (<a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a5e7343a56e458772e2c05318a279b41d">HYPRE_StructMatrix</a> matrix)</td></tr>
+<tr class="separator:abf26dc0645b2e2d817a4d163499f7d37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa405be43e66b09d82005467ee8311f78"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aa405be43e66b09d82005467ee8311f78">HYPRE_StructMatrixSetValues</a> (<a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a5e7343a56e458772e2c05318a279b41d">HYPRE_StructMatrix</a> matrix, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *index, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> nentries, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *entries, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *values)</td></tr>
+<tr class="separator:aa405be43e66b09d82005467ee8311f78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54de965ba540ec2dead17e09a7042084"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a54de965ba540ec2dead17e09a7042084">HYPRE_StructMatrixAddToValues</a> (<a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a5e7343a56e458772e2c05318a279b41d">HYPRE_StructMatrix</a> matrix, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *index, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> nentries, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *entries, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *values)</td></tr>
+<tr class="separator:a54de965ba540ec2dead17e09a7042084"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56c1a4cd70c4a9d189e8d276199a8708"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a56c1a4cd70c4a9d189e8d276199a8708">HYPRE_StructMatrixSetConstantValues</a> (<a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a5e7343a56e458772e2c05318a279b41d">HYPRE_StructMatrix</a> matrix, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> nentries, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *entries, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *values)</td></tr>
+<tr class="separator:a56c1a4cd70c4a9d189e8d276199a8708"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa94db8002dd2b36660ad3eec496fda6c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aa94db8002dd2b36660ad3eec496fda6c">HYPRE_StructMatrixAddToConstantValues</a> (<a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a5e7343a56e458772e2c05318a279b41d">HYPRE_StructMatrix</a> matrix, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> nentries, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *entries, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *values)</td></tr>
+<tr class="separator:aa94db8002dd2b36660ad3eec496fda6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae42dad70df4abbe6cea59ba380b1099b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#ae42dad70df4abbe6cea59ba380b1099b">HYPRE_StructMatrixSetBoxValues</a> (<a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a5e7343a56e458772e2c05318a279b41d">HYPRE_StructMatrix</a> matrix, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *ilower, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *iupper, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> nentries, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *entries, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *values)</td></tr>
+<tr class="separator:ae42dad70df4abbe6cea59ba380b1099b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a656b0d792991f1d6e0cb8a49b94c78e8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a656b0d792991f1d6e0cb8a49b94c78e8">HYPRE_StructMatrixAddToBoxValues</a> (<a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a5e7343a56e458772e2c05318a279b41d">HYPRE_StructMatrix</a> matrix, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *ilower, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *iupper, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> nentries, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *entries, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *values)</td></tr>
+<tr class="separator:a656b0d792991f1d6e0cb8a49b94c78e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4831b181f6203c78e3d1afcb52975fd6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a4831b181f6203c78e3d1afcb52975fd6">HYPRE_StructMatrixAssemble</a> (<a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a5e7343a56e458772e2c05318a279b41d">HYPRE_StructMatrix</a> matrix)</td></tr>
+<tr class="separator:a4831b181f6203c78e3d1afcb52975fd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fdc370371b66544ccbdf913366c4b9f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a0fdc370371b66544ccbdf913366c4b9f">HYPRE_StructMatrixGetValues</a> (<a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a5e7343a56e458772e2c05318a279b41d">HYPRE_StructMatrix</a> matrix, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *index, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> nentries, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *entries, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *values)</td></tr>
+<tr class="separator:a0fdc370371b66544ccbdf913366c4b9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81361fc450864c1310286ea46eef7cd8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a81361fc450864c1310286ea46eef7cd8">HYPRE_StructMatrixGetBoxValues</a> (<a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a5e7343a56e458772e2c05318a279b41d">HYPRE_StructMatrix</a> matrix, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *ilower, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *iupper, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> nentries, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *entries, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *values)</td></tr>
+<tr class="separator:a81361fc450864c1310286ea46eef7cd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4bd56006308ce24290d58a20968158f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#ac4bd56006308ce24290d58a20968158f">HYPRE_StructMatrixSetSymmetric</a> (<a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a5e7343a56e458772e2c05318a279b41d">HYPRE_StructMatrix</a> matrix, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> symmetric)</td></tr>
+<tr class="separator:ac4bd56006308ce24290d58a20968158f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63658c1bcc661efcf563e27e62867360"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a63658c1bcc661efcf563e27e62867360">HYPRE_StructMatrixSetConstantEntries</a> (<a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a5e7343a56e458772e2c05318a279b41d">HYPRE_StructMatrix</a> matrix, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> nentries, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *entries)</td></tr>
+<tr class="separator:a63658c1bcc661efcf563e27e62867360"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5080750832b626582d3fc231e29a9aa7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a5080750832b626582d3fc231e29a9aa7">HYPRE_StructMatrixSetNumGhost</a> (<a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a5e7343a56e458772e2c05318a279b41d">HYPRE_StructMatrix</a> matrix, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *num_ghost)</td></tr>
+<tr class="separator:a5080750832b626582d3fc231e29a9aa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e1fbddb82166048190d3f97175c23e2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a5e1fbddb82166048190d3f97175c23e2">HYPRE_StructMatrixPrint</a> (const char *filename, <a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a5e7343a56e458772e2c05318a279b41d">HYPRE_StructMatrix</a> matrix, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> all)</td></tr>
+<tr class="separator:a5e1fbddb82166048190d3f97175c23e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a519b533bcd351e2046532f0fdc3f597c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a519b533bcd351e2046532f0fdc3f597c">HYPRE_StructMatrixMatvec</a> (<a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> alpha, <a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a5e7343a56e458772e2c05318a279b41d">HYPRE_StructMatrix</a> A, <a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aed25d604276927bafc446babb6785213">HYPRE_StructVector</a> x, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> beta, <a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aed25d604276927bafc446babb6785213">HYPRE_StructVector</a> y)</td></tr>
+<tr class="separator:a519b533bcd351e2046532f0fdc3f597c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+Struct Vectors</h2></td></tr>
+<tr class="memitem:a8cb2ba57e8cb0368d96c0d4651c402ed"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structhypre___comm_pkg__struct.html">hypre_CommPkg_struct</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a8cb2ba57e8cb0368d96c0d4651c402ed">HYPRE_CommPkg</a></td></tr>
+<tr class="separator:a8cb2ba57e8cb0368d96c0d4651c402ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e9179003721fd34e72779e2be2fb351"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a8e9179003721fd34e72779e2be2fb351">HYPRE_StructVectorCreate</a> (MPI_Comm comm, <a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aa1d1f45ebd1bccbaf2cece55e0c91019">HYPRE_StructGrid</a> grid, <a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aed25d604276927bafc446babb6785213">HYPRE_StructVector</a> *vector)</td></tr>
+<tr class="separator:a8e9179003721fd34e72779e2be2fb351"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add68813cd65804edf273b058078de6e5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#add68813cd65804edf273b058078de6e5">HYPRE_StructVectorDestroy</a> (<a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aed25d604276927bafc446babb6785213">HYPRE_StructVector</a> vector)</td></tr>
+<tr class="separator:add68813cd65804edf273b058078de6e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c80acbaafc1d3cc37cf4405a593de49"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a5c80acbaafc1d3cc37cf4405a593de49">HYPRE_StructVectorInitialize</a> (<a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aed25d604276927bafc446babb6785213">HYPRE_StructVector</a> vector)</td></tr>
+<tr class="separator:a5c80acbaafc1d3cc37cf4405a593de49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22f14b7f7a56af7bc638f79ad24cb271"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a22f14b7f7a56af7bc638f79ad24cb271">HYPRE_StructVectorSetValues</a> (<a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aed25d604276927bafc446babb6785213">HYPRE_StructVector</a> vector, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *index, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> value)</td></tr>
+<tr class="separator:a22f14b7f7a56af7bc638f79ad24cb271"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24278344bd53e469caab1714aff58658"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a24278344bd53e469caab1714aff58658">HYPRE_StructVectorAddToValues</a> (<a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aed25d604276927bafc446babb6785213">HYPRE_StructVector</a> vector, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *index, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> value)</td></tr>
+<tr class="separator:a24278344bd53e469caab1714aff58658"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add5ebdf71897947ae19777bc91dcb08a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#add5ebdf71897947ae19777bc91dcb08a">HYPRE_StructVectorSetBoxValues</a> (<a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aed25d604276927bafc446babb6785213">HYPRE_StructVector</a> vector, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *ilower, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *iupper, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *values)</td></tr>
+<tr class="separator:add5ebdf71897947ae19777bc91dcb08a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa936724db5991054221ef3068c5e1f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#afa936724db5991054221ef3068c5e1f3">HYPRE_StructVectorAddToBoxValues</a> (<a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aed25d604276927bafc446babb6785213">HYPRE_StructVector</a> vector, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *ilower, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *iupper, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *values)</td></tr>
+<tr class="separator:afa936724db5991054221ef3068c5e1f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2994028970d73a64219185a8d295c43e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a2994028970d73a64219185a8d295c43e">HYPRE_StructVectorAssemble</a> (<a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aed25d604276927bafc446babb6785213">HYPRE_StructVector</a> vector)</td></tr>
+<tr class="separator:a2994028970d73a64219185a8d295c43e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace15c94fcd6f1534e0d4472e18412dd2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#ace15c94fcd6f1534e0d4472e18412dd2">HYPRE_StructVectorGetValues</a> (<a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aed25d604276927bafc446babb6785213">HYPRE_StructVector</a> vector, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *index, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *value)</td></tr>
+<tr class="separator:ace15c94fcd6f1534e0d4472e18412dd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8aceeacfb4eb92d7d04bdfb82447f502"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a8aceeacfb4eb92d7d04bdfb82447f502">HYPRE_StructVectorGetBoxValues</a> (<a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aed25d604276927bafc446babb6785213">HYPRE_StructVector</a> vector, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *ilower, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *iupper, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *values)</td></tr>
+<tr class="separator:a8aceeacfb4eb92d7d04bdfb82447f502"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac80d11462aaa6917553fa230cb60d1a0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#ac80d11462aaa6917553fa230cb60d1a0">HYPRE_StructVectorPrint</a> (const char *filename, <a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aed25d604276927bafc446babb6785213">HYPRE_StructVector</a> vector, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> all)</td></tr>
+<tr class="separator:ac80d11462aaa6917553fa230cb60d1a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa56ab4122bce5dd2c9432573329f665a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aa56ab4122bce5dd2c9432573329f665a">HYPRE_StructMatrixGetGrid</a> (<a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a5e7343a56e458772e2c05318a279b41d">HYPRE_StructMatrix</a> matrix, <a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aa1d1f45ebd1bccbaf2cece55e0c91019">HYPRE_StructGrid</a> *grid)</td></tr>
+<tr class="separator:aa56ab4122bce5dd2c9432573329f665a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a232660d81bff2997fcb1a2b2a1625019"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a232660d81bff2997fcb1a2b2a1625019">HYPRE_StructVectorSetNumGhost</a> (<a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aed25d604276927bafc446babb6785213">HYPRE_StructVector</a> vector, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *num_ghost)</td></tr>
+<tr class="separator:a232660d81bff2997fcb1a2b2a1625019"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd57bdfdc79f54df4f3b3e0cf31425e1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#afd57bdfdc79f54df4f3b3e0cf31425e1">HYPRE_StructVectorSetConstantValues</a> (<a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aed25d604276927bafc446babb6785213">HYPRE_StructVector</a> vector, <a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> values)</td></tr>
+<tr class="separator:afd57bdfdc79f54df4f3b3e0cf31425e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff08013b33429ce09ef4868ca761de5d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aff08013b33429ce09ef4868ca761de5d">HYPRE_StructVectorGetMigrateCommPkg</a> (<a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aed25d604276927bafc446babb6785213">HYPRE_StructVector</a> from_vector, <a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aed25d604276927bafc446babb6785213">HYPRE_StructVector</a> to_vector, <a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a8cb2ba57e8cb0368d96c0d4651c402ed">HYPRE_CommPkg</a> *comm_pkg)</td></tr>
+<tr class="separator:aff08013b33429ce09ef4868ca761de5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad0417e82d805900e109a3ac0a18e247"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aad0417e82d805900e109a3ac0a18e247">HYPRE_StructVectorMigrate</a> (<a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a8cb2ba57e8cb0368d96c0d4651c402ed">HYPRE_CommPkg</a> comm_pkg, <a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aed25d604276927bafc446babb6785213">HYPRE_StructVector</a> from_vector, <a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aed25d604276927bafc446babb6785213">HYPRE_StructVector</a> to_vector)</td></tr>
+<tr class="separator:aad0417e82d805900e109a3ac0a18e247"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a846a82696b1b67b974a5536e8de628f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a846a82696b1b67b974a5536e8de628f3">HYPRE_CommPkgDestroy</a> (<a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a8cb2ba57e8cb0368d96c0d4651c402ed">HYPRE_CommPkg</a> comm_pkg)</td></tr>
+<tr class="separator:a846a82696b1b67b974a5536e8de628f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a287c6801f3cf9cf753e1c4b088ca5141"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a287c6801f3cf9cf753e1c4b088ca5141">&#9670;&nbsp;</a></span>HYPRE_StructVector_defined</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HYPRE_StructVector_defined</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_h_y_p_r_e__struct__mv_8h_source.html#l00024">24</a> of file <a class="el" href="_h_y_p_r_e__struct__mv_8h_source.html">HYPRE_struct_mv.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="a8cb2ba57e8cb0368d96c0d4651c402ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cb2ba57e8cb0368d96c0d4651c402ed">&#9670;&nbsp;</a></span>HYPRE_CommPkg</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structhypre___comm_pkg__struct.html">hypre_CommPkg_struct</a>* <a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a8cb2ba57e8cb0368d96c0d4651c402ed">HYPRE_CommPkg</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_h_y_p_r_e__struct__mv_8h_source.html#l00460">460</a> of file <a class="el" href="_h_y_p_r_e__struct__mv_8h_source.html">HYPRE_struct_mv.h</a>.</p>
+
+</div>
+</div>
+<a id="aa1d1f45ebd1bccbaf2cece55e0c91019"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1d1f45ebd1bccbaf2cece55e0c91019">&#9670;&nbsp;</a></span>HYPRE_StructGrid</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structhypre___struct_grid__struct.html">hypre_StructGrid_struct</a>* <a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aa1d1f45ebd1bccbaf2cece55e0c91019">HYPRE_StructGrid</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A grid object is constructed out of several `&lsquo;boxes&rsquo;', defined on a global abstract index space. </p>
+
+<p class="definition">Definition at line <a class="el" href="_h_y_p_r_e__struct__mv_8h_source.html#l00055">55</a> of file <a class="el" href="_h_y_p_r_e__struct__mv_8h_source.html">HYPRE_struct_mv.h</a>.</p>
+
+</div>
+</div>
+<a id="a5e7343a56e458772e2c05318a279b41d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e7343a56e458772e2c05318a279b41d">&#9670;&nbsp;</a></span>HYPRE_StructMatrix</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structhypre___struct_matrix__struct.html">hypre_StructMatrix_struct</a>* <a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a5e7343a56e458772e2c05318a279b41d">HYPRE_StructMatrix</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The matrix object. </p>
+
+<p class="definition">Definition at line <a class="el" href="_h_y_p_r_e__struct__mv_8h_source.html#l00160">160</a> of file <a class="el" href="_h_y_p_r_e__struct__mv_8h_source.html">HYPRE_struct_mv.h</a>.</p>
+
+</div>
+</div>
+<a id="a33006dee1d219adb12ed98d8c95c7edd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33006dee1d219adb12ed98d8c95c7edd">&#9670;&nbsp;</a></span>HYPRE_StructStencil</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structhypre___struct_stencil__struct.html">hypre_StructStencil_struct</a>* <a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a33006dee1d219adb12ed98d8c95c7edd">HYPRE_StructStencil</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The stencil object. </p>
+
+<p class="definition">Definition at line <a class="el" href="_h_y_p_r_e__struct__mv_8h_source.html#l00121">121</a> of file <a class="el" href="_h_y_p_r_e__struct__mv_8h_source.html">HYPRE_struct_mv.h</a>.</p>
+
+</div>
+</div>
+<a id="aed25d604276927bafc446babb6785213"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed25d604276927bafc446babb6785213">&#9670;&nbsp;</a></span>HYPRE_StructVector</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structhypre___struct_vector__struct.html">hypre_StructVector_struct</a>* <a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aed25d604276927bafc446babb6785213">HYPRE_StructVector</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_h_y_p_r_e__struct__mv_8h_source.html#l00026">26</a> of file <a class="el" href="_h_y_p_r_e__struct__mv_8h_source.html">HYPRE_struct_mv.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a846a82696b1b67b974a5536e8de628f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a846a82696b1b67b974a5536e8de628f3">&#9670;&nbsp;</a></span>HYPRE_CommPkgDestroy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_CommPkgDestroy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a8cb2ba57e8cb0368d96c0d4651c402ed">HYPRE_CommPkg</a>&#160;</td>
+          <td class="paramname"><em>comm_pkg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a963feb239d9fbf65b46462501c7c3f0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a963feb239d9fbf65b46462501c7c3f0e">&#9670;&nbsp;</a></span>HYPRE_StructGridAssemble()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructGridAssemble </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aa1d1f45ebd1bccbaf2cece55e0c91019">HYPRE_StructGrid</a>&#160;</td>
+          <td class="paramname"><em>grid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Finalize the construction of the grid before using. </p>
+
+</div>
+</div>
+<a id="a9ea7c7f3c35136cc18c299cccde97440"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ea7c7f3c35136cc18c299cccde97440">&#9670;&nbsp;</a></span>HYPRE_StructGridCreate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructGridCreate </td>
+          <td>(</td>
+          <td class="paramtype">MPI_Comm&#160;</td>
+          <td class="paramname"><em>comm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>ndim</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aa1d1f45ebd1bccbaf2cece55e0c91019">HYPRE_StructGrid</a> *&#160;</td>
+          <td class="paramname"><em>grid</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Create an {\tt ndim}-dimensional grid object. </p>
+
+</div>
+</div>
+<a id="aa049ec6344999ba617823cc4e3a3545c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa049ec6344999ba617823cc4e3a3545c">&#9670;&nbsp;</a></span>HYPRE_StructGridDestroy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructGridDestroy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aa1d1f45ebd1bccbaf2cece55e0c91019">HYPRE_StructGrid</a>&#160;</td>
+          <td class="paramname"><em>grid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Destroy a grid object. An object should be explicitly destroyed using this destructor when the user's code no longer needs direct access to it. Once destroyed, the object must not be referenced again. Note that the object may not be deallocated at the completion of this call, since there may be internal package references to the object. The object will then be destroyed when all internal reference counts go to zero. </p>
+
+</div>
+</div>
+<a id="ad4c434bb6481fa489b20f4afc3ec941d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4c434bb6481fa489b20f4afc3ec941d">&#9670;&nbsp;</a></span>HYPRE_StructGridSetExtents()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructGridSetExtents </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aa1d1f45ebd1bccbaf2cece55e0c91019">HYPRE_StructGrid</a>&#160;</td>
+          <td class="paramname"><em>grid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>ilower</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>iupper</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the extents for a box on the grid. </p>
+
+</div>
+</div>
+<a id="a3d185f4ee42502419580c9bfa5276875"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d185f4ee42502419580c9bfa5276875">&#9670;&nbsp;</a></span>HYPRE_StructGridSetNumGhost()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructGridSetNumGhost </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aa1d1f45ebd1bccbaf2cece55e0c91019">HYPRE_StructGrid</a>&#160;</td>
+          <td class="paramname"><em>grid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>num_ghost</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the ghost layer in the grid object </p>
+
+</div>
+</div>
+<a id="ae0e3e5221e04fc94f70f8a9d812f0214"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0e3e5221e04fc94f70f8a9d812f0214">&#9670;&nbsp;</a></span>HYPRE_StructGridSetPeriodic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructGridSetPeriodic </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aa1d1f45ebd1bccbaf2cece55e0c91019">HYPRE_StructGrid</a>&#160;</td>
+          <td class="paramname"><em>grid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>periodic</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the periodicity for the grid.</p>
+<p>The argument {\tt periodic} is an {\tt ndim}-dimensional integer array that contains the periodicity for each dimension. A zero value for a dimension means non-periodic, while a nonzero value means periodic and contains the actual period. For example, periodicity in the first and third dimensions for a 10x11x12 grid is indicated by the array [10,0,12].</p>
+<p>NOTE: Some of the solvers in hypre have power-of-two restrictions on the size of the periodic dimensions. </p>
+
+</div>
+</div>
+<a id="a656b0d792991f1d6e0cb8a49b94c78e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a656b0d792991f1d6e0cb8a49b94c78e8">&#9670;&nbsp;</a></span>HYPRE_StructMatrixAddToBoxValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructMatrixAddToBoxValues </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a5e7343a56e458772e2c05318a279b41d">HYPRE_StructMatrix</a>&#160;</td>
+          <td class="paramname"><em>matrix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>ilower</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>iupper</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>nentries</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>entries</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *&#160;</td>
+          <td class="paramname"><em>values</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Add to matrix coefficients a box at a time. The data in {\tt values} is ordered as in \Ref{HYPRE_StructMatrixSetBoxValues}. </p>
+
+</div>
+</div>
+<a id="aa94db8002dd2b36660ad3eec496fda6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa94db8002dd2b36660ad3eec496fda6c">&#9670;&nbsp;</a></span>HYPRE_StructMatrixAddToConstantValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructMatrixAddToConstantValues </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a5e7343a56e458772e2c05318a279b41d">HYPRE_StructMatrix</a>&#160;</td>
+          <td class="paramname"><em>matrix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>nentries</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>entries</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *&#160;</td>
+          <td class="paramname"><em>values</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Add to matrix coefficients which are constant over the grid. The {\tt values} array is of length {\tt nentries}. </p>
+
+</div>
+</div>
+<a id="a54de965ba540ec2dead17e09a7042084"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54de965ba540ec2dead17e09a7042084">&#9670;&nbsp;</a></span>HYPRE_StructMatrixAddToValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructMatrixAddToValues </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a5e7343a56e458772e2c05318a279b41d">HYPRE_StructMatrix</a>&#160;</td>
+          <td class="paramname"><em>matrix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>nentries</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>entries</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *&#160;</td>
+          <td class="paramname"><em>values</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Add to matrix coefficients index by index. The {\tt values} array is of length {\tt nentries}.</p>
+<p>NOTE: For better efficiency, use \Ref{HYPRE_StructMatrixAddToBoxValues} to set coefficients a box at a time. </p>
+
+</div>
+</div>
+<a id="a4831b181f6203c78e3d1afcb52975fd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4831b181f6203c78e3d1afcb52975fd6">&#9670;&nbsp;</a></span>HYPRE_StructMatrixAssemble()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructMatrixAssemble </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a5e7343a56e458772e2c05318a279b41d">HYPRE_StructMatrix</a>&#160;</td>
+          <td class="paramname"><em>matrix</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Finalize the construction of the matrix before using. </p>
+
+</div>
+</div>
+<a id="a6df7c0bab679bf96c33911f0b0c1d24d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6df7c0bab679bf96c33911f0b0c1d24d">&#9670;&nbsp;</a></span>HYPRE_StructMatrixCreate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructMatrixCreate </td>
+          <td>(</td>
+          <td class="paramtype">MPI_Comm&#160;</td>
+          <td class="paramname"><em>comm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aa1d1f45ebd1bccbaf2cece55e0c91019">HYPRE_StructGrid</a>&#160;</td>
+          <td class="paramname"><em>grid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a33006dee1d219adb12ed98d8c95c7edd">HYPRE_StructStencil</a>&#160;</td>
+          <td class="paramname"><em>stencil</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a5e7343a56e458772e2c05318a279b41d">HYPRE_StructMatrix</a> *&#160;</td>
+          <td class="paramname"><em>matrix</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Create a matrix object. </p>
+
+</div>
+</div>
+<a id="a528ee923840d67b3f14d67e1c4bf2d97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a528ee923840d67b3f14d67e1c4bf2d97">&#9670;&nbsp;</a></span>HYPRE_StructMatrixDestroy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructMatrixDestroy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a5e7343a56e458772e2c05318a279b41d">HYPRE_StructMatrix</a>&#160;</td>
+          <td class="paramname"><em>matrix</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Destroy a matrix object. </p>
+
+</div>
+</div>
+<a id="a81361fc450864c1310286ea46eef7cd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81361fc450864c1310286ea46eef7cd8">&#9670;&nbsp;</a></span>HYPRE_StructMatrixGetBoxValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructMatrixGetBoxValues </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a5e7343a56e458772e2c05318a279b41d">HYPRE_StructMatrix</a>&#160;</td>
+          <td class="paramname"><em>matrix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>ilower</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>iupper</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>nentries</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>entries</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *&#160;</td>
+          <td class="paramname"><em>values</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get matrix coefficients a box at a time. The data in {\tt values} is ordered as in \Ref{HYPRE_StructMatrixSetBoxValues}. </p>
+
+</div>
+</div>
+<a id="aa56ab4122bce5dd2c9432573329f665a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa56ab4122bce5dd2c9432573329f665a">&#9670;&nbsp;</a></span>HYPRE_StructMatrixGetGrid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructMatrixGetGrid </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a5e7343a56e458772e2c05318a279b41d">HYPRE_StructMatrix</a>&#160;</td>
+          <td class="paramname"><em>matrix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aa1d1f45ebd1bccbaf2cece55e0c91019">HYPRE_StructGrid</a> *&#160;</td>
+          <td class="paramname"><em>grid</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0fdc370371b66544ccbdf913366c4b9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fdc370371b66544ccbdf913366c4b9f">&#9670;&nbsp;</a></span>HYPRE_StructMatrixGetValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructMatrixGetValues </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a5e7343a56e458772e2c05318a279b41d">HYPRE_StructMatrix</a>&#160;</td>
+          <td class="paramname"><em>matrix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>nentries</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>entries</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *&#160;</td>
+          <td class="paramname"><em>values</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get matrix coefficients index by index. The {\tt values} array is of length {\tt nentries}.</p>
+<p>NOTE: For better efficiency, use \Ref{HYPRE_StructMatrixGetBoxValues} to get coefficients a box at a time. </p>
+
+</div>
+</div>
+<a id="abf26dc0645b2e2d817a4d163499f7d37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf26dc0645b2e2d817a4d163499f7d37">&#9670;&nbsp;</a></span>HYPRE_StructMatrixInitialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructMatrixInitialize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a5e7343a56e458772e2c05318a279b41d">HYPRE_StructMatrix</a>&#160;</td>
+          <td class="paramname"><em>matrix</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Prepare a matrix object for setting coefficient values. </p>
+
+</div>
+</div>
+<a id="a519b533bcd351e2046532f0fdc3f597c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a519b533bcd351e2046532f0fdc3f597c">&#9670;&nbsp;</a></span>HYPRE_StructMatrixMatvec()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructMatrixMatvec </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a>&#160;</td>
+          <td class="paramname"><em>alpha</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a5e7343a56e458772e2c05318a279b41d">HYPRE_StructMatrix</a>&#160;</td>
+          <td class="paramname"><em>A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aed25d604276927bafc446babb6785213">HYPRE_StructVector</a>&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a>&#160;</td>
+          <td class="paramname"><em>beta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aed25d604276927bafc446babb6785213">HYPRE_StructVector</a>&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Matvec operator. This operation is $y = \alpha A x + \beta y$ . Note that you can do a simple matrix-vector multiply by setting $\alpha=1$ and $\beta=0$. </p>
+
+</div>
+</div>
+<a id="a5e1fbddb82166048190d3f97175c23e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e1fbddb82166048190d3f97175c23e2">&#9670;&nbsp;</a></span>HYPRE_StructMatrixPrint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructMatrixPrint </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a5e7343a56e458772e2c05318a279b41d">HYPRE_StructMatrix</a>&#160;</td>
+          <td class="paramname"><em>matrix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>all</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Print the matrix to file. This is mainly for debugging purposes. </p>
+
+</div>
+</div>
+<a id="ae42dad70df4abbe6cea59ba380b1099b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae42dad70df4abbe6cea59ba380b1099b">&#9670;&nbsp;</a></span>HYPRE_StructMatrixSetBoxValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructMatrixSetBoxValues </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a5e7343a56e458772e2c05318a279b41d">HYPRE_StructMatrix</a>&#160;</td>
+          <td class="paramname"><em>matrix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>ilower</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>iupper</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>nentries</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>entries</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *&#160;</td>
+          <td class="paramname"><em>values</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set matrix coefficients a box at a time. The data in {\tt values} is ordered as follows:</p>
+<p>\begin{verbatim} m = 0; for (k = ilower[2]; k &lt;= iupper[2]; k++) for (j = ilower[1]; j &lt;= iupper[1]; j++) for (i = ilower[0]; i &lt;= iupper[0]; i++) for (entry = 0; entry &lt; nentries; entry++) { values[m] = ...; m++; } \end{verbatim} </p>
+
+</div>
+</div>
+<a id="a63658c1bcc661efcf563e27e62867360"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63658c1bcc661efcf563e27e62867360">&#9670;&nbsp;</a></span>HYPRE_StructMatrixSetConstantEntries()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructMatrixSetConstantEntries </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a5e7343a56e458772e2c05318a279b41d">HYPRE_StructMatrix</a>&#160;</td>
+          <td class="paramname"><em>matrix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>nentries</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>entries</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Specify which stencil entries are constant over the grid. Declaring entries to be `&lsquo;constant over the grid&rsquo;' yields significant memory savings because the value for each declared entry will only be stored once. However, not all solvers are able to utilize this feature.</p>
+<p>Presently supported: \begin{itemize} \item no entries constant (this function need not be called) \item all entries constant \item all but the diagonal entry constant \end{itemize} </p>
+
+</div>
+</div>
+<a id="a56c1a4cd70c4a9d189e8d276199a8708"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56c1a4cd70c4a9d189e8d276199a8708">&#9670;&nbsp;</a></span>HYPRE_StructMatrixSetConstantValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructMatrixSetConstantValues </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a5e7343a56e458772e2c05318a279b41d">HYPRE_StructMatrix</a>&#160;</td>
+          <td class="paramname"><em>matrix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>nentries</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>entries</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *&#160;</td>
+          <td class="paramname"><em>values</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set matrix coefficients which are constant over the grid. The {\tt values} array is of length {\tt nentries}. </p>
+
+</div>
+</div>
+<a id="a5080750832b626582d3fc231e29a9aa7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5080750832b626582d3fc231e29a9aa7">&#9670;&nbsp;</a></span>HYPRE_StructMatrixSetNumGhost()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructMatrixSetNumGhost </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a5e7343a56e458772e2c05318a279b41d">HYPRE_StructMatrix</a>&#160;</td>
+          <td class="paramname"><em>matrix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>num_ghost</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the ghost layer in the matrix </p>
+
+</div>
+</div>
+<a id="ac4bd56006308ce24290d58a20968158f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4bd56006308ce24290d58a20968158f">&#9670;&nbsp;</a></span>HYPRE_StructMatrixSetSymmetric()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructMatrixSetSymmetric </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a5e7343a56e458772e2c05318a279b41d">HYPRE_StructMatrix</a>&#160;</td>
+          <td class="paramname"><em>matrix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>symmetric</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Define symmetry properties of the matrix. By default, matrices are assumed to be nonsymmetric. Significant storage savings can be made if the matrix is symmetric. </p>
+
+</div>
+</div>
+<a id="aa405be43e66b09d82005467ee8311f78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa405be43e66b09d82005467ee8311f78">&#9670;&nbsp;</a></span>HYPRE_StructMatrixSetValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructMatrixSetValues </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a5e7343a56e458772e2c05318a279b41d">HYPRE_StructMatrix</a>&#160;</td>
+          <td class="paramname"><em>matrix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>nentries</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>entries</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *&#160;</td>
+          <td class="paramname"><em>values</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set matrix coefficients index by index. The {\tt values} array is of length {\tt nentries}.</p>
+<p>NOTE: For better efficiency, use \Ref{HYPRE_StructMatrixSetBoxValues} to set coefficients a box at a time. </p>
+
+</div>
+</div>
+<a id="a61b5420b2f8bc2fde7b67c1100b23d20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61b5420b2f8bc2fde7b67c1100b23d20">&#9670;&nbsp;</a></span>HYPRE_StructStencilCreate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructStencilCreate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>ndim</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a33006dee1d219adb12ed98d8c95c7edd">HYPRE_StructStencil</a> *&#160;</td>
+          <td class="paramname"><em>stencil</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Create a stencil object for the specified number of spatial dimensions and stencil entries. </p>
+
+</div>
+</div>
+<a id="af8838e7b35f902655a1dbcb2d2e2a4ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8838e7b35f902655a1dbcb2d2e2a4ef">&#9670;&nbsp;</a></span>HYPRE_StructStencilDestroy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructStencilDestroy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a33006dee1d219adb12ed98d8c95c7edd">HYPRE_StructStencil</a>&#160;</td>
+          <td class="paramname"><em>stencil</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Destroy a stencil object. </p>
+
+</div>
+</div>
+<a id="ada7ab3f25ee9420862630cc7826e5d65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada7ab3f25ee9420862630cc7826e5d65">&#9670;&nbsp;</a></span>HYPRE_StructStencilSetElement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructStencilSetElement </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a33006dee1d219adb12ed98d8c95c7edd">HYPRE_StructStencil</a>&#160;</td>
+          <td class="paramname"><em>stencil</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>entry</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>offset</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set a stencil entry.</p>
+<p>NOTE: The name of this routine will eventually be changed to {\tt HYPRE_StructStencilSetEntry}. </p>
+
+</div>
+</div>
+<a id="afa936724db5991054221ef3068c5e1f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa936724db5991054221ef3068c5e1f3">&#9670;&nbsp;</a></span>HYPRE_StructVectorAddToBoxValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructVectorAddToBoxValues </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aed25d604276927bafc446babb6785213">HYPRE_StructVector</a>&#160;</td>
+          <td class="paramname"><em>vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>ilower</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>iupper</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *&#160;</td>
+          <td class="paramname"><em>values</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Add to vector coefficients a box at a time. The data in {\tt values} is ordered as in \Ref{HYPRE_StructVectorSetBoxValues}. </p>
+
+</div>
+</div>
+<a id="a24278344bd53e469caab1714aff58658"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24278344bd53e469caab1714aff58658">&#9670;&nbsp;</a></span>HYPRE_StructVectorAddToValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructVectorAddToValues </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aed25d604276927bafc446babb6785213">HYPRE_StructVector</a>&#160;</td>
+          <td class="paramname"><em>vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a>&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Add to vector coefficients index by index.</p>
+<p>NOTE: For better efficiency, use \Ref{HYPRE_StructVectorAddToBoxValues} to set coefficients a box at a time. </p>
+
+</div>
+</div>
+<a id="a2994028970d73a64219185a8d295c43e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2994028970d73a64219185a8d295c43e">&#9670;&nbsp;</a></span>HYPRE_StructVectorAssemble()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructVectorAssemble </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aed25d604276927bafc446babb6785213">HYPRE_StructVector</a>&#160;</td>
+          <td class="paramname"><em>vector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Finalize the construction of the vector before using. </p>
+
+</div>
+</div>
+<a id="a8e9179003721fd34e72779e2be2fb351"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e9179003721fd34e72779e2be2fb351">&#9670;&nbsp;</a></span>HYPRE_StructVectorCreate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructVectorCreate </td>
+          <td>(</td>
+          <td class="paramtype">MPI_Comm&#160;</td>
+          <td class="paramname"><em>comm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aa1d1f45ebd1bccbaf2cece55e0c91019">HYPRE_StructGrid</a>&#160;</td>
+          <td class="paramname"><em>grid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aed25d604276927bafc446babb6785213">HYPRE_StructVector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The vector object. Create a vector object. </p>
+
+</div>
+</div>
+<a id="add68813cd65804edf273b058078de6e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add68813cd65804edf273b058078de6e5">&#9670;&nbsp;</a></span>HYPRE_StructVectorDestroy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructVectorDestroy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aed25d604276927bafc446babb6785213">HYPRE_StructVector</a>&#160;</td>
+          <td class="paramname"><em>vector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Destroy a vector object. </p>
+
+</div>
+</div>
+<a id="a8aceeacfb4eb92d7d04bdfb82447f502"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8aceeacfb4eb92d7d04bdfb82447f502">&#9670;&nbsp;</a></span>HYPRE_StructVectorGetBoxValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructVectorGetBoxValues </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aed25d604276927bafc446babb6785213">HYPRE_StructVector</a>&#160;</td>
+          <td class="paramname"><em>vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>ilower</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>iupper</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *&#160;</td>
+          <td class="paramname"><em>values</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get vector coefficients a box at a time. The data in {\tt values} is ordered as in \Ref{HYPRE_StructVectorSetBoxValues}. </p>
+
+</div>
+</div>
+<a id="aff08013b33429ce09ef4868ca761de5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff08013b33429ce09ef4868ca761de5d">&#9670;&nbsp;</a></span>HYPRE_StructVectorGetMigrateCommPkg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructVectorGetMigrateCommPkg </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aed25d604276927bafc446babb6785213">HYPRE_StructVector</a>&#160;</td>
+          <td class="paramname"><em>from_vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aed25d604276927bafc446babb6785213">HYPRE_StructVector</a>&#160;</td>
+          <td class="paramname"><em>to_vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a8cb2ba57e8cb0368d96c0d4651c402ed">HYPRE_CommPkg</a> *&#160;</td>
+          <td class="paramname"><em>comm_pkg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ace15c94fcd6f1534e0d4472e18412dd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace15c94fcd6f1534e0d4472e18412dd2">&#9670;&nbsp;</a></span>HYPRE_StructVectorGetValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructVectorGetValues </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aed25d604276927bafc446babb6785213">HYPRE_StructVector</a>&#160;</td>
+          <td class="paramname"><em>vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get vector coefficients index by index.</p>
+<p>NOTE: For better efficiency, use \Ref{HYPRE_StructVectorGetBoxValues} to get coefficients a box at a time. </p>
+
+</div>
+</div>
+<a id="a5c80acbaafc1d3cc37cf4405a593de49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c80acbaafc1d3cc37cf4405a593de49">&#9670;&nbsp;</a></span>HYPRE_StructVectorInitialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructVectorInitialize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aed25d604276927bafc446babb6785213">HYPRE_StructVector</a>&#160;</td>
+          <td class="paramname"><em>vector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Prepare a vector object for setting coefficient values. </p>
+
+</div>
+</div>
+<a id="aad0417e82d805900e109a3ac0a18e247"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad0417e82d805900e109a3ac0a18e247">&#9670;&nbsp;</a></span>HYPRE_StructVectorMigrate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructVectorMigrate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#a8cb2ba57e8cb0368d96c0d4651c402ed">HYPRE_CommPkg</a>&#160;</td>
+          <td class="paramname"><em>comm_pkg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aed25d604276927bafc446babb6785213">HYPRE_StructVector</a>&#160;</td>
+          <td class="paramname"><em>from_vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aed25d604276927bafc446babb6785213">HYPRE_StructVector</a>&#160;</td>
+          <td class="paramname"><em>to_vector</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac80d11462aaa6917553fa230cb60d1a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac80d11462aaa6917553fa230cb60d1a0">&#9670;&nbsp;</a></span>HYPRE_StructVectorPrint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructVectorPrint </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aed25d604276927bafc446babb6785213">HYPRE_StructVector</a>&#160;</td>
+          <td class="paramname"><em>vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a>&#160;</td>
+          <td class="paramname"><em>all</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Print the vector to file. This is mainly for debugging purposes. </p>
+
+</div>
+</div>
+<a id="add5ebdf71897947ae19777bc91dcb08a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add5ebdf71897947ae19777bc91dcb08a">&#9670;&nbsp;</a></span>HYPRE_StructVectorSetBoxValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructVectorSetBoxValues </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aed25d604276927bafc446babb6785213">HYPRE_StructVector</a>&#160;</td>
+          <td class="paramname"><em>vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>ilower</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>iupper</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a> *&#160;</td>
+          <td class="paramname"><em>values</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set vector coefficients a box at a time. The data in {\tt values} is ordered as follows:</p>
+<p>\begin{verbatim} m = 0; for (k = ilower[2]; k &lt;= iupper[2]; k++) for (j = ilower[1]; j &lt;= iupper[1]; j++) for (i = ilower[0]; i &lt;= iupper[0]; i++) { values[m] = ...; m++; } \end{verbatim} </p>
+
+</div>
+</div>
+<a id="afd57bdfdc79f54df4f3b3e0cf31425e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd57bdfdc79f54df4f3b3e0cf31425e1">&#9670;&nbsp;</a></span>HYPRE_StructVectorSetConstantValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructVectorSetConstantValues </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aed25d604276927bafc446babb6785213">HYPRE_StructVector</a>&#160;</td>
+          <td class="paramname"><em>vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a>&#160;</td>
+          <td class="paramname"><em>values</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a232660d81bff2997fcb1a2b2a1625019"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a232660d81bff2997fcb1a2b2a1625019">&#9670;&nbsp;</a></span>HYPRE_StructVectorSetNumGhost()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructVectorSetNumGhost </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aed25d604276927bafc446babb6785213">HYPRE_StructVector</a>&#160;</td>
+          <td class="paramname"><em>vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>num_ghost</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a22f14b7f7a56af7bc638f79ad24cb271"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22f14b7f7a56af7bc638f79ad24cb271">&#9670;&nbsp;</a></span>HYPRE_StructVectorSetValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> HYPRE_StructVectorSetValues </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html#aed25d604276927bafc446babb6785213">HYPRE_StructVector</a>&#160;</td>
+          <td class="paramname"><em>vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a1b5547e62770096da46d1932024e30b9">HYPRE_Int</a> *&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_h_y_p_r_e__utilities_8h.html#a0ffb2128084bcd038afd6ea649bb7d1d">HYPRE_Complex</a>&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set vector coefficients index by index.</p>
+<p>NOTE: For better efficiency, use \Ref{HYPRE_StructVectorSetBoxValues} to set coefficients a box at a time. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_1481b2ad69b2eab628871d4fb2bac45c.html">hypre-2.11.1</a></li><li class="navelem"><a class="el" href="_h_y_p_r_e__struct__mv_8h.html">HYPRE_struct_mv.h</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>
