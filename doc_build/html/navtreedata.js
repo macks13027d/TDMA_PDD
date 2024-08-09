@@ -22,7 +22,7 @@ for the JavaScript code in this file
 */
 var NAVTREE =
 [
-  [ "TDMA_PDD_CPU", "index.html", [
+  [ "TDMA_PDD", "index.html", [
     [ "Introduction", "index.html", [
       [ "Overview", "index.html#autotoc_md0", null ],
       [ "Features", "index.html#autotoc_md1", [
