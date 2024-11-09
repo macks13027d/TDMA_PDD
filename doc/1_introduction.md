@@ -1,6 +1,6 @@
-# TDMA_PDD_CPU: Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library
+# TDMA_PDD: Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library
 ![](https://img.shields.io/badge/Fortran-Fortran_90-blue.svg)
-[![](https://img.shields.io/badge/docs-passing-green.svg)](https://xccels.github.io/TDMA_PDD_CPU)
+[![](https://img.shields.io/badge/docs-passing-green.svg)](https://xccels.github.io/TDMA_PDD)
 ![](https://img.shields.io/badge/license-MIT_License-yellow.svg)
 This library provides efficient parallel computation for multidimensional TDMA.
 
@@ -22,11 +22,11 @@ The PDD algorithm, proposed by Sun et al. (1989), is a method for solving TDMA o
 - Donghyun You (dhyou@postech.ac.kr), Mechanical Engineering, POSTECH
 
 # Usage
-## Downloading TDMA_PDD_CPU
+## Downloading TDMA_PDD
 The repository can be cloned as follows:
 
 ```
-git clone https://github.com/MPMC-Lab/TDMA_PDD_CPU.git
+git clone https://github.com/MPMC-Lab/TDMA_PDD.git
 ```
 Alternatively, the source files can be downloaded through github menu 'Download ZIP'.
 
@@ -37,11 +37,11 @@ Prerequisites to compile TDMA_PDD_CPU are as follows:
 * Fortran compiler (Intel Fortran Compiler 18.0.3)
 
 ### Compile and build
-* Build TDMA_PDD_CPU
+* Build TDMA_PDD
     ```
 	make lib
 	```
-* Build an example problem after build TDMA_PDD_CPU
+* Build an example problem after build TDMA_PDD
 
     ```
 	make example
@@ -53,17 +53,17 @@ Prerequisites to compile TDMA_PDD_CPU are as follows:
 	```
 
 ## Running the example
-After building the example file, an executable binary, `tdma_pdd_cpu`, is built in the `run` folder. The `input.dat` file in the `run` folder is a pre-defined input file, and the `tdma_pdd_cpu` can be executed as follows:
+After building the example file, an executable binary, `tdma_pdd`, is built in the `run` folder. The `input.dat` file in the `run` folder is a pre-defined input file, and the `tdma_pdd` can be executed as follows:
     ```
 	mpirun -np 8 ./tdma_pdd_cpu >log &
     ```
 Output is the error of PDD method and error would be machine error if you choose appropriated number of grid and processors. Note that in this example, diagonal dominance was forced by setting a=0.1*rand(), b=1, and c=0.1*rand(), where a, b, and c are entries in the tridiagonal matrix.
 
 # Folder structure
-* `src` : source files of TDMA_PDD_CPU
-* `example` : validation and performance checking of TDMA_PDD_CPU
+* `src` : source files of TDMA_PDD
+* `example` : validation and performance checking of TDMA_PDD
 * `include` : contains header files created after building and required codes
-* `lib` : a static library of TDMA_PDD_CPU is created after building
+* `lib` : a static library of TDMA_PDD is created after building
 and header files of required codes are contained.
 * `doc` : documentation
 * `run` : an executable binary file for the example problem is created after building
@@ -71,7 +71,7 @@ and header files of required codes are contained.
 # Cite
 Please use the following bibtex, when you refer to this project.
 
-
+```bibtex
 @article{moon2020application,
   title={Application of the parallel diagonal dominant algorithm for the incompressible Navier-Stokes equations},
   author={Moon, Hojun and Hong, Seungpyo and You, Donghyun},
