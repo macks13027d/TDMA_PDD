@@ -1,6 +1,6 @@
-# TDMA_PDD_CPU: Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library
+# TDMA_PDD: Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library
 ![](https://img.shields.io/badge/Fortran-Fortran_90-blue.svg)
-[![](https://img.shields.io/badge/docs-passing-green.svg)](https://xccels.github.io/TDMA_PDD_CPU)
+[![](https://img.shields.io/badge/docs-passing-green.svg)](https://xccels.github.io/TDMA_PDD)
 ![](https://img.shields.io/badge/license-MIT_License-yellow.svg)
 This library provides efficient parallel computation for multidimensional TDMA.
 
@@ -22,7 +22,7 @@ The PDD algorithm, proposed by Sun et al. (1989), is a method for solving TDMA o
 - Donghyun You (dhyou@postech.ac.kr), Mechanical Engineering, POSTECH
 
 # Usage
-## Downloading TDMA_PDD_CPU
+## Downloading TDMA_PDD
 The repository can be cloned as follows:
 
 ```
@@ -32,16 +32,16 @@ Alternatively, the source files can be downloaded through github menu 'Download 
 
 ## Compile
 ### [Prerequisites](./doc/2_installation.md)
-Prerequisites to compile TDMA_PDD_CPU are as follows:
+Prerequisites to compile TDMA_PDD are as follows:
 * MPI (MVAPICH 2-2.3.6)
 * Fortran compiler (Intel Fortran Compiler 18.0.3)
 
 ### Compile and build
-* Build TDMA_PDD_CPU
+* Build TDMA_PDD
     ```
 	make lib
 	```
-* Build an example problem after build TDMA_PDD_CPU
+* Build an example problem after build TDMA_PDD
 
     ```
 	make example
@@ -53,7 +53,7 @@ Prerequisites to compile TDMA_PDD_CPU are as follows:
 	```
 
 ## Running the example
-After building the example file, an executable binary, `tdma_pdd_cpu`, is built in the `run` folder. The `input.dat` file in the `run` folder is a pre-defined input file, and the `tdma_pdd_cpu` can be executed as follows:
+After building the example file, an executable binary, `tdma_pdd`, is built in the `run` folder. The `input.dat` file in the `run` folder is a pre-defined input file, and the `tdma_pdd_cpu` can be executed as follows:
     ```
 	mpirun -np 8 ./tdma_pdd_cpu >log &
     ```
@@ -71,7 +71,7 @@ and header files of required codes are contained.
 # Cite
 Please use the following bibtex, when you refer to this project.
 
-
+```bibtex
 @article{moon2020application,
   title={Application of the parallel diagonal dominant algorithm for the incompressible Navier-Stokes equations},
   author={Moon, Hojun and Hong, Seungpyo and You, Donghyun},

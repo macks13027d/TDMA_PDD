@@ -32,7 +32,7 @@ Alternatively, the source files can be downloaded through github menu 'Download 
 
 ## Compile
 ### [Prerequisites](./doc/2_installation.md)
-Prerequisites to compile TDMA_PDD_CPU are as follows:
+Prerequisites to compile TDMA_PDD are as follows:
 * MPI (MVAPICH 2-2.3.6)
 * Fortran compiler (Intel Fortran Compiler 18.0.3)
 
