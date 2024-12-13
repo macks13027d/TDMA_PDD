@@ -1,4 +1,4 @@
-Installation                        {#install_page}
+Installation                       
 ============
 
 # Downloads
