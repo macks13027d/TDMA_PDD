@@ -4,9 +4,9 @@
 !> @details     A single TDM solver and many TDM solver with non-cyclic and cyclic conditions.
 !>
 !> @author      
-!>              - Seungchan Kim (yang926@yonsei.ac.kr), Multi-Physics Modeling and Computation Lab., Yonsei University
-!>              - Jihoo Kim (yang926@yonsei.ac.kr), Multi-Physics Modeling and Computation Lab., Yonsei University
-!>              - Hojun Moon (yang926@yonsei.ac.kr), Multi-Physics Modeling and Computation Lab., Yonsei University
+!>              - Seungchan Kim (yang926@yonsei.ac.kr), Flow Physics and Engineering Lab., Pohang University of Science and Technology
+!>              - Jihoo Kim (yang926@yonsei.ac.kr), Flow Physics and Engineering Lab., Pohang University of Science and Technology
+!>              - Hojun Moon (yang926@yonsei.ac.kr), Flow Physics and Engineering Lab., Pohang University of Science and Technology
 !> @date        March 2023
 !> @version     2.0
 !> @par         Copyright

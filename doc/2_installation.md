@@ -1,7 +1,7 @@
 Installation                       
 ============
 
-# Downloads
+## Downloads
 The repository can be cloned as follows:
 
 ```
@@ -12,8 +12,8 @@ Alternatively, the source files can be downloaded through github menu 'Download 
 
 
 
-# Compile
-## Prerequisites
+## Compile
+### Prerequisites
 Prerequisites to compile TDMA_PDD are as follows:
 * MPI (IntelMPI)
 * Fortran compiler (Intel Fortran Compiler)
@@ -36,7 +36,7 @@ Prerequisites to compile TDMA_PDD are as follows:
    make all
     ```
 
-## Running the example
+### Running the example
 After building the example file, an executable binary, `tdma_pdd`, is built in the `run` folder. The `input.dat` file in the `run` folder is a pre-defined input file, and the `tdma_pdd` can be executed as follows:
     ```
    mpirun -np 8 ./tdma_pdd_cpu >log &
@@ -44,7 +44,7 @@ After building the example file, an executable binary, `tdma_pdd`, is built in t
 Output is the error of PDD method and error would be machine error if you choose appropriated number of grid and processors. Note that in this example, diagonal dominance was forced by setting a=0.1*rand(), b=1, and c=0.1*rand(), where a, b, and c are entries in the tridiagonal matrix.
 
 
-# Folder structure
+## Folder structure
 * `src` : source files of TDMA_PDD
 * `example` : validation and performance checking of TDMA_PDD
 * `include` : contains header files created after building and required codes
