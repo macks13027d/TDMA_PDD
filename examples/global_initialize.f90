@@ -46,11 +46,17 @@ subroutine read_infile
 	read(fh,*) nx0,ny0,nz0
 
    !>-- Print input
-   if (rank .eq. 0) then
-		print*,' ndim in input  = ',ndim
-		print*,' nx in input = ',nx0
-		print*,' ny in input = ',ny0
-		print*,' nz in input = ',nz0
+   if (rank == 0) then
+		print *,'' 
+		print *,&
+		'------------------------------------------------------------------'
+		write(*,'(a,i10)') ' # of Processors in x-dir : ', nproc_x
+		write(*,'(a,i10)') ' # of Processors in y-dir : ', nproc_y
+		write(*,'(a,i10)') ' # of Processors in x-dir : ', nproc_z
+		print *,''
+		write(*,'(a,i16)') ' # of cells in x-dir :', nx0
+		write(*,'(a,i16)') ' # of cells in y-dir :', ny0
+		write(*,'(a,i16)') ' # of cells in x-dir :', nz0
 	endif
 
 end subroutine read_infile

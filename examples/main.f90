@@ -79,19 +79,18 @@ program main
 
 	!>-- Print results
 	if (rank == 0) then
-   print *,& 
-   '------------------------------------------------------------------'
-   write(*,'(a,i9,a,f34.6,a)') ' Scattering data', ntime, ': ', walltime,' s'
-   write(*,'(a,i9,a,f34.6,a)') ' TDMA solving', ntime, ': ', walltime,' s'
-   write(*,'(a,i9,a,f34.6,a)') ' Validationg result', ntime, ': ', walltime,' s'
-   write(*,'(a,i9,a,f34.6,a)') ' Maximum error', ntime, ': ', walltime,' s'
-   print *,& 
-   '------------------------------------------------------------------'
-
-		write(*,322) t2-t1
-		print*,''
-		write(*,323) maxerr
-		print*,''
+		print *,'' 
+		print *,&
+		'------------------------------------------------------------------'
+		write(*,'(a,e10.3,a)') ' Scattering data needs   ', time(1), ' s'
+		write(*,'(a,e10.3,a)') ' Solving TDMA needs      ', time(2), ' s'
+		write(*,'(a,e10.3,a)') ' Validationg result needs', time(3), ' s'
+		print *,''
+		write(*,'(a,e13.5)') ' Maximum error:', maxerr
+		print *,''
+		print *,& 
+		'------------------------------------------------------------------'
+		print *,''
 	endif
 
 	!>-- Free memory and finalize MPI
@@ -99,11 +98,4 @@ program main
    call free_global
    call MPI_Finalize( ierr )
 
-
- 319 format('Time calculation')
- 320 format(' Time for scattering data   =',e10.3)
- 321 format(' Time for TDMA solving      =',e10.3)
- 322 format(' Time for validating result =',e10.3)
- 323 format('Maximum error =',e13.5)
-    
 end program main

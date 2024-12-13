@@ -23,7 +23,8 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "TDMA_PDD", "index.html", [
-    [ "TDMA_PDD: Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library", "index.html", [
+    [ "Introduction", "index.html", [
+      [ "TDMA_PDD: Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library", "index.html#autotoc_md0", null ],
       [ "Authors", "index.html#autotoc_md1", null ],
       [ "Cite", "index.html#autotoc_md2", null ]
     ] ],
@@ -31,31 +32,29 @@ var NAVTREE =
       [ "Downloads", "md_doc_2_installation.html#autotoc_md3", null ],
       [ "Compile", "md_doc_2_installation.html#autotoc_md4", [
         [ "Prerequisites", "md_doc_2_installation.html#autotoc_md5", null ],
-        [ "Compile and build", "md_doc_2_installation.html#autotoc_md6", null ]
+        [ "Compile and build", "md_doc_2_installation.html#autotoc_md6", null ],
+        [ "Running the example", "md_doc_2_installation.html#autotoc_md7", null ]
       ] ],
-      [ "<img src=\"https://img.shields.io/badge/Tested-IntelMPI_21.2_and_Intel_Fortran_Compiler_21.2-silver.svg?logo=cachet\" alt=\"\"/>", "md_doc_2_installation.html#autotoc_md7", [
-        [ "Folder structure", "md_doc_2_installation.html#autotoc_md9", null ]
-      ] ]
+      [ "Folder structure", "md_doc_2_installation.html#autotoc_md8", null ]
     ] ],
     [ "Performance", "md_doc_3_performance.html", null ],
     [ "Theory", "md_doc_4_theory.html", null ],
     [ "Links", "md_doc_5_links.html", [
-      [ "Xccels related", "md_doc_5_links.html#autotoc_md10", null ]
+      [ "Xccels related", "md_doc_5_links.html#autotoc_md9", null ]
     ] ],
     [ "Reference", "md_doc_6_reference.html", null ],
     [ "TDMA_PDD: Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library", "md__r_e_a_d_m_e.html", [
-      [ "Authors", "md__r_e_a_d_m_e.html#autotoc_md17", null ],
-      [ "Usage", "md__r_e_a_d_m_e.html#autotoc_md18", [
-        [ "Downloading TDMA_PDD", "md__r_e_a_d_m_e.html#autotoc_md19", null ],
-        [ "Compile", "md__r_e_a_d_m_e.html#autotoc_md20", [
-          [ "Running the example", "md_doc_2_installation.html#autotoc_md8", null ],
-          [ "@ref ./doc/2_installation.md \"Prerequisites\"", "md__r_e_a_d_m_e.html#autotoc_md21", null ],
-          [ "Compile and build", "md__r_e_a_d_m_e.html#autotoc_md22", null ]
+      [ "Authors", "md__r_e_a_d_m_e.html#autotoc_md16", null ],
+      [ "Usage", "md__r_e_a_d_m_e.html#autotoc_md17", [
+        [ "Downloading TDMA_PDD", "md__r_e_a_d_m_e.html#autotoc_md18", null ],
+        [ "Compile", "md__r_e_a_d_m_e.html#autotoc_md19", [
+          [ "@ref ./doc/2_installation.md \"Prerequisites\"", "md__r_e_a_d_m_e.html#autotoc_md20", null ],
+          [ "Compile and build", "md__r_e_a_d_m_e.html#autotoc_md21", null ]
         ] ],
-        [ "Running the example", "md__r_e_a_d_m_e.html#autotoc_md23", null ]
+        [ "Running the example", "md__r_e_a_d_m_e.html#autotoc_md22", null ]
       ] ],
-      [ "Folder structure", "md__r_e_a_d_m_e.html#autotoc_md24", null ],
-      [ "Cite", "md__r_e_a_d_m_e.html#autotoc_md25", null ]
+      [ "Folder structure", "md__r_e_a_d_m_e.html#autotoc_md23", null ],
+      [ "Cite", "md__r_e_a_d_m_e.html#autotoc_md24", null ]
     ] ],
     [ "Modules", "namespaces.html", [
       [ "Modules List", "namespaces.html", "namespaces_dup" ],
@@ -116,8 +115,8 @@ var NAVTREEINDEX =
 "cfei_8h.html#aacb7ecfdfb4e9c0c410d48cb6961596b",
 "class_l_l_n_l___f_e_i___matrix.html#ad77891852b567c9dac99e997cc289c5e",
 "fortran_8h.html#a9e07b62d64815c299dff7fb04fe802a6",
-"krylov_8h.html#a078674b31a897c0aa520b1a888fb2623",
-"krylov_8h.html#ac9eac355c759ff319536acb85ae431f6",
+"krylov_8h.html#a04b0d9eec05035b2302568720c8ce9cc",
+"krylov_8h.html#ac769a5fcf5df6d20d9dfcb819ce99793",
 "par__multivector_8h.html#ac0eee3f4c4018c3b6c57a26258b091ef",
 "seq__mv_8h.html#a86847a951afa89b5d4fdff5014d42b70",
 "slu__sdefs_8h.html#adca8047332d0b0c161945583ecb3435d",

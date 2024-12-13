@@ -27,6 +27,11 @@ subroutine tdma_3d_main
 	implicit none
 	include 'mpif.h'
 
+	if (rank == 0) then
+		print *,''
+		print *,	'------------------------------------------------------------------'
+	endif
+
 	if (dir == 1) then
 		call tdma_3d_x
 
@@ -70,7 +75,6 @@ subroutine tdma_3d_x
 				!>-- Solve Eq
 				xx_i(n1i:n1f) = dat0(n1i:n1f,j,k)
 				call tdma(mat_a(:,j,k),mat_b(:,j,k),mat_c(:,j,k),xx_i,sol_tmp_i,n1i,n1f)
-if(k==1 .and. j== 1)print*,xx_i-sol_tmp_i,'vvv'
 
 				!>-- Substitute solution
 				dat0(n1i:n1f,j,k) = sol_tmp_i(n1i:n1f)
@@ -117,7 +121,8 @@ if(k==1 .and. j== 1)print*,xx_i-sol_tmp_i,'vvv'
 		call pdd_comm2_x(yv_i,yv2_i)
 
 		t2 = MPI_WTIME()
-  		if (rank == 0) print*,'    TDMA (communication) : ', t2 - t1
+		if (rank == 0) &
+			write(*,'(a,e10.3,a)') ' TDMA communication                    ', t2-t1, ' s'
 
 		!>------------------------------------------
 		!! Inversion of tridiagonal matrix
@@ -132,7 +137,8 @@ if(k==1 .and. j== 1)print*,xx_i-sol_tmp_i,'vvv'
    endif
 
 	!>-- Print 
-	if (rank == 0) print*,'    TDMA (tridiagonal matrix inversion) : ', t_tridag
+	if (rank == 0) &
+		write(*,'(a,e10.3,a)') ' TDMA tridiagonal matrix inversion     ', t_tridag, ' s'
 
    return
 end subroutine tdma_3d_x 
@@ -206,7 +212,8 @@ subroutine tdma_3d_y
       call pdd_comm2_y(yv_j,yv2_j)
 
 		t2 = MPI_WTIME()
-  		if (rank == 0) print*,'    TDMA (communication) : ', t2 - t1
+		if (rank == 0) &
+			write(*,'(a,e10.3,a)') ' TDMA communication                    ', t2-t1, ' s'
 
 		!>------------------------------------------
 		!! Inversion of tridiagonal matrix
@@ -221,7 +228,8 @@ subroutine tdma_3d_y
    endif
       
 	!>-- Print 
-	if (rank == 0) print*,'    TDMA (tridiagonal matrix inversion) : ', t_tridag
+	if (rank == 0) &
+		write(*,'(a,e10.3,a)') ' TDMA tridiagonal matrix inversion     ', t_tridag, ' s'
 
    return
 end subroutine tdma_3d_y
@@ -293,7 +301,8 @@ subroutine tdma_3d_z
    	call pdd_comm2_z(yv_k,yv2_k)
 
 		t2 = MPI_WTIME()
-  		if (rank == 0) print*,'    TDMA (communication) : ', t2 - t1
+		if (rank == 0) &
+			write(*,'(a,e10.3,a)') ' TDMA communication                    ', t2-t1, ' s'
 
 		!>------------------------------------------
 		!! Inversion of tridiagonal matrix
@@ -309,7 +318,8 @@ subroutine tdma_3d_z
    endif
 
 	!>-- Print 
-	if (rank == 0) print*,'    TDMA (tridiagonal matrix inversion) : ', t_tridag
+	if (rank == 0) &
+		write(*,'(a,e10.3,a)') ' TDMA tridiagonal matrix inversion     ', t_tridag, ' s'
 
    return
 end subroutine tdma_3d_z
@@ -342,7 +352,8 @@ subroutine transpose_ij
    t_trans = t2 - t1
 
 	!>-- Print 
-	if (rank == 0) print*,'    TDMA (transpose matrix (i,j,k)->(j,i,k)) : ', t_trans
+	if (rank == 0) &
+		write(*,'(a,e10.3,a)') ' TDMA transpose matrix (i,j,k)->(j,i,k)', t_trans, ' s'
 
    return
 end subroutine transpose_ij
@@ -375,7 +386,8 @@ subroutine transpose_ji
    t_trans = t2 - t1
 
 	!>-- Print 
-	if (rank == 0) print*,'    TDMA (transpose matrix (j,i,k)->(i,j,k)) : ', t_trans
+	if (rank == 0) &
+		write(*,'(a,e10.3,a)') ' TDMA transpose matrix (j,i,k)->(i,j,k)', t_trans, ' s'
 
    return
 end subroutine transpose_ji
@@ -408,7 +420,8 @@ subroutine transpose_ik
    t_trans = t2 - t1
 
 	!>-- Print 
-	if (rank == 0) print*,'    TDMA (transpose matrix (i,j,k)->(k,i,j)) : ', t_trans
+	if (rank == 0) &
+		write(*,'(a,e10.3,a)') ' TDMA transpose matrix (i,j,k)->(k,i,j)', t_trans, ' s'
 
    return
 end subroutine transpose_ik
@@ -441,7 +454,8 @@ subroutine transpose_ki
    t_trans = t2 - t1
 
 	!>-- Print 
-	if (rank == 0) print*,'    TDMA (transpose matrix (k,i,j)->(i,j,k)) : ', t_trans
+	if (rank == 0) &
+		write(*,'(a,e10.3,a)') ' TDMA transpose matrix (k,i,j)->(i,j,k)', t_trans, ' s'
 
    return
 end subroutine transpose_ki
@@ -474,7 +488,8 @@ subroutine transpose_jk
    t_trans = t2 - t1
 
 	!>-- Print 
-	if (rank == 0) print*,'    TDMA (transpose matrix (j,i,k)->(k,i,j)) : ', t_trans
+	if (rank == 0) &
+		write(*,'(a,e10.3,a)') ' TDMA transpose matrix (j,i,k)->(k,i,j)   ', t_trans, ' s'
 
    return
 end subroutine transpose_jk
@@ -507,7 +522,8 @@ subroutine transpose_kj
    t_trans = t2 - t1
 
 	!>-- Print 
-	if (rank == 0) print*,'    TDMA (transpose matrix (k,i,j)->(j,i,k)) : ', t_trans
+	if (rank == 0) &
+		write(*,'(a,e10.3,a)') ' TDMA transpose matrix (k,i,j)->(j,i,k)   ', t_trans, ' s'
 
    return
 end subroutine transpose_kj

@@ -168,19 +168,17 @@ Prerequisites</h2>
 </ul>
 <h2><a class="anchor" id="autotoc_md6"></a>
 Compile and build</h2>
-<h1><a class="anchor" id="autotoc_md7"></a>
-&lt;img src="https://img.shields.io/badge/Tested-IntelMPI_21.2_and_Intel_Fortran_Compiler_21.2-silver.svg?logo=cachet" alt=""/&gt;</h1>
-<ul>
+<p><object type="image/svg+xml" data="https://img.shields.io/badge/Tested-IntelMPI_21.2_and_Intel_Fortran_Compiler_21.2-silver.svg?logo=cachet" style="pointer-events: none;"></object></p><ul>
 <li><p class="startli">Build TDMA_PDD ``` make lib </p><div class="fragment"><div class="line">* Build an example problem after build TDMA_PDD</div>
 </div><!-- fragment --><p class="startli">make example </p><div class="fragment"><div class="line">* Build all</div>
 </div><!-- fragment --><p class="startli">make all ```</p>
 </li>
 </ul>
-<h3><a class="anchor" id="autotoc_md8"></a>
-Running the example</h3>
+<h2><a class="anchor" id="autotoc_md7"></a>
+Running the example</h2>
 <p>After building the example file, an executable binary, <code>tdma_pdd</code>, is built in the <code>run</code> folder. The <code>input.dat</code> file in the <code>run</code> folder is a pre-defined input file, and the <code>tdma_pdd</code> can be executed as follows: ``` mpirun -np 8 ./tdma_pdd_cpu &gt;log &amp; ``` Output is the error of PDD method and error would be machine error if you choose appropriated number of grid and processors. Note that in this example, diagonal dominance was forced by setting a=0.1*rand(), b=1, and c=0.1*rand(), where a, b, and c are entries in the tridiagonal matrix.</p>
-<h2><a class="anchor" id="autotoc_md9"></a>
-Folder structure</h2>
+<h1><a class="anchor" id="autotoc_md8"></a>
+Folder structure</h1>
 <ul>
 <li><code>src</code> : source files of TDMA_PDD</li>
 <li><code>example</code> : validation and performance checking of TDMA_PDD</li>

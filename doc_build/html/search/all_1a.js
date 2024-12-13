@@ -208,7 +208,7 @@ var searchData=
   ['sup_5fto_5fcol_5654',['sup_to_col',['../struct_s_cformat.html#ad5cb1b2ae17c5fe554c3b70721718b08',1,'SCformat']]],
   ['super_5fstats_5655',['super_stats',['../slu__util_8h.html#ac33e407326ae1dc222aee7ff08f322cf',1,'slu_util.h']]],
   ['superlu_5fabort_5fand_5fexit_5656',['superlu_abort_and_exit',['../slu__util_8h.html#abd38b081866ed2c3e4959c4c0560913c',1,'slu_util.h']]],
-  ['superlu_5ffree_5657',['SUPERLU_FREE',['../slu__util_8h.html#a9672c5511c3efd9467e4d375a347c192',1,'SUPERLU_FREE():&#160;slu_util.h'],['../slu__util_8h.html#a1745be2114a7b66ea7632292b03cb3ce',1,'superlu_free(void *):&#160;slu_util.h']]],
+  ['superlu_5ffree_5657',['superlu_free',['../slu__util_8h.html#a1745be2114a7b66ea7632292b03cb3ce',1,'superlu_free(void *):&#160;slu_util.h'],['../slu__util_8h.html#a9672c5511c3efd9467e4d375a347c192',1,'SUPERLU_FREE():&#160;slu_util.h']]],
   ['superlu_5flsame_5658',['superlu_lsame',['../slu__util_8h.html#a53df17015ebcb94f20b77a58a0bdbe9e',1,'slu_util.h']]],
   ['superlu_5fmalloc_5659',['SUPERLU_MALLOC',['../slu__util_8h.html#a55a5ed83733c30850c14cc7b3f922a54',1,'SUPERLU_MALLOC():&#160;slu_util.h'],['../slu__util_8h.html#a7ec97fcbe08a55ad56048a43919d6843',1,'superlu_malloc(size_t):&#160;slu_util.h']]],
   ['superlu_5fmax_5660',['SUPERLU_MAX',['../slu__util_8h.html#adca8259e9d345c7cbaaa0608a1acdfd4',1,'slu_util.h']]],
