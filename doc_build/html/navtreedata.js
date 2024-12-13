@@ -23,32 +23,39 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "TDMA_PDD", "index.html", [
-    [ "Introduction", "index.html", [
-      [ "Overview", "index.html#autotoc_md0", null ],
-      [ "Features", "index.html#autotoc_md1", [
-        [ "Single and many tridiagonal system", "index.html#autotoc_md2", [
-          [ "Single tridiagonal system", "index.html#autotoc_md3", null ],
-          [ "Many tridiagonal system", "index.html#autotoc_md4", null ]
-        ] ]
+    [ "TDMA_PDD: Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library", "index.html", [
+      [ "Authors", "index.html#autotoc_md1", null ],
+      [ "Cite", "index.html#autotoc_md2", null ]
+    ] ],
+    [ "Installation", "md_doc_2_installation.html", [
+      [ "Downloads", "md_doc_2_installation.html#autotoc_md3", null ],
+      [ "Compile", "md_doc_2_installation.html#autotoc_md4", [
+        [ "Prerequisites", "md_doc_2_installation.html#autotoc_md5", null ],
+        [ "Compile and build", "md_doc_2_installation.html#autotoc_md6", null ]
       ] ],
-      [ "Authors", "index.html#autotoc_md5", null ],
-      [ "Versions", "index.html#autotoc_md6", null ],
-      [ "Citation", "index.html#autotoc_md7", [
-        [ "Credits", "index.html#autotoc_md8", null ]
+      [ "<img src=\"https://img.shields.io/badge/Tested-IntelMPI_21.2_and_Intel_Fortran_Compiler_21.2-silver.svg?logo=cachet\" alt=\"\"/>", "md_doc_2_installation.html#autotoc_md7", [
+        [ "Folder structure", "md_doc_2_installation.html#autotoc_md9", null ]
       ] ]
     ] ],
-    [ "TDMA_PDD_CPU: Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library", "md__r_e_a_d_m_e.html", [
-      [ "Authors", "md__r_e_a_d_m_e.html#autotoc_md15", null ],
-      [ "Usage", "md__r_e_a_d_m_e.html#autotoc_md16", [
-        [ "Downloading TDMA_PDD_CPU", "md__r_e_a_d_m_e.html#autotoc_md17", null ],
-        [ "Compile", "md__r_e_a_d_m_e.html#autotoc_md18", [
-          [ "@ref ./doc/2_installation.md \"Prerequisites\"", "md__r_e_a_d_m_e.html#autotoc_md19", null ],
-          [ "Compile and build", "md__r_e_a_d_m_e.html#autotoc_md20", null ]
+    [ "3_performance", "md_doc_3_performance.html", null ],
+    [ "4_theory", "md_doc_4_theory.html", null ],
+    [ "Links", "md_doc_5_links.html", [
+      [ "Xccels related", "md_doc_5_links.html#autotoc_md10", null ]
+    ] ],
+    [ "Reference", "md_doc_6_reference.html", null ],
+    [ "TDMA_PDD: Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library", "md__r_e_a_d_m_e.html", [
+      [ "Authors", "md__r_e_a_d_m_e.html#autotoc_md17", null ],
+      [ "Usage", "md__r_e_a_d_m_e.html#autotoc_md18", [
+        [ "Downloading TDMA_PDD", "md__r_e_a_d_m_e.html#autotoc_md19", null ],
+        [ "Compile", "md__r_e_a_d_m_e.html#autotoc_md20", [
+          [ "Running the example", "md_doc_2_installation.html#autotoc_md8", null ],
+          [ "@ref ./doc/2_installation.md \"Prerequisites\"", "md__r_e_a_d_m_e.html#autotoc_md21", null ],
+          [ "Compile and build", "md__r_e_a_d_m_e.html#autotoc_md22", null ]
         ] ],
-        [ "Running the example", "md__r_e_a_d_m_e.html#autotoc_md21", null ]
+        [ "Running the example", "md__r_e_a_d_m_e.html#autotoc_md23", null ]
       ] ],
-      [ "Folder structure", "md__r_e_a_d_m_e.html#autotoc_md22", null ],
-      [ "Cite", "md__r_e_a_d_m_e.html#autotoc_md23", null ]
+      [ "Folder structure", "md__r_e_a_d_m_e.html#autotoc_md24", null ],
+      [ "Cite", "md__r_e_a_d_m_e.html#autotoc_md25", null ]
     ] ],
     [ "Modules", "namespaces.html", [
       [ "Modules List", "namespaces.html", "namespaces_dup" ],
@@ -109,17 +116,17 @@ var NAVTREEINDEX =
 "cfei_8h.html#aacb7ecfdfb4e9c0c410d48cb6961596b",
 "class_l_l_n_l___f_e_i___matrix.html#ad77891852b567c9dac99e997cc289c5e",
 "fortran_8h.html#a9e07b62d64815c299dff7fb04fe802a6",
-"krylov_8h.html",
-"krylov_8h.html#ac1a44bee453a8842f002cf2013da7e3a",
-"par__multivector_8h.html#ae670e3845e94bd78b63f47c3be5b0c08",
-"seq__mv_8h.html#a92402dd7f8825711a446dc575c5a9517",
-"slu__sdefs_8h.html#af4386b0d87e1c8886b58fcf9d243bc12",
-"struct_h_y_p_r_e___matvec_functions.html#ac39d7bc8bf38bd2ba13d79f0ae838204",
-"structhypre___comm_handle__struct.html#a8d5e6e0efbefb924187df3512c958b65",
-"structhypre___l_g_m_r_e_s_functions.html#aee43039e999c852aa676775e8f6f40a7",
-"structhypre___par_a_m_g_data.html#aceaafb7c58f530b916729a5b706b597e",
-"structhypre___s_struct_matrix__struct.html",
-"structsuperlu__options__t.html#a3fe998e3518ad90532072fa8929a1e2f"
+"krylov_8h.html#a078674b31a897c0aa520b1a888fb2623",
+"krylov_8h.html#ac9eac355c759ff319536acb85ae431f6",
+"par__multivector_8h.html#ac0eee3f4c4018c3b6c57a26258b091ef",
+"seq__mv_8h.html#a86847a951afa89b5d4fdff5014d42b70",
+"slu__sdefs_8h.html#adca8047332d0b0c161945583ecb3435d",
+"struct_h_y_p_r_e___matvec_functions.html",
+"structhypre___comm_handle__struct.html",
+"structhypre___l_g_m_r_e_s_functions.html#a9b36b353d8e685ebc2be20ebd7c55b7d",
+"structhypre___par_a_m_g_data.html#ac3590d906eed799043e8b1885387e7cd",
+"structhypre___s_struct_grid__struct.html#ab714324ae7475397c896d189ab371969",
+"structmv___temp_multi_vector.html#a6ea3f1276a5faa6ad7b23ab7ed50971d"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

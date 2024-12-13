@@ -1,3 +1,20 @@
+!=======================================================================================================================
+!> @file        communication.f90
+!> @brief       Module that scatters all the data at the beginning and gathers it at the end of the program, respectively.
+!> @details     x,y,z-dir TDMA for 3-dimensinal data using multiple processors
+!>
+!> @author      
+!>              - Seung-chan Kim (macks1029@postech.ac.kr), Flow Physics and Engineering Lab., Pohang University of Science and Technology
+!>              - Ji-hoo Kim (hugh577@postech.ac.kr), Flow Physics and Engineering Lab., Pohang University of Science and Technology
+!>              - Ho-jun Moon (mhj2013@postech.ac.kr), Flow Physics and Engineering Lab., Pohang University of Science and Technology
+!> @date        Aug 2024
+!> @version     2.0
+!> @par         Copyright
+!>              Copyright (c) 2020-Present Seugn-chan Kim, Ji-hoo Kim, Ho-jun Moon and Dong-hyun you, Pohang University of Science and Technology
+!> @par         License     
+!>              This project is release under the terms of the MIT License (see LICENSE in )
+!=======================================================================================================================
+
 module m_communication
 
 contains

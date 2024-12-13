@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['introduction_11925',['Introduction',['../index.html',1,'']]]
+  ['3_5fperformance_11941',['3_performance',['../md_doc_3_performance.html',1,'']]]
 ];

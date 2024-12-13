@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['distributed_5fmatrix_2eh_6092',['distributed_matrix.h',['../distributed__matrix_8h.html',1,'']]]
+  ['4_5ftheory_2emd_6089',['4_theory.md',['../4__theory_8md.html',1,'']]]
 ];

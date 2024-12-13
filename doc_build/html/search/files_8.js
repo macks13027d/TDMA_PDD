@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['krylov_2eh_6128',['krylov.h',['../krylov_8h.html',1,'']]]
+  ['distributed_5fmatrix_2eh_6108',['distributed_matrix.h',['../distributed__matrix_8h.html',1,'']]]
 ];
