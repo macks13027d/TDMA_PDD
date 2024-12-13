@@ -1,7 +1,6 @@
 Installation                        {#install_page}
 ============
 
-[TOC]
 # Downloads
 The repository can be cloned as follows:
 

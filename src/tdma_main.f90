@@ -1,3 +1,18 @@
+!=======================================================================================================================
+!> @file        tdmas_main.f90
+!> @brief       CUDA version of tridiagonal matrix (TDM) solvers using the Thomas algorithm.
+!> @details     A single TDM solver and many TDM solver with non-cyclic and cyclic conditions.
+!>
+!> @author      
+!>              - Mingyu Yang (yang926@yonsei.ac.kr), Multi-Physics Modeling and Computation Lab., Yonsei University
+!>              - Ji-Hoon Kang (jhkang@kisti.re.kr), Korea Institute of Science and Technology Information!>              - Ki-Ha Kim (k-kiha@yonsei.ac.kr), Department of Computational Science & Engineering, Yonsei University!>              - Jung-Il Choi (jic@yonsei.ac.kr), Department of Computational Science & Engineering, Yonsei University!>
+!> @date        March 2023
+!> @version     2.0
+!> @par         Copyright
+!>              Copyright (c) 2019-2023 Mingyu Yang, Ki-Ha Kim and Jung-Il choi, Yonsei University and 
+!>              Ji-Hoon Kang, Korea Institute of Science and Technology Information, All rights reserved.!> @par         License     
+!>              This project is release under the terms of the MIT License (see LICENSE in )!=======================================================================================================================
+
 module m_tdma_main
 
 use m_tdma_pdd
