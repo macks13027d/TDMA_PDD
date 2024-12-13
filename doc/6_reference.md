@@ -11,5 +11,5 @@ Reference
 
 | Previous          |                              Next |
 |:------------------|----------------------------------:|
-| [Links](5_link.md) | [Home](1_introduction.md) |
+| [Links](5_links.md) | [Home](1_introduction.md) |
 </div>

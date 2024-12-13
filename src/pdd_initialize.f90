@@ -1,7 +1,7 @@
 !=======================================================================================================================
 !> @file        pdd_initialize.f90
 !> @brief       Module for setting MPI topology and initializing the varialbles
-!> @details     x,y,z-dir TDMA for 3-dimensinal data using multiple processors
+!> @details     MPI topology is setted for data communication between processors when solving TDM
 !>
 !> @author      
 !>              - Seung-chan Kim (macks1029@postech.ac.kr), Flow Physics and Engineering Lab., Pohang University of Science and Technology
