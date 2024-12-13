@@ -11,6 +11,7 @@ LIB   	      = -L ../lib/hypre-2.11.1 -lHYPRE \
 					  -L /home/mack/project/kisti/MPI/mvapich3/lib
 
 OBJS = global_host.o \
+		 communication.o \
 		 global_initialize.o \
 		 main.o          
 		 

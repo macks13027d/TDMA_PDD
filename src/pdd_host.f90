@@ -1,7 +1,7 @@
 !=======================================================================================================================
 !> @file        pdd_host.f90
 !> @brief       Module contains CPU global variables
-!> @details     all global variables related to solving TDM are defined in here
+!> @details     all global variables related to solving TDM are defined in here.
 !>
 !> @author      
 !>              - Seung-chan Kim (macks1029@postech.ac.kr), Flow Physics and Engineering Lab., Pohang University of Science and Technology
@@ -64,7 +64,7 @@ integer  						   	  :: n1i, n1f, n2i, n2f, n3i, n3f
 !>--MPI communication parameter 1
 integer, dimension(:), allocatable :: is_neig,ie_neig,js_neig,je_neig,ks_neig,ke_neig
 integer  :: nxloc_mpi, nyloc_mpi, nzloc_mpi, nloc_mpi, nx, ny, nz
-integer, dimension(:), allocatable :: thrDR_neig
+integer, dimension(:), allocatable :: thrdr_neig
 
 !>--MPI communication parameter 2 (Data collection)
 integer :: comm_new_x,comm_new_y,comm_new_z
@@ -112,7 +112,7 @@ subroutine malloc_pdd
 	allocate( is_neig(0:nprocs-1), ie_neig(0:nprocs-1) )
 	allocate( js_neig(0:nprocs-1), je_neig(0:nprocs-1) )
 	allocate( ks_neig(0:nprocs-1), ke_neig(0:nprocs-1) )
-	if(rank.eq.0) allocate(thrdr_neig(1:nprocs-1))
+	if(rank == 0) allocate(thrdr_neig(1:nprocs-1))
 
 	!>===================================================================
 	!! 						MPI coordinate description
@@ -210,20 +210,9 @@ subroutine malloc_pdd
 
 	allocate(dat1_k(n3i:n3f,n1i:n1f,n2i:n2f))
 
-
 	!>--PDD algorithm temporary parameter
 	allocate( gam( -1:max(nx,ny,nz)+2 ) )
 	
-	!>--Communication file temporary parameter
-	allocate( var_dump( n1i:n1f,n2i:n2f,n3i:n3f ) )
-	if (rank == 0) allocate( glb_dat_dump( nx,ny,nz ) )
-	
-	!>--global 3D data
-	if(rank == 0) allocate( glb_dat(1:nx,1:ny,1:nz) )
-	if(rank == 0) allocate( glb_mat_a(1:nx,1:ny,1:nz) )
-	if(rank == 0) allocate( glb_mat_b(1:nx,1:ny,1:nz) )
-	if(rank == 0) allocate( glb_mat_c(1:nx,1:ny,1:nz) )
-
 end subroutine malloc_pdd
 
 !>======================================================================
@@ -240,6 +229,7 @@ subroutine free_pdd
 	deallocate( is_neig, ie_neig )
 	deallocate( js_neig, je_neig )
 	deallocate( ks_neig, ke_neig )
+	if(rank == 0) deallocate(thrdr_neig)
 
 	!>--3D data
 	deallocate( mat_a, mat_b, mat_c )
@@ -263,16 +253,6 @@ subroutine free_pdd
 
 	!>--PDD algorithm temporary parameter
 	deallocate( gam )
-	
-	!>--Communication file temporary parameter
-	deallocate( var_dump )
-	if (rank == 0) deallocate( glb_dat_dump )
-	
-	!>--global 3D data
-	if(rank == 0) deallocate( glb_dat )
-	if(rank == 0) deallocate( glb_mat_a )
-	if(rank == 0) deallocate( glb_mat_b )
-	if(rank == 0) deallocate( glb_mat_c )
 
 end subroutine free_pdd
 

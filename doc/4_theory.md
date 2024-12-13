@@ -1,6 +1,6 @@
 Theory
 ============
-
+[TOC]
 
 <div class="section_buttons">
 

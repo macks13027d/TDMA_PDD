@@ -2,14 +2,12 @@
 include Makefile.inc
 
 lib:
-	mkdir -p include;mkdir -p lib
 	cd src; make all
 
 example:
 	cd examples; make all
 
 all:
-	mkdir -p include; mkdir -p lib
 	cd src; make all
 	cd examples; make all
 

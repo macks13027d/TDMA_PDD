@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['3_5fperformance_11941',['3_performance',['../md_doc_3_performance.html',1,'']]]
+  ['installation_11941',['Installation',['../md_doc_2_installation.html',1,'']]]
 ];

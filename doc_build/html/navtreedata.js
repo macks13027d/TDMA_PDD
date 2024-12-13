@@ -37,8 +37,8 @@ var NAVTREE =
         [ "Folder structure", "md_doc_2_installation.html#autotoc_md9", null ]
       ] ]
     ] ],
-    [ "3_performance", "md_doc_3_performance.html", null ],
-    [ "4_theory", "md_doc_4_theory.html", null ],
+    [ "Performance", "md_doc_3_performance.html", null ],
+    [ "Theory", "md_doc_4_theory.html", null ],
     [ "Links", "md_doc_5_links.html", [
       [ "Xccels related", "md_doc_5_links.html#autotoc_md10", null ]
     ] ],

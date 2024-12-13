@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['tdma_5fpdd_3a_20multi_2ddimensional_20diagonal_20dominant_20tridiagonal_20matrix_20algorithm_20library_5677',['TDMA_PDD: Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library',['../index.html',1,'']]],
+  ['tdma_5fpdd_3a_20multi_2ddimensional_20diagonal_20dominant_20tridiagonal_20matrix_20algorithm_20library_5676',['TDMA_PDD: Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library',['../index.html',1,'']]],
+  ['theory_5677',['Theory',['../md_doc_4_theory.html',1,'']]],
   ['tdma_5fpdd_3a_20multi_2ddimensional_20diagonal_20dominant_20tridiagonal_20matrix_20algorithm_20library_5678',['TDMA_PDD: Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library',['../md__r_e_a_d_m_e.html',1,'']]],
   ['t_5679',['t',['../structhypre___c_g_n_r_data.html#afb426515b1fa2b9345670e00596733d2',1,'hypre_CGNRData']]],
   ['t_5ftranspose_5680',['T_transpose',['../structhypre___maxwell_data.html#aad34838ef4571a1aefa2ca941f03b955',1,'hypre_MaxwellData']]],

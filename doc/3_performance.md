@@ -1,6 +1,7 @@
 Performance
 ============
 
+[TOC]
 <div class="section_buttons">
 
 | Previous          |                              Next |

@@ -1,7 +1,10 @@
 !=======================================================================================================================
 !> @file        communication.f90
 !> @brief       Module that scatters all the data at the beginning and gathers it at the end of the program, respectively.
-!> @details     x,y,z-dir TDMA for 3-dimensinal data using multiple processors
+!> @details 	 For initializing the data, it is more efficient to generate it on a single processor, and this example adopts that approach.  
+!> 				 This module is used to distribute the data generated on the single processor to all processors.  
+!> 				 However, keep in mind that generating all data on a single processor requires significant memory, which limits the amount of data that can be processed.  
+!> 				 Therefore, if you need to handle very large data, please remove the code related to initializing the data on the single processor.
 !>
 !> @author      
 !>              - Seung-chan Kim (macks1029@postech.ac.kr), Flow Physics and Engineering Lab., Pohang University of Science and Technology
@@ -22,6 +25,7 @@ contains
 subroutine gather_main
 
 	use pdd_host
+	use global_host
 	
 	implicit none
 	include 'mpif.h'
@@ -40,6 +44,7 @@ end subroutine gather_main
 subroutine gather_recv
 
 	use pdd_host
+	use global_host
 	
 	implicit none
 	include 'mpif.h'
@@ -50,7 +55,7 @@ subroutine gather_recv
 
 	do i = 1, nprocs-1
 		call MPI_Recv(glb_dat_dump(is_neig(i),js_neig(i),ks_neig(i)),1 &
-									 ,thrDR_neig(i),i,301,MPI_COMM_WORLD,status,ierr)
+									 ,thrdr_neig(i),i,301,MPI_COMM_WORLD,status,ierr)
 		glb_dat(is_neig(i):ie_neig(i),js_neig(i):je_neig(i),ks_neig(i):ke_neig(i)) = &
 		  glb_dat_dump(is_neig(i):ie_neig(i),js_neig(i):je_neig(i),ks_neig(i):ke_neig(i))
 	end do
@@ -61,6 +66,7 @@ end subroutine gather_recv
 subroutine gather_send
 
 	use pdd_host
+	use global_host
 	
 	implicit none
 	include 'mpif.h'
@@ -75,6 +81,7 @@ end subroutine gather_send
 subroutine scatter_main
 
 	use pdd_host
+	use global_host
 	
 	implicit none
 	include 'mpif.h'
@@ -98,6 +105,7 @@ end subroutine scatter_main
 subroutine scatter_recv( cnt, stype )
 
 	use pdd_host
+	use global_host
 	
 	implicit none
 	include 'mpif.h'
@@ -126,6 +134,7 @@ end subroutine scatter_recv
 subroutine scatter_send( cnt, stype )
 
 	use pdd_host
+	use global_host
 	
 	implicit none
 	include 'mpif.h'

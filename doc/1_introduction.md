@@ -1,3 +1,8 @@
+Introduction
+============
+
+[TOC]
+
 # TDMA_PDD: Multi-dimensional Diagonal Dominant Tridiagonal Matrix Algorithm Library
 ![](https://img.shields.io/badge/Fortran-Fortran_90-blue.svg)
 [![](https://img.shields.io/badge/docs-passing-green.svg)](https://xccels.github.io/TDMA_PDD)

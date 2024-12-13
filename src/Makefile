@@ -8,7 +8,6 @@ OBJDIR = ./obj
 OBJS = pdd_host.o								\
        tdma_pdd.o              			\
        pdd_initialize.o                      	\
-       communication.o        				\
        tdma_main.o	\
 		 
 all: $(LIBexp) inc

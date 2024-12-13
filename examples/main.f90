@@ -1,3 +1,24 @@
+!=======================================================================================================================
+!> @file        main.f90
+!> @brief       Main module for running example codes
+!> @details     This module calls the subroutines for running the example codes
+!>					 First, it generates the 3D example solution and calculates the corresponding initial data. 
+!>					 Then, the data is distributed to all processors, and the TDM is solved in the selected direction. 
+!> 				 Finally, the results are gathered in a single processor and validated using the example solution generated at the initial step.
+!>					 Also, as noted in communication.f90, please be aware of the memory size limitations when generating the 3D example solution.
+!>
+!> @author      
+!>              - Seung-chan Kim (macks1029@postech.ac.kr), Flow Physics and Engineering Lab., Pohang University of Science and Technology
+!>              - Ji-hoo Kim (hugh577@postech.ac.kr), Flow Physics and Engineering Lab., Pohang University of Science and Technology
+!>              - Ho-jun Moon (mhj2013@postech.ac.kr), Flow Physics and Engineering Lab., Pohang University of Science and Technology
+!> @date        Aug 2024
+!> @version     2.0
+!> @par         Copyright
+!>              Copyright (c) 2020-Present Seugn-chan Kim, Ji-hoo Kim, Ho-jun Moon and Dong-hyun you, Pohang University of Science and Technology
+!> @par         License     
+!>              This project is release under the terms of the MIT License (see LICENSE in )
+!=======================================================================================================================
+
 !>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 !!
 !! 						Tri-Diagonal matrice Algorithm.
@@ -23,7 +44,7 @@ program main
 
    implicit none
    include 'mpif.h'
-   real :: t1, t2, maxerr
+   real :: time(3), t1, t2, maxerr
 
 
 	!>-- MPI Initialize
@@ -36,26 +57,37 @@ program main
 	call malloc_pdd    !<-- src subroutine
 	call malloc_global 
    call mpi_topology  !<-- src subroutine
-	if (rank == 0) print*,''
-	if (rank == 0) write(*,319) 
 
 	!>-- Initialize 3D data (generate and distribute data from rank 0)
 	t1 = MPI_Wtime()
 	call init_3Ddata   !<-- contain src subroutine
 	t2 = MPI_Wtime()
-	if (rank == 0) write(*,320) t2-t1
+	time(1) = t2-t1
 
 	!>-- TDMA algorithm
 	t1 = MPI_Wtime()
 	call tdma_3d_main  !<-- src subroutine
 	t2 = MPI_Wtime()
-	if (rank == 0) write(*,321) t2-t1
+	time(2) = t2-t1
 
 	!>-- Validation (gather all data in rank 0)
 	t1 = MPI_Wtime()
 	call validation(maxerr)  !<-- contain src subroutine
 	t2 = MPI_Wtime()
+	time(3) = t2-t1
+
+
+	!>-- Print results
 	if (rank == 0) then
+   print *,& 
+   '------------------------------------------------------------------'
+   write(*,'(a,i9,a,f34.6,a)') ' Scattering data', ntime, ': ', walltime,' s'
+   write(*,'(a,i9,a,f34.6,a)') ' TDMA solving', ntime, ': ', walltime,' s'
+   write(*,'(a,i9,a,f34.6,a)') ' Validationg result', ntime, ': ', walltime,' s'
+   write(*,'(a,i9,a,f34.6,a)') ' Maximum error', ntime, ': ', walltime,' s'
+   print *,& 
+   '------------------------------------------------------------------'
+
 		write(*,322) t2-t1
 		print*,''
 		write(*,323) maxerr
@@ -69,9 +101,9 @@ program main
 
 
  319 format('Time calculation')
- 320 format(' Time for scattering data =',f10.6)
- 321 format(' Time for TDMA solving =',f10.6)
- 322 format(' Time for validating result =',f10.6)
- 323 format('Maximum error =',e21.12)
+ 320 format(' Time for scattering data   =',e10.3)
+ 321 format(' Time for TDMA solving      =',e10.3)
+ 322 format(' Time for validating result =',e10.3)
+ 323 format('Maximum error =',e13.5)
     
 end program main

@@ -1,3 +1,22 @@
+!=======================================================================================================================
+!> @file        global_initialize.f90
+!> @brief       Module for initializing and validating the 3D example data.
+!> @details     3D example solution is generated, and the corresponding initial data is calculated. 
+!>					 The example solution will be used to validate whether the results of solving the TDM are correct.
+!>					 Also, as noted in communication.f90, please be aware of the memory size limitations when generating the initial 3D example solution.
+!>
+!> @author      
+!>              - Seung-chan Kim (macks1029@postech.ac.kr), Flow Physics and Engineering Lab., Pohang University of Science and Technology
+!>              - Ji-hoo Kim (hugh577@postech.ac.kr), Flow Physics and Engineering Lab., Pohang University of Science and Technology
+!>              - Ho-jun Moon (mhj2013@postech.ac.kr), Flow Physics and Engineering Lab., Pohang University of Science and Technology
+!> @date        Aug 2024
+!> @version     2.0
+!> @par         Copyright
+!>              Copyright (c) 2020-Present Seugn-chan Kim, Ji-hoo Kim, Ho-jun Moon and Dong-hyun you, Pohang University of Science and Technology
+!> @par         License     
+!>              This project is release under the terms of the MIT License (see LICENSE in )
+!=======================================================================================================================
+
 !>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 !!
 !!    GLOBAL VARIABLES/SUBROUTINES FOR THE HOST (CPU)
