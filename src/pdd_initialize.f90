@@ -1,7 +1,8 @@
 !=======================================================================================================================
 !> @file        pdd_initialize.f90
 !> @brief       Module for setting MPI topology and initializing the varialbles
-!> @details     MPI topology is setted for data communication between processors when solving TDM
+!> @details     MPI topology is setted for data communication between processors when solving TDM.
+!>					 Also, This part handles data indexing for each processor.
 !>
 !> @author      
 !>              - Seung-chan Kim (macks1029@postech.ac.kr), Flow Physics and Engineering Lab., Pohang University of Science and Technology

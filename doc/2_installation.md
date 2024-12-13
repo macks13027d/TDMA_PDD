@@ -5,7 +5,7 @@ Installation
 The repository can be cloned as follows:
 
 ```
-git clone https://github.com/MPMC-Lab/TDMA_PDD.git
+git clone https://github.com/macks13027d/TDMA_PDD.git
 ```
 Alternatively, the source files can be downloaded through github menu 'Download ZIP'.
 
