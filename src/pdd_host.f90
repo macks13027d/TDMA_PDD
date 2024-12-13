@@ -1,3 +1,20 @@
+!=======================================================================================================================
+!> @file        pdd_host.f90
+!> @brief       Module contains CPU global variables
+!> @details     all global variables related to solving TDM are defined in here
+!>
+!> @author      
+!>              - Seung-chan Kim (macks1029@postech.ac.kr), Flow Physics and Engineering Lab., Pohang University of Science and Technology
+!>              - Ji-hoo Kim (hugh577@postech.ac.kr), Flow Physics and Engineering Lab., Pohang University of Science and Technology
+!>              - Ho-jun Moon (mhj2013@postech.ac.kr), Flow Physics and Engineering Lab., Pohang University of Science and Technology
+!> @date        Aug 2024
+!> @version     2.0
+!> @par         Copyright
+!>              Copyright (c) 2020-Present Seugn-chan Kim, Ji-hoo Kim, Ho-jun Moon and Dong-hyun you, Pohang University of Science and Technology
+!> @par         License     
+!>              This project is release under the terms of the MIT License (see LICENSE in )
+!=======================================================================================================================
+
 !>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 !!
 !!    PDD RELATED VARIABLES/SUBROUTINES FOR THE HOST (CPU)

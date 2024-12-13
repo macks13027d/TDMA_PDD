@@ -1,3 +1,22 @@
+!=======================================================================================================================
+!> @file        tdma_pdd.f90
+!> @brief       Module for solving diagonal dominant tridiagonal matrix (TDM) using multiple proceossors
+!> @details     In the case of using multiple processors, diagonal dominant TDM can't be resolved using well-known solution, Thomas algorithm.
+!>					 To circumvent this problem, PDD method (Sun et al., 1989) is implemented. 
+!>
+!> @author      
+!>              - Seung-chan Kim (macks1029@postech.ac.kr), Flow Physics and Engineering Lab., Pohang University of Science and Technology
+!>              - Ji-hoo Kim (hugh577@postech.ac.kr), Flow Physics and Engineering Lab., Pohang University of Science and Technology
+!>              - Ho-jun Moon (mhj2013@postech.ac.kr), Flow Physics and Engineering Lab., Pohang University of Science and Technology
+!> @date        Aug 2024
+!> @version     2.0
+!> @par         Copyright
+!>              Copyright (c) 2020-Present Seugn-chan Kim, Ji-hoo Kim, Ho-jun Moon and Dong-hyun you, Pohang University of Science and Technology
+!> @par         License     
+!>              This project is release under the terms of the MIT License (see LICENSE in )
+!=======================================================================================================================
+
+module m_tdma_pdd
 !--------------------------------------------------------
 !  SOLVE THE TRIDIAGONAL MATRIX 
 !    [b1  c1           ]
@@ -7,7 +26,6 @@
 !    [           aN  bN]
 ! Reference: Numerical Recipes Fortran 77
 !--------------------------------------------------------
-module m_tdma_pdd
 
 use pdd_host
 contains
